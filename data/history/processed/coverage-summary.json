@@ -1,667 +1,667 @@
 {
-  "generatedAt": "2026-11-03T04:39:47.591Z",
+  "generatedAt": "2026-11-03T11:38:26.868Z",
   "source": "DSE_OFFICIAL",
   "archive": "https://old.dsebd.org",
   "adjusted": false,
-  "officialSessionsInArchive": 479,
+  "officialSessionsInArchive": 480,
   "symbols": {
     "1JANATAMF": {
       "file": "data/history/stocks/1JANATAMF.csv",
       "safeName": "1JANATAMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "1STPRIMFMF": {
       "file": "data/history/stocks/1STPRIMFMF.csv",
       "safeName": "1STPRIMFMF",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AAMRANET": {
       "file": "data/history/stocks/AAMRANET.csv",
       "safeName": "AAMRANET",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AAMRATECH": {
       "file": "data/history/stocks/AAMRATECH.csv",
       "safeName": "AAMRATECH",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ABB1STMF": {
       "file": "data/history/stocks/ABB1STMF.csv",
       "safeName": "ABB1STMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "ABBANK": {
       "file": "data/history/stocks/ABBANK.csv",
       "safeName": "ABBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ACFL": {
       "file": "data/history/stocks/ACFL.csv",
       "safeName": "ACFL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ACI": {
       "file": "data/history/stocks/ACI.csv",
       "safeName": "ACI",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "ACIFORMULA": {
       "file": "data/history/stocks/ACIFORMULA.csv",
       "safeName": "ACIFORMULA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ACMELAB": {
       "file": "data/history/stocks/ACMELAB.csv",
       "safeName": "ACMELAB",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ACMEPL": {
       "file": "data/history/stocks/ACMEPL.csv",
       "safeName": "ACMEPL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "ACTIVEFINE": {
       "file": "data/history/stocks/ACTIVEFINE.csv",
       "safeName": "ACTIVEFINE",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "ADNTEL": {
       "file": "data/history/stocks/ADNTEL.csv",
       "safeName": "ADNTEL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ADVENT": {
       "file": "data/history/stocks/ADVENT.csv",
       "safeName": "ADVENT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AFCAGRO": {
       "file": "data/history/stocks/AFCAGRO.csv",
       "safeName": "AFCAGRO",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "AFTABAUTO": {
       "file": "data/history/stocks/AFTABAUTO.csv",
       "safeName": "AFTABAUTO",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AGNISYSL": {
       "file": "data/history/stocks/AGNISYSL.csv",
       "safeName": "AGNISYSL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AGRANINS": {
       "file": "data/history/stocks/AGRANINS.csv",
       "safeName": "AGRANINS",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "AIBL1STIMF": {
       "file": "data/history/stocks/AIBL1STIMF.csv",
       "safeName": "AIBL1STIMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "AIL": {
       "file": "data/history/stocks/AIL.csv",
       "safeName": "AIL",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "AL-HAJTEX": {
       "file": "data/history/stocks/AL-HAJTEX.csv",
       "safeName": "AL-HAJTEX",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "ALARABANK": {
       "file": "data/history/stocks/ALARABANK.csv",
       "safeName": "ALARABANK",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "ALIF": {
       "file": "data/history/stocks/ALIF.csv",
       "safeName": "ALIF",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "ALLTEX": {
       "file": "data/history/stocks/ALLTEX.csv",
       "safeName": "ALLTEX",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AMANFEED": {
       "file": "data/history/stocks/AMANFEED.csv",
       "safeName": "AMANFEED",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AMBEEPHA": {
       "file": "data/history/stocks/AMBEEPHA.csv",
       "safeName": "AMBEEPHA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AMCL(PRAN)": {
       "file": "data/history/stocks/AMCL_PRAN.csv",
       "safeName": "AMCL_PRAN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ANLIMAYARN": {
       "file": "data/history/stocks/ANLIMAYARN.csv",
       "safeName": "ANLIMAYARN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ANWARGALV": {
       "file": "data/history/stocks/ANWARGALV.csv",
       "safeName": "ANWARGALV",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "AOL": {
       "file": "data/history/stocks/AOL.csv",
       "safeName": "AOL",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "APEXFOODS": {
       "file": "data/history/stocks/APEXFOODS.csv",
       "safeName": "APEXFOODS",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "APEXFOOT": {
       "file": "data/history/stocks/APEXFOOT.csv",
       "safeName": "APEXFOOT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "APEXSPINN": {
       "file": "data/history/stocks/APEXSPINN.csv",
       "safeName": "APEXSPINN",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "APEXTANRY": {
       "file": "data/history/stocks/APEXTANRY.csv",
       "safeName": "APEXTANRY",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "APOLOISPAT": {
       "file": "data/history/stocks/APOLOISPAT.csv",
       "safeName": "APOLOISPAT",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "ARAMIT": {
       "file": "data/history/stocks/ARAMIT.csv",
       "safeName": "ARAMIT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ARAMITCEM": {
       "file": "data/history/stocks/ARAMITCEM.csv",
       "safeName": "ARAMITCEM",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "ARGONDENIM": {
       "file": "data/history/stocks/ARGONDENIM.csv",
       "safeName": "ARGONDENIM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ASIAINS": {
       "file": "data/history/stocks/ASIAINS.csv",
       "safeName": "ASIAINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ASIAPACINS": {
       "file": "data/history/stocks/ASIAPACINS.csv",
       "safeName": "ASIAPACINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ASIATICLAB": {
       "file": "data/history/stocks/ASIATICLAB.csv",
       "safeName": "ASIATICLAB",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ATLASBANG": {
       "file": "data/history/stocks/ATLASBANG.csv",
       "safeName": "ATLASBANG",
-      "rows": 474,
+      "rows": 475,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 474
+        "DSE_OFFICIAL": 475
       },
       "quarantined": 5
     },
     "AZIZPIPES": {
       "file": "data/history/stocks/AZIZPIPES.csv",
       "safeName": "AZIZPIPES",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BANGAS": {
       "file": "data/history/stocks/BANGAS.csv",
       "safeName": "BANGAS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BANKASIA": {
       "file": "data/history/stocks/BANKASIA.csv",
       "safeName": "BANKASIA",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "BARKAPOWER": {
       "file": "data/history/stocks/BARKAPOWER.csv",
       "safeName": "BARKAPOWER",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BATASHOE": {
       "file": "data/history/stocks/BATASHOE.csv",
       "safeName": "BATASHOE",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "BATBC": {
       "file": "data/history/stocks/BATBC.csv",
       "safeName": "BATBC",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "BAYLEASING": {
       "file": "data/history/stocks/BAYLEASING.csv",
       "safeName": "BAYLEASING",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BBS": {
       "file": "data/history/stocks/BBS.csv",
       "safeName": "BBS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BBSCABLES": {
       "file": "data/history/stocks/BBSCABLES.csv",
       "safeName": "BBSCABLES",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BDAUTOCA": {
       "file": "data/history/stocks/BDAUTOCA.csv",
       "safeName": "BDAUTOCA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BDCOM": {
       "file": "data/history/stocks/BDCOM.csv",
       "safeName": "BDCOM",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "BDFINANCE": {
       "file": "data/history/stocks/BDFINANCE.csv",
       "safeName": "BDFINANCE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BDLAMPS": {
       "file": "data/history/stocks/BDLAMPS.csv",
       "safeName": "BDLAMPS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
@@ -673,257 +673,257 @@
       "lastDate": null,
       "years": 0,
       "sources": {},
-      "quarantined": 479
+      "quarantined": 480
     },
     "BDTHAI": {
       "file": "data/history/stocks/BDTHAI.csv",
       "safeName": "BDTHAI",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BDTHAIFOOD": {
       "file": "data/history/stocks/BDTHAIFOOD.csv",
       "safeName": "BDTHAIFOOD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BDWELDING": {
       "file": "data/history/stocks/BDWELDING.csv",
       "safeName": "BDWELDING",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "BEACHHATCH": {
       "file": "data/history/stocks/BEACHHATCH.csv",
       "safeName": "BEACHHATCH",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "BEACONPHAR": {
       "file": "data/history/stocks/BEACONPHAR.csv",
       "safeName": "BEACONPHAR",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "BENGALWTL": {
       "file": "data/history/stocks/BENGALWTL.csv",
       "safeName": "BENGALWTL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BERGERPBL": {
       "file": "data/history/stocks/BERGERPBL.csv",
       "safeName": "BERGERPBL",
-      "rows": 474,
+      "rows": 475,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 474
+        "DSE_OFFICIAL": 475
       },
       "quarantined": 5
     },
     "BESTHLDNG": {
       "file": "data/history/stocks/BESTHLDNG.csv",
       "safeName": "BESTHLDNG",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "BEXIMCO": {
       "file": "data/history/stocks/BEXIMCO.csv",
       "safeName": "BEXIMCO",
-      "rows": 330,
+      "rows": 331,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 330
+        "DSE_OFFICIAL": 331
       },
       "quarantined": 149
     },
     "BGIC": {
       "file": "data/history/stocks/BGIC.csv",
       "safeName": "BGIC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BIFC": {
       "file": "data/history/stocks/BIFC.csv",
       "safeName": "BIFC",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "BNIPLC": {
       "file": "data/history/stocks/BNIPLC.csv",
       "safeName": "BNIPLC",
-      "rows": 14,
+      "rows": 15,
       "firstDate": "2026-10-12",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 0.06,
       "sources": {
-        "DSE_OFFICIAL": 14
+        "DSE_OFFICIAL": 15
       },
       "quarantined": 0
     },
     "BPML": {
       "file": "data/history/stocks/BPML.csv",
       "safeName": "BPML",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BPPL": {
       "file": "data/history/stocks/BPPL.csv",
       "safeName": "BPPL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BRACBANK": {
       "file": "data/history/stocks/BRACBANK.csv",
       "safeName": "BRACBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BSC": {
       "file": "data/history/stocks/BSC.csv",
       "safeName": "BSC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BSCPLC": {
       "file": "data/history/stocks/BSCPLC.csv",
       "safeName": "BSCPLC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BSRMLTD": {
       "file": "data/history/stocks/BSRMLTD.csv",
       "safeName": "BSRMLTD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BSRMSTEEL": {
       "file": "data/history/stocks/BSRMSTEEL.csv",
       "safeName": "BSRMSTEEL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "BXPHARMA": {
       "file": "data/history/stocks/BXPHARMA.csv",
       "safeName": "BXPHARMA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CAPITECGBF": {
       "file": "data/history/stocks/CAPITECGBF.csv",
       "safeName": "CAPITECGBF",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
@@ -937,557 +937,557 @@
       "sources": {
         "DSE_OFFICIAL": 444
       },
-      "quarantined": 35
+      "quarantined": 36
     },
     "CAPMIBBLMF": {
       "file": "data/history/stocks/CAPMIBBLMF.csv",
       "safeName": "CAPMIBBLMF",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CENTRALINS": {
       "file": "data/history/stocks/CENTRALINS.csv",
       "safeName": "CENTRALINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CENTRALPHL": {
       "file": "data/history/stocks/CENTRALPHL.csv",
       "safeName": "CENTRALPHL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CITYBANK": {
       "file": "data/history/stocks/CITYBANK.csv",
       "safeName": "CITYBANK",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "CITYGENINS": {
       "file": "data/history/stocks/CITYGENINS.csv",
       "safeName": "CITYGENINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CLICL": {
       "file": "data/history/stocks/CLICL.csv",
       "safeName": "CLICL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CNATEX": {
       "file": "data/history/stocks/CNATEX.csv",
       "safeName": "CNATEX",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "CONFIDCEM": {
       "file": "data/history/stocks/CONFIDCEM.csv",
       "safeName": "CONFIDCEM",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "CONTININS": {
       "file": "data/history/stocks/CONTININS.csv",
       "safeName": "CONTININS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "COPPERTECH": {
       "file": "data/history/stocks/COPPERTECH.csv",
       "safeName": "COPPERTECH",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CROWNCEMNT": {
       "file": "data/history/stocks/CROWNCEMNT.csv",
       "safeName": "CROWNCEMNT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CRYSTALINS": {
       "file": "data/history/stocks/CRYSTALINS.csv",
       "safeName": "CRYSTALINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "CVOPRL": {
       "file": "data/history/stocks/CVOPRL.csv",
       "safeName": "CVOPRL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DACCADYE": {
       "file": "data/history/stocks/DACCADYE.csv",
       "safeName": "DACCADYE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DAFODILCOM": {
       "file": "data/history/stocks/DAFODILCOM.csv",
       "safeName": "DAFODILCOM",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "DBH": {
       "file": "data/history/stocks/DBH.csv",
       "safeName": "DBH",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DBH1STMF": {
       "file": "data/history/stocks/DBH1STMF.csv",
       "safeName": "DBH1STMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "DELTALIFE": {
       "file": "data/history/stocks/DELTALIFE.csv",
       "safeName": "DELTALIFE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DELTASPINN": {
       "file": "data/history/stocks/DELTASPINN.csv",
       "safeName": "DELTASPINN",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "DESCO": {
       "file": "data/history/stocks/DESCO.csv",
       "safeName": "DESCO",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DESHBANDHU": {
       "file": "data/history/stocks/DESHBANDHU.csv",
       "safeName": "DESHBANDHU",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DGIC": {
       "file": "data/history/stocks/DGIC.csv",
       "safeName": "DGIC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DHAKABANK": {
       "file": "data/history/stocks/DHAKABANK.csv",
       "safeName": "DHAKABANK",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "DHAKAINS": {
       "file": "data/history/stocks/DHAKAINS.csv",
       "safeName": "DHAKAINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DOMINAGE": {
       "file": "data/history/stocks/DOMINAGE.csv",
       "safeName": "DOMINAGE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DOREENPWR": {
       "file": "data/history/stocks/DOREENPWR.csv",
       "safeName": "DOREENPWR",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DSHGARME": {
       "file": "data/history/stocks/DSHGARME.csv",
       "safeName": "DSHGARME",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DSSL": {
       "file": "data/history/stocks/DSSL.csv",
       "safeName": "DSSL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "DULAMIACOT": {
       "file": "data/history/stocks/DULAMIACOT.csv",
       "safeName": "DULAMIACOT",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "DUTCHBANGL": {
       "file": "data/history/stocks/DUTCHBANGL.csv",
       "safeName": "DUTCHBANGL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "EASTERNINS": {
       "file": "data/history/stocks/EASTERNINS.csv",
       "safeName": "EASTERNINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EASTLAND": {
       "file": "data/history/stocks/EASTLAND.csv",
       "safeName": "EASTLAND",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EASTRNLUB": {
       "file": "data/history/stocks/EASTRNLUB.csv",
       "safeName": "EASTRNLUB",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EBL": {
       "file": "data/history/stocks/EBL.csv",
       "safeName": "EBL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EBL1STMF": {
       "file": "data/history/stocks/EBL1STMF.csv",
       "safeName": "EBL1STMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "EBLNRBMF": {
       "file": "data/history/stocks/EBLNRBMF.csv",
       "safeName": "EBLNRBMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "ECABLES": {
       "file": "data/history/stocks/ECABLES.csv",
       "safeName": "ECABLES",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EGEN": {
       "file": "data/history/stocks/EGEN.csv",
       "safeName": "EGEN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EHL": {
       "file": "data/history/stocks/EHL.csv",
       "safeName": "EHL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EIL": {
       "file": "data/history/stocks/EIL.csv",
       "safeName": "EIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EMERALDOIL": {
       "file": "data/history/stocks/EMERALDOIL.csv",
       "safeName": "EMERALDOIL",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "ENVOYTEX": {
       "file": "data/history/stocks/ENVOYTEX.csv",
       "safeName": "ENVOYTEX",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EPGL": {
       "file": "data/history/stocks/EPGL.csv",
       "safeName": "EPGL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ESQUIRENIT": {
       "file": "data/history/stocks/ESQUIRENIT.csv",
       "safeName": "ESQUIRENIT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ETL": {
       "file": "data/history/stocks/ETL.csv",
       "safeName": "ETL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "EXIM1STMF": {
       "file": "data/history/stocks/EXIM1STMF.csv",
       "safeName": "EXIM1STMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
@@ -1501,29 +1501,29 @@
       "sources": {
         "DSE_OFFICIAL": 242
       },
-      "quarantined": 237
+      "quarantined": 238
     },
     "FAMILYTEX": {
       "file": "data/history/stocks/FAMILYTEX.csv",
       "safeName": "FAMILYTEX",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "FARCHEM": {
       "file": "data/history/stocks/FARCHEM.csv",
       "safeName": "FARCHEM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
@@ -1537,17 +1537,17 @@
       "sources": {
         "DSE_OFFICIAL": 421
       },
-      "quarantined": 58
+      "quarantined": 59
     },
     "FAREASTLIF": {
       "file": "data/history/stocks/FAREASTLIF.csv",
       "safeName": "FAREASTLIF",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
@@ -1561,65 +1561,65 @@
       "sources": {
         "DSE_OFFICIAL": 419
       },
-      "quarantined": 60
+      "quarantined": 61
     },
     "FBFIF": {
       "file": "data/history/stocks/FBFIF.csv",
       "safeName": "FBFIF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "FEDERALINS": {
       "file": "data/history/stocks/FEDERALINS.csv",
       "safeName": "FEDERALINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "FEKDIL": {
       "file": "data/history/stocks/FEKDIL.csv",
       "safeName": "FEKDIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "FINEFOODS": {
       "file": "data/history/stocks/FINEFOODS.csv",
       "safeName": "FINEFOODS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "FIRSTFIN": {
       "file": "data/history/stocks/FIRSTFIN.csv",
       "safeName": "FIRSTFIN",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
@@ -1633,113 +1633,113 @@
       "sources": {
         "DSE_OFFICIAL": 242
       },
-      "quarantined": 237
+      "quarantined": 238
     },
     "FORTUNE": {
       "file": "data/history/stocks/FORTUNE.csv",
       "safeName": "FORTUNE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "FUWANGCER": {
       "file": "data/history/stocks/FUWANGCER.csv",
       "safeName": "FUWANGCER",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "FUWANGFOOD": {
       "file": "data/history/stocks/FUWANGFOOD.csv",
       "safeName": "FUWANGFOOD",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "GBBPOWER": {
       "file": "data/history/stocks/GBBPOWER.csv",
       "safeName": "GBBPOWER",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GEMINISEA": {
       "file": "data/history/stocks/GEMINISEA.csv",
       "safeName": "GEMINISEA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GENEXIL": {
       "file": "data/history/stocks/GENEXIL.csv",
       "safeName": "GENEXIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GENNEXT": {
       "file": "data/history/stocks/GENNEXT.csv",
       "safeName": "GENNEXT",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "GHAIL": {
       "file": "data/history/stocks/GHAIL.csv",
       "safeName": "GHAIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GHCL": {
       "file": "data/history/stocks/GHCL.csv",
       "safeName": "GHCL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
@@ -1753,377 +1753,377 @@
       "sources": {
         "DSE_OFFICIAL": 242
       },
-      "quarantined": 237
+      "quarantined": 238
     },
     "GLDNJMF": {
       "file": "data/history/stocks/GLDNJMF.csv",
       "safeName": "GLDNJMF",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GLOBALINS": {
       "file": "data/history/stocks/GLOBALINS.csv",
       "safeName": "GLOBALINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GOLDENSON": {
       "file": "data/history/stocks/GOLDENSON.csv",
       "safeName": "GOLDENSON",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GP": {
       "file": "data/history/stocks/GP.csv",
       "safeName": "GP",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "GPHISPAT": {
       "file": "data/history/stocks/GPHISPAT.csv",
       "safeName": "GPHISPAT",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "GQBALLPEN": {
       "file": "data/history/stocks/GQBALLPEN.csv",
       "safeName": "GQBALLPEN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GRAMEENS2": {
       "file": "data/history/stocks/GRAMEENS2.csv",
       "safeName": "GRAMEENS2",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GREENDELMF": {
       "file": "data/history/stocks/GREENDELMF.csv",
       "safeName": "GREENDELMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "GREENDELT": {
       "file": "data/history/stocks/GREENDELT.csv",
       "safeName": "GREENDELT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "GSPFINANCE": {
       "file": "data/history/stocks/GSPFINANCE.csv",
       "safeName": "GSPFINANCE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "HAKKANIPUL": {
       "file": "data/history/stocks/HAKKANIPUL.csv",
       "safeName": "HAKKANIPUL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "HAMI": {
       "file": "data/history/stocks/HAMI.csv",
       "safeName": "HAMI",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "HEIDELBCEM": {
       "file": "data/history/stocks/HEIDELBCEM.csv",
       "safeName": "HEIDELBCEM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "HFL": {
       "file": "data/history/stocks/HFL.csv",
       "safeName": "HFL",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "HRTEX": {
       "file": "data/history/stocks/HRTEX.csv",
       "safeName": "HRTEX",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "HWAWELLTEX": {
       "file": "data/history/stocks/HWAWELLTEX.csv",
       "safeName": "HWAWELLTEX",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "IBNSINA": {
       "file": "data/history/stocks/IBNSINA.csv",
       "safeName": "IBNSINA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "IBP": {
       "file": "data/history/stocks/IBP.csv",
       "safeName": "IBP",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ICB": {
       "file": "data/history/stocks/ICB.csv",
       "safeName": "ICB",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ICB3RDNRB": {
       "file": "data/history/stocks/ICB3RDNRB.csv",
       "safeName": "ICB3RDNRB",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ICBAGRANI1": {
       "file": "data/history/stocks/ICBAGRANI1.csv",
       "safeName": "ICBAGRANI1",
-      "rows": 473,
+      "rows": 474,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 473
+        "DSE_OFFICIAL": 474
       },
       "quarantined": 6
     },
     "ICBAMCL2ND": {
       "file": "data/history/stocks/ICBAMCL2ND.csv",
       "safeName": "ICBAMCL2ND",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ICBEPMF1S1": {
       "file": "data/history/stocks/ICBEPMF1S1.csv",
       "safeName": "ICBEPMF1S1",
-      "rows": 471,
+      "rows": 472,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 471
+        "DSE_OFFICIAL": 472
       },
       "quarantined": 8
     },
     "ICBIBANK": {
       "file": "data/history/stocks/ICBIBANK.csv",
       "safeName": "ICBIBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ICBSONALI1": {
       "file": "data/history/stocks/ICBSONALI1.csv",
       "safeName": "ICBSONALI1",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ICICL": {
       "file": "data/history/stocks/ICICL.csv",
       "safeName": "ICICL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "IDLC": {
       "file": "data/history/stocks/IDLC.csv",
       "safeName": "IDLC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "IFADAUTOS": {
       "file": "data/history/stocks/IFADAUTOS.csv",
       "safeName": "IFADAUTOS",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "IFIC": {
       "file": "data/history/stocks/IFIC.csv",
       "safeName": "IFIC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "IFIC1STMF": {
       "file": "data/history/stocks/IFIC1STMF.csv",
       "safeName": "IFIC1STMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "IFILISLMF1": {
       "file": "data/history/stocks/IFILISLMF1.csv",
       "safeName": "IFILISLMF1",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
@@ -2137,1781 +2137,1781 @@
       "sources": {
         "DSE_OFFICIAL": 421
       },
-      "quarantined": 58
+      "quarantined": 59
     },
     "INDEXAGRO": {
       "file": "data/history/stocks/INDEXAGRO.csv",
       "safeName": "INDEXAGRO",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "INTECH": {
       "file": "data/history/stocks/INTECH.csv",
       "safeName": "INTECH",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "INTRACO": {
       "file": "data/history/stocks/INTRACO.csv",
       "safeName": "INTRACO",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "IPDC": {
       "file": "data/history/stocks/IPDC.csv",
       "safeName": "IPDC",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "ISLAMIBANK": {
       "file": "data/history/stocks/ISLAMIBANK.csv",
       "safeName": "ISLAMIBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ISLAMICFIN": {
       "file": "data/history/stocks/ISLAMICFIN.csv",
       "safeName": "ISLAMICFIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ISLAMIINS": {
       "file": "data/history/stocks/ISLAMIINS.csv",
       "safeName": "ISLAMIINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ISNLTD": {
       "file": "data/history/stocks/ISNLTD.csv",
       "safeName": "ISNLTD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ITC": {
       "file": "data/history/stocks/ITC.csv",
       "safeName": "ITC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "JAMUNABANK": {
       "file": "data/history/stocks/JAMUNABANK.csv",
       "safeName": "JAMUNABANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "JAMUNAOIL": {
       "file": "data/history/stocks/JAMUNAOIL.csv",
       "safeName": "JAMUNAOIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "JANATAINS": {
       "file": "data/history/stocks/JANATAINS.csv",
       "safeName": "JANATAINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "JHRML": {
       "file": "data/history/stocks/JHRML.csv",
       "safeName": "JHRML",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "JMISMDL": {
       "file": "data/history/stocks/JMISMDL.csv",
       "safeName": "JMISMDL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "JUTESPINN": {
       "file": "data/history/stocks/JUTESPINN.csv",
       "safeName": "JUTESPINN",
-      "rows": 473,
+      "rows": 474,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 473
+        "DSE_OFFICIAL": 474
       },
       "quarantined": 6
     },
     "KARNAPHULI": {
       "file": "data/history/stocks/KARNAPHULI.csv",
       "safeName": "KARNAPHULI",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "KAY&QUE": {
       "file": "data/history/stocks/KAY_QUE.csv",
       "safeName": "KAY_QUE",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "KBPPWBIL": {
       "file": "data/history/stocks/KBPPWBIL.csv",
       "safeName": "KBPPWBIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "KDSALTD": {
       "file": "data/history/stocks/KDSALTD.csv",
       "safeName": "KDSALTD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "KEYACOSMET": {
       "file": "data/history/stocks/KEYACOSMET.csv",
       "safeName": "KEYACOSMET",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "KOHINOOR": {
       "file": "data/history/stocks/KOHINOOR.csv",
       "safeName": "KOHINOOR",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "KPCL": {
       "file": "data/history/stocks/KPCL.csv",
       "safeName": "KPCL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "KPPL": {
       "file": "data/history/stocks/KPPL.csv",
       "safeName": "KPPL",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "KTL": {
       "file": "data/history/stocks/KTL.csv",
       "safeName": "KTL",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "LANKABAFIN": {
       "file": "data/history/stocks/LANKABAFIN.csv",
       "safeName": "LANKABAFIN",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "LEGACYFOOT": {
       "file": "data/history/stocks/LEGACYFOOT.csv",
       "safeName": "LEGACYFOOT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "LHB": {
       "file": "data/history/stocks/LHB.csv",
       "safeName": "LHB",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "LIBRAINFU": {
       "file": "data/history/stocks/LIBRAINFU.csv",
       "safeName": "LIBRAINFU",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "LINDEBD": {
       "file": "data/history/stocks/LINDEBD.csv",
       "safeName": "LINDEBD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "LOVELLO": {
       "file": "data/history/stocks/LOVELLO.csv",
       "safeName": "LOVELLO",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "LRBDL": {
       "file": "data/history/stocks/LRBDL.csv",
       "safeName": "LRBDL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "LRGLOBMF1": {
       "file": "data/history/stocks/LRGLOBMF1.csv",
       "safeName": "LRGLOBMF1",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "MAGURAPLEX": {
       "file": "data/history/stocks/MAGURAPLEX.csv",
       "safeName": "MAGURAPLEX",
-      "rows": 386,
+      "rows": 387,
       "firstDate": "2025-03-16",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 1.63,
       "sources": {
-        "DSE_OFFICIAL": 386
+        "DSE_OFFICIAL": 387
       },
       "quarantined": 1
     },
     "MAKSONSPIN": {
       "file": "data/history/stocks/MAKSONSPIN.csv",
       "safeName": "MAKSONSPIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MALEKSPIN": {
       "file": "data/history/stocks/MALEKSPIN.csv",
       "safeName": "MALEKSPIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MARICO": {
       "file": "data/history/stocks/MARICO.csv",
       "safeName": "MARICO",
-      "rows": 471,
+      "rows": 472,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 471
+        "DSE_OFFICIAL": 472
       },
       "quarantined": 8
     },
     "MATINSPINN": {
       "file": "data/history/stocks/MATINSPINN.csv",
       "safeName": "MATINSPINN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MBL1STMF": {
       "file": "data/history/stocks/MBL1STMF.csv",
       "safeName": "MBL1STMF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "MEGCONMILK": {
       "file": "data/history/stocks/MEGCONMILK.csv",
       "safeName": "MEGCONMILK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MEGHNACEM": {
       "file": "data/history/stocks/MEGHNACEM.csv",
       "safeName": "MEGHNACEM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MEGHNAINS": {
       "file": "data/history/stocks/MEGHNAINS.csv",
       "safeName": "MEGHNAINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MEGHNALIFE": {
       "file": "data/history/stocks/MEGHNALIFE.csv",
       "safeName": "MEGHNALIFE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MEGHNAPET": {
       "file": "data/history/stocks/MEGHNAPET.csv",
       "safeName": "MEGHNAPET",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MERCANBANK": {
       "file": "data/history/stocks/MERCANBANK.csv",
       "safeName": "MERCANBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MERCINS": {
       "file": "data/history/stocks/MERCINS.csv",
       "safeName": "MERCINS",
-      "rows": 473,
+      "rows": 474,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 473
+        "DSE_OFFICIAL": 474
       },
       "quarantined": 6
     },
     "METROSPIN": {
       "file": "data/history/stocks/METROSPIN.csv",
       "safeName": "METROSPIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MHSML": {
       "file": "data/history/stocks/MHSML.csv",
       "safeName": "MHSML",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MIDASFIN": {
       "file": "data/history/stocks/MIDASFIN.csv",
       "safeName": "MIDASFIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MIDLANDBNK": {
       "file": "data/history/stocks/MIDLANDBNK.csv",
       "safeName": "MIDLANDBNK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MIRACLEIND": {
       "file": "data/history/stocks/MIRACLEIND.csv",
       "safeName": "MIRACLEIND",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MIRAKHTER": {
       "file": "data/history/stocks/MIRAKHTER.csv",
       "safeName": "MIRAKHTER",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "MITHUNKNIT": {
       "file": "data/history/stocks/MITHUNKNIT.csv",
       "safeName": "MITHUNKNIT",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "MJLBD": {
       "file": "data/history/stocks/MJLBD.csv",
       "safeName": "MJLBD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MLDYEING": {
       "file": "data/history/stocks/MLDYEING.csv",
       "safeName": "MLDYEING",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MONNOAGML": {
       "file": "data/history/stocks/MONNOAGML.csv",
       "safeName": "MONNOAGML",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "MONNOCERA": {
       "file": "data/history/stocks/MONNOCERA.csv",
       "safeName": "MONNOCERA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MONNOFABR": {
       "file": "data/history/stocks/MONNOFABR.csv",
       "safeName": "MONNOFABR",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MONOSPOOL": {
       "file": "data/history/stocks/MONOSPOOL.csv",
       "safeName": "MONOSPOOL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MPETROLEUM": {
       "file": "data/history/stocks/MPETROLEUM.csv",
       "safeName": "MPETROLEUM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "MTB": {
       "file": "data/history/stocks/MTB.csv",
       "safeName": "MTB",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "NAHEEACP": {
       "file": "data/history/stocks/NAHEEACP.csv",
       "safeName": "NAHEEACP",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NATLIFEINS": {
       "file": "data/history/stocks/NATLIFEINS.csv",
       "safeName": "NATLIFEINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NAVANACNG": {
       "file": "data/history/stocks/NAVANACNG.csv",
       "safeName": "NAVANACNG",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NAVANAPHAR": {
       "file": "data/history/stocks/NAVANAPHAR.csv",
       "safeName": "NAVANAPHAR",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NBL": {
       "file": "data/history/stocks/NBL.csv",
       "safeName": "NBL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "NCCBANK": {
       "file": "data/history/stocks/NCCBANK.csv",
       "safeName": "NCCBANK",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "NCCBLMF1": {
       "file": "data/history/stocks/NCCBLMF1.csv",
       "safeName": "NCCBLMF1",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "NEWLINE": {
       "file": "data/history/stocks/NEWLINE.csv",
       "safeName": "NEWLINE",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "NFML": {
       "file": "data/history/stocks/NFML.csv",
       "safeName": "NFML",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NHFIL": {
       "file": "data/history/stocks/NHFIL.csv",
       "safeName": "NHFIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NITOLINS": {
       "file": "data/history/stocks/NITOLINS.csv",
       "safeName": "NITOLINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NORTHERN": {
       "file": "data/history/stocks/NORTHERN.csv",
       "safeName": "NORTHERN",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "NORTHRNINS": {
       "file": "data/history/stocks/NORTHRNINS.csv",
       "safeName": "NORTHRNINS",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "NPOLYMER": {
       "file": "data/history/stocks/NPOLYMER.csv",
       "safeName": "NPOLYMER",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "NRBBANK": {
       "file": "data/history/stocks/NRBBANK.csv",
       "safeName": "NRBBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NRBCBANK": {
       "file": "data/history/stocks/NRBCBANK.csv",
       "safeName": "NRBCBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NTC": {
       "file": "data/history/stocks/NTC.csv",
       "safeName": "NTC",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "NTLTUBES": {
       "file": "data/history/stocks/NTLTUBES.csv",
       "safeName": "NTLTUBES",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "NURANI": {
       "file": "data/history/stocks/NURANI.csv",
       "safeName": "NURANI",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "OAL": {
       "file": "data/history/stocks/OAL.csv",
       "safeName": "OAL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "OIMEX": {
       "file": "data/history/stocks/OIMEX.csv",
       "safeName": "OIMEX",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "OLYMPIC": {
       "file": "data/history/stocks/OLYMPIC.csv",
       "safeName": "OLYMPIC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ONEBANKPLC": {
       "file": "data/history/stocks/ONEBANKPLC.csv",
       "safeName": "ONEBANKPLC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ORIONINFU": {
       "file": "data/history/stocks/ORIONINFU.csv",
       "safeName": "ORIONINFU",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ORIONPHARM": {
       "file": "data/history/stocks/ORIONPHARM.csv",
       "safeName": "ORIONPHARM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PADMALIFE": {
       "file": "data/history/stocks/PADMALIFE.csv",
       "safeName": "PADMALIFE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PADMAOIL": {
       "file": "data/history/stocks/PADMAOIL.csv",
       "safeName": "PADMAOIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PARAMOUNT": {
       "file": "data/history/stocks/PARAMOUNT.csv",
       "safeName": "PARAMOUNT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PDL": {
       "file": "data/history/stocks/PDL.csv",
       "safeName": "PDL",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "PENINSULA": {
       "file": "data/history/stocks/PENINSULA.csv",
       "safeName": "PENINSULA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PEOPLESINS": {
       "file": "data/history/stocks/PEOPLESINS.csv",
       "safeName": "PEOPLESINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PF1STMF": {
       "file": "data/history/stocks/PF1STMF.csv",
       "safeName": "PF1STMF",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PHARMAID": {
       "file": "data/history/stocks/PHARMAID.csv",
       "safeName": "PHARMAID",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PHENIXINS": {
       "file": "data/history/stocks/PHENIXINS.csv",
       "safeName": "PHENIXINS",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "PHOENIXFIN": {
       "file": "data/history/stocks/PHOENIXFIN.csv",
       "safeName": "PHOENIXFIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PHPMF1": {
       "file": "data/history/stocks/PHPMF1.csv",
       "safeName": "PHPMF1",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "PIONEERINS": {
       "file": "data/history/stocks/PIONEERINS.csv",
       "safeName": "PIONEERINS",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "PLFSL": {
       "file": "data/history/stocks/PLFSL.csv",
       "safeName": "PLFSL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "POPULAR1MF": {
       "file": "data/history/stocks/POPULAR1MF.csv",
       "safeName": "POPULAR1MF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "POPULARLIF": {
       "file": "data/history/stocks/POPULARLIF.csv",
       "safeName": "POPULARLIF",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "POWERGRID": {
       "file": "data/history/stocks/POWERGRID.csv",
       "safeName": "POWERGRID",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PRAGATIINS": {
       "file": "data/history/stocks/PRAGATIINS.csv",
       "safeName": "PRAGATIINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PRAGATILIF": {
       "file": "data/history/stocks/PRAGATILIF.csv",
       "safeName": "PRAGATILIF",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PREMIERBAN": {
       "file": "data/history/stocks/PREMIERBAN.csv",
       "safeName": "PREMIERBAN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PREMIERCEM": {
       "file": "data/history/stocks/PREMIERCEM.csv",
       "safeName": "PREMIERCEM",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "PREMIERLEA": {
       "file": "data/history/stocks/PREMIERLEA.csv",
       "safeName": "PREMIERLEA",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "PRIME1ICBA": {
       "file": "data/history/stocks/PRIME1ICBA.csv",
       "safeName": "PRIME1ICBA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PRIMEBANK": {
       "file": "data/history/stocks/PRIMEBANK.csv",
       "safeName": "PRIMEBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PRIMEFIN": {
       "file": "data/history/stocks/PRIMEFIN.csv",
       "safeName": "PRIMEFIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PRIMEINSUR": {
       "file": "data/history/stocks/PRIMEINSUR.csv",
       "safeName": "PRIMEINSUR",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PRIMELIFE": {
       "file": "data/history/stocks/PRIMELIFE.csv",
       "safeName": "PRIMELIFE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PRIMETEX": {
       "file": "data/history/stocks/PRIMETEX.csv",
       "safeName": "PRIMETEX",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "PROGRESLIF": {
       "file": "data/history/stocks/PROGRESLIF.csv",
       "safeName": "PROGRESLIF",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "PROVATIINS": {
       "file": "data/history/stocks/PROVATIINS.csv",
       "safeName": "PROVATIINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PTL": {
       "file": "data/history/stocks/PTL.csv",
       "safeName": "PTL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "PUBALIBANK": {
       "file": "data/history/stocks/PUBALIBANK.csv",
       "safeName": "PUBALIBANK",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "PURABIGEN": {
       "file": "data/history/stocks/PURABIGEN.csv",
       "safeName": "PURABIGEN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "QUASEMIND": {
       "file": "data/history/stocks/QUASEMIND.csv",
       "safeName": "QUASEMIND",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "QUEENSOUTH": {
       "file": "data/history/stocks/QUEENSOUTH.csv",
       "safeName": "QUEENSOUTH",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RAHIMAFOOD": {
       "file": "data/history/stocks/RAHIMAFOOD.csv",
       "safeName": "RAHIMAFOOD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RAHIMTEXT": {
       "file": "data/history/stocks/RAHIMTEXT.csv",
       "safeName": "RAHIMTEXT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RAKCERAMIC": {
       "file": "data/history/stocks/RAKCERAMIC.csv",
       "safeName": "RAKCERAMIC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RANFOUNDRY": {
       "file": "data/history/stocks/RANFOUNDRY.csv",
       "safeName": "RANFOUNDRY",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RDFOOD": {
       "file": "data/history/stocks/RDFOOD.csv",
       "safeName": "RDFOOD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RECKITTBEN": {
       "file": "data/history/stocks/RECKITTBEN.csv",
       "safeName": "RECKITTBEN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "REGENTTEX": {
       "file": "data/history/stocks/REGENTTEX.csv",
       "safeName": "REGENTTEX",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "RELIANCE1": {
       "file": "data/history/stocks/RELIANCE1.csv",
       "safeName": "RELIANCE1",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RELIANCINS": {
       "file": "data/history/stocks/RELIANCINS.csv",
       "safeName": "RELIANCINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RENATA": {
       "file": "data/history/stocks/RENATA.csv",
       "safeName": "RENATA",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "RENWICKJA": {
       "file": "data/history/stocks/RENWICKJA.csv",
       "safeName": "RENWICKJA",
-      "rows": 463,
+      "rows": 464,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 463
+        "DSE_OFFICIAL": 464
       },
       "quarantined": 16
     },
     "REPUBLIC": {
       "file": "data/history/stocks/REPUBLIC.csv",
       "safeName": "REPUBLIC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RINGSHINE": {
       "file": "data/history/stocks/RINGSHINE.csv",
       "safeName": "RINGSHINE",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "ROBI": {
       "file": "data/history/stocks/ROBI.csv",
       "safeName": "ROBI",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RSRMSTEEL": {
       "file": "data/history/stocks/RSRMSTEEL.csv",
       "safeName": "RSRMSTEEL",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "RUNNERAUTO": {
       "file": "data/history/stocks/RUNNERAUTO.csv",
       "safeName": "RUNNERAUTO",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "RUPALIBANK": {
       "file": "data/history/stocks/RUPALIBANK.csv",
       "safeName": "RUPALIBANK",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "RUPALIINS": {
       "file": "data/history/stocks/RUPALIINS.csv",
       "safeName": "RUPALIINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "RUPALILIFE": {
       "file": "data/history/stocks/RUPALILIFE.csv",
       "safeName": "RUPALILIFE",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SAFKOSPINN": {
       "file": "data/history/stocks/SAFKOSPINN.csv",
       "safeName": "SAFKOSPINN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SAIFPOWER": {
       "file": "data/history/stocks/SAIFPOWER.csv",
       "safeName": "SAIFPOWER",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "SAIHAMCOT": {
       "file": "data/history/stocks/SAIHAMCOT.csv",
       "safeName": "SAIHAMCOT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SAIHAMTEX": {
       "file": "data/history/stocks/SAIHAMTEX.csv",
       "safeName": "SAIHAMTEX",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SALAMCRST": {
       "file": "data/history/stocks/SALAMCRST.csv",
       "safeName": "SALAMCRST",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "SALVO": {
       "file": "data/history/stocks/SALVO.csv",
       "safeName": "SALVO",
-      "rows": 217,
+      "rows": 218,
       "firstDate": "2025-12-03",
-      "lastDate": "2026-11-02",
-      "years": 0.91,
+      "lastDate": "2026-11-03",
+      "years": 0.92,
       "sources": {
-        "DSE_OFFICIAL": 217
+        "DSE_OFFICIAL": 218
       },
       "quarantined": 0
     },
     "SAMATALETH": {
       "file": "data/history/stocks/SAMATALETH.csv",
       "safeName": "SAMATALETH",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SAMORITA": {
       "file": "data/history/stocks/SAMORITA.csv",
       "safeName": "SAMORITA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SANDHANINS": {
       "file": "data/history/stocks/SANDHANINS.csv",
       "safeName": "SANDHANINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SAPORTL": {
       "file": "data/history/stocks/SAPORTL.csv",
       "safeName": "SAPORTL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
@@ -3923,41 +3923,41 @@
       "lastDate": null,
       "years": 0,
       "sources": {},
-      "quarantined": 479
+      "quarantined": 480
     },
     "SBACBANK": {
       "file": "data/history/stocks/SBACBANK.csv",
       "safeName": "SBACBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SEAPEARL": {
       "file": "data/history/stocks/SEAPEARL.csv",
       "safeName": "SEAPEARL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SEMLFBSLGF": {
       "file": "data/history/stocks/SEMLFBSLGF.csv",
       "safeName": "SEMLFBSLGF",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
@@ -3971,77 +3971,77 @@
       "sources": {
         "DSE_OFFICIAL": 459
       },
-      "quarantined": 20
+      "quarantined": 21
     },
     "SHAHJABANK": {
       "file": "data/history/stocks/SHAHJABANK.csv",
       "safeName": "SHAHJABANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SHARPIND": {
       "file": "data/history/stocks/SHARPIND.csv",
       "safeName": "SHARPIND",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SHASHADNIM": {
       "file": "data/history/stocks/SHASHADNIM.csv",
       "safeName": "SHASHADNIM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SHEPHERD": {
       "file": "data/history/stocks/SHEPHERD.csv",
       "safeName": "SHEPHERD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SHURWID": {
       "file": "data/history/stocks/SHURWID.csv",
       "safeName": "SHURWID",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "SHYAMPSUG": {
       "file": "data/history/stocks/SHYAMPSUG.csv",
       "safeName": "SHYAMPSUG",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
@@ -4055,449 +4055,449 @@
       "sources": {
         "DSE_OFFICIAL": 242
       },
-      "quarantined": 237
+      "quarantined": 238
     },
     "SICL": {
       "file": "data/history/stocks/SICL.csv",
       "safeName": "SICL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SILCOPHL": {
       "file": "data/history/stocks/SILCOPHL.csv",
       "safeName": "SILCOPHL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SILVAPHL": {
       "file": "data/history/stocks/SILVAPHL.csv",
       "safeName": "SILVAPHL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "SIMTEX": {
       "file": "data/history/stocks/SIMTEX.csv",
       "safeName": "SIMTEX",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "SINGERBD": {
       "file": "data/history/stocks/SINGERBD.csv",
       "safeName": "SINGERBD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SINOBANGLA": {
       "file": "data/history/stocks/SINOBANGLA.csv",
       "safeName": "SINOBANGLA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SIPLC": {
       "file": "data/history/stocks/SIPLC.csv",
       "safeName": "SIPLC",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SKTRIMS": {
       "file": "data/history/stocks/SKTRIMS.csv",
       "safeName": "SKTRIMS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SONALIANSH": {
       "file": "data/history/stocks/SONALIANSH.csv",
       "safeName": "SONALIANSH",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SONALILIFE": {
       "file": "data/history/stocks/SONALILIFE.csv",
       "safeName": "SONALILIFE",
-      "rows": 452,
+      "rows": 453,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 452
+        "DSE_OFFICIAL": 453
       },
       "quarantined": 3
     },
     "SONALIPAPR": {
       "file": "data/history/stocks/SONALIPAPR.csv",
       "safeName": "SONALIPAPR",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SONARBAINS": {
       "file": "data/history/stocks/SONARBAINS.csv",
       "safeName": "SONARBAINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SONARGAON": {
       "file": "data/history/stocks/SONARGAON.csv",
       "safeName": "SONARGAON",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SOUTHEASTB": {
       "file": "data/history/stocks/SOUTHEASTB.csv",
       "safeName": "SOUTHEASTB",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "SPCERAMICS": {
       "file": "data/history/stocks/SPCERAMICS.csv",
       "safeName": "SPCERAMICS",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "SPCL": {
       "file": "data/history/stocks/SPCL.csv",
       "safeName": "SPCL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SQUARETEXT": {
       "file": "data/history/stocks/SQUARETEXT.csv",
       "safeName": "SQUARETEXT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SQURPHARMA": {
       "file": "data/history/stocks/SQURPHARMA.csv",
       "safeName": "SQURPHARMA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SSSTEEL": {
       "file": "data/history/stocks/SSSTEEL.csv",
       "safeName": "SSSTEEL",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "STANCERAM": {
       "file": "data/history/stocks/STANCERAM.csv",
       "safeName": "STANCERAM",
-      "rows": 473,
+      "rows": 474,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 473
+        "DSE_OFFICIAL": 474
       },
       "quarantined": 6
     },
     "STANDARINS": {
       "file": "data/history/stocks/STANDARINS.csv",
       "safeName": "STANDARINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "STANDBANKL": {
       "file": "data/history/stocks/STANDBANKL.csv",
       "safeName": "STANDBANKL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "STYLECRAFT": {
       "file": "data/history/stocks/STYLECRAFT.csv",
       "safeName": "STYLECRAFT",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SUMITPOWER": {
       "file": "data/history/stocks/SUMITPOWER.csv",
       "safeName": "SUMITPOWER",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "SUNLIFEINS": {
       "file": "data/history/stocks/SUNLIFEINS.csv",
       "safeName": "SUNLIFEINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TAKAFULINS": {
       "file": "data/history/stocks/TAKAFULINS.csv",
       "safeName": "TAKAFULINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TALLUSPIN": {
       "file": "data/history/stocks/TALLUSPIN.csv",
       "safeName": "TALLUSPIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TAMIJTEX": {
       "file": "data/history/stocks/TAMIJTEX.csv",
       "safeName": "TAMIJTEX",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TECHNODRUG": {
       "file": "data/history/stocks/TECHNODRUG.csv",
       "safeName": "TECHNODRUG",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "TILIL": {
       "file": "data/history/stocks/TILIL.csv",
       "safeName": "TILIL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TITASGAS": {
       "file": "data/history/stocks/TITASGAS.csv",
       "safeName": "TITASGAS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TOSRIFA": {
       "file": "data/history/stocks/TOSRIFA.csv",
       "safeName": "TOSRIFA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TRUSTB1MF": {
       "file": "data/history/stocks/TRUSTB1MF.csv",
       "safeName": "TRUSTB1MF",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "TRUSTBANK": {
       "file": "data/history/stocks/TRUSTBANK.csv",
       "safeName": "TRUSTBANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "TUNGHAI": {
       "file": "data/history/stocks/TUNGHAI.csv",
       "safeName": "TUNGHAI",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "UCB": {
       "file": "data/history/stocks/UCB.csv",
       "safeName": "UCB",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "UNILEVERCL": {
       "file": "data/history/stocks/UNILEVERCL.csv",
       "safeName": "UNILEVERCL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
@@ -4511,113 +4511,113 @@
       "sources": {
         "DSE_OFFICIAL": 243
       },
-      "quarantined": 236
+      "quarantined": 237
     },
     "UNIONCAP": {
       "file": "data/history/stocks/UNIONCAP.csv",
       "safeName": "UNIONCAP",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "UNIONINS": {
       "file": "data/history/stocks/UNIONINS.csv",
       "safeName": "UNIONINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "UNIQUEHRL": {
       "file": "data/history/stocks/UNIQUEHRL.csv",
       "safeName": "UNIQUEHRL",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
     "UNITEDFIN": {
       "file": "data/history/stocks/UNITEDFIN.csv",
       "safeName": "UNITEDFIN",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "UNITEDINS": {
       "file": "data/history/stocks/UNITEDINS.csv",
       "safeName": "UNITEDINS",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "UPGDCL": {
       "file": "data/history/stocks/UPGDCL.csv",
       "safeName": "UPGDCL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "USMANIAGL": {
       "file": "data/history/stocks/USMANIAGL.csv",
       "safeName": "USMANIAGL",
-      "rows": 475,
+      "rows": 476,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 475
+        "DSE_OFFICIAL": 476
       },
       "quarantined": 4
     },
     "UTTARABANK": {
       "file": "data/history/stocks/UTTARABANK.csv",
       "safeName": "UTTARABANK",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "UTTARAFIN": {
       "file": "data/history/stocks/UTTARAFIN.csv",
       "safeName": "UTTARAFIN",
-      "rows": 478,
+      "rows": 479,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 478
+        "DSE_OFFICIAL": 479
       },
       "quarantined": 1
     },
@@ -4631,113 +4631,113 @@
       "sources": {
         "DSE_OFFICIAL": 268
       },
-      "quarantined": 211
+      "quarantined": 212
     },
     "VAMLRBBF": {
       "file": "data/history/stocks/VAMLRBBF.csv",
       "safeName": "VAMLRBBF",
-      "rows": 456,
+      "rows": 457,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 456
+        "DSE_OFFICIAL": 457
       },
       "quarantined": 23
     },
     "VFSTDL": {
       "file": "data/history/stocks/VFSTDL.csv",
       "safeName": "VFSTDL",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "WALTONHIL": {
       "file": "data/history/stocks/WALTONHIL.csv",
       "safeName": "WALTONHIL",
-      "rows": 476,
+      "rows": 477,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 476
+        "DSE_OFFICIAL": 477
       },
       "quarantined": 3
     },
     "WATACHEM": {
       "file": "data/history/stocks/WATACHEM.csv",
       "safeName": "WATACHEM",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "WMSHIPYARD": {
       "file": "data/history/stocks/WMSHIPYARD.csv",
       "safeName": "WMSHIPYARD",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "YPL": {
       "file": "data/history/stocks/YPL.csv",
       "safeName": "YPL",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "ZAHEENSPIN": {
       "file": "data/history/stocks/ZAHEENSPIN.csv",
       "safeName": "ZAHEENSPIN",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     },
     "ZAHINTEX": {
       "file": "data/history/stocks/ZAHINTEX.csv",
       "safeName": "ZAHINTEX",
-      "rows": 479,
+      "rows": 480,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 479
+        "DSE_OFFICIAL": 480
       },
       "quarantined": 0
     },
     "ZEALBANGLA": {
       "file": "data/history/stocks/ZEALBANGLA.csv",
       "safeName": "ZEALBANGLA",
-      "rows": 477,
+      "rows": 478,
       "firstDate": "2024-11-03",
-      "lastDate": "2026-11-02",
+      "lastDate": "2026-11-03",
       "years": 2,
       "sources": {
-        "DSE_OFFICIAL": 477
+        "DSE_OFFICIAL": 478
       },
       "quarantined": 2
     }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T04:39:47.574Z",
+  "generatedAt": "2026-11-03T11:38:26.848Z",
   "note": "Rows rejected by validation; never repaired.",
   "bySymbol": {
     "1STPRIMFMF": [
@@ -10684,6 +10684,24 @@
           "VALUE (mn)": "0",
           "VOLUME": "0"
         }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "60",
+          "DATE": "2026-11-03",
+          "TRADING CODE": "BDSERVICE",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "5.2",
+          "YCP": "5.2",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
       }
     ],
     "BDTHAI": [
@@ -14691,6 +14709,24 @@
         "raw": {
           "#": "166",
           "DATE": "2026-11-01",
+          "TRADING CODE": "CAPMBDBLMF",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "7.2",
+          "YCP": "7.2",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "83",
+          "DATE": "2026-11-03",
           "TRADING CODE": "CAPMBDBLMF",
           "LTP*": "0",
           "HIGH": "0",
@@ -20560,6 +20596,24 @@
           "VALUE (mn)": "0",
           "VOLUME": "0"
         }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "140",
+          "DATE": "2026-11-03",
+          "TRADING CODE": "EXIMBANK",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "3",
+          "YCP": "3",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
       }
     ],
     "FARCHEM": [
@@ -21633,6 +21687,24 @@
         "raw": {
           "#": "286",
           "DATE": "2026-11-01",
+          "TRADING CODE": "FAREASTFIN",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "2.1",
+          "YCP": "2.1",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "143",
+          "DATE": "2026-11-03",
           "TRADING CODE": "FAREASTFIN",
           "LTP*": "0",
           "HIGH": "0",
@@ -22735,6 +22807,24 @@
         "raw": {
           "#": "290",
           "DATE": "2026-11-01",
+          "TRADING CODE": "FASFIN",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "2.5",
+          "YCP": "2.5",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "145",
+          "DATE": "2026-11-03",
           "TRADING CODE": "FASFIN",
           "LTP*": "0",
           "HIGH": "0",
@@ -27173,6 +27263,24 @@
         "raw": {
           "#": "302",
           "DATE": "2026-11-01",
+          "TRADING CODE": "FIRSTSBANK",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "1.9",
+          "YCP": "1.9",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "151",
+          "DATE": "2026-11-03",
           "TRADING CODE": "FIRSTSBANK",
           "LTP*": "0",
           "HIGH": "0",
@@ -31738,6 +31846,24 @@
           "VALUE (mn)": "0",
           "VOLUME": "0"
         }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "161",
+          "DATE": "2026-11-03",
+          "TRADING CODE": "GIB",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "1.7",
+          "YCP": "1.7",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
       }
     ],
     "GLDNJMF": [
@@ -34107,6 +34233,24 @@
         "raw": {
           "#": "390",
           "DATE": "2026-11-01",
+          "TRADING CODE": "ILFSL",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "2.1",
+          "YCP": "2.1",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "195",
+          "DATE": "2026-11-03",
           "TRADING CODE": "ILFSL",
           "LTP*": "0",
           "HIGH": "0",
@@ -48532,6 +48676,24 @@
           "VALUE (mn)": "0",
           "VOLUME": "0"
         }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "348",
+          "DATE": "2026-11-03",
+          "TRADING CODE": "SAVAREFR",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "215.5",
+          "YCP": "215.5",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
       }
     ],
     "SBACBANK": [
@@ -48979,6 +49141,24 @@
         "raw": {
           "#": "706",
           "DATE": "2026-11-01",
+          "TRADING CODE": "SEMLIBBLSF",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "7.8",
+          "YCP": "7.8",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "353",
+          "DATE": "2026-11-03",
           "TRADING CODE": "SEMLIBBLSF",
           "LTP*": "0",
           "HIGH": "0",
@@ -53473,6 +53653,24 @@
         "raw": {
           "#": "720",
           "DATE": "2026-11-01",
+          "TRADING CODE": "SIBL",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "3",
+          "YCP": "3",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "360",
+          "DATE": "2026-11-03",
           "TRADING CODE": "SIBL",
           "LTP*": "0",
           "HIGH": "0",
@@ -59226,6 +59424,24 @@
           "VALUE (mn)": "0",
           "VOLUME": "0"
         }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "613",
+          "DATE": "2026-11-03",
+          "TRADING CODE": "UNIONBANK",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "1.5",
+          "YCP": "1.5",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
       }
     ],
     "UNIONCAP": [
@@ -63375,6 +63591,24 @@
         "raw": {
           "#": "1246",
           "DATE": "2026-11-01",
+          "TRADING CODE": "VAMLBDMF1",
+          "LTP*": "0",
+          "HIGH": "0",
+          "LOW": "0",
+          "OPENP*": "0",
+          "CLOSEP*": "7.1",
+          "YCP": "7.1",
+          "TRADE": "0",
+          "VALUE (mn)": "0",
+          "VOLUME": "0"
+        }
+      },
+      {
+        "date": "2026-11-03",
+        "reason": "price <= 0 (DSE reports 0 when a security did not trade)",
+        "raw": {
+          "#": "623",
+          "DATE": "2026-11-03",
           "TRADING CODE": "VAMLBDMF1",
           "LTP*": "0",
           "HIGH": "0",

@@ -4311,6 +4311,15 @@
     "source": "DSE_OFFICIAL"
   },
   {
+    "timestamp": "2026-11-03T08:30:00.000Z",
+    "index_name": "DS30",
+    "index_value": 2021.85411,
+    "change_value": -20.2844,
+    "change_percent": -0.99329,
+    "trading_date": "2026-11-03",
+    "source": "DSE_OFFICIAL"
+  },
+  {
     "timestamp": "2024-11-03T08:30:00.000Z",
     "index_name": "DSEX",
     "index_value": 5190.85928,
@@ -8619,6 +8628,15 @@
     "change_value": -51.56797,
     "change_percent": -0.9576,
     "trading_date": "2026-11-02",
+    "source": "DSE_OFFICIAL"
+  },
+  {
+    "timestamp": "2026-11-03T08:30:00.000Z",
+    "index_name": "DSEX",
+    "index_value": 5284.31555,
+    "change_value": -49.26308,
+    "change_percent": -0.92364,
+    "trading_date": "2026-11-03",
     "source": "DSE_OFFICIAL"
   }
 ]
