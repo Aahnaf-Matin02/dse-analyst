@@ -13,6 +13,8 @@
 import fs from "fs";
 import path from "path";
 import https from "https";
+import tls from "tls";
+import { SECTIGO_DV_R36_PEM } from "../dse/legacyCert";
 import * as cheerio from "cheerio";
 import {
   HistoryBar, mergeBars, validateBar, findDiscontinuities, serializeHistoryFile, parseHistoryFile,
@@ -83,7 +85,7 @@ export class StopError extends Error {}
 
 function httpGet(url: string, redirects = 3): Promise<{ status: number; body: string }> {
   return new Promise((resolve, reject) => {
-    const req = https.get(url, { headers: { "User-Agent": USER_AGENT, Accept: "text/html" }, timeout: 120000 }, res => {
+    const req = https.get(url, { headers: { "User-Agent": USER_AGENT, Accept: "text/html" }, timeout: 120000, ca: [...tls.rootCertificates, SECTIGO_DV_R36_PEM] /* site omits its intermediate */ }, res => {
       if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location && redirects > 0) {
         res.resume(); resolve(httpGet(new URL(res.headers.location, url).toString(), redirects - 1)); return;
       }

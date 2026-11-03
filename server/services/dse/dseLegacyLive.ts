@@ -1,4 +1,6 @@
 import https from "https";
+import tls from "tls";
+import { SECTIGO_DV_R36_PEM } from "./legacyCert";
 import * as cheerio from "cheerio";
 import { DseLiveMarket, DseLivePriceRow } from "./dseLiveApi";
 
@@ -11,11 +13,13 @@ import { DseLiveMarket, DseLivePriceRow } from "./dseLiveApi";
  */
 export const LEGACY_BASE = "https://old.dsebd.org";
 const USER_AGENT = "DSE-AI-Analyst/1.0 (educational project; live prices)";
+// The site omits its intermediate certificate; add it to the standard roots (verification stays on)
+const TRUSTED_CA = [...tls.rootCertificates, SECTIGO_DV_R36_PEM];
 
 function get(path: string): Promise<{ status: number; body: string; url: string }> {
   const url = LEGACY_BASE + path;
   return new Promise((resolve, reject) => {
-    const req = https.get(url, { headers: { "User-Agent": USER_AGENT, Accept: "text/html" }, timeout: 20000 }, res => {
+    const req = https.get(url, { headers: { "User-Agent": USER_AGENT, Accept: "text/html" }, timeout: 20000, ca: TRUSTED_CA }, res => {
       let body = ""; res.setEncoding("utf8");
       res.on("data", c => (body += c));
       res.on("end", () => resolve({ status: res.statusCode || 0, body, url }));
