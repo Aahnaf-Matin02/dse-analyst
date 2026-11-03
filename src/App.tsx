@@ -82,7 +82,7 @@ import { Term, formatChartTick, formatChartDate } from "./components/ui/Term";
 import { FreshnessLine } from "./components/ui/StatusPrimitives";
 import { Section } from "./components/ui/Section";
 import { Toaster, OfflineBanner, toast } from "./components/ui/Toaster";
-import HomeHero from "./components/HomeHero";
+import MarketTerminal from "./components/MarketTerminal";
 import { lazyWithFallback } from "./utils/lazyWithFallback";
 const HowItWorks = lazyWithFallback(() => import("./components/HowItWorks"), "Loading page");
 
@@ -2619,8 +2619,8 @@ export default function App() {
           <HowItWorks onStart={() => handleNavigate("explore")} />
         ) : (
           <div className="space-y-6">
-            <HomeHero stocks={stocksList} onSelectStock={handleSelectSearched} onNavigate={(v) => handleNavigate(v)} />
-            <MarketOverview stocks={stocksList} onSelectStock={handleSelectSearched} />
+            <MarketTerminal stocks={stocksList} onSelectStock={handleSelectSearched} onNavigate={(v) => handleNavigate(v)} />
+            <MarketOverview stocks={stocksList} onSelectStock={handleSelectSearched} compact />
             
             <Section title="Sector market value & AI market researcher" hint="Which sectors make up the market, and questions you can ask about it.">
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">

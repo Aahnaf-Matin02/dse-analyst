@@ -69,7 +69,7 @@ function formatTotalMarketCap(value: number): string {
   return `BDT ${value.toLocaleString()}`;
 }
 
-export default function MarketOverview({ stocks, onSelectStock }: MarketOverviewProps) {
+export default function MarketOverview({ stocks, onSelectStock, compact = false }: MarketOverviewProps & { compact?: boolean }) {
   const [indexData, setIndexData] = useState<IndexState | null>(null);
   const [indexLoading, setIndexLoading] = useState(true);
   const [indicesError, setIndicesError] = useState<string | null>(null);
@@ -358,6 +358,8 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
   return (
     <div className="space-y-6" id="dse-market-overview-tab">
       
+      {/* compact: the home page terminal already shows the heading, summary, breadth and movers */}
+      {!compact && <>
       {/* ── Heading block ────────────────────────────────────────────────── */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#111827] rounded-3xl border border-[rgba(255,255,255,0.06)] p-6 relative overflow-hidden shadow-2xl">
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#00D4FF]/4 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -377,6 +379,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
           <span>Refresh</span>
         </button>
       </div>
+      </>}
 
       {/* ── PERSONAL WATCHLIST TRACKER BAR ──────────────────────────────── */}
       <div className="bg-[#111827] border border-[rgba(255,255,255,0.06)] rounded-3xl p-6 shadow-2xl relative" id="dse-watchlist-bar">
@@ -488,6 +491,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
         </div>
       </div>
 
+      {!compact && <>
       {/* ── MARKET SUMMARY: only figures reported by DSE, with as-of time and source ── */}
       <section aria-labelledby="market-summary-heading" className="space-y-3 mt-2">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -807,6 +811,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
         </div>
 
       </div>
+      </>}
 
       <Section title="Sector analysis & volatility" hint="How each DSE sector moved, its market value, and how volatile it has been.">
       {/* ── SECTOR ANALYSIS ─────────────────────────────────────────────── */}
