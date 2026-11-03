@@ -201,7 +201,7 @@ export default function DashboardHeader({
           </a>
 
           {/* Views Navigation Tabs — 6-Step Learning Journey */}
-          <nav aria-label="Main" className="hidden md:flex items-center gap-1 bg-[#1A2235]/60 border border-[rgba(255,255,255,0.06)] rounded-2xl p-1 overflow-x-auto scrollbar-none" id="header-view-navigation">
+          <nav aria-label="Main" className="hidden lg:flex min-w-0 items-center gap-1 bg-[#1A2235]/60 border border-[rgba(255,255,255,0.06)] rounded-2xl p-1 overflow-x-auto scrollbar-none" id="header-view-navigation">
             {[
               { id: "explore",  label: "Markets",                icon: Compass },
               { id: "learn",    label: "Learn",                  icon: BookOpen },
@@ -220,20 +220,22 @@ export default function DashboardHeader({
                   id={`nav-btn-${tab.id}`}
                   aria-current={isActive ? "page" : undefined}
                   onClick={() => onNavigate(tab.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-sans font-bold rounded-xl transition-all border cursor-pointer whitespace-nowrap ${
+                  title={tab.label}
+                  className={`flex items-center gap-1.5 px-2.5 2xl:px-3 py-1.5 text-xs font-sans font-bold rounded-xl transition-all border cursor-pointer whitespace-nowrap ${
                     isActive
                       ? "bg-[#00D4FF]/15 text-[#00D4FF] border-[#00D4FF]/30 font-extrabold shadow-sm"
                       : "text-[#94A3B8] hover:text-[#F0F4FF] border-transparent hover:bg-white/5"
                   }`}
                 >
-                  <Icon className="h-3.5 w-3.5 text-[#00D4FF]" />
-                  <span>{tab.label}</span>
+                  <Icon className="h-3.5 w-3.5 text-[#00D4FF]" aria-hidden="true" />
+                  {/* Labels only where the full header fits; below that the icon carries the name */}
+                  <span className="sr-only 2xl:not-sr-only">{tab.label}</span>
                 </button>
               );
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden xl:flex items-center gap-2">
             {getSourceBadge()}
             
             <button
@@ -250,7 +252,7 @@ export default function DashboardHeader({
         </div>
 
         {/* Center: stock search ("/" focuses it) */}
-        <div className="hidden sm:block flex-1 w-full max-w-xs lg:max-w-sm mx-2 lg:mx-4">
+        <div className="hidden sm:block flex-1 min-w-0 w-full max-w-xs xl:max-w-sm mx-2 lg:mx-4">
           <StockSearch stocks={stocks} onSelect={onSelectSearched} slashShortcut placeholder="Search ticker or company…" />
         </div>
 
@@ -304,7 +306,7 @@ export default function DashboardHeader({
               </button>
               <button
                 onClick={() => onTriggerAuthModal?.("signup")}
-                className="px-3 py-1.5 rounded-xl bg-[#00D4FF] text-[#0A0F1E] font-bold text-xs hover:bg-[#33DDFF] transition-all cursor-pointer shadow-[0_0_15px_rgba(0,212,255,0.25)] flex items-center gap-1"
+                className="hidden sm:flex px-3 py-1.5 rounded-xl bg-[#00D4FF] text-[#0A0F1E] font-bold text-xs hover:bg-[#33DDFF] transition-all cursor-pointer shadow-[0_0_15px_rgba(0,212,255,0.25)] items-center gap-1"
               >
                 <UserPlus className="h-3.5 w-3.5" /> Sign Up
               </button>

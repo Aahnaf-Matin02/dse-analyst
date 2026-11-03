@@ -6,7 +6,7 @@ export const LanguageToggle: React.FC<{ className?: string }> = ({ className = "
   const { language, setLanguage } = useI18n();
 
   return (
-    <div className={`inline-flex items-center bg-[#1A2235] border border-white/10 rounded-xl p-0.5 text-xs font-mono select-none ${className}`}>
+    <div className={`${/(^|\s)(hidden|flex|inline-flex)(\s|$)/.test(className) ? "" : "inline-flex"} items-center bg-[#1A2235] border border-white/10 rounded-xl p-0.5 text-xs font-mono select-none ${className}`}>
       <button
         type="button"
         onClick={() => setLanguage("bn")}

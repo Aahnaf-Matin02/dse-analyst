@@ -49,6 +49,8 @@ import { DSE_COMPANIES } from "./data/dseData";
 import { formatNumber, formatPrice, formatPercent, formatPlainPercent, formatMarketCap, formatVolume } from "./utils/formatters";
 import DashboardHeader from "./components/DashboardHeader";
 import StockOverview from "./components/StockOverview";
+import ValuationAssessment from "./components/ValuationAssessment";
+import { LanguageToggle } from "./components/LanguageToggle";
 const TechnicalSignals = lazyWithFallback(() => import("./components/TechnicalSignals"), "Loading technical analysis");
 const PricePrediction = lazyWithFallback(() => import("./components/PricePrediction"), "Loading forecast");
 const LossPrevention = lazyWithFallback(() => import("./components/LossPrevention"), "Loading risk tools");
@@ -1222,6 +1224,9 @@ export default function App() {
             style={{ animationDuration: "250ms" }}
           >
             <div className="space-y-6">
+              {/* Language (the header hides it on phones) */}
+              <LanguageToggle className="sm:hidden flex w-fit" />
+
               {/* Header / Brand */}
               <div className="flex items-center justify-between border-b border-[rgba(255,255,255,0.08)] pb-4">
                 <div 
@@ -1607,7 +1612,7 @@ export default function App() {
                 )}
 
                 {/* Historical Area Chart */}
-                <div id="chart-area-container" className={`${isChartFullscreen ? "lg:col-span-12" : "lg:col-span-8"} bg-[#111827] border border-[rgba(255,255,255,0.08)] rounded-3xl p-6 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.4)]`}>
+                <div id="chart-area-container" className={`lg:col-span-12 bg-[#111827] border border-[rgba(255,255,255,0.08)] rounded-3xl p-6 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.4)]`}>
                   <div>
                     <div className="flex flex-wrap gap-4 justify-between items-center mb-4">
                       <div>
@@ -2165,46 +2170,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Micro AI recommendations panel */}
-                {!isChartFullscreen && (
-                  <div id="ai-quick-recommendation" className="lg:col-span-4 bg-[#111827] border border-[rgba(255,255,255,0.06)] rounded-3xl p-6 flex flex-col justify-between shadow-2xl">
-                  <div className="space-y-4">
-                    <AiRunBar
-                      compact
-                      title="AI summary"
-                      description={`A short, plain-language read of ${selectedSymbol}'s valuation and fundamentals.`}
-                      dataUsed={["Last traded price", "EPS", "NAV per share", "P/E", "Dividend yield", "Sector", "Revenue and profit growth (when reported)"]}
-                      state={aiRuns.fundamental}
-                      onRun={() => runAi("fundamental")}
-                    />
-                    {aiRuns.fundamental.status === "done" && (
-                      <div className="space-y-3">
-                        {fundamentalAnalysis.recommendation && (
-                          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]/50 p-4">
-                            <p className="text-xs text-[var(--text-subtle)]">AI interpretation · not investment advice</p>
-                            <p className="text-lg font-semibold text-[var(--text)] mt-1">{String(fundamentalAnalysis.recommendation)}</p>
-                          </div>
-                        )}
-                        {fundamentalAnalysis.reasoning?.length > 0 && (
-                          <ul className="space-y-1.5 list-disc pl-5 text-sm text-[var(--text-muted)] leading-relaxed">
-                            {fundamentalAnalysis.reasoning.map((item, idx) => <li key={idx}>{item}</li>)}
-                          </ul>
-                        )}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="pt-3 border-t border-[rgba(255,255,255,0.06)] flex justify-end">
-                    <button
-                      onClick={() => setActiveTab("analyzer")}
-                      className="text-[11px] font-bold text-[#00D4FF] hover:text-[#33DDFF] flex items-center select-none cursor-pointer"
-                    >
-                      Open full valuation <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                    </button>
-                  </div>
-                </div>
-                )}
-
               </div>
 
               {!isChartFullscreen && (
@@ -2311,7 +2276,7 @@ export default function App() {
                       {[
                         "P/E ratio vs sector average",
                         "EPS & revenue growth",
-                        "CS-FHR health score",
+                        "Risk & liquidity vs other DSE stocks",
                         "Dividend yield & NAV",
                       ].map(item => (
                         <div key={item} className="flex items-center gap-1.5 text-[10px] font-sans text-[#64748B]">
@@ -2325,111 +2290,36 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* STAGE 3 — EDUCATIONAL SYNTHESIS & INQUIRY */}
-                  {(() => {
-                    const score = fundamentalAnalysis?.fundamentalScore ?? null;
-                    const pe    = currentStock.peRatio ?? null;
-                    const rev   = currentStock.revGrowth ?? null;
-                    const prof  = currentStock.profitGrowth ?? null;
-
-                    // Derive educational profile from available metrics
-                    let profile = "BALANCED PROFILE";
-                    let profileColor  = "text-[#F59E0B]";
-                    let profileBg     = "bg-[#F59E0B]/10";
-                    let profileBorder = "border-[#F59E0B]/25";
-                    let reasoning = "Mixed signals across metrics. Key question: Is operating cash flow keeping pace with reported net income?";
-                    let investigationPrompt = "Examine upcoming quarterly disclosures & receivables turnover.";
-
-                    if (score !== null && pe !== null) {
-                      const growthPositive = (rev ?? 0) > 0 && (prof ?? 0) > 0;
-                      const cheapValuation = pe < 15;
-                      const strongHealth   = score >= 70;
-                      const weakHealth     = score < 40;
-                      const highGrowth     = (rev ?? 0) > 10;
-
-                      if (strongHealth && cheapValuation && growthPositive) {
-                        profile = "ROBUST VALUE PROFILE"; 
-                        profileColor = "text-[#10B981]"; 
-                        profileBg = "bg-[#10B981]/10"; 
-                        profileBorder = "border-[#10B981]/25";
-                        reasoning = `High solvency (CS-FHR: ${score}) with moderate P/E of ${pe}x and expansion across revenue and profit. Favorable setup for examining return on capital (ROE).`;
-                        investigationPrompt = "Verify if dividend payout ratio is supported by free cash flow.";
-                      } else if (strongHealth && growthPositive) {
-                        profile = "STABLE GROWTH PROFILE"; 
-                        profileColor = "text-[#10B981]"; 
-                        profileBg = "bg-[#10B981]/10"; 
-                        profileBorder = "border-[#10B981]/25";
-                        reasoning = `Resilient balance sheet metrics (CS-FHR: ${score}) and steady revenue traction. Illustrates disciplined operational reinvestment.`;
-                        investigationPrompt = "Assess whether capital expenditure is expanding production capacity.";
-                      } else if (!weakHealth && highGrowth) {
-                        profile = "GROWTH / VALUATION WATCH"; 
-                        profileColor = "text-[#00D4FF]"; 
-                        profileBg = "bg-[#00D4FF]/10"; 
-                        profileBorder = "border-[#00D4FF]/25";
-                        reasoning = `High top-line expansion (Rev: +${rev}%), but valuation multiples require scrutiny. High growth can be susceptible to margin compression.`;
-                        investigationPrompt = "Study gross margin trajectory against rising raw material costs.";
-                      } else if (weakHealth && !growthPositive) {
-                        profile = "ELEVATED RISK PROFILE"; 
-                        profileColor = "text-[#EF4444]"; 
-                        profileBg = "bg-[#EF4444]/10"; 
-                        profileBorder = "border-[#EF4444]/25";
-                        reasoning = `Deteriorating financial health indicators (CS-FHR: ${score}) alongside contracting revenue/profit. Instructive case study on credit & operational risk.`;
-                        investigationPrompt = "Audit short-term bank borrowings and interest coverage capability.";
-                      } else if (weakHealth) {
-                        profile = "BALANCE SHEET PRESSURE"; 
-                        profileColor = "text-[#EF4444]"; 
-                        profileBg = "bg-[#EF4444]/10"; 
-                        profileBorder = "border-[#EF4444]/25";
-                        reasoning = `CS-FHR score of ${score} signals balance sheet strain. Case for analyzing debt-to-equity and finance cost trends.`;
-                        investigationPrompt = "Compare debt servicing requirements against annual operating cash flows.";
-                      }
-                    }
-
-                    return (
-                      <div id="judgement-framework-card" className={`bg-[#1A2235] rounded-2xl border ${profileBorder} p-4 relative group transition-all cursor-default`}>
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className={`w-7 h-7 rounded-xl ${profileBg} border ${profileBorder} flex items-center justify-center shrink-0`}>
-                            <span className={`text-[10px] font-mono font-black ${profileColor}`}>03</span>
-                          </div>
-                          <div>
-                            <div className={`text-[10px] font-mono font-black ${profileColor} uppercase tracking-wider`}>Educational Synthesis</div>
-                            <div className="text-[9px] font-mono text-[#64748B] uppercase">Case Study Analysis</div>
-                          </div>
-                          <Target className={`h-3.5 w-3.5 ${profileColor} opacity-50 ml-auto`} />
-                        </div>
-
-                        {/* Profile Badge */}
-                        <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl ${profileBg} border ${profileBorder} mb-3`}>
-                          <span className={`text-xs font-mono font-black ${profileColor} tracking-wider`}>
-                            {profile}
-                          </span>
-                        </div>
-
-                        <p className="text-[11px] font-sans text-[#94A3B8] leading-relaxed mb-3">
-                          {reasoning}
-                        </p>
-
-                        {/* Educational Investigation Prompt */}
-                        <div className={`flex items-start gap-1.5 p-2.5 rounded-xl ${profileBg} border ${profileBorder}`}>
-                          <Clock className={`h-3.5 w-3.5 ${profileColor} shrink-0 mt-0.5`} />
-                          <div>
-                            <span className="text-[9px] font-mono text-[#64748B] uppercase tracking-wider block">Question to Investigate</span>
-                            <span className={`text-[10.5px] font-sans font-medium text-slate-200`}>
-                              {investigationPrompt}
-                            </span>
-                          </div>
-                        </div>
-
-                        <button
-                          id="btn-view-prediction-tab"
-                          onClick={() => setActiveTab("prediction")}
-                          className={`mt-3 w-full text-[10px] font-mono font-bold ${profileColor} ${profileBg} hover:opacity-80 border ${profileBorder} rounded-xl py-2 transition-all cursor-pointer uppercase tracking-wider`}
-                        >
-                          Explore Indicator Envelopes →
-                        </button>
+                  {/* STAGE 3 — VALUATION */}
+                  <div className="bg-[#1A2235] rounded-2xl border border-[rgba(255,255,255,0.06)] p-4 relative group hover:border-violet-400/30 transition-all cursor-default">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-7 h-7 rounded-xl bg-violet-400/10 border border-violet-400/20 flex items-center justify-center shrink-0">
+                        <span className="text-[10px] font-mono font-black text-violet-300">03</span>
                       </div>
-                    );
-                  })()}
+                      <div>
+                        <div className="text-[10px] font-mono font-black text-violet-300 uppercase tracking-wider">Valuation</div>
+                        <div className="text-[9px] font-mono text-[#64748B] uppercase">Price vs value</div>
+                      </div>
+                      <Scale className="h-3.5 w-3.5 text-violet-300/50 ml-auto" />
+                    </div>
+                    <p className="text-[11px] font-sans text-[#94A3B8] leading-relaxed mb-3">
+                      Compares what the share costs with what the company earns and owns, against other companies in its sector, with each step explained.
+                    </p>
+                    <div className="space-y-1.5">
+                      {["P/E vs sector median", "P/B vs sector median", "Dividend yield vs sector", "Fair-value models"].map(item => (
+                        <div key={item} className="flex items-center gap-1.5 text-[10px] font-sans text-[#64748B]">
+                          <div className="w-1 h-1 rounded-full bg-violet-400/60 shrink-0"></div>
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => setActiveTab("analyzer")}
+                      className="mt-4 w-full text-[10px] font-mono font-bold text-violet-300 bg-violet-400/8 hover:bg-violet-400/15 border border-violet-400/20 rounded-xl py-2 transition-all cursor-pointer uppercase tracking-wider"
+                    >
+                      Open Valuation →
+                    </button>
+                  </div>
                 </div>
               </div>
               </Section>
@@ -2448,16 +2338,7 @@ export default function App() {
       )}
 
           {/* AI VALUE ANALYZER TAB */}
-          {activeTab === "analyzer" && aiRuns.fundamental.status !== "done" && (
-            <AiRunBar
-              title="Valuation analysis"
-              description={`Fair-value models (P/E, PEG, DCF) and a fundamentals scorecard for ${selectedSymbol}, explained in plain language.`}
-              dataUsed={["Last traded price", "EPS", "NAV per share", "P/E", "Dividend yield", "Sector averages", "Revenue and profit growth (when reported)"]}
-              state={aiRuns.fundamental}
-              onRun={() => runAi("fundamental")}
-            />
-          )}
-          {activeTab === "analyzer" && aiRuns.fundamental.status === "done" && (
+          {activeTab === "analyzer" && (
             <div id="printable-report-area" className="bg-[#111827] border border-[rgba(255,255,255,0.06)] rounded-3xl p-6 space-y-6 shadow-2xl text-[#F0F4FF]">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[rgba(255,255,255,0.06)] pb-4">
                 <div>
@@ -2508,6 +2389,8 @@ export default function App() {
               ) : (
                 <div className="space-y-6">
                   
+                  <ValuationAssessment symbol={currentStock.symbol} />
+
                   <EquityValuationModel
                     symbol={currentStock.symbol}
                     stock={currentStock}
@@ -2515,191 +2398,15 @@ export default function App() {
                     onSwitchTab={(targetTab) => setActiveTab(targetTab)}
                   />
 
-                  {/* OLD VALUATION GRAPH SECTIONS BYPASSED */}
-                  {false && (
-                    <>
-                      {/* ML VALUATION CORE CARD */}
-                  <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.06)] rounded-2xl p-5 md:p-6 pb-6 print-card-light">
-                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-                      <div className="space-y-1.5 flex-1">
-                        <span className="text-[10px] font-mono uppercase bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/20 px-2 py-0.5 rounded font-extrabold">
-                          {fundamentalAnalysis.valuationStatus === "Unavailable" ? "Model Status" : "Fair Value Estimate"}
-                        </span>
-                        <h3 className="text-lg font-display font-bold text-white">
-                          {fundamentalAnalysis.valuationStatus === "Unavailable" ? (
-                            "Fair Value Estimate: N/A"
-                          ) : (
-                            <>
-                              Fair Value Estimate: <span className="text-[#00D4FF] text-xl font-mono underline decoration-wavy decoration-[#00D4FF]/50">BDT {fundamentalAnalysis.fairValueEstimate != null ? fundamentalAnalysis.fairValueEstimate.toFixed(2) : "N/A"}</span>
-                            </>
-                          )}
-                        </h3>
-                        <p className="text-xs text-[#94A3B8] max-w-2xl leading-relaxed">
-                          {fundamentalAnalysis.valuationStatus === "Unavailable" ? (
-                            "Valuation models are disabled because verified EPS, growth, cash-flow or dividend inputs are missing."
-                          ) : (
-                            `This estimate represents the weighted consensus of ${currentStock.symbol}'s operating model. The model computes discount coefficients based on current dividend yields and sector-normalized cost of capital.`
-                          )}
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-4 bg-[#111827] p-4 rounded-xl border border-[rgba(255,255,255,0.06)] shadow-xl min-w-[240px] print-card-light">
-                        <div className="space-y-1">
-                          <span className="text-[9px] text-[#94A3B8] uppercase font-mono block">Consensus Signal</span>
-                          <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
-                            fundamentalAnalysis.valuationStatus === "Undervalued" ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" :
-                            fundamentalAnalysis.valuationStatus === "Overvalued" ? "bg-rose-500/10 text-rose-400 border border-rose-500/20" :
-                            fundamentalAnalysis.valuationStatus === "Unavailable" ? "bg-white/5 text-[#94A3B8] border border-white/10" :
-                            "bg-amber-500/10 text-amber-400 border border-amber-500/20"
-                          }`}>
-                            {fundamentalAnalysis.valuationStatus || "Fair Valued"}
-                          </span>
-                          <span className="text-[10px] font-medium text-[#94A3B8] block mt-1">
-                            Current Price: BDT {currentStock.price}
-                          </span>
-                        </div>
-                        <div className="h-10 w-[1px] bg-[rgba(255,255,255,0.06)]"></div>
-                        <div className="space-y-1">
-                          <span className="text-[9px] text-[#94A3B8] uppercase font-mono block">Deviation Margin</span>
-                          <span className={`text-base font-mono font-black block ${
-                            fundamentalAnalysis.valuationStatus === "Unavailable" ? "text-slate-500" :
-                            (fundamentalAnalysis.discountPremium || 0) > 0 ? "text-emerald-400" : "text-rose-400"
-                          }`}>
-                            {fundamentalAnalysis.valuationStatus === "Unavailable" ? "N/A" : (
-                              `${(fundamentalAnalysis.discountPremium || 0) > 0 ? "+" : ""}${fundamentalAnalysis.discountPremium || 0}%`
-                            )}
-                          </span>
-                          <span className="text-[9px] text-[#94A3B8]/70 block">
-                            {fundamentalAnalysis.valuationStatus === "Unavailable" ? "Pricing Model Inactive" : (
-                              (fundamentalAnalysis.discountPremium || 0) > 0 ? "Undervalued Discount" : "Overvalued Premium"
-                            )}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Progress Visual Bar */}
-                    {fundamentalAnalysis.valuationStatus !== "Unavailable" && (
-                      <div className="mt-5 space-y-1">
-                        <div className="flex justify-between text-[10px] text-[#94A3B8] font-mono">
-                          <span>Max Discount (-40%)</span>
-                          <span className="font-bold text-white">Fair Equilibrium</span>
-                          <span>Max Premium (+40%)</span>
-                        </div>
-                        <div className="w-full h-2.5 bg-[#111827] rounded-full overflow-hidden relative shadow-inner border border-[rgba(255,255,255,0.04)]">
-                          {/* Center marker line */}
-                          <div className="absolute inset-y-0 left-1/2 w-0.5 bg-[rgba(255,255,255,0.15)]"></div>
-                          
-                          {/* Filled slider bar */}
-                          <div 
-                            className={`h-full rounded-full transition-all duration-1000 ${
-                              (fundamentalAnalysis.discountPremium || 0) > 0 ? "bg-gradient-to-r from-emerald-500 to-emerald-400" : "bg-gradient-to-r from-rose-500 to-rose-400"
-                            }`}
-                            style={{
-                              width: `${Math.min(40, Math.abs(fundamentalAnalysis.discountPremium || 0)) * 1.25}%`,
-                              marginLeft: (fundamentalAnalysis.discountPremium || 0) > 0 ? '50%' : `${50 - Math.min(40, Math.abs(fundamentalAnalysis.discountPremium || 0)) * 1.25}%`
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* THREE FACTOR BENTO GRID BRACKETS */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    
-                    {/* 1. P/E Comparison */}
-                    <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.06)] rounded-2xl p-4.5 space-y-3 shadow-xl hover:border-[#00D4FF]/30 transition-all print-card-light flex flex-col justify-between">
-                      <div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-[10px] font-bold text-[#00D4FF] bg-[#00D4FF]/10 border border-[#00D4FF]/20 px-2 py-0.5 rounded font-mono">
-                            FACTOR #01 (35% wt.)
-                          </span>
-                          <Scale className="h-4 w-4 text-[#94A3B8]" />
-                        </div>
-                        <h4 className="text-xs font-extrabold text-white uppercase mt-3">
-                          P/E-Based Target
-                        </h4>
-                        <p className="text-[11px] text-[#94A3B8] leading-normal mt-1">
-                          Evaluates current P/E index ({currentStock.peRatio}x) against sector targets to determine ratio alignment.
-                        </p>
-                      </div>
-
-                      <div className="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2 flex justify-between items-center font-mono">
-                        <div>
-                          <span className="text-[9px] text-[#94A3B8] block font-mono uppercase">Model Fair Value</span>
-                          <strong className="text-sm font-mono text-white">BDT {fundamentalAnalysis.peFairValue || "..."}</strong>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-[9px] text-[#94A3B8] block font-mono uppercase">Factor Score</span>
-                          <strong className="text-xs font-mono text-[#00D4FF] block bg-[#00D4FF]/10 rounded px-1.5 py-0.5 border border-[#00D4FF]/20">{fundamentalAnalysis.peFactorScore || 50}/100</strong>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 2. growth PEG model */}
-                    <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.06)] rounded-2xl p-4.5 space-y-3 shadow-xl hover:border-[#00D4FF]/30 transition-all print-card-light flex flex-col justify-between">
-                      <div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-[10px] font-bold text-[#F59E0B] bg-[#F59E0B]/10 border border-[#F59E0B]/20 px-2 py-0.5 rounded font-mono">
-                            FACTOR #02 (25% wt.)
-                          </span>
-                          <TrendingUp className="h-4 w-4 text-[#94A3B8]" />
-                        </div>
-                        <h4 className="text-xs font-extrabold text-white uppercase mt-3">
-                          Growth Adjusted PEG Model
-                        </h4>
-                        <p className="text-[11px] text-[#94A3B8] leading-normal mt-1">
-                          Adjusts P/E value based on net earnings growth rate of {currentStock.profitGrowth || 5}%. Target PEG ratios benchmark at 1.1x.
-                        </p>
-                      </div>
-
-                      <div className="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2 flex justify-between items-center font-mono">
-                        <div>
-                          <span className="text-[9px] text-[#94A3B8] block font-mono uppercase">Model Fair Value</span>
-                          <strong className="text-sm font-mono text-white">BDT {fundamentalAnalysis.pegFairValue || "..."}</strong>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-[9px] text-[#94A3B8] block font-mono uppercase">PEG Score</span>
-                          <strong className="text-xs font-mono text-[#F59E0B] block bg-[#F59E0B]/10 rounded px-1.5 py-0.5 border border-[#F59E0B]/20">{fundamentalAnalysis.pegFactorScore || 50}/100</strong>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 3. cash flow DCF model */}
-                    <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.06)] rounded-2xl p-4.5 space-y-3 shadow-xl hover:border-[#00D4FF]/30 transition-all print-card-light flex flex-col justify-between">
-                      <div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-[10px] font-bold text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/20 px-2 py-0.5 rounded font-mono">
-                            FACTOR #03 (40% wt.)
-                          </span>
-                          <Activity className="h-4 w-4 text-[#94A3B8]" />
-                        </div>
-                        <h4 className="text-xs font-extrabold text-white uppercase mt-3">
-                          DCF Intrinsic Value
-                        </h4>
-                        <p className="text-[11px] text-[#94A3B8] leading-normal mt-1">
-                          Calculates discrete multi-period present value of free cash flow streams at an 11.5% discount and 3.5% terminal perpetual rate.
-                        </p>
-                      </div>
-
-                      <div className="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2 flex justify-between items-center font-mono">
-                        <div>
-                          <span className="text-[9px] text-[#94A3B8] block font-mono uppercase">Model Fair Value</span>
-                          <strong className="text-sm font-mono text-white">BDT {fundamentalAnalysis.dcfFairValue || "..."}</strong>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-[9px] text-[#94A3B8] block font-mono uppercase font-mono">FCF Score</span>
-                          <strong className="text-xs font-mono text-[#10B981] block bg-[#10B981]/10 rounded px-1.5 py-0.5 border border-[#10B981]/20">{fundamentalAnalysis.cashFlowFactorScore || 50}/100</strong>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </>
-              )}
-
-              {/* NARRATIVE REPORT COLUMN GRID */}
+                  <AiRunBar
+                    compact
+                    title="AI explanation (optional)"
+                    description={`A written explanation of ${selectedSymbol}'s valuation. The assessment above is calculated without AI.`}
+                    dataUsed={["Last traded price", "EPS", "NAV per share", "P/E", "Dividend yield", "Sector averages"]}
+                    state={aiRuns.fundamental}
+                    onRun={() => runAi("fundamental")}
+                  />
+                  {aiRuns.fundamental.status === "done" && (
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 leading-relaxed">
                     
                     {/* Left core parameters explanation */}
@@ -2773,6 +2480,7 @@ export default function App() {
                     </div>
 
                   </div>
+                  )}
 
                 </div>
               )}
