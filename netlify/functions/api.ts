@@ -1,5 +1,6 @@
 import serverless from "serverless-http";
 import { createApp } from "../../server/app";
+import { ensureFreshDseData } from "../../server/services/serverlessFreshness";
 
 const app = createApp();
 const serverlessHandler = serverless(app);
@@ -13,5 +14,6 @@ export const handler: any = async (event: any, context: any) => {
     event.path = "/api";
   }
 
+  await ensureFreshDseData();
   return serverlessHandler(event, context);
 };
