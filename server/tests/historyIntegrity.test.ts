@@ -1,4 +1,15 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+
+// These tests assert behaviour when DSE is unreachable, so the live JSON feed must fail deterministically
+// instead of reaching the real dse.com.bd (which would also overwrite the bundled data files).
+vi.mock("../services/dse/dseLiveApi", async (orig) => {
+  const actual: any = await orig();
+  return {
+    ...actual,
+    fetchLivePrices: vi.fn().mockRejectedValue(new Error("simulated outage")),
+    fetchLiveMarket: vi.fn().mockRejectedValue(new Error("simulated outage"))
+  };
+});
 import fs from "fs";
 import path from "path";
 
@@ -131,7 +142,10 @@ describe("Historical Data Integrity & Startup Purity", () => {
   });
 
   it("verifies lastSuccessfulSync only changes when a scrape actually succeeds", async () => {
-    const { DSEScraper } = await import("../services/dseScraper");
+    const { DSEScraper, latestPriceCandidates } = await import("../services/dseScraper");
+    const originalCandidates = [...latestPriceCandidates];
+    latestPriceCandidates.length = 0;
+    latestPriceCandidates.push("http://127.0.0.1:54321/latest_share_price_all.php");
     const { loadDseSyncStatus, saveDseSyncStatus } = await import("../repositories/dseCacheRepository");
 
     const previousFixedTimestamp = "2026-09-29T10:30:00.000Z";
@@ -153,5 +167,7 @@ describe("Historical Data Integrity & Startup Purity", () => {
     const syncRes = await DSEScraper.syncLiveDSEData(1, false);
     const statusAfter = DSEScraper.getStatus();
     expect(statusAfter.lastSuccessfulSync).toBe(previousFixedTimestamp);
+    latestPriceCandidates.length = 0;
+    latestPriceCandidates.push(...originalCandidates);
   });
 });

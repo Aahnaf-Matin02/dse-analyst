@@ -30,6 +30,10 @@ import {
 } from "lucide-react";
 import { StockData } from "../types";
 import { SectorVolatilityHeatmap } from "./modules/SectorVolatilityHeatmap";
+import { MarketStatusChip, FreshnessLine, Skeleton, ErrorState } from "./ui/StatusPrimitives";
+import { feedState, describeAsOf } from "../utils/marketStatus";
+import { toast } from "./ui/Toaster";
+import { Section } from "./ui/Section";
 
 interface MarketOverviewProps {
   stocks: StockData[];
@@ -49,6 +53,7 @@ interface IndexState {
   DSES: IndexQuote;
   DS30: IndexQuote;
   timestamp: string;
+  [key: string]: any;
 }
 
 function formatTotalMarketCap(value: number): string {
@@ -132,13 +137,38 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
   const [sortField, setSortField] = useState<"symbol" | "price" | "changePercent" | "volume">("symbol");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
+  // DSE's own trade time, e.g. "Oct 04, 2026 at 2:40 PM" (Dhaka time). Our fetch timestamp is not the
+  // trading session: fetching after midnight would otherwise relabel yesterday's close as today.
+  const dseTradeTime: string | undefined = (indexData as any)?.totals?.tradeTime;
+  const tradeTimeMatch = typeof dseTradeTime === "string" ? dseTradeTime.match(/^(.+?\d{4})\s+at\s+(.+)$/i) : null;
+
   // Dynamic formatted market update date
   const currentFormattedDate = useMemo(() => {
-    const rawDate = indexData?.timestamp ? new Date(indexData.timestamp) : new Date();
+    const rawDate = tradeTimeMatch
+      ? new Date(tradeTimeMatch[1])
+      : (indexData?.timestamp ? new Date(indexData.timestamp) : new Date());
     const isValid = !isNaN(rawDate.getTime());
     const d = isValid ? rawDate : new Date();
     return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-  }, [indexData?.timestamp]);
+  }, [indexData?.timestamp, tradeTimeMatch?.[1]]);
+  const sessionTimeLabel = tradeTimeMatch ? `${tradeTimeMatch[2]} BST` : "time not reported";
+
+  // Official DSE totals and breadth (counted by DSE over traded issues only, not our 643-entry list incl. bonds)
+  const officialTotals = (indexData as any)?.totals as { turnover?: number; trades?: number } | undefined;
+  const officialBreadth = (indexData as any)?.breadth as { advanced: number; declined: number; unchanged: number; traded: number } | undefined;
+
+  // Plain factual summary built only from reported numbers — no invented causes or narrative
+  const marketSummarySentence = useMemo(() => {
+    const d = indexData?.DSEX;
+    if (!d || !(d.value > 0)) return "Index data is not available right now.";
+    const dir = d.change > 0 ? "rose" : d.change < 0 ? "fell" : "was unchanged";
+    const pct = Math.abs(d.changePercent).toFixed(2);
+    let out = d.change === 0 ? `The broad DSEX index was unchanged at ${d.value.toFixed(2)}.` : `The broad DSEX index ${dir} ${pct}% to ${d.value.toFixed(2)}.`;
+    const others = (["DS30", "DSES"] as const).map(k => indexData?.[k]).filter(Boolean) as any[];
+    if (others.length === 2) out += ` DS30 ${others[0].changePercent >= 0 ? "+" : ""}${others[0].changePercent.toFixed(2)}%, DSES ${others[1].changePercent >= 0 ? "+" : ""}${others[1].changePercent.toFixed(2)}%.`;
+    if (officialBreadth) out += ` Of ${officialBreadth.traded} issues traded, ${officialBreadth.advanced} advanced and ${officialBreadth.declined} declined.`;
+    return out;
+  }, [indexData, officialBreadth]);
 
   // Fetch index quotes
   const fetchIndexQuotes = async () => {
@@ -204,6 +234,15 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
 
     return { advancing, declining, unchanged, total };
   }, [stocks]);
+
+  // Prefer DSE's own breadth (traded issues only); fall back to counting our snapshot when DSE didn't report it
+  const displayBreadth = useMemo(() => {
+    const b = (indexData as any)?.breadth;
+    if (b && typeof b.advanced === "number" && b.traded > 0) {
+      return { advancing: b.advanced, declining: b.declined, unchanged: b.unchanged, total: b.traded, official: true };
+    }
+    return { ...breadth, official: false };
+  }, [indexData, breadth]);
 
   // ── GAINERS AND LOSERS ────────────────────────────────────────────────
   const { topGainers, topLosers } = useMemo(() => {
@@ -323,11 +362,9 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#111827] rounded-3xl border border-[rgba(255,255,255,0.06)] p-6 relative overflow-hidden shadow-2xl">
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#00D4FF]/4 rounded-full blur-3xl pointer-events-none -z-10"></div>
         <div>
-          <h2 className="text-xl md:text-2xl font-display font-[800] text-white uppercase tracking-tight flex items-center gap-2">
-            <span className="text-[#10B981]">🇧🇩</span> Dhaka Stock Exchange Live Market Overview
-          </h2>
-          <p className="text-[#94A3B8] text-xs font-sans mt-1">
-            Real-time visual indices monitor, sector performance analytics and indices liquidity matrices for all {breadth.total} listed equities.
+          <h2 className="text-xl font-display font-bold text-white">Dhaka Stock Exchange overview</h2>
+          <p className="text-[var(--text-muted)] text-sm mt-1">
+            Indices, sectors and prices for {breadth.total} DSE-listed securities (shares, mutual funds and bonds).
           </p>
         </div>
         
@@ -337,7 +374,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
           className="px-4 py-2 bg-white/5 hover:bg-white/10 active:bg-white/15 border border-[rgba(255,255,255,0.06)] rounded-2xl flex items-center gap-2 text-xs font-mono text-[#F0F4FF] hover:border-[#00D4FF]/30 font-bold transition-all cursor-pointer"
         >
           <RefreshCw className={`h-3.5 w-3.5 text-[#00D4FF] ${isRefreshing ? "animate-spin" : ""}`} />
-          <span>REFRESH ALL METRICS</span>
+          <span>Refresh</span>
         </button>
       </div>
 
@@ -376,6 +413,9 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
                   return (
                     <div 
                       key={`${symbol}-${idx}`}
+                      role="link"
+                      tabIndex={0}
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelectStock(symbol); } }}
                       onClick={() => onSelectStock(symbol)}
                       className="bg-[#1A2235]/60 hover:bg-[#1A2235] border border-[rgba(255,255,255,0.08)] hover:border-[#00D4FF]/30 transition-all rounded-xl p-3 text-center min-w-[125px] flex flex-col justify-between cursor-pointer group relative overflow-hidden"
                       title={`Click to open AI Deep Dive analysis for ${symbol}`}
@@ -384,12 +424,18 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
+                          const position = idx;
                           setWatchlist(prev => prev.filter(w => w !== symbol));
+                          toast({
+                            message: `Removed ${symbol} from your watchlist.`,
+                            actionLabel: "Undo",
+                            onAction: () => setWatchlist(prev => prev.includes(symbol) ? prev : [...prev.slice(0, position), symbol, ...prev.slice(position)]),
+                          });
                         }}
-                        className="absolute top-1.5 right-1.5 text-slate-400 hover:text-[#EF4444] hover:bg-white/5 active:bg-white/10 rounded-md transition-colors p-1"
-                        title={`Remove ${symbol} from watchlist`}
+                        className="absolute top-1 right-1 text-[var(--text-subtle)] hover:text-[var(--down)] hover:bg-white/5 rounded-md transition-colors p-1.5"
+                        aria-label={`Remove ${symbol} from watchlist`}
                       >
-                        <X className="h-3 w-3" />
+                        <X className="h-4 w-4" aria-hidden="true" />
                       </button>
 
                       <div className="font-mono font-bold text-xs text-[#F0F4FF] tracking-wider mb-0.5 group-hover:text-[#00D4FF] transition-colors text-left pr-4">
@@ -411,7 +457,9 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
           {/* Right Columns: Add new watch elements dropdown selection box */}
           <div className="lg:col-span-2">
             <div className="relative">
+              <label htmlFor="watchlist-add-select" className="sr-only">Add a stock to your watchlist</label>
               <select
+                id="watchlist-add-select"
                 value=""
                 onChange={(e) => {
                   const val = e.target.value;
@@ -420,6 +468,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
                       if (prev.includes(val)) return prev;
                       return [...prev, val];
                     });
+                    toast({ message: `Added ${val} to your watchlist.`, actionLabel: "Undo", onAction: () => setWatchlist(prev => prev.filter(w => w !== val)) });
                   }
                 }}
                 className="w-full bg-[#1A2235]/40 border border-[rgba(255,255,255,0.06)] hover:border-white/10 text-xs px-3.5 py-2.5 rounded-xl text-[#94A3B8] focus:text-[#F0F4FF] outline-none transition-all cursor-pointer font-sans font-[600] appearance-none pr-8"
@@ -439,75 +488,45 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
         </div>
       </div>
 
-      {/* ── INDEX CARDS HEADER & STATUS BADGE ─────────────────────────────── */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4 mb-3">
-        <div className="flex flex-wrap items-center gap-2.5">
-          <h4 className="text-xs font-display font-black text-white uppercase tracking-wider flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00D4FF] animate-pulse" />
-            DHAKA STOCK EXCHANGE MARKET SUMMARY
-          </h4>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30">
-            OFFICIAL UPDATE: {currentFormattedDate.toUpperCase()}
-          </span>
+      {/* ── MARKET SUMMARY: only figures reported by DSE, with as-of time and source ── */}
+      <section aria-labelledby="market-summary-heading" className="space-y-3 mt-2">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <h2 id="market-summary-heading" className="text-lg font-display font-bold text-white">Market summary</h2>
+          <MarketStatusChip
+            state={feedState(indexData as any)}
+            detail={describeAsOf(indexData as any)}
+          />
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] font-mono text-[#F0F4FF]/40 uppercase">SYNC FEED STATUS:</span>
-          {(!indexData || indexData.status === "DISCONNECTED") ? (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-black bg-rose-500/10 text-[#EF4444] border border-rose-500/20">
-              <span className="h-2 w-2 rounded-full bg-[#EF4444] animate-pulse" />
-              🔴 DISCONNECTED
-            </span>
-          ) : indexData.status === "DELAYED" ? (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-black bg-amber-500/10 text-amber-400 border border-amber-500/20">
-              <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
-              🟡 DELAYED
-            </span>
+        <div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-5">
+          {indexLoading ? (
+            <div className="space-y-2" role="status"><span className="sr-only">Loading market summary…</span><Skeleton className="h-4 w-2/3" /><Skeleton className="h-4 w-1/2" /></div>
+          ) : !indexData ? (
+            <ErrorState title="Market summary unavailable" message="We couldn't load index data from the server." onRetry={handleRefreshAll} />
           ) : (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-black bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20">
-              <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
-              🟢 LIVE
-            </span>
+            <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
+              <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-2xl">{marketSummarySentence}</p>
+              <dl className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 shrink-0">
+                <div className="bg-[var(--surface-2)]/60 border border-[var(--border)] rounded-xl p-3">
+                  <dt className="text-xs text-[var(--text-subtle)]">Turnover</dt>
+                  <dd className="text-sm font-semibold text-white mt-0.5">{officialTotals?.turnover != null ? `BDT ${officialTotals.turnover.toLocaleString("en-US", { maximumFractionDigits: 1 })} mn` : "Not reported"}</dd>
+                </div>
+                <div className="bg-[var(--surface-2)]/60 border border-[var(--border)] rounded-xl p-3">
+                  <dt className="text-xs text-[var(--text-subtle)]">Trades</dt>
+                  <dd className="text-sm font-semibold text-white mt-0.5">{officialTotals?.trades != null ? officialTotals.trades.toLocaleString("en-US") : "Not reported"}</dd>
+                </div>
+                <div className="bg-[var(--surface-2)]/60 border border-[var(--border)] rounded-xl p-3 col-span-2 sm:col-span-1">
+                  <dt className="text-xs text-[var(--text-subtle)]">Advanced / declined</dt>
+                  <dd className="text-sm font-semibold text-white mt-0.5">
+                    {officialBreadth ? <>{officialBreadth.advanced} <span aria-label="advanced" className="text-[var(--up)]">▲</span> / {officialBreadth.declined} <span aria-label="declined" className="text-[var(--down)]">▼</span></> : "Not reported"}
+                  </dd>
+                  {officialBreadth && <dd className="text-xs text-[var(--text-subtle)] mt-0.5">{officialBreadth.unchanged} unchanged · {officialBreadth.traded} traded</dd>}
+                </div>
+              </dl>
+            </div>
           )}
+          {indexData && <FreshnessLine className="mt-4" label="DSE session time" updatedAt={(indexData as any).timestamp} source={(indexData as any).source} />}
         </div>
-      </div>
-
-      {/* ── OFFICIAL MARKET SUMMARY EXECUTIVE CARD ───────────── */}
-      <div className="bg-gradient-to-r from-[#111827] via-[#1A2235]/70 to-[#111827] border border-[rgba(0,212,255,0.15)] hover:border-[rgba(0,212,255,0.3)] rounded-3xl p-5 shadow-2xl relative overflow-hidden transition-all mb-1">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#00D4FF]/4 rounded-full blur-3xl pointer-events-none -z-10"></div>
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div className="space-y-1.5 max-w-2xl">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 text-xs font-display font-extrabold text-[#F0F4FF] tracking-wide uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                Dhaka Stock Exchange Session Close Review
-              </span>
-              <span className="text-[10px] font-mono text-[#94A3B8] bg-white/5 px-2 py-0.5 rounded border border-white/5">
-                {currentFormattedDate} • 02:30 PM BST
-              </span>
-            </div>
-            <p className="text-xs text-[#94A3B8] leading-relaxed">
-              Dhaka equities advanced across all three benchmark indices led by robust institutional allocations in Pharmaceuticals & Chemicals, Commercial Banking, and Blue-Chip components. Broad benchmark DSEX settled firmly with healthy positive market breadth.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 shrink-0 font-mono">
-            <div className="bg-[#111827]/80 border border-white/5 rounded-2xl p-2.5 flex flex-col">
-              <span className="text-[9px] uppercase tracking-wider text-[#94A3B8]">Session Turnover</span>
-              <span className="text-xs font-bold text-amber-400 mt-0.5">BDT 5,420.8M</span>
-              <span className="text-[8px] text-[#94A3B8]/60 mt-0.5">~542.08 Crore</span>
-            </div>
-            <div className="bg-[#111827]/80 border border-white/5 rounded-2xl p-2.5 flex flex-col">
-              <span className="text-[9px] uppercase tracking-wider text-[#94A3B8]">Total Trades</span>
-              <span className="text-xs font-bold text-white mt-0.5">186,412</span>
-              <span className="text-[8px] text-[#10B981] mt-0.5">High Activity</span>
-            </div>
-            <div className="bg-[#111827]/80 border border-white/5 rounded-2xl p-2.5 col-span-2 sm:col-span-1 flex flex-col">
-              <span className="text-[9px] uppercase tracking-wider text-[#94A3B8]">Market Breadth</span>
-              <span className="text-xs font-bold text-[#10B981] mt-0.5">214 ▲ / 128 ▼</span>
-              <span className="text-[8px] text-[#94A3B8]/60 mt-0.5">49 Unchanged</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
 
       {/* ── MARKET SESSION & CONNECTIVITY STATUS BANNER ─────────────── */}
       {indexData && indexData.status === "DISCONNECTED" ? (
@@ -651,27 +670,27 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
           <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.04)] rounded-2xl p-3.5">
             <span className="text-[10px] text-[#94A3B8] block uppercase tracking-wider font-mono">Total Traded</span>
-            <span className="text-lg font-mono font-black text-white">{breadth.total}</span>
+            <span className="text-lg font-mono font-black text-white">{displayBreadth.total}</span>
           </div>
           <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.04)] rounded-2xl p-3.5">
             <span className="text-[10px] text-[#10B981] block uppercase tracking-wider font-mono">↑ Advancing (Gainers)</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-lg font-mono font-black text-[#10B981]">{breadth.advancing}</span>
-              <span className="text-[10px] text-[#94A3B8]">({((breadth.advancing / breadth.total) * 100).toFixed(1)}%)</span>
+              <span className="text-lg font-mono font-black text-[#10B981]">{displayBreadth.advancing}</span>
+              <span className="text-[10px] text-[#94A3B8]">({((displayBreadth.advancing / displayBreadth.total) * 100).toFixed(1)}%)</span>
             </div>
           </div>
           <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.04)] rounded-2xl p-3.5">
             <span className="text-[10px] text-[#EF4444] block uppercase tracking-wider font-mono">↓ Declining (Losers)</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-lg font-mono font-black text-[#EF4444]">{breadth.declining}</span>
-              <span className="text-[10px] text-[#94A3B8]">({((breadth.declining / breadth.total) * 100).toFixed(1)}%)</span>
+              <span className="text-lg font-mono font-black text-[#EF4444]">{displayBreadth.declining}</span>
+              <span className="text-[10px] text-[#94A3B8]">({((displayBreadth.declining / displayBreadth.total) * 100).toFixed(1)}%)</span>
             </div>
           </div>
           <div className="bg-[#1A2235]/40 border border-[rgba(255,255,255,0.04)] rounded-2xl p-3.5">
             <span className="text-[10px] text-slate-400 block uppercase tracking-wider font-mono">— Unchanged (Flat)</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-lg font-mono font-black text-slate-300">{breadth.unchanged}</span>
-              <span className="text-[10px] text-[#94A3B8]">({((breadth.unchanged / breadth.total) * 100).toFixed(1)}%)</span>
+              <span className="text-lg font-mono font-black text-slate-300">{displayBreadth.unchanged}</span>
+              <span className="text-[10px] text-[#94A3B8]">({((displayBreadth.unchanged / displayBreadth.total) * 100).toFixed(1)}%)</span>
             </div>
           </div>
         </div>
@@ -681,25 +700,28 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
           <div className="flex bg-[#1A2235]/60 h-3 rounded-full overflow-hidden relative border border-[rgba(255,255,255,0.06)]">
             <div 
               className="bg-[#10B981] h-full shadow-[0_0_10px_rgba(16,185,129,0.3)] transition-all duration-1000"
-              style={{ width: `${(breadth.advancing / breadth.total) * 100}%` }}
-              title={`Gainers: ${breadth.advancing}`}
+              style={{ width: `${(displayBreadth.advancing / displayBreadth.total) * 100}%` }}
+              title={`Gainers: ${displayBreadth.advancing}`}
             />
             <div 
               className="bg-slate-500 h-full transition-all duration-1000"
-              style={{ width: `${(breadth.unchanged / breadth.total) * 100}%` }}
-              title={`Flat: ${breadth.unchanged}`}
+              style={{ width: `${(displayBreadth.unchanged / displayBreadth.total) * 100}%` }}
+              title={`Flat: ${displayBreadth.unchanged}`}
             />
             <div 
               className="bg-[#EF4444] h-full shadow-[0_0_10px_rgba(239,68,68,0.3)] transition-all duration-1000"
-              style={{ width: `${(breadth.declining / breadth.total) * 100}%` }}
-              title={`Losers: ${breadth.declining}`}
+              style={{ width: `${(displayBreadth.declining / displayBreadth.total) * 100}%` }}
+              title={`Losers: ${displayBreadth.declining}`}
             />
           </div>
           <div className="flex justify-between items-center text-[10px] font-mono text-[#94A3B8] px-0.5">
-            <span>↑ {((breadth.advancing / breadth.total) * 100).toFixed(0)}% Advances</span>
-            <span>— {((breadth.unchanged / breadth.total) * 100).toFixed(0)}% Flat</span>
-            <span>↓ {((breadth.declining / breadth.total) * 100).toFixed(0)}% Declines</span>
+            <span>↑ {((displayBreadth.advancing / displayBreadth.total) * 100).toFixed(0)}% Advances</span>
+            <span>— {((displayBreadth.unchanged / displayBreadth.total) * 100).toFixed(0)}% Flat</span>
+            <span>↓ {((displayBreadth.declining / displayBreadth.total) * 100).toFixed(0)}% Declines</span>
           </div>
+          <p className="text-xs text-[var(--text-subtle)] mt-3">
+            {displayBreadth.official ? "Counted by DSE over issues that traded in the session." : "Counted from our saved snapshot of all listed securities (DSE did not report breadth)."}
+          </p>
         </div>
       </div>
 
@@ -786,6 +808,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
 
       </div>
 
+      <Section title="Sector analysis & volatility" hint="How each DSE sector moved, its market value, and how volatile it has been.">
       {/* ── SECTOR ANALYSIS ─────────────────────────────────────────────── */}
       <div className="bg-[#111827] border border-[rgba(255,255,255,0.06)] rounded-3xl p-6 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-4 w-32 h-32 bg-[#00D4FF]/3 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -1072,6 +1095,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
 
       {/* ── SECTOR VOLATILITY HEAT MAP ─────────────────────────────────── */}
       <SectorVolatilityHeatmap onSelectSymbol={onSelectStock} />
+      </Section>
 
       {/* ── ALL LISTED STOCKS - LIVE PRICES TABLE ─────────────────────── */}
       <div className="bg-[#111827] border border-[rgba(255,255,255,0.06)] rounded-3xl p-6 shadow-2xl relative" id="dse-full-live-prices-section">
@@ -1108,6 +1132,7 @@ export default function MarketOverview({ stocks, onSelectStock }: MarketOverview
 
             {/* Sector select dropdown */}
             <select
+              aria-label="Filter stocks by sector"
               value={selectedSector}
               onChange={(e) => {
                 setSelectedSector(e.target.value);

@@ -18,17 +18,6 @@ interface TechnicalSignalsProps {
   historicalData?: HistoricalDataPoint[];
 }
 
-// Seeded pseudo-random engine for stable, reproducible fallbacks
-const getSeededValue = (seedStr: string, key: string, min: number, max: number): number => {
-  const combined = seedStr + key;
-  let hash = 0;
-  for (let i = 0; i < combined.length; i++) {
-    hash = combined.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const pct = Math.abs(Math.sin(hash)) * 1000 % 1;
-  return min + pct * (max - min);
-};
-
 // Calculation helpers
 const getSMA = (arr: number[], period: number): number[] => {
   return arr.map((_, i) => {
@@ -73,39 +62,18 @@ export default function TechnicalSignals({ indicators, stockPrice, symbol, histo
   const [showSMA200, setShowSMA200] = useState(true);
   const [showEMA9, setShowEMA9] = useState(true);
 
-  // Generate stable mock series if real history is short/empty
+  // Only real price history is analysed; with fewer than 20 sessions there is nothing honest to show
   const computedHistory = useMemo(() => {
-    if (historicalData && historicalData.length >= 20) {
-      return [...historicalData].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()).map((h, i) => ({
-        date: h.date,
-        open: h.open || h.close * 0.99,
-        high: h.high || h.close * 1.01,
-        low: h.low || h.close * 0.99,
-        close: h.close,
-        volume: h.volume || 100000 + i * 200,
-      }));
-    }
-    // Seeded synthetic data for perfect visuals
-    const series = [];
-    let price = stockPrice || 120;
-    const now = new Date();
-    for (let i = 59; i >= 0; i--) {
-      const walk = (getSeededValue(symbol, `w_${i}`, -0.03, 0.035));
-      const prev = price;
-      price = Math.max(5, price * (1 + walk));
-      const o = prev;
-      const c = price;
-      series.push({
-        date: new Date(now.getTime() - i * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-        open: parseFloat(o.toFixed(2)),
-        high: parseFloat((Math.max(o, c) * (1 + getSeededValue(symbol, `h_${i}`, 0, 0.02))).toFixed(2)),
-        low: parseFloat((Math.min(o, c) * (1 - getSeededValue(symbol, `l_${i}`, 0, 0.02))).toFixed(2)),
-        close: parseFloat(c.toFixed(2)),
-        volume: Math.round(getSeededValue(symbol, `v_${i}`, 120000, 950000)),
-      });
-    }
-    return series;
-  }, [historicalData, symbol, stockPrice]);
+    if (!historicalData || historicalData.length < 20) return [];
+    return [...historicalData].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()).map((h, i) => ({
+      date: h.date,
+      open: h.open || h.close * 0.99,
+      high: h.high || h.close * 1.01,
+      low: h.low || h.close * 0.99,
+      close: h.close,
+      volume: h.volume || 100000 + i * 200,
+    }));
+  }, [historicalData]);
 
   // Compute standard CFA indicator mathematics
   const technicals = useMemo(() => {
@@ -227,10 +195,11 @@ export default function TechnicalSignals({ indicators, stockPrice, symbol, histo
     const volumeStrengthScore = Math.max(0, Math.min(100, Math.round(50 + (rvol - 1) * 35)));
 
     // 6. Systematic Risk Metrics
-    const seed = symbol;
-    const beta1y = getSeededValue(seed, "beta1y", 0.76, 1.45);
-    const beta3y = getSeededValue(seed, "beta3y", 0.85, 1.30);
-    const alphaDsex = getSeededValue(seed, "alpha", 1.8, 5.2);
+    // Beta/alpha need aligned DSEX index returns, which this component does not receive, so they are
+    // reported as unavailable rather than invented.
+    const beta1y: number | null = null;
+    const beta3y: number | null = null;
+    const alphaDsex: number | null = null;
     
     // Max Drawdown over series
     let peak = -Infinity;
@@ -241,14 +210,14 @@ export default function TechnicalSignals({ indicators, stockPrice, symbol, histo
       if (dd > maxDd) maxDd = dd;
     });
 
-    const riskScore = Math.min(100, Math.max(0, Math.round(annualizedVol * 1.1 + maxDd * 1.3 + (beta1y - 1) * 12)));
+    const riskScore = Math.min(100, Math.max(0, Math.round(annualizedVol * 1.1 + maxDd * 1.3)));
     const riskClassification = riskScore < 30 ? "Safe" : riskScore < 60 ? "Moderate" : riskScore < 80 ? "High" : "Extreme";
     const suitabilityProfile = riskScore < 35 ? "Defensive" : riskScore < 60 ? "Balanced" : riskScore < 80 ? "Aggressive" : "Speculative";
 
     // 7. General Market Regime
-    const pValue = getSeededValue(seed, "p_value", 0.001, 0.045);
     const benchmarkRegime = last.sma50 > last.sma200 ? "Bull Market" : "Sideways Consolidation";
-    const confidenceLevel = Math.round(getSeededValue(seed, "conf", 72, 94));
+    // Confidence reflects how much real history backs the indicators (20 sessions -> 50%, 250+ -> 90%)
+    const confidenceLevel = Math.round(50 + (Math.min(len, 250) - 20) / 230 * 40);
 
     // 8. Signals Engine (Neutral Indicator Momentum Profile)
     let activeSignal: "BULLISH MOMENTUM" | "BEARISH MOMENTUM" | "NEUTRAL ALIGNMENT" = "NEUTRAL ALIGNMENT";
@@ -293,7 +262,6 @@ export default function TechnicalSignals({ indicators, stockPrice, symbol, histo
       riskScore,
       riskClassification,
       suitabilityProfile,
-      pValue,
       benchmarkRegime,
       confidenceLevel,
       activeSignal,
@@ -305,19 +273,19 @@ export default function TechnicalSignals({ indicators, stockPrice, symbol, histo
         "90D": { base: forecast90d, bull: forecast90d + volatilityBand90d, bear: forecast90d - volatilityBand90d, bullPct: Math.round(40 + trendScore * 0.15), basePct: Math.round(40), bearPct: Math.round(45 - trendScore * 0.1) },
       }
     };
-  }, [technicals, symbol]);
+  }, [technicals]);
 
   if (!technicals || !stats) {
     return (
       <div id="tech-offline" className="bg-[#0B0F19] rounded-2xl p-6 border border-rose-500/10 text-center space-y-3">
         <ShieldAlert className="h-10 w-10 text-rose-500 mx-auto animate-pulse" />
-        <h3 className="text-white font-mono text-xs uppercase tracking-widest font-black">Mathematical Pipeline Interrupted</h3>
-        <p className="text-[#94A3B8] text-[11px] max-w-sm mx-auto font-sans">Wait while we synchronize index buffers for {symbol}.</p>
+        <h3 className="text-white font-mono text-xs uppercase tracking-widest font-black">Not Enough Price History</h3>
+        <p className="text-[#94A3B8] text-[11px] max-w-sm mx-auto font-sans">Technical signals for {symbol} need at least 20 trading sessions of real DSE price history.</p>
       </div>
     );
   }
 
-  const { last, changePct, rvol, trendState, volState, volumeCondition, annualizedVol, trendScore, trendStrength, momentumScore, momentumDirection, vwapDev, accumDescTrend, smartMoneySignal, volumeStrengthScore, beta1y, alphaDsex, maxDrawdown, riskScore, riskClassification, suitabilityProfile, pValue, benchmarkRegime, confidenceLevel, activeSignal, signalStrength, signalConfidence, forecasts } = stats;
+  const { last, changePct, rvol, trendState, volState, volumeCondition, annualizedVol, trendScore, trendStrength, momentumScore, momentumDirection, vwapDev, accumDescTrend, smartMoneySignal, volumeStrengthScore, beta1y, alphaDsex, maxDrawdown, riskScore, riskClassification, suitabilityProfile, benchmarkRegime, confidenceLevel, activeSignal, signalStrength, signalConfidence, forecasts } = stats;
 
   return (
     <div id="technical-analysis-terminal" className="space-y-6 text-[#CBD5E1] animate-fade-in font-sans">
@@ -656,11 +624,11 @@ export default function TechnicalSignals({ indicators, stockPrice, symbol, histo
               <div className="grid grid-cols-2 gap-3 text-center">
                 <div className="bg-[#111827]/50 border border-white/5 p-2 rounded-lg">
                   <span className="text-[8px] text-[#64748B] uppercase block">BETA (1Y STABLE)</span>
-                  <span className="text-sm text-white font-black block mt-0.5">{beta1y.toFixed(2)}</span>
+                  <span className="text-sm text-white font-black block mt-0.5" title="Requires DSEX index history">{beta1y != null ? beta1y.toFixed(2) : "N/A"}</span>
                 </div>
                 <div className="bg-[#111827]/50 border border-white/5 p-2 rounded-lg">
                   <span className="text-[8px] text-[#64748B] uppercase block">ALPHA (vs DSEX)</span>
-                  <span className="text-sm text-emerald-400 font-bold block mt-0.5">+{alphaDsex.toFixed(1)}%</span>
+                  <span className="text-sm text-emerald-400 font-bold block mt-0.5" title="Requires DSEX index history">{alphaDsex != null ? `${alphaDsex >= 0 ? "+" : ""}${alphaDsex.toFixed(1)}%` : "N/A"}</span>
                 </div>
               </div>
 
@@ -703,10 +671,10 @@ export default function TechnicalSignals({ indicators, stockPrice, symbol, histo
             <span className="text-[9px] font-mono text-[#64748B] uppercase block font-black">LAYER 6: Macro Regime Climate</span>
             <div className="flex justify-between items-center">
               <span className="text-white font-bold select-none">{benchmarkRegime}</span>
-              <span className="text-emerald-400 font-bold">p-value: {pValue.toFixed(4)}</span>
+              <span className="text-[#94A3B8] font-bold">SMA50 vs SMA200</span>
             </div>
             <p className="text-[10px] font-sans text-[#94A3B8] leading-relaxed">
-              Diebold-Mariano testing bounds verify statistical soundness (&lt;0.05 index bias), indicating high trend execution confidence of {confidenceLevel}%.
+              Regime is read from the 50-day vs 200-day moving average crossover. Data-coverage confidence: {confidenceLevel}% (based on {computedHistory.length} sessions of real history).
             </p>
           </div>
 

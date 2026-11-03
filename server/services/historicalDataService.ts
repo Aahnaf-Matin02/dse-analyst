@@ -195,7 +195,7 @@ export const HistoricalDataService = {
     }
 
     // Try finding files across possible source directories
-    const safeSym = sym.replace(/[()]/g, "_");
+    const safeSym = sym.replace(/\(/g, "_").replace(/\)/g, ""); // AMCL(PRAN) -> AMCL_PRAN
     const dseCleanPath = path.join(process.cwd(), "data", "history", "stocks", `${sym}.csv`);
     const dseSafePath = path.join(process.cwd(), "data", "history", "stocks", `${safeSym}.csv`);
     const investingImportPath = path.join(process.cwd(), "data", "history", "imports", "investing", "stocks", `${sym}.csv`);
@@ -243,40 +243,8 @@ export const HistoricalDataService = {
     // Clean, validate, gap-fill, and split-adjust the bars
     const cleanBars = this.cleanAndValidateHistory(sym, rawBars);
 
-    // Save back to cleaned file system on-the-fly to guarantee permanent coverage and sync
-    if (cleanBars.length > 0 && fileSource !== "DSEClean") {
-      try {
-        const targetDir = path.join(process.cwd(), "data", "history", "stocks");
-        if (!fs.existsSync(targetDir)) {
-          fs.mkdirSync(targetDir, { recursive: true });
-        }
-        const csvHeader = "date,symbol,open,high,low,close,ltp,ycp,change,changePercent,volume,value,trade,source,snapshotType,lastUpdated";
-        const csvLines = cleanBars.map(b => {
-          return [
-            b.date,
-            sym,
-            b.open,
-            b.high,
-            b.low,
-            b.close,
-            b.close, // ltp
-            b.open, // ycp
-            parseFloat((b.close - b.open).toFixed(2)), // change
-            b.open > 0 ? parseFloat((((b.close - b.open) / b.open) * 100).toFixed(2)) : 0, // changePercent
-            b.volume,
-            parseFloat((b.close * b.volume).toFixed(2)), // value
-            null, // trade
-            b.source,
-            "Imported",
-            new Date().toISOString()
-          ].join(",");
-        });
-
-        fs.writeFileSync(dseCleanPath, [csvHeader, ...csvLines].join("\n"), "utf-8");
-      } catch (e) {
-        console.warn(`[HistoricalDataService] Failed to persist on-the-fly cleaned data for ${sym}:`, e);
-      }
-    }
+    // Read paths must not write into data/history: a write-back here created files in a non-standard
+    // format on ordinary GET requests. Persisting cleaned history is the import scripts' job.
 
     // Slice based on requested days
     const result = daysLimit ? cleanBars.slice(-daysLimit) : cleanBars;

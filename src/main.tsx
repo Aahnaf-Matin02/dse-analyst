@@ -3,6 +3,7 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { I18nProvider } from './i18n/context';
+import { startChartLabeling } from './utils/labelCharts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -11,3 +12,5 @@ createRoot(document.getElementById('root')!).render(
     </I18nProvider>
   </StrictMode>,
 );
+
+startChartLabeling();

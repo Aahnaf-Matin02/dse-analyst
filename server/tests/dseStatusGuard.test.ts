@@ -8,6 +8,8 @@ import { DseFinancialsManager } from "../services/dse/dseFinancials";
 import { HistoryRepository } from "../repositories/historyRepository";
 import * as dseCacheRepo from "../repositories/dseCacheRepository";
 import { getLastTradingSessionCutoff } from "../services/dse/dseMarketData";
+import { defaultDseSyncService } from "../services/dse/dseSyncService";
+import { DSEScraper } from "../services/dseScraper";
 
 describe("DSE Status Integrity Guard", () => {
   afterEach(() => {
@@ -187,6 +189,11 @@ describe("DSE Status Integrity Guard", () => {
 
   it("protects POST /api/dse/sync requiring SYNC_SECRET and returns 401 when unauthorized", async () => {
     process.env.SYNC_SECRET = "production-guard-secret-xyz";
+    // This test is about authorization only; keep the authorized request off the real network
+    const companySpy = vi.spyOn(defaultDseSyncService, "syncCompany").mockResolvedValue(true);
+    const scraperSpy = vi.spyOn(DSEScraper, "syncLiveDSEData").mockResolvedValue({
+      success: false, live: false, source: "CachedFile", message: "stubbed", parsedSymbols: 0
+    });
 
     const app = createApp();
     const server = app.listen(0);
@@ -212,7 +219,10 @@ describe("DSE Status Integrity Guard", () => {
         headers: { "X-Sync-Secret": "production-guard-secret-xyz" }
       });
       expect(resValid.status).not.toBe(401);
+      expect(companySpy).toHaveBeenCalledWith("GP");
     } finally {
+      companySpy.mockRestore();
+      scraperSpy.mockRestore();
       delete process.env.SYNC_SECRET;
       server.close();
     }

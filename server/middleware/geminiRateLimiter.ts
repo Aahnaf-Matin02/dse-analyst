@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { activeSessions } from "./auth";
+import { getSession, extractToken } from "./auth";
 import { UserRepository } from "../repositories/userRepository";
 
 interface IpRateRecord {
@@ -34,14 +34,8 @@ export function geminiAnonymousRateLimiter(req: Request, res: Response, next: Ne
   }
 
   // Check if caller is authenticated
-  const authHeader = req.headers["authorization"];
-  let token = authHeader && authHeader.split(" ")[1];
-  if (!token) {
-    token = req.headers["x-session-token"] as string;
-  }
-
-  if (token) {
-    const session = activeSessions.get(token);
+  {
+    const session = getSession(extractToken(req));
     if (session && UserRepository.getByEmail(session.email)) {
       // Authenticated user: governed by SaaS plan limits in checkSubscriptionLimits
       return next();

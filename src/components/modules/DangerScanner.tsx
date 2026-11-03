@@ -97,6 +97,7 @@ export const DangerScanner: React.FC = () => {
         <div className="md:col-span-4 space-y-1.5">
           <span className="text-[10px] text-slate-500 uppercase tracking-wide font-semibold">SECTOR MATRIX FILTER</span>
           <select 
+            aria-label="Filter by sector"
             value={selectedSector}
             onChange={(e) => setSelectedSector(e.target.value)}
             className="w-full bg-slate-900 border border-slate-800 rounded p-2 outline-none text-slate-300 focus:border-orange-500/50 text-xs font-mono transition"
@@ -112,6 +113,7 @@ export const DangerScanner: React.FC = () => {
         <div className="md:col-span-4 space-y-1.5">
           <span className="text-[10px] text-slate-500 uppercase tracking-wide font-semibold">MIN SEVERITY SCORE</span>
           <select 
+            aria-label="Minimum score"
             value={minScore.toString()}
             onChange={(e) => setMinScore(Number(e.target.value))}
             className="w-full bg-slate-900 border border-slate-800 rounded p-2 outline-none text-slate-300 focus:border-orange-500/50 text-xs font-mono transition"

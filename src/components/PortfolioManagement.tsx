@@ -157,16 +157,8 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
           return;
         }
       }
-      // Seeds
-      const seeds: Holding[] = [
-        { id: "seed-1", symbol: "GP", quantity: 1500, buyPrice: 242.10, purchaseDate: "2025-08-10" },
-        { id: "seed-2", symbol: "SQURPHARMA", quantity: 2000, buyPrice: 212.50, purchaseDate: "2025-09-12" },
-        { id: "seed-3", symbol: "BEXIMCO", quantity: 800, buyPrice: 110.00, purchaseDate: "2025-11-15" },
-        { id: "seed-4", symbol: "BATBC", quantity: 500, buyPrice: 380.00, purchaseDate: "2026-01-20" },
-        { id: "seed-5", symbol: "BRACBANK", quantity: 3000, buyPrice: 42.10, purchaseDate: "2026-02-14" }
-      ];
-      localStorage.setItem("dse_portfolio_holdings", JSON.stringify(seeds));
-      setHoldings(seeds);
+      // Start empty: never write a made-up sample portfolio into the user's saved holdings
+      setHoldings([]);
     } catch {
       // safe fallback
     }
@@ -224,8 +216,90 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
     setViews(views.filter(v => v.id !== id));
   };
 
+  // Rendered from both the empty state and the main view, so "Add first position" works on an empty portfolio
+  const addHoldingModal = showAddModal ? (
+        <div className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#111827] border border-[rgba(255,255,255,0.12)] rounded-3xl p-6 max-w-md w-full text-white relative animate-fade-in space-y-5">
+            <button 
+              onClick={() => setShowAddModal(false)}
+              className="absolute top-4 right-4 p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            
+            <div className="flex items-center gap-2 border-b border-[rgba(255,255,255,0.05)] pb-3">
+              <Briefcase className="h-5 w-5 text-[#00D4FF]" />
+              <h4 className="font-display text-sm font-extrabold uppercase">Add Portfolio position</h4>
+            </div>
+
+            <form onSubmit={handleAddHolding} className="space-y-4 font-mono text-xs">
+              <div className="space-y-1">
+                <label className="text-slate-400 block font-bold">Select DSE Stock Ticker:</label>
+                <select
+                  value={formSymbol}
+                  onChange={(e) => setFormSymbol(e.target.value)}
+                  className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:ring-1 focus:ring-[#00D4FF] focus:outline-none"
+                >
+                  {DSE_AVAIL_SYMBOLS.map(sym => (
+                    <option key={sym} value={sym}>{sym} - {DSE_COMPANIES[sym]?.name || ""}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-slate-400 block font-bold">Quantity (Shares):</label>
+                  <input
+                    type="number"
+                    min="1"
+                    required
+                    value={formQuantity}
+                    onChange={(e) => setFormQuantity(parseInt(e.target.value) || 0)}
+                    className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-slate-400 block font-bold">Avg Purchase price (৳):</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    min="0.1"
+                    required
+                    value={formBuyPrice}
+                    onChange={(e) => setFormBuyPrice(parseFloat(e.target.value) || 0)}
+                    className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-slate-400 block font-bold">Purchase trade date:</label>
+                <input
+                  type="date"
+                  required
+                  value={formPurchaseDate || new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setFormPurchaseDate(e.target.value)}
+                  className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:ring-1 focus:ring-[#00D4FF] focus:outline-none"
+                />
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="w-full py-2.5 bg-[#00D4FF] text-black font-extrabold uppercase rounded-xl hover:bg-opacity-90"
+                >
+                  Construct allocation order
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+  ) : null;
+
   if (holdings.length === 0) {
     return (
+      <>
+      {addHoldingModal}
       <div className="bg-[#111827] border border-[rgba(255,255,255,0.08)] rounded-3xl p-12 text-center text-white space-y-6">
         <Briefcase className="h-12 w-12 text-[#00D4FF] mx-auto animate-pulse" />
         <h3 className="text-xl font-display font-bold">Black-Litterman Portfolio System Empty</h3>
@@ -242,6 +316,7 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
           Add First Position
         </button>
       </div>
+      </>
     );
   }
 
@@ -2973,84 +3048,7 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
 
 
       {/* ── ADD POSITION MODAL ── */}
-      {showAddModal && (
-        <div className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[#111827] border border-[rgba(255,255,255,0.12)] rounded-3xl p-6 max-w-md w-full text-white relative animate-fade-in space-y-5">
-            <button 
-              onClick={() => setShowAddModal(false)}
-              className="absolute top-4 right-4 p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white"
-            >
-              <X className="h-4 w-4" />
-            </button>
-            
-            <div className="flex items-center gap-2 border-b border-[rgba(255,255,255,0.05)] pb-3">
-              <Briefcase className="h-5 w-5 text-[#00D4FF]" />
-              <h4 className="font-display text-sm font-extrabold uppercase">Add Portfolio position</h4>
-            </div>
-
-            <form onSubmit={handleAddHolding} className="space-y-4 font-mono text-xs">
-              <div className="space-y-1">
-                <label className="text-slate-400 block font-bold">Select DSE Stock Ticker:</label>
-                <select
-                  value={formSymbol}
-                  onChange={(e) => setFormSymbol(e.target.value)}
-                  className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:ring-1 focus:ring-[#00D4FF] focus:outline-none"
-                >
-                  {DSE_AVAIL_SYMBOLS.map(sym => (
-                    <option key={sym} value={sym}>{sym} - {DSE_COMPANIES[sym]?.name || ""}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <label className="text-slate-400 block font-bold">Quantity (Shares):</label>
-                  <input
-                    type="number"
-                    min="1"
-                    required
-                    value={formQuantity}
-                    onChange={(e) => setFormQuantity(parseInt(e.target.value) || 0)}
-                    className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <label className="text-slate-400 block font-bold">Avg Purchase price (৳):</label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    min="0.1"
-                    required
-                    value={formBuyPrice}
-                    onChange={(e) => setFormBuyPrice(parseFloat(e.target.value) || 0)}
-                    className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <label className="text-slate-400 block font-bold">Purchase trade date:</label>
-                <input
-                  type="date"
-                  required
-                  value={formPurchaseDate || new Date().toISOString().split("T")[0]}
-                  onChange={(e) => setFormPurchaseDate(e.target.value)}
-                  className="w-full bg-[#1F2937] border border-slate-700 rounded-xl p-2.5 text-white focus:ring-1 focus:ring-[#00D4FF] focus:outline-none"
-                />
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  className="w-full py-2.5 bg-[#00D4FF] text-black font-extrabold uppercase rounded-xl hover:bg-opacity-90"
-                >
-                  Construct allocation order
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      {addHoldingModal}
 
       {/* ── ADD VIEW MODAL ── */}
       {showAddViewModal && (

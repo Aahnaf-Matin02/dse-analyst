@@ -112,6 +112,9 @@ router.get("/status", (req, res, next) => {
       activeEndpoint: "https://www.dse.com.bd",
       lastSuccessfulSync: lastSyncIso,
       lastAttemptTime: syncStatus?.lastAttemptTime || null,
+      sessionDate: syncStatus?.sessionDate || null,
+      message: scraperStatus.message,
+      diagnostics: scraperStatus.diagnostics,
       expectedTradingDay,
       universeCount,
       marketDataCount: marketCount,
@@ -184,6 +187,35 @@ router.get("/data-quality", (req, res, next) => {
       staleRecords,
       lastFullSync: lastSync,
       lastMarketSync: lastSync
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// POST /api/dse/refresh - Public "Reconnect" action: refreshes live prices and indices only.
+// Throttled server-wide so repeated clicks cannot hammer dse.com.bd; the full /sync stays secret-protected.
+const REFRESH_MIN_INTERVAL_MS = 15 * 1000;
+let lastRefreshAt = 0;
+let refreshInFlight: Promise<any> | null = null;
+
+router.post("/refresh", async (req, res, next) => {
+  try {
+    if (!refreshInFlight && Date.now() - lastRefreshAt >= REFRESH_MIN_INTERVAL_MS) {
+      lastRefreshAt = Date.now();
+      refreshInFlight = DSEScraper.syncLiveDSEData(1, true).finally(() => {
+        refreshInFlight = null;
+      });
+    }
+    const result = refreshInFlight ? await refreshInFlight : null;
+    const status = DSEScraper.getStatus();
+    res.json({
+      success: result ? result.success : status.status === "Success",
+      live: status.status === "Success",
+      source: status.source,
+      parsedSymbols: status.parsedSymbols,
+      message: result ? result.message : "A refresh ran moments ago; showing its result.",
+      lastSuccessfulSync: status.lastSuccessfulSync
     });
   } catch (err) {
     next(err);

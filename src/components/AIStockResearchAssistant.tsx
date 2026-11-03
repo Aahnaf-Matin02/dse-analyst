@@ -252,7 +252,7 @@ High (Multi-factor analytical framework)`;
           sender: "assistant",
           text: `🔍 **Initiating Institutional Financial Analysis for ${currentStock.symbol} (${currentStock.name})...**\nAnalyzing current valuation multiples, intraday technical levels, balance sheet indicators, and recent market news to compile your comprehensive report.`,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          modelUsed: "gemini-3.1-pro-preview",
+          modelUsed: "Offline guide (no AI)",
           roleTitle: "Senior Institutional Equity Analyst & CFA"
         };
         setMessages([introMsg]);
@@ -278,46 +278,35 @@ High (Multi-factor analytical framework)`;
           });
 
           const data = await res.json();
-          const botReply = res.ok && data.response 
-            ? data.response 
-            : generateClientFallback(reportPrompt, true);
+          const botReply = res.ok && data.response
+            ? data.response
+            : res.status === 429
+              ? "⏳ You've used the free AI analyses for now. Please try again later — signed-in accounts get a higher daily limit."
+              : "⚠️ The AI service is unavailable right now, so this is a general offline guide — not an analysis of current data.\n\n" + generateClientFallback(reportPrompt, true);
 
           const reportMsg: ChatMessage = {
             id: "report-" + Math.random().toString(),
             sender: "assistant",
             text: botReply,
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            modelUsed: data.modelUsed || "gemini-3.1-pro-preview",
+            modelUsed: data.modelUsed || (data.aiStatus?.mode === "RuleBasedFallback" ? "Rule-based fallback (AI not configured)" : "Model not reported"),
             roleUsed: "complex",
             roleTitle: data.roleTitle || "Senior Institutional Equity Research Analyst & CFA",
-            grounding: data.grounding || (searchGroundingEnabled ? {
-              searchQueries: [`${currentStock.symbol} ${currentStock.name} news DSE`, `${currentStock.symbol} dividend quarterly earnings`],
-              sources: [
-                { title: `${currentStock.symbol} Official Company Profile & Disclosures`, url: `https://www.dse.com.bd/company/${currentStock.symbol}`, domain: "dse.com.bd" },
-                { title: "Bangladesh Financial Express Corporate News", url: "https://thefinancialexpress.com.bd", domain: "thefinancialexpress.com.bd" }
-              ],
-              isGrounded: true
-            } : undefined)
+            grounding: data.grounding /* only real grounding returned by the server */
           };
 
           setMessages([introMsg, reportMsg]);
         } catch (err) {
           console.error("Auto report generation failed:", err);
-          const offlineReply = generateClientFallback(reportPrompt, true);
+          const offlineReply = "⚠️ Couldn't reach the AI service (check your connection). Below is a general offline guide — not an analysis of current data.\n\n" + generateClientFallback(reportPrompt, true);
           const reportMsg: ChatMessage = {
             id: "report-" + Math.random().toString(),
             sender: "assistant",
             text: offlineReply,
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            modelUsed: "gemini-3.1-pro-preview",
+            modelUsed: "Offline guide (no AI)",
             roleTitle: "Senior Institutional Equity Research Analyst & CFA",
-            grounding: searchGroundingEnabled ? {
-              searchQueries: [`${currentStock.symbol} DSE disclosures`],
-              sources: [
-                { title: `${currentStock.symbol} Official Company Profile - DSE`, url: `https://www.dse.com.bd/company/${currentStock.symbol}`, domain: "dse.com.bd" }
-              ],
-              isGrounded: true
-            } : undefined
+            grounding: undefined
           };
           setMessages([introMsg, reportMsg]);
         } finally {
@@ -326,7 +315,9 @@ High (Multi-factor analytical framework)`;
         }
       };
 
-      triggerAutoReport();
+      // Not run automatically: each report uses the visitor's limited AI quota. It starts from the
+      // assistant's suggestions or when the user asks a question.
+      void triggerAutoReport;
     }
   }, [currentStock.symbol]);
 
@@ -366,9 +357,11 @@ High (Multi-factor analytical framework)`;
       });
 
       const data = await res.json();
-      let botReply = res.ok && data.response 
-        ? data.response 
-        : generateClientFallback(textToSend, false);
+      let botReply = res.ok && data.response
+            ? data.response
+            : res.status === 429
+              ? "⏳ You've used the free AI analyses for now. Please try again later — signed-in accounts get a higher daily limit."
+              : "⚠️ The AI service is unavailable right now, so this is a general offline guide — not an analysis of current data.\n\n" + generateClientFallback(textToSend, false);
 
       const botMsg: ChatMessage = {
         id: Math.random().toString(),
@@ -378,19 +371,13 @@ High (Multi-factor analytical framework)`;
         modelUsed: data.modelUsed || roleMeta.model,
         roleUsed: data.roleUsed || currentRole,
         roleTitle: data.roleTitle || roleMeta.title,
-        grounding: data.grounding || (searchGroundingEnabled ? {
-          searchQueries: [`${currentStock.symbol} latest announcements`],
-          sources: [
-            { title: `${currentStock.symbol} Official Profile & Announcements - DSE`, url: `https://www.dse.com.bd/company/${currentStock.symbol}`, domain: "dse.com.bd" }
-          ],
-          isGrounded: true
-        } : undefined)
+        grounding: data.grounding /* only real grounding returned by the server */
       };
 
       setMessages(prev => [...prev, botMsg]);
     } catch (err) {
       console.error("AI Assistant connection failure:", err);
-      const offlineReply = generateClientFallback(textToSend, false);
+      const offlineReply = "⚠️ Couldn't reach the AI service (check your connection). Below is a general offline guide — not an analysis of current data.\n\n" + generateClientFallback(textToSend, false);
       const botMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: "assistant",
@@ -439,38 +426,33 @@ High (Multi-factor analytical framework)`;
       });
 
       const data = await res.json();
-      const botReply = res.ok && data.response 
-        ? data.response 
-        : generateClientFallback(userQuery, true);
+      const botReply = res.ok && data.response
+            ? data.response
+            : res.status === 429
+              ? "⏳ You've used the free AI analyses for now. Please try again later — signed-in accounts get a higher daily limit."
+              : "⚠️ The AI service is unavailable right now, so this is a general offline guide — not an analysis of current data.\n\n" + generateClientFallback(userQuery, true);
 
       const botMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: "assistant",
         text: botReply,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        modelUsed: data.modelUsed || "gemini-3.1-pro-preview",
+        modelUsed: data.modelUsed || (data.aiStatus?.mode === "RuleBasedFallback" ? "Rule-based fallback (AI not configured)" : "Model not reported"),
         roleUsed: "complex",
         roleTitle: data.roleTitle || "Senior Institutional Equity Research Analyst & CFA",
-        grounding: data.grounding || (searchGroundingEnabled ? {
-          searchQueries: [`${currentStock.symbol} financial statements`, `${currentStock.symbol} dividend declaration DSE`],
-          sources: [
-            { title: `${currentStock.symbol} Official Profile & Disclosures - DSE`, url: `https://www.dse.com.bd/company/${currentStock.symbol}`, domain: "dse.com.bd" },
-            { title: "Bangladesh Financial Express", url: "https://thefinancialexpress.com.bd", domain: "thefinancialexpress.com.bd" }
-          ],
-          isGrounded: true
-        } : undefined)
+        grounding: data.grounding /* only real grounding returned by the server */
       };
 
       setMessages(prev => [...prev, botMsg]);
     } catch (err) {
       console.error("Report builder crash:", err);
-      const offlineReply = generateClientFallback(userQuery, true);
+      const offlineReply = "⚠️ Couldn't reach the AI service (check your connection). Below is a general offline guide — not an analysis of current data.\n\n" + generateClientFallback(userQuery, true);
       const botMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: "assistant",
         text: offlineReply,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        modelUsed: "gemini-3.1-pro-preview",
+        modelUsed: "Offline guide (no AI)",
         roleTitle: "Senior Institutional Equity Research Analyst & CFA"
       };
       setMessages(prev => [...prev, botMsg]);

@@ -1,7 +1,7 @@
 import { Router, Response } from "express";
 import crypto from "crypto";
-import { UserRepository } from "../repositories/userRepository";
-import { activeSessions, authenticateToken, AuthenticatedRequest, saveSessionsToDisk, revokeAllSessionsForUser } from "../middleware/auth";
+import { UserRepository, hashPassword } from "../repositories/userRepository";
+import { authenticateToken, AuthenticatedRequest, revokeAllSessionsForUser, createSession, deleteSession, extractToken } from "../middleware/auth";
 import { PasswordValidator } from "../services/passwordValidator";
 import { MailerService } from "../services/mailer";
 
@@ -9,6 +9,8 @@ const router = Router();
 
 // In-memory rate limiting map for verification resends
 const resendCooldowns = new Map<string, number>();
+
+const MAX_VERIFICATION_ATTEMPTS = 5;
 
 // 1. Email and password formats validation helper
 function validateEmail(email: string): boolean {
@@ -45,13 +47,14 @@ router.post("/signup", async (req, res, next) => {
     const created = UserRepository.createUser(email, name, password);
 
     // Generate Verification OTP code
-    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const verificationCode = crypto.randomInt(100000, 1000000).toString();
     const codeHash = crypto.createHash("sha256").update(verificationCode).digest("hex");
     const codeExpires = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours expiry
 
     UserRepository.updateUser(created.email, {
       emailVerificationTokenHash: codeHash,
-      emailVerificationTokenExpires: codeExpires
+      emailVerificationTokenExpires: codeExpires,
+      emailVerificationAttempts: 0
     });
 
     // Send email with verification code
@@ -76,12 +79,7 @@ router.post("/signup", async (req, res, next) => {
     });
 
     // Auto-login upon signing up successfully
-    const token = crypto.randomBytes(24).toString("hex");
-    activeSessions.set(token, {
-      email: created.email,
-      expiresAt: new Date(Date.now() + 30 * 60 * 1000) // 30 minutes longevity
-    });
-    saveSessionsToDisk();
+    const token = createSession(created.email);
 
     res.status(201).json({
       success: true,
@@ -104,11 +102,11 @@ router.post("/signup", async (req, res, next) => {
 });
 
 // 3. Login endpoint with brute-force lockout protection
-router.post("/login", (req, res, next) => {
+router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password) {
+    if (typeof email !== "string" || typeof password !== "string" || !email || !password) {
       return res.status(400).json({ error: "Email and password parameters are required." });
     }
 
@@ -126,7 +124,7 @@ router.post("/login", (req, res, next) => {
       }
     }
 
-    const matched = UserRepository.verifyPassword(email, password);
+    const matched = await UserRepository.verifyPassword(email, password);
     
     if (!matched) {
       // Increment login failure for brute-force tracking
@@ -146,12 +144,7 @@ router.post("/login", (req, res, next) => {
     // Clear failed logins on successful login
     UserRepository.resetFailedLogin(normalizedEmail);
 
-    const token = crypto.randomBytes(24).toString("hex");
-    activeSessions.set(token, {
-      email: matched.email,
-      expiresAt: new Date(Date.now() + 30 * 60 * 1000)
-    });
-    saveSessionsToDisk();
+    const token = createSession(matched.email);
 
     res.json({
       success: true,
@@ -198,15 +191,27 @@ router.post("/verify-email", (req, res, next) => {
       return res.status(400).json({ error: "Verification code has expired. Please request a new one." });
     }
 
-    const hash = crypto.createHash("sha256").update(code.trim()).digest("hex");
+    const hash = crypto.createHash("sha256").update(String(code).trim()).digest("hex");
     if (hash !== user.emailVerificationTokenHash) {
+      // A 6-digit code is guessable, so burn it after a few wrong attempts and force a resend.
+      const attempts = (user.emailVerificationAttempts || 0) + 1;
+      if (attempts >= MAX_VERIFICATION_ATTEMPTS) {
+        UserRepository.updateUser(normalizedEmail, {
+          emailVerificationTokenHash: null,
+          emailVerificationTokenExpires: null,
+          emailVerificationAttempts: 0
+        });
+        return res.status(400).json({ error: "Too many incorrect attempts. Please request a new verification code." });
+      }
+      UserRepository.updateUser(normalizedEmail, { emailVerificationAttempts: attempts });
       return res.status(400).json({ error: "Invalid verification code or code has expired." });
     }
 
     UserRepository.updateUser(normalizedEmail, {
       emailVerified: true,
       emailVerificationTokenHash: null,
-      emailVerificationTokenExpires: null
+      emailVerificationTokenExpires: null,
+      emailVerificationAttempts: 0
     });
 
     res.json({ success: true, message: "Email address verified successfully!" });
@@ -247,13 +252,14 @@ router.post("/resend-verification", async (req, res, next) => {
       return res.status(400).json({ error: "This email address is already verified." });
     }
 
-    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const verificationCode = crypto.randomInt(100000, 1000000).toString();
     const codeHash = crypto.createHash("sha256").update(verificationCode).digest("hex");
     const codeExpires = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
     UserRepository.updateUser(normalizedEmail, {
       emailVerificationTokenHash: codeHash,
-      emailVerificationTokenExpires: codeExpires
+      emailVerificationTokenExpires: codeExpires,
+      emailVerificationAttempts: 0
     });
 
     resendCooldowns.set(normalizedEmail, now);
@@ -310,9 +316,16 @@ router.post("/forgot-password", async (req, res, next) => {
       passwordResetTokenExpires: tokenExpires
     });
 
-    const hostHeader = req.headers["x-forwarded-host"] || req.headers["host"] || req.get("host");
-    const protoHeader = req.headers["x-forwarded-proto"] || req.protocol || "https";
-    const appUrl = process.env.APP_URL || (hostHeader ? `${protoHeader}://${hostHeader}` : "https://dse-analyst.app");
+    // Never build the reset link from request headers in production: a forged Host / X-Forwarded-Host
+    // would make us email the user a link pointing at an attacker's domain.
+    let appUrl = process.env.APP_URL;
+    if (!appUrl) {
+      if (process.env.NODE_ENV === "production") {
+        console.error("[auth] APP_URL is not configured; refusing to build a password reset link from request headers.");
+        return res.status(503).json({ error: "Password reset is temporarily unavailable. Please contact support." });
+      }
+      appUrl = `${req.protocol}://${req.get("host")}`;
+    }
     const resetLink = `${appUrl}/reset-password?token=${resetToken}&email=${encodeURIComponent(user.email)}`;
 
     await MailerService.sendMail({
@@ -363,8 +376,8 @@ router.post("/reset-password", async (req, res, next) => {
       return res.status(400).json({ error: "The password reset link has expired. Please request a new one." });
     }
 
-    const inputHash = crypto.createHash("sha256").update(token).digest("hex");
-    if (inputHash !== user.passwordResetTokenHash) {
+    const inputHash = crypto.createHash("sha256").update(String(token)).digest("hex");
+    if (!crypto.timingSafeEqual(Buffer.from(inputHash), Buffer.from(String(user.passwordResetTokenHash).padEnd(64).slice(0, 64)))) {
       return res.status(400).json({ error: "Invalid email, expired, or invalid password reset token." });
     }
 
@@ -383,12 +396,12 @@ router.post("/reset-password", async (req, res, next) => {
     }
 
     // Hash the password
-    const salt = crypto.randomBytes(16).toString("hex");
-    const passwordHash = crypto.pbkdf2Sync(newPassword, salt, 10000, 64, "sha512").toString("hex");
+    const { salt, hash: passwordHash, iterations } = hashPassword(newPassword);
 
     UserRepository.updateUser(normalizedEmail, {
       passwordHash,
       salt,
+      passwordIterations: iterations,
       passwordResetTokenHash: null,
       passwordResetTokenExpires: null,
       loginAttempts: 0,
@@ -411,13 +424,7 @@ router.post("/reset-password", async (req, res, next) => {
 // 4. Logout endpoint
 router.post("/logout", authenticateToken as any, (req: AuthenticatedRequest, res: Response, next) => {
   try {
-    const authHeader = req.headers["authorization"];
-    const token = (authHeader && authHeader.split(" ")[1]) || (req.headers["x-session-token"] as string);
-
-    if (token) {
-      activeSessions.delete(token);
-      saveSessionsToDisk();
-    }
+    deleteSession(extractToken(req));
 
     res.json({ success: true, message: "Logged out from persistent system successfully." });
   } catch (err) {

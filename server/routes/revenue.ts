@@ -1,43 +1,16 @@
 import { Router, Response } from "express";
 import { UserRepository } from "../repositories/userRepository";
 import { authenticateToken, AuthenticatedRequest, requireEmailVerified } from "../middleware/auth";
+import { PLANS } from "../config/plans";
 
 const router = Router();
 
 // Mock verified coupons
 const ACTIVE_COUPONS: Record<string, { discountPercent: number; description: string }> = {
   "LAUNCH50": { discountPercent: 50, description: "50% launch discount for early adopters" },
-  "COMPCOFOUNDER": { discountPercent: 100, description: "100% discount for special testing" },
   "TRADERPRO": { discountPercent: 20, description: "20% professional trader coupon" }
 };
 
-// Plan detail descriptors
-const PLANS = {
-  free: {
-    name: "Free Basic Tier",
-    priceBDT: 0,
-    aiDailyLimit: 5,
-    features: ["Standard watchlist", "Basic stock analytics", "Daily summary"]
-  },
-  premium: {
-    name: "Premium Individual",
-    priceBDT: 999,
-    aiDailyLimit: 100,
-    features: ["Intraday Ticker Tape", "100 AI queries/day", "Fundamental & DCF Models", "Email alerts"]
-  },
-  professional: {
-    name: "Professional Trader",
-    priceBDT: 2499,
-    aiDailyLimit: 500,
-    features: ["Unlimited AI scans", "Breakout Scanners", "Black-Litterman Portfolio Optimization", "Stress Testing Models"]
-  },
-  institutional: {
-    name: "Institutional Enterprise",
-    priceBDT: 9999,
-    aiDailyLimit: 5000,
-    features: ["Multi-seat integration", "Broker connection layer", "Priority API access", "Full PDF research export"]
-  }
-};
 
 /**
  * GET /api/revenue/plans
@@ -104,6 +77,16 @@ router.post("/subscribe", authenticateToken as any, requireEmailVerified as any,
 
     const basePrice = PLANS[tier as keyof typeof PLANS].priceBDT;
     const finalPrice = Math.round(basePrice * (1 - discount / 100));
+
+    // No payment gateway verifies transactionId yet, so a paid upgrade must never be granted on the
+    // client's word alone. Mock checkout is only honoured outside production with an explicit opt-in.
+    const mockPaymentsAllowed = process.env.ALLOW_MOCK_PAYMENTS === "true" && process.env.NODE_ENV !== "production";
+    if (tier !== "free" && !mockPaymentsAllowed) {
+      return res.status(402).json({
+        error: "PAYMENT_VERIFICATION_UNAVAILABLE",
+        message: "Online payment verification is not available yet. Your plan was not changed."
+      });
+    }
 
     // Expiration date (30 days from now)
     const expiresAt = new Date();

@@ -80,7 +80,7 @@ export class DseClient {
     throw lastError || new Error(`Failed to request ${targetUrl} after ${this.maxRetries} attempts`);
   }
 
-  private executeRequest(targetUrl: string, customHeaders: Record<string, string>): Promise<{ status: number; body: string; url: string }> {
+  private executeRequest(targetUrl: string, customHeaders: Record<string, string>, redirectsLeft = 5): Promise<{ status: number; body: string; url: string }> {
     return new Promise((resolve, reject) => {
       const parsedUrl = new URL(targetUrl);
       const isHttps = parsedUrl.protocol === "https:";
@@ -109,7 +109,11 @@ export class DseClient {
           if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
             const redirectUrl = new URL(res.headers.location, targetUrl).toString();
             res.resume(); // consume stream
-            this.executeRequest(redirectUrl, customHeaders).then(resolve).catch(reject);
+            if (redirectsLeft <= 0) {
+              reject(new Error(`Too many redirects while requesting ${targetUrl}`));
+              return;
+            }
+            this.executeRequest(redirectUrl, customHeaders, redirectsLeft - 1).then(resolve).catch(reject);
             return;
           }
 

@@ -18,8 +18,11 @@ export const MailerService = {
 
     const fromAddress = process.env.SMTP_FROM || "noreply@dse-ai-analyst.com";
 
-    // 1. Beautiful log fallback for local testing and serverless logs
-    console.log(`
+    // 1. Log fallback for local development only. Emails carry verification codes and password reset
+    //    links, so their contents must never reach production logs.
+    if (isSmtpConfigured || process.env.NODE_ENV === "production") {
+      console.log(`[MAILER] Outgoing email to ${to} (subject: "${subject}")`);
+    } else console.log(`
 ========================================================================
 📬 [MAILER] OUTGOING EMAIL DETECTED
 To: ${to}

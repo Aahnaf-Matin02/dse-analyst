@@ -2,6 +2,7 @@ import { Router, Response } from "express";
 import { getAllStocks, getStockBySymbol, getMetadata } from "../repositories/stockRepository";
 import { WatchlistRepository } from "../repositories/watchlistRepository";
 import { authenticateToken, AuthenticatedRequest, requireEmailVerified } from "../middleware/auth";
+import { verifyAdminSecret } from "../middleware/adminAuth";
 import { generateHistoricalData, DSE_COMPANIES } from "../../src/data/dseData";
 import { HistoryRepository } from "../repositories/historyRepository";
 import { getStockHistory, getAvailableHistorySymbols, getHistoryCoverage } from "../repositories/historicalRepository";
@@ -282,7 +283,7 @@ router.get("/historical/admin-stats", (req, res, next) => {
 });
 
 // Trigger historical database repair job
-router.post("/historical/repair-history", (req, res, next) => {
+router.post("/historical/repair-history", verifyAdminSecret, (req, res, next) => {
   try {
     const result = DataCoverageAuditService.runHistoricalRepairJob();
     res.json(result);
@@ -292,7 +293,7 @@ router.post("/historical/repair-history", (req, res, next) => {
 });
 
 // Trigger financials database repair job
-router.post("/historical/repair-financials", (req, res, next) => {
+router.post("/historical/repair-financials", verifyAdminSecret, (req, res, next) => {
   try {
     const result = DataCoverageAuditService.runFinancialsRepairJob();
     res.json(result);
@@ -555,7 +556,7 @@ router.post("/watchlist/remove", authenticateToken as any, requireEmailVerified 
 });
 
 // 8. Refresh coverage-summary.json by executing investing-history import script
-router.post("/historical/refresh-coverage", (req, res, next) => {
+router.post("/historical/refresh-coverage", verifyAdminSecret, (req, res, next) => {
   try {
     exec("npx tsx scripts/import-investing-history.ts", (err: any, stdout: string, stderr: string) => {
       if (err) {

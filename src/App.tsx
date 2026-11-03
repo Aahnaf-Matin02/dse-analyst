@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   TrendingUp,
@@ -49,31 +49,40 @@ import { DSE_COMPANIES } from "./data/dseData";
 import { formatNumber, formatPrice, formatPercent, formatPlainPercent, formatMarketCap, formatVolume } from "./utils/formatters";
 import DashboardHeader from "./components/DashboardHeader";
 import StockOverview from "./components/StockOverview";
-import TechnicalSignals from "./components/TechnicalSignals";
-import PricePrediction from "./components/PricePrediction";
-import LossPrevention from "./components/LossPrevention";
-import PortfolioOptimizer from "./components/PortfolioOptimizer";
-import PortfolioManagement from "./components/PortfolioManagement";
+const TechnicalSignals = lazyWithFallback(() => import("./components/TechnicalSignals"), "Loading technical analysis");
+const PricePrediction = lazyWithFallback(() => import("./components/PricePrediction"), "Loading forecast");
+const LossPrevention = lazyWithFallback(() => import("./components/LossPrevention"), "Loading risk tools");
+const PortfolioOptimizer = lazyWithFallback(() => import("./components/PortfolioOptimizer"), "Loading optimizer");
+const PortfolioManagement = lazyWithFallback(() => import("./components/PortfolioManagement"), "Loading portfolio");
 import AuthModalForm from "./components/AuthModalForm";
-import DividendHistory from "./components/DividendHistory";
-import MacroMarketContext from "./components/MacroMarketContext";
-import HistoricalDataAdmin from "./components/HistoricalDataAdmin";
-import MarketIntelligenceCenter from "./components/MarketIntelligenceCenter";
+const DividendHistory = lazyWithFallback(() => import("./components/DividendHistory"), "Loading dividend history");
+const MacroMarketContext = lazyWithFallback(() => import("./components/MacroMarketContext"), "Loading market context");
+const HistoricalDataAdmin = lazyWithFallback(() => import("./components/HistoricalDataAdmin"), "Loading admin console");
+const MarketIntelligenceCenter = lazyWithFallback(() => import("./components/MarketIntelligenceCenter"), "Loading market intelligence");
 import MarketOverview from "./components/MarketOverview";
 import SectorMarketCapDashboard from "./components/SectorMarketCapDashboard";
-import MarketResearcherAI from "./components/MarketResearcherAI";
-import SectorIntelligenceHub from "./components/SectorIntelligenceHub";
-import AIStockResearchAssistant from "./components/AIStockResearchAssistant";
+const MarketResearcherAI = lazyWithFallback(() => import("./components/MarketResearcherAI"), "Loading AI researcher");
+const SectorIntelligenceHub = lazyWithFallback(() => import("./components/SectorIntelligenceHub"), "Loading sector comparison");
+const AIStockResearchAssistant = lazyWithFallback(() => import("./components/AIStockResearchAssistant"), "Loading research assistant");
 import TickerTape from "./components/TickerTape";
-import { OpportunityScanner } from "./components/modules/OpportunityScanner";
-import { DangerScanner } from "./components/modules/DangerScanner";
-import { EquityValuationModel } from "./components/EquityValuationModel";
+const OpportunityScanner = lazyWithFallback(() => import("./components/modules/OpportunityScanner").then(m => ({ default: m.OpportunityScanner as any })), "Loading opportunity scanner");
+const DangerScanner = lazyWithFallback(() => import("./components/modules/DangerScanner").then(m => ({ default: m.DangerScanner as any })), "Loading risk scanner");
+const EquityValuationModel = lazyWithFallback(() => import("./components/EquityValuationModel").then(m => ({ default: m.EquityValuationModel as any })), "Loading valuation model");
 import RiskContributionSidebarWidget from "./components/RiskContributionSidebarWidget";
-import SubscriptionBillingPortal from "./components/SubscriptionBillingPortal";
+const SubscriptionBillingPortal = lazyWithFallback(() => import("./components/SubscriptionBillingPortal"), "Loading billing");
 import { GlobalDisclaimer } from "./components/GlobalDisclaimer";
-import EducationalAcademy from "./components/EducationalAcademy";
-import { LearnerProgressRoom } from "./components/LearnerProgressRoom";
-import { ThinkAssessmentRoom } from "./components/ThinkAssessmentRoom";
+const EducationalAcademy = lazyWithFallback(() => import("./components/EducationalAcademy"), "Loading lessons");
+const LearnerProgressRoom = lazyWithFallback(() => import("./components/LearnerProgressRoom").then(m => ({ default: m.LearnerProgressRoom as any })), "Loading progress");
+const ThinkAssessmentRoom = lazyWithFallback(() => import("./components/ThinkAssessmentRoom").then(m => ({ default: m.ThinkAssessmentRoom as any })), "Loading quizzes");
+import { AiRunBar, AiRunState, AI_IDLE, interpretAiResponse } from "./components/ui/AiRunBar";
+import { StockSearch } from "./components/ui/StockSearch";
+import { Term, formatChartTick, formatChartDate } from "./components/ui/Term";
+import { FreshnessLine } from "./components/ui/StatusPrimitives";
+import { Section } from "./components/ui/Section";
+import { Toaster, OfflineBanner, toast } from "./components/ui/Toaster";
+import HomeHero from "./components/HomeHero";
+import { lazyWithFallback } from "./utils/lazyWithFallback";
+const HowItWorks = lazyWithFallback(() => import("./components/HowItWorks"), "Loading page");
 
 // Custom chart imports for historical charts
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine, BarChart, Bar, Cell, ComposedChart, Line, LineChart, Legend } from "recharts";
@@ -139,7 +148,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       const isUp = data.close >= data.open;
       return (
         <div className="bg-black/95 border border-white/10 rounded-2xl p-4 shadow-2xl backdrop-blur-md font-mono text-xs text-gray-200 min-w-[200px]" id="chart-tooltip-panel">
-          <div className="text-gray-400 font-bold mb-1.5 border-b border-white/10 pb-1.5">{label}</div>
+          <div className="text-gray-300 font-bold mb-1.5 border-b border-white/10 pb-1.5">{formatChartDate(label)}</div>
           <div className="space-y-1.5">
             <div className="flex justify-between gap-6">
               <span className="text-gray-500 font-semibold">CLOSE:</span>
@@ -240,14 +249,17 @@ function parseInitialRoute(): { symbol: string | null; view: string } {
   }
 
   // Path matching: /company/:symbol, /stocks/:symbol, /analysis/:symbol, or bare /company, /analysis
-  const companyMatch = path.match(/^\/(?:company|stocks?|analysis)\/?([a-zA-Z0-9_-]*)/i);
+  // Symbols may contain & ( ) e.g. KAY&QUE, AMCL(PRAN) — they arrive URL-encoded
+  const companyMatch = path.match(/^\/(?:company|stocks?|analysis)\/?([^/?#]*)/i);
   if (companyMatch) {
-    const sym = companyMatch[1]?.toUpperCase().trim();
+    let raw = companyMatch[1] || "";
+    try { raw = decodeURIComponent(raw); } catch { /* keep raw */ }
+    const sym = raw.toUpperCase().trim();
     return { symbol: sym || "GP", view: "stock" };
   }
 
   const cleanPath = path.replace(/^\//, "").toLowerCase();
-  const validViews = ["learn", "explore", "ask", "think", "practice", "progress", "portfolio", "intelligence", "admin"];
+  const validViews = ["learn", "explore", "ask", "think", "practice", "progress", "portfolio", "intelligence", "admin", "about"];
   if (validViews.includes(cleanPath)) {
     return { symbol: null, view: cleanPath };
   }
@@ -259,7 +271,7 @@ function syncBrowserUrl(symbol: string | null, view: string) {
   if (typeof window === "undefined") return;
   let targetPath = "/";
   if (symbol) {
-    targetPath = `/company/${symbol}`;
+    targetPath = `/company/${encodeURIComponent(symbol)}`;
   } else if (view && view !== "explore") {
     targetPath = `/${view}`;
   }
@@ -426,10 +438,29 @@ export default function App() {
     setToastNotification({ message: "Successfully logged out of the terminal session.", type: "info" });
   };
 
-  const handleToggleWatchlist = async (symbol: string) => {
+  // Signed-out visitors use the same browser-saved watchlist as the home screen (no forced sign-in)
+  const [localWatchlist, setLocalWatchlist] = useState<string[]>(() => {
+    try { const v = JSON.parse(localStorage.getItem("dse_local_watchlist") || "null"); return Array.isArray(v) ? v : ["GP", "RENATA", "BATBC"]; } catch { return ["GP", "RENATA", "BATBC"]; }
+  });
+  const saveLocalWatchlist = (next: string[]) => {
+    setLocalWatchlist(next);
+    try { localStorage.setItem("dse_local_watchlist", JSON.stringify(next)); } catch { /* storage unavailable */ }
+  };
+  const isOnAnyWatchlist = (symbol: string) =>
+    currentUser && authToken ? watchlist.some(s => s.symbol === symbol) : localWatchlist.includes(symbol);
+
+  const handleToggleWatchlist = async (symbol: string, isUndo = false) => {
     if (!currentUser || !authToken) {
-      setAuthModalOpen("login");
-      setToastNotification({ message: "Please sign in to customize and save your personal stock watchlist.", type: "info" });
+      const had = localWatchlist.includes(symbol);
+      const next = had ? localWatchlist.filter(s => s !== symbol) : [...localWatchlist, symbol];
+      saveLocalWatchlist(next);
+      if (!isUndo) {
+        toast({
+          message: had ? `Removed ${symbol} from your watchlist.` : `Added ${symbol} to your watchlist.`,
+          actionLabel: "Undo",
+          onAction: () => saveLocalWatchlist(had ? [...next, symbol] : next.filter(s => s !== symbol)),
+        });
+      }
       return;
     }
     
@@ -454,12 +485,13 @@ export default function App() {
           const wlData = await listRes.json();
           setWatchlist(wlData);
         }
-        setToastNotification({
-          message: isOnWatchlist 
-            ? `Removed ${symbol} from your personalized watchlist.` 
-            : `Added ${symbol} to your personalized watchlist.`,
-          type: "success"
-        });
+        if (!isUndo) {
+          toast({
+            message: isOnWatchlist ? `Removed ${symbol} from your watchlist.` : `Added ${symbol} to your watchlist.`,
+            actionLabel: "Undo",
+            onAction: () => handleToggleWatchlist(symbol, true),
+          });
+        }
       } else {
         setToastNotification({ message: "Failed updating watchlist. Please try again.", type: "warning" });
       }
@@ -497,6 +529,16 @@ export default function App() {
 
   const hasData = historicalChart.length > 0 && chartSource !== "NoHistoricalData" && chartSource !== "NO_DATA";
   const hasOHLC = hasData && historicalChart.some(item => item.open !== undefined && item.high !== undefined);
+  // Describe the chart by where most of its rows came from (the API reports only the newest row's source)
+  const chartSourceInfo = useMemo(() => {
+    if (!historicalChart.length) return { label: "No historical data available", verified: false };
+    const counts: Record<string, number> = {};
+    historicalChart.forEach((r: any) => { const k = r.source || chartSource || "Unknown"; counts[k] = (counts[k] || 0) + 1; });
+    const main = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    const verified = /DSE_OFFICIAL|LiveDseSnapshot|LankaBD/i.test(main);
+    const label = verified ? "DSE official data" : /csv|imported|investing/i.test(main) ? "Imported CSV — not verified against DSE" : main;
+    return { label, verified };
+  }, [historicalChart, chartSource]);
   const isReal = chartSource.toLowerCase().includes("historical") || chartSource.toLowerCase().includes("csv") || chartSource.toLowerCase().includes("database") || chartSource === "DSE Historical archives";
 
   useEffect(() => {
@@ -589,9 +631,9 @@ export default function App() {
     });
   }, [showDsexOverlay, dsex24mHistory, stock24mHistory]);
   const [fundamentalAnalysis, setFundamentalAnalysis] = useState<AIAnalysis>({
-    recommendation: "Hold",
+    recommendation: "" as any,
     reasoning: [],
-    fundamentalScore: 50,
+    fundamentalScore: null as any,
     breakdown: { profitability: "", liquidity: "", solvency: "", growth: "", efficiency: "" }
   });
   const [technicalSignals, setTechnicalSignals] = useState<TechnicalIndicators>({
@@ -609,12 +651,43 @@ export default function App() {
   const [predictionExplanation, setPredictionExplanation] = useState("");
   const [predictionDisclaimer, setPredictionDisclaimer] = useState("");
   const [riskAnalysis, setRiskAnalysis] = useState<RiskAnalysis>({
-    score: 30,
-    level: "Low Risk",
+    score: null as any,
+    level: "Not assessed" as any,
     flags: [],
     whatCouldGoWrong: [],
     howToReduceRisk: []
   });
+
+  // AI analyses run only on request (one request per click) — never automatically on page load,
+  // so anonymous visitors don't burn their quota just by opening a stock page.
+  type AiKind = "fundamental" | "technical" | "predict" | "risk";
+  const AI_ENDPOINT: Record<AiKind, string> = { fundamental: "analyze", technical: "technical", predict: "predict", risk: "risk" };
+  const [aiRuns, setAiRuns] = useState<Record<AiKind, AiRunState>>({ fundamental: AI_IDLE, technical: AI_IDLE, predict: AI_IDLE, risk: AI_IDLE });
+  const runAi = async (kind: AiKind) => {
+    const symbol = selectedSymbol;
+    if (!symbol) return;
+    setAiRuns(prev => ({ ...prev, [kind]: { status: "loading" } }));
+    try {
+      const headers: Record<string, string> = {};
+      if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
+      const res = await fetch(`/api/gemini/${AI_ENDPOINT[kind]}/${encodeURIComponent(symbol)}`, { method: "POST", headers });
+      const { state, data } = await interpretAiResponse(res);
+      if (data) {
+        if (data.aiStatus) setAiStatus(data.aiStatus);
+        if (kind === "fundamental") setFundamentalAnalysis(data);
+        if (kind === "technical") setTechnicalSignals(data);
+        if (kind === "predict") {
+          setPredictions(data.predictions || []);
+          setPredictionExplanation(data.aiExplanation || "");
+          setPredictionDisclaimer(data.disclaimer || "");
+        }
+        if (kind === "risk") setRiskAnalysis(data);
+      }
+      setAiRuns(prev => ({ ...prev, [kind]: state }));
+    } catch {
+      setAiRuns(prev => ({ ...prev, [kind]: { status: "error", message: "Network problem — check your connection." } }));
+    }
+  };
   
   // Custom Portfolio parameters
   const [portfolioCapital, setPortfolioCapital] = useState<number>(100000);
@@ -732,6 +805,14 @@ export default function App() {
     fetchDataForStock(selectedSymbol);
   }, [selectedSymbol, chartDays]);
 
+  // A different stock: previous AI results no longer apply
+  useEffect(() => {
+    setAiRuns({ fundamental: AI_IDLE, technical: AI_IDLE, predict: AI_IDLE, risk: AI_IDLE });
+    setFundamentalAnalysis({ recommendation: "" as any, reasoning: [], fundamentalScore: null as any, breakdown: { profitability: "", liquidity: "", solvency: "", growth: "", efficiency: "" } });
+    setPredictions([]); setPredictionExplanation(""); setPredictionDisclaimer("");
+    setRiskAnalysis({ score: null as any, level: "Not assessed" as any, flags: [], whatCouldGoWrong: [], howToReduceRisk: [] });
+  }, [selectedSymbol]);
+
   // Initial portfolio builds
   useEffect(() => {
     optimizerPortfolio();
@@ -799,93 +880,10 @@ export default function App() {
       }
     };
 
-    const company = DSE_COMPANIES[symbol] || {
-      symbol,
-      name: symbol,
-      price: 0,
-      change: 0,
-      changePercent: 0,
-      sector: "Unknown",
-      marketCap: null,
-      peRatio: null,
-      eps: null,
-      nav: null,
-      divYield: null,
-      revGrowth: null,
-      profitGrowth: null,
-      volume: 0,
-      trades: 0,
-      high: null,
-      low: null,
-      open: null,
-      prevClose: null,
-      marketDepth: null,
-      financials: null,
-      dataSource: "Unavailable"
-    };
-    const price = company.price;
-
-    const fallbackFundamental = {
-      recommendation: "Hold" as any,
-      reasoning: [
-        "Verified fundamental metrics are unavailable for this ticker.",
-        "EPS, NAV, P/E, dividend yield, revenue growth, ROE, ROA, and debt ratio should be verified from official DSE/company disclosures before analysis.",
-        "Only live/cached price and trading data are available, so valuation confidence is limited."
-      ],
-      fundamentalScore: null,
-      breakdown: {
-        profitability: "N/A — verified ROE, ROA, margin or profit history is unavailable.",
-        liquidity: "N/A — verified current ratio or cash data is unavailable.",
-        solvency: "N/A — verified debt ratio or balance-sheet data is unavailable.",
-        growth: "N/A — verified revenue/profit growth data is unavailable.",
-        efficiency: "N/A — verified asset turnover or operating efficiency data is unavailable."
-      },
-      peFairValue: null,
-      peFactorScore: null,
-      pegRatio: null,
-      pegFairValue: null,
-      pegFactorScore: null,
-      dcfFairValue: null,
-      cashFlowFactorScore: null,
-      fairValueEstimate: null,
-      discountPremium: null,
-      valuationStatus: "Unavailable" as any,
-      valuationModelMetrics: null
-    };
-
-    const fallbackTechnical = {
-      rsi: null,
-      rsiStatus: "Unavailable" as any,
-      macd: null,
-      sma20: null,
-      ema50: null,
-      bollingerBands: null,
-      support: [] as number[],
-      resistance: [] as number[],
-      aiInterpretation: "Technical analysis is unavailable because verified historical OHLCV data is missing or insufficient."
-    };
-
-    const fallbackPredict = {
-      predictions: [] as any[],
-      aiExplanation: "Price prediction is unavailable because verified historical OHLCV data is missing or insufficient.",
-      disclaimer: "Price prediction is unavailable because verified historical OHLCV data is missing or insufficient."
-    };
-
-    const fallbackRisk = {
-      score: null as any,
-      level: "Medium Risk" as any,
-      flags: ["Verified fundamental data unavailable"],
-      whatCouldGoWrong: ["Broad market bearish sentiments.", "Data quality gaps limit precision of risk score."],
-      howToReduceRisk: ["Perform independent due diligence beyond automated aggregates."]
-    };
-
     try {
-      const [chartData, fData, tData, pData, rData, aData] = await Promise.all([
+      // Price history and computed analytics only; AI analyses are requested on demand (see runAi)
+      const [chartData, aData] = await Promise.all([
         safeFetchJson(`/api/stocks/${symbol}/chart?days=${chartDays}`, {}, { data: [], source: "NoHistoricalData" }),
-        safeFetchJson(`/api/gemini/analyze/${symbol}`, { method: "POST" }, fallbackFundamental),
-        safeFetchJson(`/api/gemini/technical/${symbol}`, { method: "POST" }, fallbackTechnical),
-        safeFetchJson(`/api/gemini/predict/${symbol}`, { method: "POST" }, fallbackPredict),
-        safeFetchJson(`/api/gemini/risk/${symbol}`, { method: "POST" }, fallbackRisk),
         safeFetchJson(`/api/analytics/${symbol}?days=${chartDays}&benchmark=DSEX`, {}, null)
       ]);
 
@@ -931,24 +929,12 @@ export default function App() {
 
       setHistoricalChart(parsedChart);
       setChartSource(parsedSource);
-      setFundamentalAnalysis(fData || fallbackFundamental);
-      setTechnicalSignals(tData || fallbackTechnical);
-      setPredictions(pData?.predictions || fallbackPredict.predictions);
-      setPredictionExplanation(pData?.aiExplanation || fallbackPredict.aiExplanation);
-      setPredictionDisclaimer(pData?.disclaimer || fallbackPredict.disclaimer);
-      setRiskAnalysis(rData || fallbackRisk);
 
     } catch (err) {
       console.warn("Outer fallback triggered for stock details fetch (this should be extremely rare code path):", err);
       setHistoricalChart([]);
       setChartSource("NoHistoricalData");
       setAnalyticsData(null);
-      setFundamentalAnalysis(fallbackFundamental);
-      setTechnicalSignals(fallbackTechnical);
-      setPredictions(fallbackPredict.predictions);
-      setPredictionExplanation(fallbackPredict.aiExplanation);
-      setPredictionDisclaimer(fallbackPredict.disclaimer);
-      setRiskAnalysis(fallbackRisk);
     } finally {
       setIsOverviewLoading(false);
     }
@@ -962,15 +948,8 @@ export default function App() {
       let currentHoldings = [];
       if (stored) {
         currentHoldings = JSON.parse(stored);
-      } else {
-        currentHoldings = [
-          { id: "seed-1", symbol: "GP", quantity: 1500, buyPrice: 242.10, purchaseDate: "2025-08-10" },
-          { id: "seed-2", symbol: "SQURPHARMA", quantity: 2000, buyPrice: 212.50, purchaseDate: "2025-09-12" },
-          { id: "seed-3", symbol: "BEXIMCO", quantity: 800, buyPrice: 110.00, purchaseDate: "2025-11-15" },
-          { id: "seed-4", symbol: "BATBC", quantity: 500, buyPrice: 380.00, purchaseDate: "2026-01-20" },
-          { id: "seed-5", symbol: "BRACBANK", quantity: 3000, buyPrice: 42.10, purchaseDate: "2026-02-14" }
-        ];
       }
+      // No invented sample portfolio: an empty portfolio stays empty
 
       const res = await fetch("/portfolio/optimize", {
         method: "POST",
@@ -1218,6 +1197,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0A0F1E] text-[#F0F4FF] font-sans selection:bg-[#00D4FF]/20 selection:text-[#00D4FF] flex flex-col justify-between relative overflow-x-hidden">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <OfflineBanner />
+      <Toaster />
       {/* Ambient glassmorphic glowing deep space orbits */}
       <div className="fixed top-[-10%] left-[10%] w-[45%] h-[45%] rounded-full bg-[#00D4FF]/4 blur-[140px] pointer-events-none -z-10"></div>
       <div className="fixed bottom-[-10%] right-[10%] w-[45%] h-[45%] rounded-full bg-[#10B981]/4 blur-[140px] pointer-events-none -z-10"></div>
@@ -1258,61 +1240,42 @@ export default function App() {
                 </div>
                 <button
                   onClick={() => setIsMobileDrawerOpen(false)}
-                  className="p-1.5 rounded-lg bg-[#1A2235]/60 hover:bg-[#1A2235] transition-colors text-[#94A3B8] hover:text-white"
+                  aria-label="Close menu"
+                  className="p-2.5 rounded-lg bg-[#1A2235]/60 hover:bg-[#1A2235] transition-colors text-[#94A3B8] hover:text-white"
                 >
                   <X className="h-4 w-4" />
                 </button>
               </div>
 
-              {/* Main App Navigation Section */}
-              <div className="space-y-2">
-                <span className="text-[9px] font-mono text-[#94A3B8]/50 font-bold uppercase tracking-wider block px-2">Main Sections</span>
-                
-                <button
-                  onClick={() => {
-                    handleNavigate(null);
-                    setIsMobileDrawerOpen(false);
-                  }}
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-3 transition-colors border ${
-                    selectedView === null && selectedSymbol === null
-                      ? "bg-[#00D4FF]/10 text-[#00D4FF] border-[#00D4FF]/25 font-extrabold"
-                      : "text-[#94A3B8] hover:text-[#F0F4FF] hover:bg-[#1A2235]/40 border-transparent"
-                  }`}
-                >
-                  <Home className="h-4.5 w-4.5" />
-                  <span>Market Dashboard</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    optimizerPortfolio(true);
-                    setIsMobileDrawerOpen(false);
-                  }}
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-3 transition-colors border ${
-                    selectedView === "portfolio"
-                      ? "bg-[#00D4FF]/10 text-[#00D4FF] border-[#00D4FF]/25 font-extrabold"
-                      : "text-[#94A3B8] hover:text-[#F0F4FF] hover:bg-[#1A2235]/40 border-transparent"
-                  }`}
-                >
-                  <Briefcase className="h-4.5 w-4.5" />
-                  <span>Portfolio Intelligence</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    handleNavigate("intelligence");
-                    setIsMobileDrawerOpen(false);
-                  }}
-                  className={`w-full px-4 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-3 transition-colors border ${
-                    selectedView === "intelligence"
-                      ? "bg-[#00D4FF]/10 text-[#00D4FF] border-[#00D4FF]/25 font-extrabold"
-                      : "text-[#94A3B8] hover:text-[#F0F4FF] hover:bg-[#1A2235]/40 border-transparent"
-                  }`}
-                >
-                  <PieChart className="h-4.5 w-4.5" />
-                  <span>Market Intelligence Center</span>
-                </button>
-              </div>
+              {/* Main navigation: same sections as the desktop header */}
+              <nav aria-label="Main" className="space-y-1">
+                {[
+                  { id: "explore", label: "Markets", icon: Home },
+                  { id: "learn", label: "Learn", icon: BookOpen },
+                  { id: "ask", label: "Ask AI", icon: Sparkles },
+                  { id: "think", label: "Quizzes", icon: Target },
+                  { id: "practice", label: "Practice portfolio", icon: Briefcase },
+                  { id: "progress", label: "My progress", icon: Activity },
+                  { id: "intelligence", label: "Market intelligence", icon: PieChart },
+                  { id: "about", label: "How it works & data sources", icon: Globe },
+                ].map(item => {
+                  const isActive = selectedSymbol === null && (selectedView === item.id || (item.id === "explore" && (selectedView === null || selectedView === "explore")));
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={() => { handleNavigate(item.id); setIsMobileDrawerOpen(false); }}
+                      className={`w-full min-h-[48px] px-4 rounded-xl text-base flex items-center gap-3 transition-colors border ${
+                        isActive ? "bg-[#00D4FF]/10 text-[#00D4FF] border-[#00D4FF]/25 font-semibold" : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-white/5 border-transparent"
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                      <span>{item.label}</span>
+                    </button>
+                  );
+                })}
+              </nav>
 
               {/* Stock Research Sub-Tabs Section (Visible if a stock is selected) */}
               {selectedSymbol !== null && (
@@ -1392,6 +1355,7 @@ export default function App() {
         onNavigate={handleNavigate}
         onToggleMobileMenu={() => setIsMobileDrawerOpen(!isMobileDrawerOpen)}
         isAdmin={isAdmin}
+        stocks={stocksList}
       />
 
       {/* 2. Toast alerts system notification overlay */}
@@ -1409,24 +1373,29 @@ export default function App() {
 
       {/* 3. Main workspace body */}
       <main 
+        id="main-content"
+        tabIndex={-1}
         className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-5 lg:py-6 w-full flex-1 space-y-4 sm:space-y-5 lg:space-y-6 pb-20 lg:pb-6"
         style={{ paddingBottom: selectedSymbol && typeof window !== 'undefined' && window.innerWidth < 1024
                    ? "72px" : undefined }}
       >
+        {/* Page title for screens whose own layout has no <h1> (screen readers, document outline) */}
+        {selectedSymbol === null && ({ ask: "Ask AI about DSE stocks", think: "Quizzes", practice: "Practice portfolio", portfolio: "Practice portfolio", progress: "My progress", intelligence: "Market intelligence" } as Record<string, string>)[selectedView] && (
+          <h1 className="sr-only">{({ ask: "Ask AI about DSE stocks", think: "Quizzes", practice: "Practice portfolio", portfolio: "Practice portfolio", progress: "My progress", intelligence: "Market intelligence" } as Record<string, string>)[selectedView]}</h1>
+        )}
         {/* Prominent Global Educational Disclaimer */}
         <GlobalDisclaimer />
         
         {selectedSymbol !== null ? (
           <>
-            {/* Added Back Button */}
-            <div className="flex justify-between items-center px-1">
-              <button
-                onClick={handleBackToOverview}
-                className="px-4 py-2 text-xs font-semibold font-mono text-[#00D4FF] hover:text-[#00D4FF]/80 hover:bg-[#00D4FF]/10 rounded-2xl border border-[#00D4FF]/20 flex items-center gap-1.5 transition-all select-none cursor-pointer"
-              >
-                ← Back to Market Overview
-              </button>
-            </div>
+            {/* Breadcrumb: always-visible way back */}
+            <nav aria-label="Breadcrumb" className="px-1">
+              <ol className="flex flex-wrap items-center gap-1.5 text-sm text-[var(--text-muted)]">
+                <li><a href="/" onClick={(e) => { e.preventDefault(); handleBackToOverview(); }} className="inline-flex items-center min-h-[44px] px-1 text-[var(--accent)] hover:underline">← Markets</a></li>
+                <li aria-hidden="true">/</li>
+                <li aria-current="page" className="text-[var(--text)] font-semibold">{selectedSymbol}</li>
+              </ol>
+            </nav>
 
             {/* Active Stock Overview & Quick Sectors Row */}
             <div className="sticky top-0 z-30 bg-[#111827]/90 backdrop-blur-md rounded-3xl border border-[rgba(255,255,255,0.08)] p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
@@ -1436,15 +1405,12 @@ export default function App() {
           {/* Left: Active company indicators */}
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-3xl font-display font-[800] tracking-tight text-white uppercase">
-                {currentStock.symbol}
-              </span>
-              <h1 className="text-sm font-medium text-[#94A3B8]">
-                {currentStock.name}
+              <h1 className="flex flex-wrap items-baseline gap-x-3">
+                <span className="text-3xl font-display font-[800] tracking-tight text-white uppercase">{currentStock.symbol}</span>
+                <span className="text-base font-medium text-[var(--text-muted)]">{currentStock.name}</span>
               </h1>
-              <span className="h-4 w-[1px] bg-[rgba(255,255,255,0.1)]"></span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#00D4FF]/10 text-[#00D4FF] font-bold tracking-wider border border-[#00D4FF]/20">
-                DSE COMPLIANT
+              <span className={`text-xs px-2 py-0.5 rounded-full border ${(currentStock as any).hasRealFundamentals ? "border-emerald-400/40 text-emerald-200" : "border-amber-400/40 text-amber-200"}`}>
+                {(currentStock as any).hasRealFundamentals ? "Fundamentals reported" : "Fundamentals not reported"}
               </span>
               <span className="h-4 w-[1px] bg-[rgba(255,255,255,0.1)] hidden sm:inline"></span>
               
@@ -1463,13 +1429,15 @@ export default function App() {
                 id="btn-watchlist-star"
                 onClick={() => handleToggleWatchlist(currentStock.symbol)}
                 className={`p-1.5 rounded-xl border transition-all flex items-center justify-center cursor-pointer ${
-                  watchlist.some(s => s.symbol === currentStock.symbol)
+                  isOnAnyWatchlist(currentStock.symbol)
                     ? "bg-amber-500/15 border-amber-500/30 text-amber-400"
                     : "bg-white/5 border-[rgba(255,255,255,0.06)] text-[#94A3B8] hover:text-white"
                 }`}
-                title={watchlist.some(s => s.symbol === currentStock.symbol) ? "Remove from Watchlist" : "Add to Watchlist"}
+                title={isOnAnyWatchlist(currentStock.symbol) ? "Remove from watchlist" : "Add to watchlist"}
+                aria-label={isOnAnyWatchlist(currentStock.symbol) ? `Remove ${currentStock.symbol} from watchlist` : `Add ${currentStock.symbol} to watchlist`}
+                aria-pressed={!!isOnAnyWatchlist(currentStock.symbol)}
               >
-                <Star className={`h-3.5 w-3.5 ${watchlist.some(s => s.symbol === currentStock.symbol) ? "fill-amber-400 text-amber-400" : ""}`} />
+                <Star className={`h-3.5 w-3.5 ${isOnAnyWatchlist(currentStock.symbol) ? "fill-amber-400 text-amber-400" : ""}`} />
               </button>
             </div>
             
@@ -1486,81 +1454,22 @@ export default function App() {
               
               <span className="h-3.5 w-[1px] bg-[rgba(255,255,255,0.1)]"></span>
               
-              <div className="text-[10px] font-mono text-[#94A3B8] uppercase">
-                Vol: <span className="font-bold text-white font-mono">{(currentStock.volume / 1000).toFixed(1)}K</span> • Trades: <span className="font-bold text-white font-mono">{currentStock.trades}</span> • Mkt Cap: <span className="font-bold text-[#F59E0B] font-mono">{formatMarketCap(currentStock.marketCap)}</span>
+              <div className="text-xs text-[var(--text-muted)]">
+                Volume <span className="font-semibold text-white">{(currentStock.volume / 1000).toFixed(1)}K</span> · Trades <span className="font-semibold text-white">{currentStock.trades}</span> · <Term term="Market Cap">Market cap</Term> <span className="font-semibold text-white">{formatMarketCap(currentStock.marketCap) ?? "Not reported"}</span>
               </div>
             </div>
+            {/* Plain-language answer first */}
+            <p className="text-sm text-[var(--text-muted)] max-w-2xl">
+              {currentStock.price > 0
+                ? <>{currentStock.symbol} last traded at <strong className="text-white">৳{currentStock.price.toFixed(2)}</strong>{currentStock.prevClose ? <>, {currentStock.change > 0 ? "up" : currentStock.change < 0 ? "down" : "unchanged"}{currentStock.change !== 0 ? ` ${Math.abs(currentStock.changePercent).toFixed(2)}%` : ""} from the previous close of ৳{Number(currentStock.prevClose).toFixed(2)}</> : null}.{currentStock.peRatio != null && currentStock.peRatio > 0 ? <> Investors pay about {currentStock.peRatio.toFixed(1)} taka for each taka of yearly earnings (<Term term="P/E">P/E</Term>).</> : null}</>
+                : "No recent price is available for this security."}
+            </p>
+            <FreshnessLine label="Fetched" updatedAt={(currentStock as any).lastUpdated} source={(currentStock as any).source || (currentStock as any).dataSource} />
           </div>
 
-          {/* Right: Quick Ticker Search Switcher */}
-          <div className="w-full md:w-80 relative font-sans" id="sticky-header-quick-switcher">
-            <div className="relative">
-              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#94A3B8]">
-                <Search className="h-4 w-4 text-[#00D4FF]" />
-              </div>
-              <input
-                type="text"
-                placeholder="Quick Switch Ticker..."
-                value={tickerQuery}
-                onChange={(e) => {
-                  setTickerQuery(e.target.value);
-                  setShowTickerResults(e.target.value.trim().length > 0);
-                }}
-                onFocus={() => setShowTickerResults(tickerQuery.trim().length > 0)}
-                className="w-full bg-[#1A2235]/60 text-white text-xs pl-9 pr-8 py-2.5 rounded-2xl border border-[rgba(255,255,255,0.08)] outline-none focus:border-[#00D4FF]/50 focus:ring-1 focus:ring-[#00D4FF]/30 backdrop-blur-md transition-all placeholder-[#4B5563]"
-              />
-
-              {tickerQuery.trim().length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setTickerQuery("");
-                    setShowTickerResults(false);
-                  }}
-                  className="absolute inset-y-0 right-3 flex items-center text-[#94A3B8] hover:text-white border-0 bg-transparent pr-0 cursor-pointer"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              )}
-
-              {showTickerResults && (
-                <div
-                  className="absolute left-0 right-0 mt-2 bg-[#111827] border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-2xl z-50 max-h-52 overflow-y-auto p-1 backdrop-blur-xl"
-                  onMouseLeave={() => setShowTickerResults(false)}
-                >
-                  {stocksList.filter(s =>
-                    s.symbol.toLowerCase().includes(tickerQuery.toLowerCase()) ||
-                    s.name.toLowerCase().includes(tickerQuery.toLowerCase())
-                  ).length === 0 ? (
-                    <div className="text-center py-4 text-xs text-[#94A3B8]/60 font-mono">
-                      No symbol found
-                    </div>
-                  ) : (
-                    stocksList.filter(s =>
-                      s.symbol.toLowerCase().includes(tickerQuery.toLowerCase()) ||
-                      s.name.toLowerCase().includes(tickerQuery.toLowerCase())
-                    ).slice(0, 10).map(item => (
-                      <button
-                        key={item.symbol}
-                        type="button"
-                        onClick={() => {
-                          handleSelectSearched(item.symbol);
-                        }}
-                        className="w-full text-left px-3 py-2 text-xs font-mono rounded-lg hover:bg-[#1A2235]/60 flex justify-between items-center transition-colors text-[#94A3B8] hover:text-[#F0F4FF] cursor-pointer"
-                      >
-                        <div className="truncate">
-                          <strong className="block text-[#F0F4FF] font-semibold">{item.symbol}</strong>
-                          <span className="text-[9px] text-[#94A3B8] font-sans truncate block">{item.name}</span>
-                        </div>
-                        <div className="text-right ml-4">
-                          <span className="text-[11px] font-bold text-[#F0F4FF] block">BDT {item.price || "N/A"}</span>
-                        </div>
-                      </button>
-                    ))
-                  )}
-                </div>
-              )}
-            </div>
+          {/* Right: switch to another stock */}
+          <div className="w-full md:w-80" id="sticky-header-quick-switcher">
+            <StockSearch stocks={stocksList} onSelect={handleSelectSearched} placeholder="Switch to another stock…" label="Switch to another stock" />
           </div>
 
         </div>
@@ -1679,7 +1588,7 @@ export default function App() {
 
                       return (
                         <div key={stat.label} className="bg-[#111827] border border-[rgba(255,255,255,0.08)] rounded-2xl px-4 py-3 flex flex-col gap-1">
-                          <span className="text-[10px] font-mono text-[#94A3B8] uppercase tracking-wider">{stat.label}</span>
+                          <span className="text-xs text-[var(--text-muted)]"><Term term={stat.label} /></span>
                           {showShimmer ? (
                             <div className="h-4 w-12 bg-[#243044] rounded animate-pulse mt-1" />
                           ) : (
@@ -1699,16 +1608,16 @@ export default function App() {
                         <h2 className="font-display text-sm font-extrabold text-[#F0F4FF] uppercase tracking-widest">
                           Price Chart — {currentStock.symbol}
                         </h2>
-                        <span className="text-[10px] font-sans text-[#94A3B8] block mt-0.5">
-                          Interval: Daily Close Index Values • <span className="font-semibold text-[#F0F4FF]">{isReal ? "Real Historical Archive Data" : "Simulated/Missing Trend Analysis Mode"}</span>
+                        <span className="text-xs text-[var(--text-muted)] block mt-0.5">
+                          Daily closing prices · {chartSourceInfo.label}
                         </span>
                       </div>
                       
                       <div className="flex flex-wrap items-center gap-3">
                         <div className="flex items-center gap-1.5 bg-[#1A2235] px-2.5 py-1 rounded-xl border border-[rgba(255,255,255,0.08)]">
-                          <span className={`inline-block w-1.5 h-1.5 rounded-full ${isReal ? "bg-emerald-500 animate-pulse" : "bg-amber-500 animate-pulse"}`}></span>
-                          <span className="text-[9px] font-mono text-[#94A3B8] font-bold tracking-tight uppercase">
-                            {isReal ? "Historical Record" : "Simulation"}
+                          <span className={`inline-block w-1.5 h-1.5 rounded-full ${chartSourceInfo.verified ? "bg-emerald-400" : "bg-amber-400"}`} aria-hidden="true"></span>
+                          <span className="text-xs text-[var(--text-muted)] font-semibold">
+                            {chartSourceInfo.verified ? "Verified source" : hasData ? "Unverified source" : "No data"}
                           </span>
                         </div>
                         
@@ -1793,7 +1702,8 @@ export default function App() {
                             { label: "3M", value: 90 },
                             { label: "6M", value: 180 },
                             { label: "1Y", value: 365 },
-                            { label: "24M", value: 730 }
+                            { label: "2Y", value: 730 },
+                            { label: "All", value: 3650 }
                           ].map((range) => (
                             <button
                               key={range.label}
@@ -1901,7 +1811,7 @@ export default function App() {
                                 <ResponsiveContainer width="100%" height="100%">
                                   <LineChart data={comparative24mData} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
                                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                                    <XAxis dataKey="date" stroke="#64748b" fontSize={10} fontFamily="monospace" />
+                                    <XAxis dataKey="date" stroke="#64748b" fontSize={10} fontFamily="monospace" tickFormatter={formatChartTick} minTickGap={40} />
                                     <YAxis 
                                       stroke="#64748b" 
                                       fontSize={10} 
@@ -1952,7 +1862,7 @@ export default function App() {
                                   margin={{ top: 10, right: 10, left: -25, bottom: 0 }}
                                 >
                                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                                  <XAxis dataKey="date" stroke="#64748b" fontSize={10} fontFamily="monospace" />
+                                  <XAxis dataKey="date" stroke="#64748b" fontSize={10} fontFamily="monospace" tickFormatter={formatChartTick} minTickGap={40} />
                                   <YAxis stroke="#64748b" fontSize={10} fontFamily="monospace" domain={["auto", "auto"]} />
                                   <Tooltip content={<CustomTooltip />} />
                                   
@@ -2103,7 +2013,7 @@ export default function App() {
                                     </linearGradient>
                                   </defs>
                                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                                  <XAxis dataKey="date" stroke="#64748b" fontSize={10} fontFamily="monospace" />
+                                  <XAxis dataKey="date" stroke="#64748b" fontSize={10} fontFamily="monospace" tickFormatter={formatChartTick} minTickGap={40} />
                                   <YAxis stroke="#64748b" fontSize={10} fontFamily="monospace" domain={["auto", "auto"]} />
                                   <Tooltip content={<CustomTooltip />} />
                                   <Area
@@ -2243,72 +2153,47 @@ export default function App() {
                       Calculated Price range: <strong className="text-[#F0F4FF]">Min BDT {hasData ? Math.min(...(historicalChart.map(h => h.close) || [0])).toFixed(1) : "N/A"}</strong> to <strong className="text-[#F0F4FF]">Max BDT {hasData ? Math.max(...(historicalChart.map(h => h.close) || [0])).toFixed(1) : "N/A"}</strong>.
                     </span>
                     
-                    {(!chartSource || chartSource === "NoHistoricalData" || chartSource === "NO_DATA") ? (
-                      <span className="font-sans font-bold border border-[rgba(255,255,255,0.10)] bg-[#1A2235] text-[#94A3B8] px-2.5 py-0.5 rounded text-[10px] uppercase">
-                        Source: No Historical Data
-                      </span>
-                    ) : (chartSource === "DemoSimulation" || chartSource === "Simulation") ? (
-                      <span className="font-sans font-bold border border-[rgba(255,255,255,0.10)] bg-[#1A2235] text-[#94A3B8] hover:text-[#F0F4FF] px-2.5 py-0.5 rounded text-[10px] uppercase transition-colors">
-                        Source: Simulation Fallback
-                      </span>
-                    ) : (
-                      <span className="font-sans font-bold border border-[rgba(255,255,255,0.10)] bg-[#1A2235] text-[#94A3B8] hover:text-[#F0F4FF] px-2.5 py-0.5 rounded text-[10px] uppercase transition-colors">
-                        Source: Historical ({chartSource})
-                      </span>
-                    )}
+                    <span className="text-xs text-[var(--text-muted)]">
+                      Source: {chartSourceInfo.label}{hasData && historicalChart.length ? ` · ${historicalChart[0].date} – ${historicalChart[historicalChart.length - 1].date}` : ""}
+                    </span>
                   </div>
                 </div>
 
                 {/* Micro AI recommendations panel */}
                 {!isChartFullscreen && (
                   <div id="ai-quick-recommendation" className="lg:col-span-4 bg-[#111827] border border-[rgba(255,255,255,0.06)] rounded-3xl p-6 flex flex-col justify-between shadow-2xl">
-                  <div>
-                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#00D4FF] font-black block mb-0.5">Fundamental Summary</span>
-                    <h3 className="font-display text-sm font-extrabold text-white">AI Valuation Assessment</h3>
-                    <p className="text-[11px] text-[#94A3B8] font-sans mt-0.5">Grounded recommendation computed by fundamental audits.</p>
-                  </div>
-
-                  {isOverviewLoading ? (
-                    <div className="space-y-4 my-4 animate-pulse">
-                      <div className="h-16 bg-[#1A2235]/40 rounded-2xl border border-[rgba(255,255,255,0.04)] flex flex-col items-center justify-center">
-                        <div className="h-3 bg-white/10 rounded w-1/3 mb-1.5"></div>
-                        <div className="h-5 bg-white/10 rounded w-1/2"></div>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="h-3.5 bg-white/5 rounded w-5/6"></div>
-                        <div className="h-3.5 bg-white/5 rounded w-11/12"></div>
-                        <div className="h-3.5 bg-white/5 rounded w-4/5"></div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="space-y-4 my-2">
-                      <div className="text-center bg-[#1A2235]/40 p-4 rounded-2xl border border-[rgba(255,255,255,0.04)]">
-                        <span className="text-[10px] uppercase font-mono text-[#94A3B8] block font-bold">DSE AI Analyst Call</span>
-                        <div className={`text-2xl font-black font-display tracking-tight uppercase mt-2 ${
-                          fundamentalAnalysis.recommendation.includes("Buy") ? "text-emerald-400" :
-                          fundamentalAnalysis.recommendation.includes("Sell") ? "text-rose-400" : "text-amber-400"
-                        }`}>
-                          {fundamentalAnalysis.recommendation}
-                        </div>
-                      </div>
-
-                      <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
-                        {fundamentalAnalysis.reasoning.map((item, idx) => (
-                          <div key={idx} className="flex gap-2 text-xs text-[#F0F4FF] leading-relaxed items-start">
-                            <span className="text-[#00D4FF] font-mono font-bold mt-0.5">•</span>
-                            <p>{item}</p>
+                  <div className="space-y-4">
+                    <AiRunBar
+                      compact
+                      title="AI summary"
+                      description={`A short, plain-language read of ${selectedSymbol}'s valuation and fundamentals.`}
+                      dataUsed={["Last traded price", "EPS", "NAV per share", "P/E", "Dividend yield", "Sector", "Revenue and profit growth (when reported)"]}
+                      state={aiRuns.fundamental}
+                      onRun={() => runAi("fundamental")}
+                    />
+                    {aiRuns.fundamental.status === "done" && (
+                      <div className="space-y-3">
+                        {fundamentalAnalysis.recommendation && (
+                          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]/50 p-4">
+                            <p className="text-xs text-[var(--text-subtle)]">AI interpretation · not investment advice</p>
+                            <p className="text-lg font-semibold text-[var(--text)] mt-1">{String(fundamentalAnalysis.recommendation)}</p>
                           </div>
-                        ))}
+                        )}
+                        {fundamentalAnalysis.reasoning?.length > 0 && (
+                          <ul className="space-y-1.5 list-disc pl-5 text-sm text-[var(--text-muted)] leading-relaxed">
+                            {fundamentalAnalysis.reasoning.map((item, idx) => <li key={idx}>{item}</li>)}
+                          </ul>
+                        )}
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
 
                   <div className="pt-3 border-t border-[rgba(255,255,255,0.06)] flex justify-end">
                     <button
                       onClick={() => setActiveTab("analyzer")}
                       className="text-[11px] font-bold text-[#00D4FF] hover:text-[#33DDFF] flex items-center select-none cursor-pointer"
                     >
-                      View elaborate fundamental metrics <ChevronRight className="h-4 w-4" />
+                      Open full valuation <ChevronRight className="h-4 w-4" aria-hidden="true" />
                     </button>
                   </div>
                 </div>
@@ -2318,13 +2203,16 @@ export default function App() {
 
               {!isChartFullscreen && (
                 <>
+              <Section title="Market context" hint="How the broad DSE indices moved alongside this stock.">
                   {/* Macro Market Index Dashboard */}
                   <MacroMarketContext
                     selectedSymbol={selectedSymbol}
                     selectedStockName={currentStock.name}
                     stockChartData={historicalChart}
                   />
+              </Section>
 
+              <Section title="Sector comparison & research assistant" hint="Compare with peers and ask questions about this company.">
                   {/* Google Finance Beta-style side-by-side research layout */}
                   <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-stretch my-6">
                     <div className="flex flex-col h-full">
@@ -2342,7 +2230,9 @@ export default function App() {
                       />
                     </div>
                   </div>
+              </Section>
 
+              <Section title="Step-by-step analysis framework" hint="A guided three-stage way to think about this stock.">
               {/* ── 3-Stage Analysis Framework ─────────────────────── */}
               <div id="investment-analysis-framework" className="bg-[#111827] border border-[rgba(255,255,255,0.08)] rounded-3xl p-5 shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00D4FF]/30 to-transparent"></div>
@@ -2536,23 +2426,36 @@ export default function App() {
                   })()}
                 </div>
               </div>
+              </Section>
 
+              <Section title="Fundamentals" hint="Reported profitability, valuation and financial health." defaultOpen>
               {/* Fundamental Scores Row */}
               <StockOverview
                 stock={currentStock}
                 fundamentalScore={fundamentalAnalysis.fundamentalScore}
                 scoreBreakdown={fundamentalAnalysis.breakdown}
               />
+              </Section>
 
-              {/* Historical Dividend Payout Ledger */}
-              <DividendHistory symbol={selectedSymbol} />
+              <Section title="Dividend history" hint="Past cash and stock dividends declared by the company.">
+                <DividendHistory symbol={selectedSymbol} />
+              </Section>
             </>
           )}
         </div>
       )}
 
           {/* AI VALUE ANALYZER TAB */}
-          {activeTab === "analyzer" && (
+          {activeTab === "analyzer" && aiRuns.fundamental.status !== "done" && (
+            <AiRunBar
+              title="Valuation analysis"
+              description={`Fair-value models (P/E, PEG, DCF) and a fundamentals scorecard for ${selectedSymbol}, explained in plain language.`}
+              dataUsed={["Last traded price", "EPS", "NAV per share", "P/E", "Dividend yield", "Sector averages", "Revenue and profit growth (when reported)"]}
+              state={aiRuns.fundamental}
+              onRun={() => runAi("fundamental")}
+            />
+          )}
+          {activeTab === "analyzer" && aiRuns.fundamental.status === "done" && (
             <div id="printable-report-area" className="bg-[#111827] border border-[rgba(255,255,255,0.06)] rounded-3xl p-6 space-y-6 shadow-2xl text-[#F0F4FF]">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[rgba(255,255,255,0.06)] pb-4">
                 <div>
@@ -2876,16 +2779,38 @@ export default function App() {
 
           {/* TECHNICAL SIGNALS OSCILLATORS TAB */}
           {activeTab === "technical" && (
+            <div className="space-y-4">
+            <AiRunBar
+              compact
+              title="AI reading of the indicators (optional)"
+              description="The indicators below are calculated from price history. Generate a plain-language interpretation of them."
+              dataUsed={["Daily price and volume history", "RSI", "MACD", "Moving averages", "Bollinger bands"]}
+              state={aiRuns.technical}
+              onRun={() => runAi("technical")}
+            />
+            {aiRuns.technical.status === "done" && technicalSignals?.aiInterpretation && (
+              <p className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-sm text-[var(--text-muted)] leading-relaxed">{technicalSignals.aiInterpretation}</p>
+            )}
             <TechnicalSignals
               indicators={technicalSignals}
               stockPrice={currentStock.price}
               symbol={currentStock.symbol}
               historicalData={historicalChart}
             />
+            </div>
           )}
 
           {/* AI FUTURE PRICE PREDICTION ENVELOPES TAB */}
           {activeTab === "prediction" && (
+            <div className="space-y-4">
+            <AiRunBar
+              compact
+              title="AI forecast commentary"
+              description="Generate the model's explanation of possible price paths. Forecasts are not validated and are not advice."
+              dataUsed={["Daily price history", "Volatility", "Moving averages"]}
+              state={aiRuns.predict}
+              onRun={() => runAi("predict")}
+            />
             <PricePrediction
               symbol={currentStock.symbol}
               currentPrice={currentStock.price}
@@ -2895,10 +2820,20 @@ export default function App() {
               decisionIntel={technicalSignals?.decisionIntel}
               chartDays={chartDays}
             />
+            </div>
           )}
 
           {/* LOSS PREVENTION AI RISK DETECTION TAB */}
-          {activeTab === "risk" && (
+          {activeTab === "risk" && aiRuns.risk.status !== "done" && (
+            <AiRunBar
+              title="Risk assessment"
+              description={`Generate a risk score for ${selectedSymbol}, what could go wrong, and ways to limit losses.`}
+              dataUsed={["Price volatility", "Drawdowns", "P/E and fundamentals (when reported)", "Sector", "Liquidity (volume)"]}
+              state={aiRuns.risk}
+              onRun={() => runAi("risk")}
+            />
+          )}
+          {activeTab === "risk" && aiRuns.risk.status === "done" && (
             <LossPrevention
               stock={currentStock}
               riskScore={riskAnalysis.score}
@@ -2970,11 +2905,14 @@ export default function App() {
           )
         ) : selectedView === "intelligence" ? (
           <MarketIntelligenceCenter />
+        ) : selectedView === "about" ? (
+          <HowItWorks onStart={() => handleNavigate("explore")} />
         ) : (
           <div className="space-y-6">
+            <HomeHero stocks={stocksList} onSelectStock={handleSelectSearched} onNavigate={(v) => handleNavigate(v)} />
             <MarketOverview stocks={stocksList} onSelectStock={handleSelectSearched} />
             
-            {/* Sector Summary & AI Researcher (Google Finance-style Side-by-Side Layout) */}
+            <Section title="Sector market value & AI market researcher" hint="Which sectors make up the market, and questions you can ask about it.">
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
               <div className="xl:col-span-8 flex flex-col h-full">
                 <SectorMarketCapDashboard />
@@ -2983,15 +2921,27 @@ export default function App() {
                 <MarketResearcherAI />
               </div>
             </div>
-            
-            {/* Active Market Swipes Scanner Matrix */}
+            </Section>
+
+            <Section title="Opportunity & risk scanners" hint="Rule-based screens for stocks with unusual momentum or warning signs. Educational, not advice.">
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               <OpportunityScanner />
               <DangerScanner />
             </div>
+            </Section>
           </div>
         )}
       </main>
+
+      <footer className="border-t border-[var(--border)] mt-8 pb-24 lg:pb-8">
+        <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col sm:flex-row gap-3 sm:items-center justify-between text-sm text-[var(--text-muted)]">
+          <p>DSE Analyst · Educational use only — not investment advice.</p>
+          <nav aria-label="Footer" className="flex flex-wrap gap-4">
+            <a href="/about" onClick={(e) => { e.preventDefault(); handleNavigate("about"); }} className="hover:text-white underline-offset-4 hover:underline">How it works &amp; data sources</a>
+            <a href="https://www.dse.com.bd" target="_blank" rel="noopener noreferrer" className="hover:text-white underline-offset-4 hover:underline">Dhaka Stock Exchange ↗</a>
+          </nav>
+        </div>
+      </footer>
 
       {selectedSymbol !== null && (
         <nav className="fixed bottom-0 left-0 right-0 z-40 bg-[#111827]/95 backdrop-blur-xl border-t border-[rgba(255,255,255,0.08)] flex lg:hidden safe-area-bottom" id="mobile-bottom-nav">

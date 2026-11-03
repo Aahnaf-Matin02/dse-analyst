@@ -47,6 +47,10 @@ async function runServer() {
   if (!process.env.NETLIFY && process.env.NODE_ENV !== "test") {
     const SYNC_INTERVAL_MS = 5 * 60 * 1000; // Controlled 5-minute synchronization interval
     setInterval(() => {
+      // Live price + index feed (drives the LIVE / disconnected status)
+      DSEScraper.syncLiveDSEData(1).catch((err: any) => {
+        console.warn("[DSE Scraper] Interval refresh warning:", err?.message || err);
+      });
       import("./server/services/dse/dseSyncService").then(({ defaultDseSyncService }) => {
         defaultDseSyncService.syncMarket().catch((err) => {
           console.warn("[DSE Sync] Controlled interval sync warning:", err?.message || err);

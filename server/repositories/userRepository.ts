@@ -17,6 +17,7 @@ export interface UserRecord {
   name: string;
   passwordHash: string;
   salt: string;
+  passwordIterations?: number; // PBKDF2 iterations used for passwordHash (absent = legacy 10,000)
   watchlist: string[];
   tier?: "free" | "premium" | "professional" | "institutional";
   subscriptionStatus?: "active" | "inactive" | "trial";
@@ -26,6 +27,7 @@ export interface UserRecord {
   emailVerified: boolean;
   emailVerificationTokenHash?: string | null;
   emailVerificationTokenExpires?: string | null;
+  emailVerificationAttempts?: number;
   passwordResetTokenHash?: string | null;
   passwordResetTokenExpires?: string | null;
   loginAttempts?: number;
@@ -82,10 +84,22 @@ function saveDb(db: DatabaseSchema) {
   }
 }
 
-function hashPassword(password: string, salt?: string) {
+// OWASP (2023) guidance for PBKDF2-HMAC-SHA512. Accounts created before this change used 10,000
+// iterations; they are verified with their stored count and transparently re-hashed on next login.
+export const PBKDF2_ITERATIONS = 210_000;
+const LEGACY_PBKDF2_ITERATIONS = 10_000;
+
+export function hashPassword(password: string, salt?: string, iterations: number = PBKDF2_ITERATIONS) {
   const userSalt = salt || crypto.randomBytes(16).toString("hex");
-  const hash = crypto.pbkdf2Sync(password, userSalt, 10000, 64, "sha512").toString("hex");
-  return { salt: userSalt, hash };
+  const hash = crypto.pbkdf2Sync(password, userSalt, iterations, 64, "sha512").toString("hex");
+  return { salt: userSalt, hash, iterations };
+}
+
+// Async variant for request handlers so a login does not block the event loop for every other user
+function hashPasswordAsync(password: string, salt: string, iterations: number): Promise<string> {
+  return new Promise((resolve, reject) =>
+    crypto.pbkdf2(password, salt, iterations, 64, "sha512", (err, key) => (err ? reject(err) : resolve(key.toString("hex"))))
+  );
 }
 
 export const UserRepository = {
@@ -103,12 +117,13 @@ export const UserRepository = {
       throw new Error("User with this email already exists");
     }
 
-    const { salt, hash } = hashPassword(passwordPlain);
+    const { salt, hash, iterations } = hashPassword(passwordPlain);
     const newUser: UserRecord = {
       email: normalizedEmail,
       name: name.trim(),
       passwordHash: hash,
       salt,
+      passwordIterations: iterations,
       watchlist: ["GP", "SQURPHARMA"], // default seed
       tier: "free",
       subscriptionStatus: "active",
@@ -189,15 +204,29 @@ export const UserRepository = {
     saveDb(db);
   },
 
-  verifyPassword(email: string, passwordPlain: string): { email: string; name: string } | null {
+  async verifyPassword(email: string, passwordPlain: string): Promise<{ email: string; name: string } | null> {
     const user = this.getByEmail(email);
-    if (!user) return null;
-
-    const { hash } = hashPassword(passwordPlain, user.salt);
-    if (hash === user.passwordHash) {
-      return { email: user.email, name: user.name };
+    if (!user) {
+      // Spend comparable time for unknown accounts so response timing does not reveal which emails exist
+      await hashPasswordAsync(passwordPlain, "0".repeat(32), PBKDF2_ITERATIONS);
+      return null;
     }
-    return null;
+
+    const iterations = user.passwordIterations || LEGACY_PBKDF2_ITERATIONS;
+    const hash = await hashPasswordAsync(passwordPlain, user.salt, iterations);
+    const expected = Buffer.from(user.passwordHash || "", "hex");
+    const actual = Buffer.from(hash, "hex");
+    if (!(expected.length === actual.length && crypto.timingSafeEqual(expected, actual))) {
+      return null;
+    }
+
+    // Upgrade legacy hashes now that we briefly hold the correct plaintext
+    if (iterations < PBKDF2_ITERATIONS) {
+      const salt = crypto.randomBytes(16).toString("hex");
+      const upgraded = await hashPasswordAsync(passwordPlain, salt, PBKDF2_ITERATIONS);
+      this.updateUser(user.email, { passwordHash: upgraded, salt, passwordIterations: PBKDF2_ITERATIONS });
+    }
+    return { email: user.email, name: user.name };
   },
 
   updateUserSubscription(email: string, tier: "free" | "premium" | "professional" | "institutional", status: "active" | "inactive" | "trial", expiresAt: string): boolean {

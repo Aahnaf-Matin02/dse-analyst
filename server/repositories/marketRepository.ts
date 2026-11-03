@@ -35,6 +35,8 @@ export interface MarketIndices {
   totals?: MarketSummaryTotals;
   breadth?: MarketBreadthSummary;
   intradayPoints?: Array<{ t: string; value: number }>;
+  /** Trading-session info reported by DSE (absent for older cache files) */
+  session?: { isOpen: boolean; phase: string; sessionDate: string | null };
 }
 
 const INDICES_FILE = process.env.INDICES_FILE || path.join(process.cwd(), "data", "DSE_INDICES.json");
@@ -111,8 +113,10 @@ export function loadIndices(): MarketIndices {
       unchanged: 67,
       traded: 387
     },
-    timestamp: new Date().toISOString(),
-    source: "LiveScraped"
+    // Last-resort seed values from the 30 Sep 2026 session: labelled as seed data with their real date,
+    // never as a live scrape stamped "now"
+    timestamp: "2026-09-30T08:40:00.000Z",
+    source: "DefaultSeed"
   };
   return cachedIndices;
 }

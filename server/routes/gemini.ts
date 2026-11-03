@@ -22,7 +22,8 @@ import { RISK_PROMPT } from "../prompts/riskPrompt";
 import { PORTFOLIO_PROMPT } from "../prompts/portfolioPrompt";
 import { CHAT_PROMPT } from "../prompts/chatPrompt";
 import { UserRepository } from "../repositories/userRepository";
-import { activeSessions } from "../middleware/auth";
+import { getSession, extractToken } from "../middleware/auth";
+import { PLANS, PlanTier } from "../config/plans";
 import { geminiAnonymousRateLimiter } from "../middleware/geminiRateLimiter";
 
 const router = Router();
@@ -33,23 +34,14 @@ router.use(geminiAnonymousRateLimiter);
 // Middleware to enforce SaaS plan limits
 function checkSubscriptionLimits(req: any, res: any, next: any) {
   try {
-    const authHeader = req.headers["authorization"];
-    let token = authHeader && authHeader.split(" ")[1];
-    if (!token) {
-      token = req.headers["x-session-token"] as string;
-    }
-
-    if (token) {
-      const session = activeSessions.get(token);
+    {
+      const session = getSession(extractToken(req));
       if (session) {
         const email = session.email;
         const user = UserRepository.getByEmail(email);
         if (user) {
-          const tier = user.tier || "free";
-          let limit = 10; // Default Free limit
-          if (tier === "premium") limit = 100;
-          if (tier === "professional") limit = 500;
-          if (tier === "institutional") limit = 5000;
+          const tier = (user.tier || "free") as PlanTier;
+          const limit = (PLANS[tier] ?? PLANS.free).aiDailyLimit;
 
           const result = UserRepository.checkAndIncrementAiUsage(email, limit);
           if (!result.allowed) {

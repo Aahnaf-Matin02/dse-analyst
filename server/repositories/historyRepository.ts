@@ -16,7 +16,7 @@ export interface HistoricalBar {
 export const HistoryRepository = {
   getHistoricalData(symbol: string): { source: "HistoricalData" | "NoHistoricalData"; data: HistoricalBar[] } {
     const sym = symbol.toUpperCase().trim();
-    const safeSym = sym.replace(/[()]/g, "_");
+    const safeSym = sym.replace(/\(/g, "_").replace(/\)/g, ""); // AMCL(PRAN) -> AMCL_PRAN
     const jsonPath = path.join(process.cwd(), "data", "history", `${sym}.json`);
     const csvPath = path.join(process.cwd(), "data", "history", `${sym}.csv`);
     const stocksCsvPath = path.join(process.cwd(), "data", "history", "stocks", `${sym}.csv`);
@@ -96,7 +96,7 @@ export const HistoryRepository = {
     if (!universeSymbols || universeSymbols.length === 0) return 0;
     let withHistory = 0;
     for (const sym of universeSymbols) {
-      const safeSym = sym.replace(/[()]/g, "_");
+      const safeSym = sym.replace(/\(/g, "_").replace(/\)/g, ""); // AMCL(PRAN) -> AMCL_PRAN
       const candidates = [
         path.join(process.cwd(), "data", "history", `${sym}.json`),
         path.join(process.cwd(), "data", "history", `${sym}.csv`),

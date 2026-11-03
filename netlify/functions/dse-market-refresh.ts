@@ -1,4 +1,5 @@
 import { defaultDseSyncService } from "../../server/services/dse/dseSyncService";
+import { DSEScraper } from "../../server/services/dseScraper";
 
 export const config = {
   schedule: "*/30 4-9 * * 0-4" // Trading hours: 10:00 - 15:00 BST (04:00 - 09:00 UTC), Sunday to Thursday
@@ -6,10 +7,12 @@ export const config = {
 
 export default async function handler(req: Request) {
   try {
+    const priceFeed = await DSEScraper.syncLiveDSEData(1, true);
     const syncResult = await defaultDseSyncService.syncAll();
 
     return new Response(JSON.stringify({
-      success: syncResult.success,
+      success: syncResult.success && priceFeed.success,
+      priceFeed: { live: priceFeed.live, parsedSymbols: priceFeed.parsedSymbols, message: priceFeed.message },
       recordsDiscovered: syncResult.recordsDiscovered,
       recordsUpdated: syncResult.recordsUpdated,
       timestamp: new Date().toISOString()

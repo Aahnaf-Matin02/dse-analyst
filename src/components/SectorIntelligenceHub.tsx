@@ -39,28 +39,22 @@ function parseMarketCapToNumber(val: string | null | number): number {
   return num;
 }
 
-// Generate deterministic metrics for variables not fully populated in DSE seeds
-function getDeterministicROE(symbol: string): number {
-  let hash = 0;
-  for (let i = 0; i < symbol.length; i++) {
-    hash = symbol.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const factor = Math.abs(hash % 100);
-  return 8.5 + (factor % 18) + (symbol.length % 3); // 8.5% to 28.5%
+// ROE derived from reported EPS and NAV per share (EPS / NAV). Null when either is missing or NAV <= 0,
+// so the UI shows "N/A" instead of an invented figure.
+function computeROE(s: StockData): number | null {
+  if (s.eps == null || s.nav == null || s.nav <= 0) return null;
+  return (s.eps / s.nav) * 100;
 }
 
-function getDeterministicROA(symbol: string): number {
-  const roe = getDeterministicROE(symbol);
-  return Number((roe * 0.45).toFixed(1)); // Typical bank/insurance / corp asset leverage
+// Price-to-book from last price and NAV per share.
+function computePB(s: StockData): number | null {
+  if (!s.price || s.nav == null || s.nav <= 0) return null;
+  return s.price / s.nav;
 }
 
-function getDeterministicPB(symbol: string): number {
-  let hash = 0;
-  for (let i = 0; i < symbol.length; i++) {
-    hash = symbol.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const factor = Math.abs(hash % 50);
-  return Number((1.1 + (factor / 15)).toFixed(2)); // 1.1 to 4.4
+function average(values: (number | null)[]): number | null {
+  const valid = values.filter((v): v is number => v != null && Number.isFinite(v));
+  return valid.length > 0 ? valid.reduce((a, b) => a + b, 0) / valid.length : null;
 }
 
 // Weights: Valuation 25%, Growth 25%, Profitability 20%, Financial Health 15%, Momentum 10%, Risk 5%
@@ -87,9 +81,10 @@ export function calculatedAnalystScore(s: StockData) {
   else grScore = 6;
 
   // 3. Profitability (20pts)
-  const roe = getDeterministicROE(s.symbol);
+  const roe = computeROE(s);
   let profScore = 12;
-  if (roe > 18) profScore = 20;
+  if (roe == null) profScore = 12; // neutral when profitability data is unavailable
+  else if (roe > 18) profScore = 20;
   else if (roe > 12) profScore = 17;
   else if (roe > 8) profScore = 13;
   else profScore = 8;
@@ -160,18 +155,14 @@ export default function SectorIntelligenceHub({
     let countPE = 0;
     let sumYield = 0;
     let countYield = 0;
-    let sumROE = 0;
-    let sumROA = 0;
-    let sumPB = 0;
     let sumRevGrowth = 0;
     let sumProfitGrowth = 0;
 
     const parsedConstituents = constituents.map(c => {
       const capNum = parseMarketCapToNumber(c.marketCap);
-      const roe = getDeterministicROE(c.symbol);
-      const roa = getDeterministicROA(c.symbol);
-      const pb = getDeterministicPB(c.symbol);
-      
+      const roe = computeROE(c);
+      const pb = computePB(c);
+
       totalCap += capNum;
 
       if (c.peRatio && c.peRatio > 0) {
@@ -183,9 +174,6 @@ export default function SectorIntelligenceHub({
         countYield++;
       }
 
-      sumROE += roe;
-      sumROA += roa;
-      sumPB += pb;
       sumRevGrowth += (c.revGrowth || 6.5);
       sumProfitGrowth += (c.profitGrowth || 5.8);
 
@@ -200,9 +188,8 @@ export default function SectorIntelligenceHub({
 
     const averagePE = countPE > 0 ? sumPE / countPE : 13.6;
     const averageYield = countYield > 0 ? sumYield / countYield : 3.82;
-    const averagePB = sumPB / count;
-    const averageROE = sumROE / count;
-    const averageROA = sumROA / count;
+    const averagePB = average(parsedConstituents.map(c => c.pb));
+    const averageROE = average(parsedConstituents.map(c => c.roe));
     const averageRevGrowth = sumRevGrowth / count;
     const averageProfitGrowth = sumProfitGrowth / count;
 
@@ -213,7 +200,6 @@ export default function SectorIntelligenceHub({
       averagePB,
       averageYield,
       averageROE,
-      averageROA,
       averageRevGrowth,
       averageProfitGrowth,
       constituentsWithMetrics: parsedConstituents
@@ -253,12 +239,12 @@ export default function SectorIntelligenceHub({
           valB = b.peRatio || 999;
           break;
         case "roe":
-          valA = a.roe;
-          valB = b.roe;
+          valA = a.roe ?? -Infinity;
+          valB = b.roe ?? -Infinity;
           break;
         case "revGrowth":
           valA = a.revGrowth || 0;
-          valB = b.profitGrowth || 0;
+          valB = b.revGrowth || 0;
           break;
         case "score":
           valA = a.analystData.score;
@@ -348,7 +334,7 @@ export default function SectorIntelligenceHub({
     const isSectorLeader = activeStockRank === 1;
     const pe = currentStock.peRatio;
     const avgPE = sectorSnapshot.averagePE;
-    const roe = getDeterministicROE(symbol);
+    const roe = computeROE(currentStock);
     const avgROE = sectorSnapshot.averageROE;
     const revGr = currentStock.revGrowth || 6.5;
     const avgRevGr = sectorSnapshot.averageRevGrowth;
@@ -363,8 +349,10 @@ export default function SectorIntelligenceHub({
       ? `The ticker trades at an attractive value discount, harboring a P/E of **${pe.toFixed(1)}** below the sector benchmark rate of **${avgPE.toFixed(1)}**.`
       : `The ticker's P/E multiple is fully aligned with market-wide peers at **${pe ? pe.toFixed(1) : "N/A"}** (vs. sector avg **${avgPE.toFixed(1)}**).`;
 
-    let profBrief = roe > avgROE
-      ? `Capital efficiency is superior, with an ROE of **${roe.toFixed(1)}%** exceeding the sector benchmark by **${(roe - avgROE).toFixed(1)}%**.`
+    let profBrief = roe == null || avgROE == null
+      ? `Return on Equity cannot be compared because EPS or NAV data is not available.`
+      : roe > avgROE
+      ?`Capital efficiency is superior, with an ROE of **${roe.toFixed(1)}%** exceeding the sector benchmark by **${(roe - avgROE).toFixed(1)}%**.`
       : `Return on Equity sits moderate at **${roe.toFixed(1)}%**, slightly lagging the industry median benchmark average of **${avgROE.toFixed(1)}%**.`;
 
     let growthBrief = revGr > avgRevGr
@@ -462,8 +450,8 @@ export default function SectorIntelligenceHub({
               <h4 className="text-xs font-sans font-bold text-slate-200">
                 Performance Indices Trend
               </h4>
-              <span className="text-[10px] font-sans text-slate-400">
-                Compiles capital adjustments normalized from 100% baseline.
+              <span className="text-[10px] font-sans text-amber-400">
+                Illustrative curve only, not real price history. Do not use for investment decisions.
               </span>
             </div>
             
@@ -527,8 +515,8 @@ export default function SectorIntelligenceHub({
               title: "Profitability",
               icon: <Award className="h-3.5 w-3.5 text-emerald-400" />,
               details: [
-                { label: "Avg ROE", value: `${sectorSnapshot.averageROE.toFixed(1)}%` },
-                { label: "Avg PB", value: `${sectorSnapshot.averagePB.toFixed(2)}x` }
+                { label: "Avg ROE", value: sectorSnapshot.averageROE != null ? `${sectorSnapshot.averageROE.toFixed(1)}%` : "N/A" },
+                { label: "Avg PB", value: sectorSnapshot.averagePB != null ? `${sectorSnapshot.averagePB.toFixed(2)}x` : "N/A" }
               ]
             },
             {
@@ -568,7 +556,9 @@ export default function SectorIntelligenceHub({
           <p 
             className="text-[11.5px] text-slate-200 tracking-wide leading-relaxed font-sans"
             dangerouslySetInnerHTML={{
+              // Escape first: the text interpolates scraped symbols/sector names, which must never become markup
               __html: competitiveAnalysisText
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;")
                 .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#00D4FF] font-semibold">$1</strong>')
             }}
           />
@@ -641,7 +631,7 @@ export default function SectorIntelligenceHub({
                         {peer.peRatio ? `${peer.peRatio.toFixed(1)}x` : "—"}
                       </td>
                       <td className="px-4 py-2 font-mono text-[10.5px] text-slate-300">
-                        {peer.roe.toFixed(1)}%
+                        {peer.roe != null ? `${peer.roe.toFixed(1)}%` : "N/A"}
                       </td>
                       <td className="px-4 py-2 font-mono text-[10.5px] text-slate-300">
                         +{peer.revGrowth || "6.5"}%

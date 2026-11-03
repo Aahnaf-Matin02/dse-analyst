@@ -55,7 +55,8 @@ Follow these steps to deploy **DSE AI Analyst** to Netlify production safely:
    - `GEMINI_MODEL`: `gemini-3.8-flash`
    - `NODE_VERSION`: `20`
    - `DSE_BASE_URL`: `https://dse.com.bd` (custom base URL fallback)
-   - `DSE_LATEST_PRICE_PATH`: `/latest_share_price_scroll_l.php` (override default `/latest_share_price_all.php` to bypass 404 access regulations if active)
+   - `DSE_LIVE_PRICES_PATH` / `DSE_LIVE_MARKET_PATH`: optional overrides for DSE's live JSON feed (defaults `/api/live/prices` and `/api/live/market`). DSE retired its old `latest_share_price_*.php` pages (they now return HTTP 410); the scraper falls back to the legacy copies at `old.dsebd.org` only if the JSON feed fails.
+   - `SYNC_SECRET`: protects the full `POST /api/dse/sync`.
    - `DSE_COMPANY_PATH`: `/company/{symbol}`
    - `ADMIN_IMPORT_SECRET`: Your customized password (to authorize manual caching / fallback uploads if DSE blocks scraping).
 5. **Deploy Site**: Click deploy and wait for the frontend Vite build and Netlify Functions bundling to succeed.
@@ -63,9 +64,8 @@ Follow these steps to deploy **DSE AI Analyst** to Netlify production safely:
    Verify the following endpoints load and return dynamic JSON payloads:
    - `/api/stocks` (Returns all parsed stock assets)
    - `/api/dse/status` (Live connection diagnostics)
-   - `/api/dse/probe` (Dynamic endpoint connectivity check)
-   - `/api/dse/sync` (Executing manual scraper synchronization)
-   - `/api/dse/import-cache` (High priority administrator fallback cache upload)
+   - `/api/dse/refresh` (POST, public and throttled: refreshes live prices and indices; used by the Reconnect button)
+   - `/api/dse/sync` (POST, requires `SYNC_SECRET`: full multi-page synchronization)
 
 ## Investing.com Historical Data Integration Guide
 

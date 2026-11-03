@@ -16,6 +16,7 @@ vi.mock("../repositories/historicalRepository", () => {
 describe("HistoryRouter /bulk-import tests", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    process.env.ADMIN_IMPORT_SECRET = "test-admin-secret";
   });
 
   it("POST /api/history/bulk-import returns 200 with valid payload and updates statistics", async () => {
@@ -76,7 +77,7 @@ describe("HistoryRouter /bulk-import tests", () => {
 
     const req = {
       headers: {
-        "x-admin-secret": "your_secret_here"
+        "x-admin-secret": "test-admin-secret"
       },
       ip: "127.0.0.1",
       body: {
@@ -144,7 +145,7 @@ describe("HistoryRouter /bulk-import tests", () => {
 
     const req = {
       headers: {
-        "x-admin-secret": "your_secret_here"
+        "x-admin-secret": "test-admin-secret"
       },
       ip: "127.0.0.1",
       body: {

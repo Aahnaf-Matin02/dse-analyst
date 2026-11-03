@@ -1,7 +1,10 @@
 import express from "express";
+import compression from "compression";
 import path from "path";
 import { rateLimiter } from "./middleware/rateLimiter";
 import { errorHandler } from "./middleware/errorHandler";
+import { securityHeaders, corsAllowList } from "./middleware/securityHeaders";
+import { authRateLimiter } from "./middleware/authRateLimiter";
 
 // Sub-routers imports
 import { AuthRouter } from "./routes/auth";
@@ -27,20 +30,16 @@ export function createApp() {
   app.set("trust proxy", 1);
 
   // 1. Core global Middlewares
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    if (req.method === "OPTIONS") {
-      return res.sendStatus(200);
-    }
-    next();
-  });
-  app.use(express.json());
+  app.disable("x-powered-by");
+  // gzip/deflate responses (JS bundle, JSON). Netlify's CDN already compresses function output.
+  if (!process.env.NETLIFY) app.use(compression());
+  app.use(securityHeaders);
+  app.use(corsAllowList); // same-origin by default; was "Access-Control-Allow-Origin: *"
+  app.use(express.json({ limit: "1mb" }));
   app.use(rateLimiter);
 
   // 2. Register modular REST sub-routers
-  app.use("/api/auth", AuthRouter);
+  app.use("/api/auth", authRateLimiter, AuthRouter);
   app.use("/api/revenue", RevenueRouter);
   app.use("/api/stocks", StocksRouter);
   app.use("/api/analytics", AnalyticsRouter);
@@ -106,6 +105,11 @@ export function createApp() {
   // Serve the generated checklist HTML page publicly
   app.get("/checklist.html", (req, res) => {
     res.sendFile(path.join(process.cwd(), "data", "history", "imports", "download-checklist.html"));
+  });
+
+  // Unknown API paths get a JSON 404 instead of falling through to the SPA's index.html
+  app.use("/api", (req, res) => {
+    res.status(404).json({ error: "API route not found" });
   });
 
   // 3. Centralized fallback error management

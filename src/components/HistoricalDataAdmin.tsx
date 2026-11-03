@@ -188,7 +188,8 @@ export default function HistoricalDataAdmin() {
     setRefreshCoverageMessage(null);
     try {
       const res = await fetch("/api/stocks/historical/refresh-coverage", {
-        method: "POST"
+        method: "POST",
+        headers: { "x-admin-secret": secret }
       });
       const data = await res.json();
       if (res.ok && data.success) {
@@ -209,7 +210,8 @@ export default function HistoricalDataAdmin() {
     setRepairMessage(null);
     try {
       const res = await fetch("/api/stocks/historical/repair-history", {
-        method: "POST"
+        method: "POST",
+        headers: { "x-admin-secret": secret }
       });
       const data = await res.json();
       if (res.ok && data.success) {
@@ -230,7 +232,8 @@ export default function HistoricalDataAdmin() {
     setRepairMessage(null);
     try {
       const res = await fetch("/api/stocks/historical/repair-financials", {
-        method: "POST"
+        method: "POST",
+        headers: { "x-admin-secret": secret }
       });
       const data = await res.json();
       if (res.ok && data.success) {
@@ -246,7 +249,7 @@ export default function HistoricalDataAdmin() {
     }
   };
 
-  const [secret, setSecret] = useState<string>("your_secret_here");
+  const [secret, setSecret] = useState<string>("");
   const [dragActive, setDragActive] = useState<boolean>(false);
   const [importLoading, setImportLoading] = useState<boolean>(false);
   const [importResult, setImportResult] = useState<any>(null);

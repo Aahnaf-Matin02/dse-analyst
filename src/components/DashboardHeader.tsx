@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Globe, Award, LogIn, UserPlus, LogOut, User, RefreshCw, ChevronDown, ChevronUp, Database, Search, Bell, Home, Briefcase, Menu, BookOpen, Compass, MessageSquare, BrainCircuit, LineChart, Award as ProgressIcon } from "lucide-react";
+import { Globe, Award, LogIn, UserPlus, LogOut, User, RefreshCw, ChevronDown, ChevronUp, Database, Search, Bell, Info, Home, Briefcase, Menu, BookOpen, Compass, MessageSquare, BrainCircuit, LineChart, Award as ProgressIcon } from "lucide-react";
 import { StockData } from "../types";
 import { LanguageToggle } from "./LanguageToggle";
+import { StockSearch } from "./ui/StockSearch";
 
 interface DashboardHeaderProps {
   currentUser?: { email: string; name: string; tier?: string; subscriptionStatus?: string; subscriptionExpiresAt?: string } | null;
@@ -22,6 +23,8 @@ interface DashboardHeaderProps {
   onNavigate: (view: string) => void;
   onToggleMobileMenu?: () => void;
   isAdmin?: boolean;
+  /** Full stock list for the shared search component */
+  stocks?: StockData[];
 }
 
 export default function DashboardHeader({
@@ -39,19 +42,21 @@ export default function DashboardHeader({
   selectedView,
   onNavigate,
   onToggleMobileMenu,
-  isAdmin = false
+  isAdmin = false,
+  stocks = []
 }: DashboardHeaderProps) {
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  // Neutral until the first /api/dse/status response, so the header never claims LIVE before it knows
   const [dseStatus, setDseStatus] = useState({
-    status: "Live",
-    live: true,
-    source: "LiveScraped" as any,
-    parsedSymbols: 634,
+    status: "Syncing",
+    live: false,
+    source: "Unavailable" as any,
+    parsedSymbols: 0,
     cachedSymbols: 0,
     defaultSeedSymbols: 0,
     lastAttemptTime: null as string | null,
-    lastSuccessfulSync: new Date().toISOString(),
-    message: "Connected to DSE official live market ticker.",
+    lastSuccessfulSync: null as string | null,
+    message: "Checking DSE connection...",
     diagnostics: null as any
   });
   const [isSyncing, setIsSyncing] = useState(false);
@@ -95,8 +100,8 @@ export default function DashboardHeader({
     if (isSyncing) return;
     setIsSyncing(true);
     try {
-      setDseStatus(prev => ({ ...prev, status: "Syncing", message: "Scraping dse.com.bd live tables..." }));
-      const res = await fetch("/api/dse/sync", { method: "POST" });
+      setDseStatus(prev => ({ ...prev, status: "Syncing", message: "Fetching latest prices from dse.com.bd..." }));
+      const res = await fetch("/api/dse/refresh", { method: "POST" });
       const data = await res.json();
       await fetchDseStatus();
       if (data.success && onSyncSuccess) {
@@ -127,8 +132,8 @@ export default function DashboardHeader({
     if (isOnline) {
       return (
         <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 text-[#10B981] border border-[#10B981]/20 text-[10px] uppercase font-mono tracking-wider font-bold">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-          LIVE DSE
+          <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]" aria-hidden="true"></span>
+          Synced with DSE
         </span>
       );
     }
@@ -136,14 +141,14 @@ export default function DashboardHeader({
     if (dseStatus.source === "CachedFile" || (dseStatus.source as string) === "DSE_OFFICIAL_CACHE" || dseStatus.status === "Cached") {
       return (
         <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-500/10 text-[#F59E0B] border border-[#F59E0B]/20 text-[10px] uppercase font-mono tracking-wider font-bold" title="Delayed Market Data">
-          ● CACHED
+          ● Saved data
         </span>
       );
     }
 
     return (
       <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#4B5563]/20 text-[#94A3B8] border border-[#4B5563]/20 text-[10px] uppercase font-mono tracking-wider font-semibold">
-        ● OFFLINE DEMO
+        ● Offline sample data
       </span>
     );
   };
@@ -186,24 +191,25 @@ export default function DashboardHeader({
             <Menu className="h-5 w-5 text-[#00D4FF]" />
           </button>
 
-          <div onClick={() => onNavigate(null)} className="flex items-center gap-2 cursor-pointer select-none">
+          <a href="/" onClick={(e) => { e.preventDefault(); onNavigate(null); }} title="Home" className="flex items-center gap-2 cursor-pointer select-none">
             <span className="font-display font-[800] text-xl text-white tracking-tighter uppercase flex items-center">
               DSE Analyst<span className="text-[#00D4FF] ml-0.5 text-2xl font-black">.</span>
             </span>
             <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono border border-[rgba(255,255,255,0.08)] bg-[#1A2235] px-2 py-0.5 rounded text-[#94A3B8]">
               beta
             </span>
-          </div>
+          </a>
 
           {/* Views Navigation Tabs — 6-Step Learning Journey */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#1A2235]/60 border border-[rgba(255,255,255,0.06)] rounded-2xl p-1 overflow-x-auto scrollbar-none" id="header-view-navigation">
+          <nav aria-label="Main" className="hidden md:flex items-center gap-1 bg-[#1A2235]/60 border border-[rgba(255,255,255,0.06)] rounded-2xl p-1 overflow-x-auto scrollbar-none" id="header-view-navigation">
             {[
+              { id: "explore",  label: "Markets",                icon: Compass },
               { id: "learn",    label: "Learn",                  icon: BookOpen },
-              { id: "explore",  label: "Explore",                icon: Compass },
-              { id: "ask",      label: "Ask",                    icon: MessageSquare },
-              { id: "think",    label: "Think & Get Assessed",   icon: BrainCircuit },
+              { id: "ask",      label: "Ask AI",                 icon: MessageSquare },
+              { id: "think",    label: "Quizzes",                icon: BrainCircuit },
               { id: "practice", label: "Practice",               icon: LineChart },
-              { id: "progress", label: "My Progress",            icon: ProgressIcon },
+              { id: "progress", label: "My progress",            icon: ProgressIcon },
+              { id: "about",    label: "How it works",           icon: Info },
               ...(isAdmin ? [{ id: "admin", label: "Data Console", icon: Database }] : [])
             ].map(tab => {
               const Icon = tab.icon;
@@ -212,6 +218,7 @@ export default function DashboardHeader({
                 <button
                   key={tab.id}
                   id={`nav-btn-${tab.id}`}
+                  aria-current={isActive ? "page" : undefined}
                   onClick={() => onNavigate(tab.id)}
                   className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-sans font-bold rounded-xl transition-all border cursor-pointer whitespace-nowrap ${
                     isActive
@@ -233,7 +240,8 @@ export default function DashboardHeader({
               id="sidebar-refresh-indicator"
               onClick={triggerLiveSync}
               disabled={isSyncing}
-              title="Manually query dse.com.bd html parser"
+              title="Refresh prices from DSE"
+              aria-label="Refresh prices from DSE"
               className="text-[#94A3B8] hover:text-[#00D4FF] p-1 hover:bg-[#1A2235] rounded transition-colors"
             >
               <RefreshCw className={`h-3 w-3 ${isSyncing ? "animate-spin text-[#00D4FF]" : ""}`} />
@@ -241,60 +249,9 @@ export default function DashboardHeader({
           </div>
         </div>
 
-        {/* Center: Frosted Glass Search Ticker Lookup */}
-        <div className="hidden sm:block flex-1 w-full max-w-xs lg:max-w-sm relative mx-4">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#94A3B8]">
-              <Search className="h-4 w-4" />
-            </div>
-            <input
-              id="dashboard-header-search-container"
-              type="text"
-              placeholder="Search ticker, company profile or sector..."
-              value={searchQuery}
-              onChange={onSearchChange}
-              onFocus={() => setShowSearchResults(searchQuery.trim().length > 0)}
-              className="w-full bg-[#1A2235]/40 text-[#F0F4FF] text-xs pl-9 pr-4 py-2 rounded-xl border border-[rgba(255,255,255,0.08)] outline-none focus:border-[#00D4FF]/50 focus:ring-1 focus:ring-[#00D4FF]/30 backdrop-blur-md transition-all placeholder-[#4B5563]"
-            />
-
-            {/* Custom search popup results */}
-            {showSearchResults && (
-              <div 
-                className="absolute left-0 right-0 mt-2 bg-[#111827] border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-xl z-50 max-h-64 overflow-y-auto p-1 backdrop-blur-xl"
-                onMouseLeave={() => setShowSearchResults(false)}
-              >
-                {filteredSearchList.length === 0 ? (
-                  <div className="text-center py-4 text-xs text-[#94A3B8]/60 font-mono">
-                    No DSE listed symbol match.
-                  </div>
-                ) : (
-                  filteredSearchList.map(item => (
-                    <button
-                      key={item.symbol}
-                      onClick={() => {
-                        onSelectSearched(item.symbol);
-                        setShowSearchResults(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-xs font-mono rounded-lg hover:bg-[#1A2235] flex justify-between items-center transition-colors text-[#94A3B8] hover:text-[#F0F4FF] cursor-pointer"
-                    >
-                      <div className="truncate">
-                        <strong className="block text-[#F0F4FF] font-semibold">{item.symbol}</strong>
-                        <span className="text-[10px] text-[#94A3B8] font-sans truncate block">{item.name}</span>
-                      </div>
-                      <div className="text-right ml-4">
-                        <span className="text-[12px] font-bold text-[#F0F4FF] block">BDT {item.price || "N/A"}</span>
-                        <span className={`text-[9px] font-bold ${
-                          (item.changePercent || 0) >= 0 ? "text-[#10B981]" : "text-[#EF4444]"
-                        }`}>
-                          {(item.changePercent || 0) >= 0 ? "+" : ""}{(item.changePercent || 0).toFixed(2)}%
-                        </span>
-                      </div>
-                    </button>
-                  ))
-                )}
-              </div>
-            )}
-          </div>
+        {/* Center: stock search ("/" focuses it) */}
+        <div className="hidden sm:block flex-1 w-full max-w-xs lg:max-w-sm mx-2 lg:mx-4">
+          <StockSearch stocks={stocks} onSelect={onSelectSearched} slashShortcut placeholder="Search ticker or company…" />
         </div>
 
         {/* Right: Market Status, User Settings, Diagnostics */}
@@ -302,12 +259,13 @@ export default function DashboardHeader({
           
           {/* Mobile search bar toggle button */}
           <button className="sm:hidden p-2 text-[#94A3B8] hover:text-[#00D4FF] transition-colors"
-                  onClick={() => setMobileSearchOpen(!mobileSearchOpen)}>
-            <Search className="h-5 w-5" />
+                  onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
+                  aria-label={mobileSearchOpen ? "Close stock search" : "Search stocks"} aria-expanded={mobileSearchOpen}>
+            <Search className="h-5 w-5" aria-hidden="true" />
           </button>
 
-          {/* Diagnostic Console Button */}
-          <button
+          {/* Diagnostic Console Button (operators only) */}
+          {isAdmin && <button
             onClick={() => setShowDiagnostics(!showDiagnostics)}
             className={`hidden sm:flex items-center gap-1 text-[10px] uppercase font-mono font-bold px-2 py-1 rounded bg-[#1A2235] transition-all hover:bg-[#1A2235]/80 cursor-pointer ${
               showDiagnostics ? "text-[#00D4FF] border border-[#00D4FF]/30" : "text-[#94A3B8] border border-transparent"
@@ -316,7 +274,7 @@ export default function DashboardHeader({
           >
             <Database className="h-3 w-3" />
             <span>Diagnostics</span>
-          </button>
+          </button>}
 
           {/* Language Toggle & User Sign In */}
           <LanguageToggle className="hidden sm:inline-flex" />
@@ -355,58 +313,10 @@ export default function DashboardHeader({
         </div>
       </header>
 
-      {/* Mobile-only Slide Down Search container */}
+      {/* Mobile search panel */}
       {mobileSearchOpen && (
-        <div className="sm:hidden absolute top-full left-0 right-0 z-50 bg-[#111827] border-b border-[rgba(255,255,255,0.08)] p-3 animate-page-in shadow-2xl">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#94A3B8]">
-              <Search className="h-4 w-4" />
-            </div>
-            <input
-              type="text"
-              placeholder="Search ticker, company profile or sector..."
-              value={searchQuery}
-              onChange={onSearchChange}
-              onFocus={() => setShowSearchResults(searchQuery.trim().length > 0)}
-              className="w-full bg-[#1A2235]/90 text-[#F0F4FF] text-xs pl-9 pr-4 py-2 rounded-xl border border-[rgba(255,255,255,0.08)] outline-none focus:border-[#00D4FF]/50 backdrop-blur-md transition-all placeholder-[#4B5563]"
-            />
-            {showSearchResults && (
-              <div 
-                className="absolute left-0 right-0 mt-2 bg-[#111827] border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-xl z-50 max-h-64 overflow-y-auto p-1 backdrop-blur-xl"
-              >
-                {filteredSearchList.length === 0 ? (
-                  <div className="text-center py-4 text-xs text-[#94A3B8]/60 font-mono font-bold">
-                    No DSE listed symbol match.
-                  </div>
-                ) : (
-                  filteredSearchList.map(item => (
-                    <button
-                      key={item.symbol}
-                      onClick={() => {
-                        onSelectSearched(item.symbol);
-                        setShowSearchResults(false);
-                        setMobileSearchOpen(false);
-                      }}
-                      className="w-full text-left px-3 py-2 text-xs font-mono rounded-lg hover:bg-[#1A2235] flex justify-between items-center transition-colors text-[#94A3B8] hover:text-[#F0F4FF] min-h-[44px]"
-                    >
-                      <div className="truncate">
-                        <strong className="block text-[#F0F4FF] font-semibold">{item.symbol}</strong>
-                        <span className="text-[10px] text-[#94A3B8] font-sans truncate block">{item.name}</span>
-                      </div>
-                      <div className="text-right ml-4">
-                        <span className="text-[12px] font-bold text-[#F0F4FF] block">BDT {item.price || "N/A"}</span>
-                        <span className={`text-[9px] font-bold ${
-                          (item.changePercent || 0) >= 0 ? "text-[#10B981]" : "text-[#EF4444]"
-                        }`}>
-                          {(item.changePercent || 0) >= 0 ? "+" : ""}{(item.changePercent || 0).toFixed(2)}%
-                        </span>
-                      </div>
-                    </button>
-                  ))
-                )}
-              </div>
-            )}
-          </div>
+        <div className="sm:hidden absolute top-full left-0 right-0 z-50 bg-[var(--surface)] border-b border-[var(--border)] p-3 shadow-2xl">
+          <StockSearch stocks={stocks} autoFocus onSelect={(sym) => { onSelectSearched(sym); setMobileSearchOpen(false); }} />
         </div>
       )}
 

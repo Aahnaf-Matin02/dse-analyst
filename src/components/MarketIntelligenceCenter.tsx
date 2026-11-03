@@ -179,7 +179,7 @@ export default function MarketIntelligenceCenter({ onSyncSuccess }: MarketIntell
     if (isRefreshing) return;
     setIsRefreshing(true);
     try {
-      const fetchRes = await fetch("/api/dse/sync", { method: "POST" });
+      const fetchRes = await fetch("/api/dse/refresh", { method: "POST" });
       if (fetchRes.ok) {
         if (onSyncSuccess) onSyncSuccess();
       }

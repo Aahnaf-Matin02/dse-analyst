@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Lock, Mail, User, X, Sparkles, LogIn, UserPlus } from "lucide-react";
+import React, { useEffect, useId, useRef, useState } from "react";
+import { Lock, Mail, User, X, LogIn, UserPlus, Eye, EyeOff, Check, Circle, Loader2 } from "lucide-react";
 
 interface AuthModalFormProps {
   mode: "login" | "signup";
@@ -8,185 +8,151 @@ interface AuthModalFormProps {
   onSignup: (email: string, name: string, password: string) => Promise<void>;
 }
 
+// Mirrors the server's complexity rules (server/services/passwordValidator.ts) so users see them up front
+const PASSWORD_RULES: { test: (p: string) => boolean; label: string }[] = [
+  { test: p => p.length >= 8, label: "At least 8 characters" },
+  { test: p => /[A-Z]/.test(p), label: "An uppercase letter" },
+  { test: p => /[a-z]/.test(p), label: "A lowercase letter" },
+  { test: p => /\d/.test(p), label: "A number" },
+  { test: p => /[^A-Za-z0-9]/.test(p), label: "A symbol, e.g. ! # $" },
+];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 export default function AuthModalForm({ mode, onClose, onLogin, onSignup }: AuthModalFormProps) {
   const [currentMode, setCurrentMode] = useState<"login" | "signup">(mode);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [showPassword, setShowPassword] = useState(false);
+  const [touched, setTouched] = useState<{ email?: boolean; name?: boolean; password?: boolean }>({});
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const firstFieldRef = useRef<HTMLInputElement>(null);
+  const uid = useId();
+  const isSignup = currentMode === "signup";
+
+  useEffect(() => { firstFieldRef.current?.focus(); }, [currentMode]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  const emailError = touched.email && !EMAIL_RE.test(email.trim()) ? "Enter a valid email address, e.g. name@example.com." : null;
+  const nameError = isSignup && touched.name && !name.trim() ? "Please enter your name." : null;
+  const failedRules = PASSWORD_RULES.filter(r => !r.test(password));
+  const passwordError = touched.password
+    ? (!password ? "Please enter your password." : isSignup && failedRules.length ? "Your password doesn't meet all the requirements below." : null)
+    : null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setTouched({ email: true, name: true, password: true });
     setErrorMessage(null);
+    const invalid = !EMAIL_RE.test(email.trim()) || !password || (isSignup && (!name.trim() || failedRules.length > 0));
+    if (invalid) return; // inline messages explain what to fix; nothing typed is cleared
     setLoading(true);
     try {
-      if (currentMode === "login") {
-        await onLogin(email, password);
-      } else {
-        if (!name.trim()) {
-          throw new Error("Full Name is required.");
-        }
-        await onSignup(email, name, password);
-      }
+      if (isSignup) await onSignup(email.trim(), name.trim(), password);
+      else await onLogin(email.trim(), password);
     } catch (err: any) {
-      setErrorMessage(err.message || "Authentication failed. Please verify credentials.");
+      setErrorMessage(err?.message || "Sign-in failed. Please check your email and password.");
     } finally {
       setLoading(false);
     }
   };
 
+  const switchMode = (m: "login" | "signup") => { setCurrentMode(m); setErrorMessage(null); setTouched({}); };
+  const inputCls = (bad: boolean) =>
+    `w-full bg-black/40 text-[var(--text)] text-base pl-10 pr-4 h-12 rounded-xl border outline-none transition-colors ${bad ? "border-rose-400/70" : "border-white/15 focus:border-[var(--accent)]"}`;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Glass backdrop */}
-      <div 
-        className="absolute inset-0 bg-[#020305]/85 backdrop-blur-md animate-fade-in"
-        onClick={onClose}
-      ></div>
+      <div className="absolute inset-0 bg-[#020305]/85 backdrop-blur-md" onClick={onClose} aria-hidden="true" />
 
-      {/* Modal Card */}
-      <div className="bg-[#0b0e14]/95 border border-white/10 rounded-3xl p-8 max-w-sm w-full shadow-2xl relative z-10 overflow-hidden transform animate-in fade-in zoom-in-95 duration-200">
-        <div className="absolute top-[-20%] left-[-20%] w-[60%] h-[60%] rounded-full bg-blue-500/10 blur-[80px] pointer-events-none"></div>
-        <div className="absolute bottom-[-20%] right-[-20%] w-[60%] h-[60%] rounded-full bg-emerald-500/10 blur-[80px] pointer-events-none"></div>
-
-        {/* Close Button */}
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-300 p-1.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
-        >
-          <X className="h-4 w-4" />
+      <div role="dialog" aria-modal="true" aria-labelledby={`${uid}-title`} className="bg-[#0b0e14] border border-white/10 rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl relative z-10 max-h-[92vh] overflow-y-auto">
+        <button onClick={onClose} aria-label="Close" className="absolute top-3 right-3 p-2.5 rounded-xl text-[var(--text-subtle)] hover:text-white hover:bg-white/10">
+          <X className="h-5 w-5" aria-hidden="true" />
         </button>
 
-        <div className="text-center space-y-2 mb-6">
-          <div className="inline-flex items-center justify-center h-10 w-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-amber-500 p-[1px] shadow-lg">
-            <span className="flex h-full w-full items-center justify-center rounded-2xl bg-[#0b0e14] text-amber-500">
-              <Sparkles className="h-5 w-5 animate-pulse" />
-            </span>
-          </div>
-          <h3 className="text-xl font-display font-extrabold tracking-tight text-white">
-            {currentMode === "login" ? "Analyst Portal Access" : "Join DSE AI Pro"}
-          </h3>
-          <p className="text-[11px] text-gray-400 font-sans">
-            {currentMode === "login" 
-              ? "Sign in to synchronize watchlist and triggers" 
-              : "Register to get persistent cloud-backed monitoring"}
-          </p>
-          <div className="p-2.5 bg-amber-500/10 border border-amber-500/20 rounded-xl text-[10px] text-amber-300 leading-snug font-sans text-center mt-2">
-            Account and watchlist features are running in demo mode. Data may not persist after deployment.
-          </div>
+        <div className="space-y-1.5 mb-5 pr-8">
+          <h2 id={`${uid}-title`} className="text-xl font-display font-bold text-white">{isSignup ? "Create your account" : "Sign in"}</h2>
+          <p className="text-sm text-[var(--text-muted)]">{isSignup ? "Save your watchlist and get a higher daily AI limit." : "Welcome back. Sign in to sync your watchlist."}</p>
+          <p className="text-xs text-amber-200/90 bg-amber-400/10 border border-amber-400/25 rounded-lg px-2.5 py-1.5">Demo accounts: data may not persist after the app is redeployed.</p>
         </div>
 
         {errorMessage && (
-          <div className="mb-4 p-3 bg-red-950/30 border border-red-500/30 rounded-xl text-xs text-red-400 leading-relaxed font-sans text-center">
+          <div role="alert" className="mb-4 p-3 bg-rose-950/40 border border-rose-400/40 rounded-xl text-sm text-rose-100">
             {errorMessage}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {currentMode === "signup" && (
-            <div className="space-y-1">
-              <label className="text-[10px] font-mono text-gray-400 uppercase font-bold tracking-wider">Full Name</label>
+        <form onSubmit={handleSubmit} noValidate className="space-y-4">
+          {isSignup && (
+            <div className="space-y-1.5">
+              <label htmlFor={`${uid}-name`} className="text-sm font-medium text-[var(--text)]">Name</label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-3.5 flex items-center pointer-events-none text-gray-500">
-                  <User className="h-4 w-4" />
-                </div>
-                <input
-                  type="text"
-                  required
-                  placeholder="Ahnaf Rahman"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-black/45 text-slate-100 text-xs pl-10 pr-4 py-3 rounded-xl border border-white/10 outline-none focus:border-white/20 transition-all font-sans"
-                />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--text-subtle)]" aria-hidden="true" />
+                <input ref={isSignup ? firstFieldRef : undefined} id={`${uid}-name`} type="text" autoComplete="name" value={name}
+                  onChange={e => setName(e.target.value)} onBlur={() => setTouched(t => ({ ...t, name: true }))}
+                  aria-invalid={!!nameError} aria-describedby={nameError ? `${uid}-name-err` : undefined} className={inputCls(!!nameError)} />
               </div>
+              {nameError && <p id={`${uid}-name-err`} className="text-sm text-rose-300">{nameError}</p>}
             </div>
           )}
 
-          <div className="space-y-1">
-            <label className="text-[10px] font-mono text-gray-400 uppercase font-bold tracking-wider">Email Address</label>
+          <div className="space-y-1.5">
+            <label htmlFor={`${uid}-email`} className="text-sm font-medium text-[var(--text)]">Email</label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-3.5 flex items-center pointer-events-none text-gray-500">
-                <Mail className="h-4 w-4" />
-              </div>
-              <input
-                type="email"
-                required
-                placeholder="ahnaf@example.com.bd"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-black/45 text-slate-100 text-xs pl-10 pr-4 py-3 rounded-xl border border-white/10 outline-none focus:border-white/20 transition-all font-sans"
-              />
+              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--text-subtle)]" aria-hidden="true" />
+              <input ref={!isSignup ? firstFieldRef : undefined} id={`${uid}-email`} type="email" inputMode="email" autoComplete="email" value={email}
+                onChange={e => setEmail(e.target.value)} onBlur={() => setTouched(t => ({ ...t, email: true }))}
+                aria-invalid={!!emailError} aria-describedby={emailError ? `${uid}-email-err` : undefined} className={inputCls(!!emailError)} />
             </div>
+            {emailError && <p id={`${uid}-email-err`} className="text-sm text-rose-300">{emailError}</p>}
           </div>
 
-          <div className="space-y-1">
-            <label className="text-[10px] font-mono text-gray-400 uppercase font-bold tracking-wider">Password</label>
+          <div className="space-y-1.5">
+            <label htmlFor={`${uid}-pw`} className="text-sm font-medium text-[var(--text)]">Password</label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-3.5 flex items-center pointer-events-none text-gray-500">
-                <Lock className="h-4 w-4" />
-              </div>
-              <input
-                type="password"
-                required
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-black/45 text-slate-100 text-xs pl-10 pr-4 py-3 rounded-xl border border-white/10 outline-none focus:border-white/20 transition-all font-sans"
-              />
+              <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--text-subtle)]" aria-hidden="true" />
+              <input id={`${uid}-pw`} type={showPassword ? "text" : "password"} autoComplete={isSignup ? "new-password" : "current-password"} value={password}
+                onChange={e => setPassword(e.target.value)} onBlur={() => setTouched(t => ({ ...t, password: true }))}
+                aria-invalid={!!passwordError} aria-describedby={`${passwordError ? `${uid}-pw-err ` : ""}${isSignup ? `${uid}-pw-rules` : ""}`.trim() || undefined}
+                className={`${inputCls(!!passwordError)} pr-12`} />
+              <button type="button" onClick={() => setShowPassword(s => !s)} aria-label={showPassword ? "Hide password" : "Show password"} aria-pressed={showPassword}
+                className="absolute right-1 top-1/2 -translate-y-1/2 p-2.5 text-[var(--text-subtle)] hover:text-white">
+                {showPassword ? <EyeOff className="h-5 w-5" aria-hidden="true" /> : <Eye className="h-5 w-5" aria-hidden="true" />}
+              </button>
             </div>
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full flex items-center justify-center gap-2 text-xs py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-450 text-white font-extrabold shadow-lg shadow-blue-500/10 cursor-pointer disabled:opacity-50 transition-all select-none mt-2"
-          >
-            {loading ? (
-              <span className="inline-block h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-            ) : currentMode === "login" ? (
-              <>
-                <LogIn className="h-4 w-4" /> Authenticate Terminal
-              </>
-            ) : (
-              <>
-                <UserPlus className="h-4 w-4" /> Generate Account
-              </>
+            {passwordError && <p id={`${uid}-pw-err`} className="text-sm text-rose-300">{passwordError}</p>}
+            {isSignup && (
+              <ul id={`${uid}-pw-rules`} className="grid grid-cols-1 gap-1 pt-1">
+                {PASSWORD_RULES.map(r => {
+                  const ok = r.test(password);
+                  return (
+                    <li key={r.label} className={`flex items-center gap-2 text-sm ${ok ? "text-emerald-300" : "text-[var(--text-muted)]"}`}>
+                      {ok ? <Check className="h-4 w-4" aria-hidden="true" /> : <Circle className="h-3.5 w-3.5" aria-hidden="true" />}
+                      <span>{r.label}<span className="sr-only">{ok ? " — done" : " — not yet"}</span></span>
+                    </li>
+                  );
+                })}
+              </ul>
             )}
+          </div>
+
+          <button type="submit" disabled={loading} className="btn-primary w-full">
+            {loading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : isSignup ? <UserPlus className="h-4 w-4" aria-hidden="true" /> : <LogIn className="h-4 w-4" aria-hidden="true" />}
+            {loading ? (isSignup ? "Creating account…" : "Signing in…") : isSignup ? "Create account" : "Sign in"}
           </button>
         </form>
 
-        <div className="mt-6 pt-4 border-t border-white/5 text-center">
-          {currentMode === "login" ? (
-            <p className="text-[11px] text-gray-400">
-              New to DSE AI Analyst?{" "}
-              <button 
-                type="button"
-                onClick={() => {
-                  setCurrentMode("signup");
-                  setErrorMessage(null);
-                }}
-                className="text-amber-500 font-extrabold hover:underline cursor-pointer"
-              >
-                Create an account
-              </button>
-            </p>
-          ) : (
-            <p className="text-[11px] text-gray-400">
-              Already have an analyst account?{" "}
-              <button 
-                type="button"
-                onClick={() => {
-                  setCurrentMode("login");
-                  setErrorMessage(null);
-                }}
-                className="text-amber-500 font-extrabold hover:underline cursor-pointer"
-              >
-                Sign in here
-              </button>
-            </p>
-          )}
-        </div>
+        <p className="mt-5 pt-4 border-t border-white/10 text-center text-sm text-[var(--text-muted)]">
+          {isSignup ? "Already have an account? " : "New here? "}
+          <button type="button" onClick={() => switchMode(isSignup ? "login" : "signup")} className="font-semibold text-[var(--accent)] hover:underline min-h-[44px] px-1">
+            {isSignup ? "Sign in" : "Create an account"}
+          </button>
+        </p>
       </div>
     </div>
   );

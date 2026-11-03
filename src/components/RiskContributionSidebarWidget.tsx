@@ -60,7 +60,21 @@ export default function RiskContributionSidebarWidget() {
   // Periodically read holdings and stocks map to remain in perfect real-time sync with user modifications
   const fetchAndSyncData = async () => {
     try {
-      // 1. Fetch latest prices
+      // 1. Holdings the user actually saved (no invented sample portfolio)
+      let currentHoldings: Holding[] = [];
+      try {
+        const stored = localStorage.getItem("dse_portfolio_holdings");
+        const parsed = stored ? JSON.parse(stored) : null;
+        if (Array.isArray(parsed)) currentHoldings = parsed;
+      } catch { /* ignore unreadable storage */ }
+      setHoldings(currentHoldings);
+      if (currentHoldings.length === 0) {
+        setRiskData([]);
+        setLastUpdated("");
+        return; // nothing to analyse: skip downloading the full price list
+      }
+
+      // 2. Fetch latest prices
       const res = await fetch("/api/stocks");
       const mapping: Record<string, StockData> = {};
       if (res.ok) {
@@ -80,27 +94,6 @@ export default function RiskContributionSidebarWidget() {
       });
       setStocksMap(mapping);
 
-      // 2. Load active holdings from local storage, or use default seeds
-      const stored = localStorage.getItem("dse_portfolio_holdings");
-      let currentHoldings: Holding[] = [];
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          currentHoldings = parsed;
-        }
-      }
-
-      if (currentHoldings.length === 0) {
-        // Safe interactive seed fallbacks matching portfolio optimizer initial state
-        currentHoldings = [
-          { id: "seed-1", symbol: "GP", quantity: 1500, buyPrice: 242.10, purchaseDate: "2025-08-10" },
-          { id: "seed-2", symbol: "SQURPHARMA", quantity: 2000, buyPrice: 212.50, purchaseDate: "2025-09-12" },
-          { id: "seed-3", symbol: "BEXIMCO", quantity: 800, buyPrice: 110.00, purchaseDate: "2025-11-15" },
-          { id: "seed-4", symbol: "BATBC", quantity: 500, buyPrice: 380.00, purchaseDate: "2026-01-20" },
-          { id: "seed-5", symbol: "BRACBANK", quantity: 3000, buyPrice: 42.10, purchaseDate: "2026-02-14" }
-        ];
-      }
-      setHoldings(currentHoldings);
 
       // 3. Compute detailed mathematical risk attributes using Ledoit-Wolf Shrinkage Covariance
       const warnings: string[] = [];
@@ -134,7 +127,8 @@ export default function RiskContributionSidebarWidget() {
     window.addEventListener("storage", fetchAndSyncData);
     window.addEventListener("trigger-reoptimize", fetchAndSyncData);
     
-    const interval = setInterval(fetchAndSyncData, 2500);
+    // Holdings changes arrive via the events above; prices only need an occasional refresh
+    const interval = setInterval(fetchAndSyncData, 60 * 1000);
 
     return () => {
       window.removeEventListener("storage", fetchAndSyncData);
@@ -155,13 +149,14 @@ export default function RiskContributionSidebarWidget() {
           <h4 className="text-[10px] font-sans font-extrabold uppercase text-white tracking-widest">Risk Contribution</h4>
         </div>
         <div className="flex items-center gap-1">
-          <span className="text-[7.5px] font-mono text-slate-500">SYNCED {lastUpdated}</span>
+          {lastUpdated && <span className="text-xs text-[var(--text-subtle)]">Updated {lastUpdated}</span>}
         </div>
       </div>
 
       {riskData.length === 0 ? (
-        <div className="py-6 text-center text-[10px] font-mono text-slate-500">
-          No holdings to analyze risk.
+        <div className="py-5 text-center space-y-1">
+          <p className="text-sm text-[var(--text)]">No portfolio yet</p>
+          <p className="text-xs text-[var(--text-muted)]">Add holdings in Portfolio to see how much each stock adds to your risk.</p>
         </div>
       ) : (
         <div className="space-y-3.5">

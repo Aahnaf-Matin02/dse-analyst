@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 /* ── Smooth scroll & Typography ─────────────────────── */
@@ -377,3 +376,87 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+
+/* ════════════════════════════════════════════════════════════════════════
+   Design tokens + accessibility layer (UX polish)
+   Dark navy identity kept; values tuned so text meets WCAG AA (≥ 4.5:1).
+   ════════════════════════════════════════════════════════════════════════ */
+:root {
+  --bg: #0A0F1E;
+  --surface: #111827;
+  --surface-2: #1A2235;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #F0F4FF;
+  --text-muted: #A9B6CA;   /* 7.9:1 on --surface */
+  --text-subtle: #94A3B8;  /* 6.7:1 on --surface */
+  --accent: #00D4FF;
+  --up: #34D399;
+  --down: #F87171;
+  --focus: #7DE3FF;
+  color-scheme: dark;
+}
+
+/* Low-contrast greys used across the app (#62748e on #0a1021 ≈ 3.9:1) → accessible equivalents */
+.text-slate-500, .text-slate-600, .text-gray-500, .text-gray-600,
+.text-\[\#64748B\], .text-\[\#4B5563\], .text-\[\#475569\] { color: var(--text-subtle) !important; }
+.text-\[\#F0F4FF\]\/30, .text-\[\#F0F4FF\]\/40, .text-\[\#F0F4FF\]\/50,
+.text-\[\#94A3B8\]\/40, .text-\[\#94A3B8\]\/50, .text-\[\#94A3B8\]\/60, .text-\[\#94A3B8\]\/70 { color: var(--text-subtle) !important; }
+.text-rose-400\/80 { color: #FCA5A5 !important; }
+
+/* Type scale floor: nothing below 11px; tiny "micro" labels raised to readable sizes */
+.text-\[7px\], .text-\[7\.5px\], .text-\[8px\], .text-\[8\.5px\], .text-\[9px\], .text-\[9\.5px\] { font-size: 11px !important; line-height: 1.35 !important; }
+.text-\[10px\], .text-\[10\.5px\] { font-size: 11.5px !important; }
+.text-\[11px\], .text-\[11\.5px\] { font-size: 12px !important; }
+
+/* Mobile: body copy at 16px */
+@media (max-width: 639px) {
+  p.text-xs, p.text-sm, li.text-xs, li.text-sm,
+  p.text-\[11px\], p.text-\[11\.5px\], p.text-\[12px\], p.text-\[13px\] { font-size: 1rem !important; line-height: 1.55 !important; }
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 3px solid var(--focus) !important;
+  outline-offset: 2px !important;
+  border-radius: 6px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 1000;
+  background: var(--accent); color: #04121A; font-weight: 700;
+  padding: 10px 16px; border-radius: 10px; transition: top .15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* Shared buttons */
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 18px; border-radius: 12px; font-weight: 600; font-size: 0.9rem;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.btn-primary { background: var(--accent); color: #04121A; }
+.btn-primary:hover { background: #4FE0FF; }
+.btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border-strong); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); }
+.btn-primary:disabled, .btn-secondary:disabled { opacity: .55; cursor: not-allowed; }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* #EF4444 is 4.4:1 on the card surfaces; use the lighter down-colour */
+.text-\[\#EF4444\], .text-red-500 { color: var(--down) !important; }
+
+/* Inline glossary help buttons sit inside sentences: keep them inline (24px target, WCAG 2.5.8)
+   instead of the 44px minimum applied to standalone mobile buttons */
+@media (max-width: 639px) {
+  button.term-btn { min-height: 24px !important; min-width: 24px !important; }
+}

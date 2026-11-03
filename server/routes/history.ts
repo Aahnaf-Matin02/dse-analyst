@@ -14,25 +14,13 @@ import {
   HistoryRow
 } from "../repositories/historicalRepository";
 import { getAllStocks } from "../repositories/stockRepository";
+import { verifyAdminSecret } from "../middleware/adminAuth";
 
 export const HistoryRouter = Router();
 
 const STOCKS_DIR = path.join(process.cwd(), "data", "history", "stocks");
 const DAILY_DIR = path.join(process.cwd(), "data", "history", "snapshots", "daily");
 
-// Admin auth middleware for modification routes
-function verifyAdminSecret(req: Request, res: Response, next: () => void) {
-  const secretHeader = req.headers["x-admin-secret"];
-  const configuredSecret = process.env.ADMIN_IMPORT_SECRET || "your_secret_here";
-
-  if (!secretHeader || secretHeader !== configuredSecret) {
-    return res.status(401).json({
-      success: false,
-      error: "Unauthorized history admin action."
-    });
-  }
-  next();
-}
 
 // GET /api/history/summary
 HistoryRouter.get("/summary", (req: Request, res: Response) => {

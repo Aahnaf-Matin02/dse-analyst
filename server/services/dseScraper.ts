@@ -10,6 +10,7 @@ import { DSE_COMPANIES } from "../../src/data/dseData";
 import { saveDailyHistoryRecord, saveIntradayTick } from "../repositories/marketIndexRepository";
 import { defaultDseClient } from "./dse/dseClient";
 import { DseParser } from "./dse/dseParser";
+import { fetchLivePrices, fetchLiveMarket, DseLivePriceRow } from "./dse/dseLiveApi";
 
 export interface ScraperStatus {
   status: "Idle" | "Syncing" | "Success" | "Failed";
@@ -49,14 +50,62 @@ export const DSE_BASE_URL = cleanEnv(process.env.DSE_BASE_URL, "https://dse.com.
 const DSE_LATEST_PRICE_PATH = cleanEnv(process.env.DSE_LATEST_PRICE_PATH, "/latest_share_price_all.php");
 const DSE_COMPANY_PATH = cleanEnv(process.env.DSE_COMPANY_PATH, "/company/{symbol}");
 
+// HTML fallbacks, used only when the JSON live feed (see dse/dseLiveApi.ts) is unavailable.
+// The *.php pages on dse.com.bd were retired (HTTP 410 Gone); the legacy site still serves them at old.dsebd.org.
 export const latestPriceCandidates = [
-  "https://dse.com.bd/latest_share_price_all.php",
-  "https://www.dse.com.bd/latest_share_price_all.php",
-  "https://dse.com.bd/latest_share_price_scroll_l.php",
-  "https://www.dse.com.bd/latest_share_price_scroll_l.php",
-  "http://dse.com.bd/latest_share_price_all.php",
-  "http://www.dse.com.bd/latest_share_price_all.php"
+  "https://old.dsebd.org/latest_share_price_scroll_l.php",
+  "https://old.dsebd.org/latest_share_price_all.php"
 ];
+
+// Session date (YYYY-MM-DD) the most recently scraped prices belong to
+let lastSessionDate: string | null = null;
+
+/**
+ * Converts rows from DSE's live JSON price feed into StockData records.
+ * Untraded securities report ltp = 0; their reference price is the close (= yesterday's close).
+ */
+export function liveRowsToStocks(rows: DseLivePriceRow[]): Record<string, StockData> {
+  const out: Record<string, StockData> = {};
+  const nowString = new Date().toISOString();
+  for (const r of rows) {
+    if (!isValidDseSymbol(r.code)) continue;
+    const traded = r.ltp > 0;
+    const price = traded ? r.ltp : (r.close && r.close > 0 ? r.close : (r.ycp ?? 0));
+    if (!(price > 0)) continue;
+    const ycp = r.ycp && r.ycp > 0 ? r.ycp : null;
+    const change = traded && ycp ? parseFloat((r.ltp - ycp).toFixed(2)) : 0;
+    const changePercent = traded && ycp ? parseFloat(((change / ycp) * 100).toFixed(2)) : 0;
+    const positiveOrNull = (v: number | null) => (v != null && v > 0 ? v : null);
+    out[r.code] = {
+      symbol: r.code,
+      name: `${r.code} Ltd.`,
+      sector: r.sector || getSectorBySymbolOrType(r.code),
+      price,
+      change,
+      changePercent,
+      volume: r.volume,
+      trades: r.trades,
+      high: positiveOrNull(r.high),
+      low: positiveOrNull(r.low),
+      open: positiveOrNull(r.open),
+      prevClose: ycp,
+      eps: null,
+      nav: null,
+      peRatio: null,
+      divYield: null,
+      marketCap: null,
+      revGrowth: null,
+      profitGrowth: null,
+      marketDepth: null,
+      financials: null,
+      source: "LiveScraped",
+      dataSource: "LiveScraped",
+      lastUpdated: nowString,
+      sourceUrl: buildDseUrl(DSE_COMPANY_PATH.replace("{symbol}", encodeURIComponent(r.code)))
+    };
+  }
+  return out;
+}
 
 function normalizePath(path: string) {
   const trimmed = path.trim();
@@ -166,8 +215,7 @@ async function fetchWithTimeout(urlStr: string, timeoutMs = 15000): Promise<any>
           "Cache-Control": "no-cache",
           "Pragma": "no-cache"
         },
-        timeout: timeoutMs,
-        rejectUnauthorized: false
+        timeout: timeoutMs
       }, (res) => {
         let body = "";
         res.setEncoding("utf8");
@@ -537,11 +585,10 @@ export function parseDseHtml(html: string): Record<string, StockData> {
 }
 
 export async function probeDseAllCandidates() {
-  const envUrl = buildDseUrl(DSE_LATEST_PRICE_PATH);
-  const candidates = [
-    envUrl,
-    ...latestPriceCandidates.filter(url => url !== envUrl)
-  ];
+  const envUrl = process.env.DSE_LATEST_PRICE_PATH ? buildDseUrl(DSE_LATEST_PRICE_PATH) : null;
+  const candidates = envUrl
+    ? [envUrl, ...latestPriceCandidates.filter(url => url !== envUrl)]
+    : [...latestPriceCandidates];
 
   const attempts: any[] = [];
   let workingUrl: string | null = null;
@@ -688,19 +735,49 @@ export const DSEScraper = {
       diagnostics: lastDiagnostics
     });
 
-    const envUrl = buildDseUrl(DSE_LATEST_PRICE_PATH);
-    const candidateUrls = [
-      envUrl,
-      ...latestPriceCandidates.filter(url => url !== envUrl)
-    ];
+    // An explicitly configured DSE_LATEST_PRICE_PATH is tried first; the built-in default points at a retired page
+    const envUrl = process.env.DSE_LATEST_PRICE_PATH ? buildDseUrl(DSE_LATEST_PRICE_PATH) : null;
+    const candidateUrls = envUrl
+      ? [envUrl, ...latestPriceCandidates.filter(url => url !== envUrl)]
+      : [...latestPriceCandidates];
 
     let finalStocks: Record<string, StockData> | null = null;
     let selectedUrl: string | null = null;
     let attemptedLog: any[] = [];
     let successfulCount = 0;
 
-    // Iteratively try candidates
-    for (const url of candidateUrls) {
+    // 1. Primary source: the JSON feed behind the current dse.com.bd site
+    try {
+      const live = await fetchLivePrices();
+      const parsed = liveRowsToStocks(live.rows);
+      const count = Object.keys(parsed).length;
+      attemptedLog.push({
+        url: live.url,
+        httpStatus: 200,
+        errorCode: count >= 50 ? null : "DSE_PARSE_MINIMUM_FAILED",
+        rowsParsed: count,
+        ok: count >= 50,
+        message: count >= 50 ? `Success: ${count} securities from DSE live feed (session ${live.session.sessionDate ?? "unknown"}).` : `Parsed under threshold: ${count} assets.`
+      });
+      if (count >= 50) {
+        finalStocks = parsed;
+        selectedUrl = live.url;
+        successfulCount = count;
+        lastSessionDate = live.session.sessionDate;
+      }
+    } catch (err: any) {
+      attemptedLog.push({
+        url: buildDseUrl("/api/live/prices"),
+        httpStatus: null,
+        errorCode: "DSE_LIVE_API_FAILED",
+        rowsParsed: 0,
+        ok: false,
+        message: err?.message || "Live price feed request failed."
+      });
+    }
+
+    // 2. Fallback: legacy HTML price tables
+    for (const url of finalStocks ? [] : candidateUrls) {
       try {
         const probeResult = await probeDseEndpoint(url);
         
@@ -716,6 +793,7 @@ export const DSEScraper = {
             finalStocks = parsed;
             selectedUrl = url;
             successfulCount = rowsParsed;
+            lastSessionDate = null;
             
             attemptedLog.push({
               url,
@@ -796,7 +874,7 @@ export const DSEScraper = {
       // Sync market indices
       await scrapeAndSaveIndices(true);
 
-      currentDseMessage = `Successfully scraped ${successfulCount} active stocks from DSE live ticker.`;
+      currentDseMessage = `Successfully synced ${successfulCount} securities from DSE${lastSessionDate ? ` (trading session ${lastSessionDate})` : ""}.`;
 
       lastDiagnostics = {
         finalUrl: selectedUrl,
@@ -821,6 +899,8 @@ export const DSEScraper = {
       saveDseSyncStatus({
         status: "Success",
         source: "LiveScraped",
+        live: true,
+        sessionDate: lastSessionDate,
         parsedSymbols: successfulCount,
         cachedSymbols: 0,
         defaultSeedSymbols: 0,
@@ -911,8 +991,6 @@ export const DSEScraper = {
 export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promise<void> {
   const now = new Date();
   const nowIso = now.toISOString();
-  const todayStr = nowIso.split("T")[0];
-
   const existingIndices = loadIndices();
 
   let dsexVal = (existingIndices as any)?.DSEX?.value ?? 5550.44;
@@ -947,9 +1025,27 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
 
   let intradayPoints: Array<{ t: string; value: number }> | undefined = (existingIndices as any)?.intradayPoints;
   let isLive = false;
+  let sessionDate: string | null = null;
+  let session: { isOpen: boolean; phase: string; sessionDate: string | null } | undefined = (existingIndices as any)?.session;
+  let freshIntraday = false;
 
-  // Attempt live scrape of official dse.com.bd homepage
+  // Primary: DSE live market JSON feed
   try {
+    const market = await fetchLiveMarket();
+    const { DSEX, DS30, DSES } = market.indices;
+    if (DSEX) { dsexVal = DSEX.value; dsexChange = DSEX.change; dsexPct = DSEX.changePercent; dsexPrev = DSEX.prev ?? dsexPrev; isLive = true; }
+    if (DS30) { ds30Val = DS30.value; ds30Change = DS30.change; ds30Pct = DS30.changePercent; ds30Prev = DS30.prev ?? ds30Prev; isLive = true; }
+    if (DSES) { dsesVal = DSES.value; dsesChange = DSES.change; dsesPct = DSES.changePercent; dsesPrev = DSES.prev ?? dsesPrev; isLive = true; }
+    if (market.totals) totals = { ...totals, ...market.totals };
+    if (market.breadth) breadth = market.breadth;
+    sessionDate = market.session.sessionDate;
+    session = market.session;
+  } catch (err: any) {
+    console.warn("[scrapeAndSaveIndices] Live market feed failed, trying homepage HTML:", err.message);
+  }
+
+  // Fallback: parse the dse.com.bd homepage
+  if (!isLive) try {
     const homeRes = await defaultDseClient.fetchHomepageHtml();
     if (homeRes.status === 200 && homeRes.body) {
       const glance = DseParser.parseAtAGlance(homeRes.body);
@@ -991,6 +1087,7 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
 
       if (glance.intradayPoints && glance.intradayPoints.length > 0) {
         intradayPoints = glance.intradayPoints;
+        freshIntraday = true;
       }
     }
   } catch (err: any) {
@@ -998,6 +1095,8 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
   }
 
   const indicesSource = isLive ? "LiveScraped" : (existingIndices ? "CachedFile" : "Unavailable");
+  // Record values against the trading session they belong to, not the wall-clock date
+  const todayStr = sessionDate || nowIso.split("T")[0];
 
   saveIndices({
     DSEX: { symbol: "DSEX", name: "DSEX Broad Index", value: dsexVal, change: dsexChange, changePercent: dsexPct, prev: dsexPrev },
@@ -1006,9 +1105,15 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
     totals,
     breadth,
     intradayPoints,
+    session,
     timestamp: isLive ? nowIso : (existingIndices?.timestamp || nowIso),
     source: indicesSource
   });
+
+  if (!isLive) {
+    console.warn("[DSE Scraper] Index refresh failed; kept cached index values and skipped history records.");
+    return;
+  }
 
   // Save to daily history
   saveDailyHistoryRecord({
@@ -1036,8 +1141,8 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
     trading_date: todayStr
   });
 
-  // Save intraday ticks if available
-  if (intradayPoints && intradayPoints.length > 0) {
+  // Save intraday ticks only when they were freshly fetched (never re-stamp cached points)
+  if (freshIntraday && intradayPoints && intradayPoints.length > 0) {
     for (const pt of intradayPoints) {
       saveIntradayTick({
         timestamp: `${todayStr}T${pt.t}:00.000Z`,

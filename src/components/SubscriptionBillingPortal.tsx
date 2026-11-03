@@ -142,7 +142,7 @@ export default function SubscriptionBillingPortal({
         setPaymentStep("success");
         onUpgradeSuccess(data.user);
       } else {
-        alert(data.error || "Payment verification failed. Please try again.");
+        alert(data.message || data.error || "Payment verification failed. Please try again.");
       }
     } catch (err) {
       alert("An unexpected error occurred during subscription upgrade.");

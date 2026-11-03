@@ -52,13 +52,19 @@ export function isDSEMarketHours(date: Date): boolean {
   }
 }
 
+// Every open dashboard polls /indices; refresh from DSE at most once a minute instead of on every request,
+// so viewers don't multiply load on dse.com.bd (and the data files aren't rewritten per poll).
+const INDEX_REFRESH_MIN_MS = 60 * 1000;
+let lastIndexRefreshAt = 0;
+
 // Helper to perform live sync and run data integrity validator
 export async function fetchAndValidateIndices() {
   let scrapeFailed = false;
   try {
-    // Avoid blocking client UI thread with synchronous external HTTP scrapes.
-    // The background worker is already syncing indices asynchronously in the background.
-    await scrapeAndSaveIndices(false);
+    if (Date.now() - lastIndexRefreshAt >= INDEX_REFRESH_MIN_MS) {
+      lastIndexRefreshAt = Date.now();
+      await scrapeAndSaveIndices(false);
+    }
   } catch (err: any) {
     console.warn("[MarketRoute] Cache load failure, logging sync issue:", err.message);
     scrapeFailed = true;
@@ -120,6 +126,11 @@ router.get("/indices", async (req, res, next) => {
       totals: data.indices.totals,
       breadth: data.indices.breadth,
       intradayPoints: data.indices.intradayPoints,
+      // Market session: DSE's own report when available, otherwise the Sun–Thu 10:00–14:30 Asia/Dhaka schedule
+      // (the fallback does not know about holidays, so it is flagged as an estimate)
+      session: data.indices.session
+        ? { ...data.indices.session, basis: "DSE" }
+        : { isOpen: isDSEMarketHours(new Date()), phase: isDSEMarketHours(new Date()) ? "open" : "closed", sessionDate: null, basis: "schedule" },
       status: data.status,
       live: data.status === "LIVE",
       lastSuccessfulUpdate: data.lastSuccessfulUpdate,

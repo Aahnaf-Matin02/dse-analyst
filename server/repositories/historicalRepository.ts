@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { HistoricalDataService } from "../services/historicalDataService";
 import { getStockBySymbol } from "./stockRepository";
+import { loadDseSyncStatus } from "./dseCacheRepository";
 import { loadIndices } from "./marketRepository";
 
 export type HistorySource =
@@ -250,9 +251,17 @@ export function getStockHistory(symbol: string, days?: number): {
     // Dynamically append current day's real-time live price if missing from history
     mappedRows.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-    const todayStr = new Date().toISOString().split("T")[0];
-    const hasToday = mappedRows.some(r => r.date === todayStr);
-    if (!hasToday) {
+    // Date the live snapshot belongs to: the trading session reported by DSE's feed, or (for older
+    // sync records without one) today only if the last successful sync happened today. Otherwise
+    // a days-old cached price would be stamped with the wrong date.
+    const syncStatus = loadDseSyncStatus();
+    const wallToday = new Date().toISOString().split("T")[0];
+    const lastSync = syncStatus?.lastSuccessfulSync;
+    const todayStr: string | null = typeof syncStatus?.sessionDate === "string"
+      ? syncStatus.sessionDate
+      : (typeof lastSync === "string" && lastSync.startsWith(wallToday) ? wallToday : null);
+    const hasToday = todayStr !== null && mappedRows.some(r => r.date === todayStr);
+    if (todayStr !== null && !hasToday) {
       try {
         const stockObj = getStockBySymbol(sym);
         if (stockObj && stockObj.price && stockObj.price > 0) {
@@ -263,27 +272,6 @@ export function getStockHistory(symbol: string, days?: number): {
           
           mappedRows.push({
             date: todayStr,
-            symbol: sym,
-            open,
-            high: stockObj.high ?? Math.max(open, close),
-            low: stockObj.low ?? Math.min(open, close),
-            close,
-            ltp: close,
-            ycp: open,
-            change,
-            changePercent,
-            volume: stockObj.volume || 0,
-            value: stockObj.value || parseFloat((close * (stockObj.volume || 0)).toFixed(2)),
-            trade: stockObj.trade || null,
-            source: "LiveDseSnapshot",
-            snapshotType: "EOD",
-            lastUpdated: new Date().toISOString()
-          });
-        }
-      } catch (err) {
-        // Skip appending today if stock data unavailable
-      }
-    }
             symbol: sym,
             open,
             high: stockObj.high ?? Math.max(open, close),
