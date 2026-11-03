@@ -1,0 +1,14 @@
+{
+  "symbol": "GP",
+  "period": "2026-10-04",
+  "peRatio": 10.995433789954339,
+  "pbRatio": null,
+  "roe": null,
+  "roa": null,
+  "eps": 21.9,
+  "nav": 41.49,
+  "dividendYield": 8.34,
+  "source": "DSE_OFFICIAL",
+  "sourceUrl": "https://www.dse.com.bd/company/GP",
+  "retrievedAt": "2026-10-04T13:10:34.553Z"
+}

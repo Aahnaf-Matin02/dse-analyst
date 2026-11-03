@@ -1,0 +1,41 @@
+[
+  {
+    "symbol": "GP",
+    "reportingDate": "Dec 31, 2025 (year ended)",
+    "sponsorDirector": 90,
+    "government": 0,
+    "institution": 6.63,
+    "foreign": 0.8,
+    "public": 2.57,
+    "total": 100,
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.553Z"
+  },
+  {
+    "symbol": "GP",
+    "reportingDate": "Jul 31, 2026",
+    "sponsorDirector": 90,
+    "government": 0,
+    "institution": 6.8,
+    "foreign": 0.25,
+    "public": 2.95,
+    "total": 100,
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.553Z"
+  },
+  {
+    "symbol": "GP",
+    "reportingDate": "Aug 31, 2026",
+    "sponsorDirector": 90,
+    "government": 0,
+    "institution": 6.85,
+    "foreign": 0.17,
+    "public": 2.98,
+    "total": 100,
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.553Z"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "symbol": "BANKASIA",
+  "period": "2026-10-01",
+  "peRatio": 5.094339622641509,
+  "pbRatio": null,
+  "roe": null,
+  "roa": null,
+  "eps": null,
+  "nav": null,
+  "dividendYield": 4.67,
+  "source": "DSE_OFFICIAL",
+  "sourceUrl": "https://www.dse.com.bd/companies",
+  "retrievedAt": "2026-10-01T14:48:07.075Z"
+}

@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.git
+*.log
+.env*
+!.env.example
+data/users_db.json
+data/sessions_db.json
+path to your user database file

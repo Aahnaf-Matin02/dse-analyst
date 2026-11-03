@@ -1,0 +1,1586 @@
+{
+  "indices": {
+    "DSEX": {
+      "sourceName": "Dhaka Stock Exchange Broad",
+      "investingUrl": "https://www.investing.com/indices/dhaka-stock-exchange-broad-historical-data"
+    },
+    "DS30": {
+      "sourceName": "Dhaka Stock Exchange 30",
+      "investingUrl": "https://www.investing.com/indices/dhaka-stock-exchange-30-historical-data"
+    },
+    "DSES": {
+      "sourceName": "DSEX Shariah",
+      "investingUrl": "https://www.investing.com/indices/dsex-shariah-historical-data"
+    }
+  },
+  "stocks": {
+    "1JANATAMF": {
+      "sourceName": "1JANATAMF Ltd.",
+      "investingUrl": ""
+    },
+    "1STPRIMFMF": {
+      "sourceName": "1STPRIMFMF Ltd.",
+      "investingUrl": ""
+    },
+    "AAMRANET": {
+      "sourceName": "Aamra Networks Ltd",
+      "investingUrl": ""
+    },
+    "AAMRATECH": {
+      "sourceName": "Aamra Technologies Ltd",
+      "investingUrl": ""
+    },
+    "ABB1STMF": {
+      "sourceName": "ABB1STMF Ltd.",
+      "investingUrl": ""
+    },
+    "ABBANK": {
+      "sourceName": "AB Bank PLC",
+      "investingUrl": ""
+    },
+    "ACFL": {
+      "sourceName": "Active Fine Chemicals Ltd",
+      "investingUrl": ""
+    },
+    "ACI": {
+      "sourceName": "ACI Limited",
+      "investingUrl": ""
+    },
+    "ACIFORMULA": {
+      "sourceName": "ACI Formulations Ltd",
+      "investingUrl": ""
+    },
+    "ACMELAB": {
+      "sourceName": "ACME Laboratories Ltd",
+      "investingUrl": ""
+    },
+    "ACMEPL": {
+      "sourceName": "ACME Pesticides Ltd",
+      "investingUrl": ""
+    },
+    "ACTIVEFINE": {
+      "sourceName": "Activefine PLC",
+      "investingUrl": ""
+    },
+    "ADNTEL": {
+      "sourceName": "ADN Telecom Ltd",
+      "investingUrl": ""
+    },
+    "ADVENT": {
+      "sourceName": "Advent Pharma Ltd",
+      "investingUrl": ""
+    },
+    "AFCAGRO": {
+      "sourceName": "AFC Agro Biotech Ltd",
+      "investingUrl": ""
+    },
+    "AFTABAUTO": {
+      "sourceName": "Aftab Automobiles Ltd",
+      "investingUrl": ""
+    },
+    "AGNISYSL": {
+      "sourceName": "Agni Systems Ltd",
+      "investingUrl": ""
+    },
+    "AGRANINS": {
+      "sourceName": "Agrani Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "AIBL1STIMF": {
+      "sourceName": "AIBL1STIMF Ltd.",
+      "investingUrl": ""
+    },
+    "AIL": {
+      "sourceName": "Asia Insurance Ltd",
+      "investingUrl": ""
+    },
+    "AL-HAJTEX": {
+      "sourceName": "Al-Haj Textile Mills Ltd",
+      "investingUrl": ""
+    },
+    "ALARABANK": {
+      "sourceName": "Al-Arafah Islami Bank PLC",
+      "investingUrl": ""
+    },
+    "ALIF": {
+      "sourceName": "ALIF Ltd.",
+      "investingUrl": ""
+    },
+    "ALLTEX": {
+      "sourceName": "Alltex Industries Ltd",
+      "investingUrl": ""
+    },
+    "AMANFEED": {
+      "sourceName": "Aman Feed Ltd",
+      "investingUrl": ""
+    },
+    "AMBEEPHA": {
+      "sourceName": "Ambee Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "ANLIMAYARN": {
+      "sourceName": "Anlima Yarn Dyeing Ltd",
+      "investingUrl": ""
+    },
+    "ANWARGALV": {
+      "sourceName": "Anwar Galvanizing Ltd",
+      "investingUrl": ""
+    },
+    "AOL": {
+      "sourceName": "Advanced Online Ltd",
+      "investingUrl": ""
+    },
+    "APEXFOODS": {
+      "sourceName": "Apex Foods Ltd",
+      "investingUrl": ""
+    },
+    "APEXFOOT": {
+      "sourceName": "Apex Footwear Ltd",
+      "investingUrl": ""
+    },
+    "APEXSPINN": {
+      "sourceName": "Apex Spinning & Knitting Mills Ltd",
+      "investingUrl": ""
+    },
+    "APEXTANRY": {
+      "sourceName": "Apex Tannery Ltd",
+      "investingUrl": ""
+    },
+    "APOLOISPAT": {
+      "sourceName": "Apolo Ispat Complex Ltd",
+      "investingUrl": ""
+    },
+    "ARAMIT": {
+      "sourceName": "Aramit Limited",
+      "investingUrl": ""
+    },
+    "ARAMITCEM": {
+      "sourceName": "Aramit Cement Ltd",
+      "investingUrl": ""
+    },
+    "ARGONDENIM": {
+      "sourceName": "Argon Denim Ltd",
+      "investingUrl": ""
+    },
+    "ASIAINS": {
+      "sourceName": "Asia Insurance Ltd",
+      "investingUrl": ""
+    },
+    "ASIAPACINS": {
+      "sourceName": "Asia Pacific General Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "ASIATICLAB": {
+      "sourceName": "Asiatic Laboratories Ltd",
+      "investingUrl": ""
+    },
+    "ATLASBANG": {
+      "sourceName": "Atlas Bangladesh PLC",
+      "investingUrl": ""
+    },
+    "AZIZPIPES": {
+      "sourceName": "Aziz Pipes Ltd",
+      "investingUrl": ""
+    },
+    "BANGAS": {
+      "sourceName": "BANGAS Ltd.",
+      "investingUrl": ""
+    },
+    "BANKASIA": {
+      "sourceName": "Bank Asia PLC",
+      "investingUrl": ""
+    },
+    "BARKAPOWER": {
+      "sourceName": "Baraka Power Ltd",
+      "investingUrl": ""
+    },
+    "BATASHOE": {
+      "sourceName": "Bata Shoe Company (Bangladesh) Ltd",
+      "investingUrl": ""
+    },
+    "BATBC": {
+      "sourceName": "British American Tobacco Bangladesh Co.",
+      "investingUrl": ""
+    },
+    "BAYLEASING": {
+      "sourceName": "Bay Leasing & Investment Ltd",
+      "investingUrl": ""
+    },
+    "BBS": {
+      "sourceName": "BBS Cables PLC (Textile Division)",
+      "investingUrl": ""
+    },
+    "BBSCABLES": {
+      "sourceName": "BBS Cables PLC",
+      "investingUrl": ""
+    },
+    "BDAUTOCA": {
+      "sourceName": "BD Autos Cars Ltd",
+      "investingUrl": ""
+    },
+    "BDCOM": {
+      "sourceName": "BDCOM Online Ltd",
+      "investingUrl": ""
+    },
+    "BDFINANCE": {
+      "sourceName": "BD Finance PLC",
+      "investingUrl": ""
+    },
+    "BDLAMPS": {
+      "sourceName": "Bangladesh Lamps PLC",
+      "investingUrl": ""
+    },
+    "BDTHAI": {
+      "sourceName": "BD-Thai Food & Beverage Ltd",
+      "investingUrl": ""
+    },
+    "BDTHAIFOOD": {
+      "sourceName": "BD Thai Food & Beverage Ltd",
+      "investingUrl": ""
+    },
+    "BDWELDING": {
+      "sourceName": "BD Welding Electrodes Ltd",
+      "investingUrl": ""
+    },
+    "BEACHHATCH": {
+      "sourceName": "BEACHHATCH Ltd.",
+      "investingUrl": ""
+    },
+    "BEACONPHAR": {
+      "sourceName": "Beacon Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "BENGALWTL": {
+      "sourceName": "Bengal Windsor Thermoplastics Ltd",
+      "investingUrl": ""
+    },
+    "BERGERPBL": {
+      "sourceName": "Berger Paints Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "BESTHLDNG": {
+      "sourceName": "Best Holdings Ltd",
+      "investingUrl": ""
+    },
+    "BEXIMCO": {
+      "sourceName": "Bangladesh Export Import Company Ltd",
+      "investingUrl": ""
+    },
+    "BGIC": {
+      "sourceName": "Bangladesh General Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "BIFC": {
+      "sourceName": "Bangladesh Industrial Finance Co. Ltd",
+      "investingUrl": ""
+    },
+    "BNICL": {
+      "sourceName": "Bangladesh National Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "BPML": {
+      "sourceName": "BPML Ltd.",
+      "investingUrl": ""
+    },
+    "BPPL": {
+      "sourceName": "BPPL Ltd.",
+      "investingUrl": ""
+    },
+    "BRACBANK": {
+      "sourceName": "BRAC Bank PLC",
+      "investingUrl": ""
+    },
+    "BSC": {
+      "sourceName": "Bangladesh Shipping Corporation",
+      "investingUrl": ""
+    },
+    "BSCPLC": {
+      "sourceName": "Bangladesh Shipping Corporation PLC",
+      "investingUrl": ""
+    },
+    "BSRMLTD": {
+      "sourceName": "BSRM Ltd",
+      "investingUrl": ""
+    },
+    "BSRMSTEEL": {
+      "sourceName": "BSRM Steels Ltd",
+      "investingUrl": ""
+    },
+    "BXPHARMA": {
+      "sourceName": "Beximco Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "CAPITECGBF": {
+      "sourceName": "CAPITECGBF Ltd.",
+      "investingUrl": ""
+    },
+    "CAPMBDBLMF": {
+      "sourceName": "CAPMBDBLMF Ltd.",
+      "investingUrl": ""
+    },
+    "CAPMIBBLMF": {
+      "sourceName": "CAPMIBBLMF Ltd.",
+      "investingUrl": ""
+    },
+    "CENTRALINS": {
+      "sourceName": "Central Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "CENTRALPHL": {
+      "sourceName": "Central Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "CITYBANK": {
+      "sourceName": "The City Bank PLC",
+      "investingUrl": ""
+    },
+    "CITYGENINS": {
+      "sourceName": "City General Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "CLICL": {
+      "sourceName": "Crystal Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "CNATEX": {
+      "sourceName": "C&A Textiles Ltd",
+      "investingUrl": ""
+    },
+    "CONFIDCEM": {
+      "sourceName": "Confidence Cement PLC",
+      "investingUrl": ""
+    },
+    "CONTININS": {
+      "sourceName": "Continental Insurance Ltd",
+      "investingUrl": ""
+    },
+    "COPPERTECH": {
+      "sourceName": "Coppertech Industries Ltd",
+      "investingUrl": ""
+    },
+    "CROWNCEMNT": {
+      "sourceName": "Crown Cement PLC",
+      "investingUrl": ""
+    },
+    "CRYSTALINS": {
+      "sourceName": "Crystal Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "CVOPRL": {
+      "sourceName": "CVR Power Ltd",
+      "investingUrl": ""
+    },
+    "DACCADYE": {
+      "sourceName": "The Dacca Dyeing & Manufacturing Co. Ltd",
+      "investingUrl": ""
+    },
+    "DAFODILCOM": {
+      "sourceName": "Daffodil Computers PLC",
+      "investingUrl": ""
+    },
+    "DBH": {
+      "sourceName": "DBH Ltd.",
+      "investingUrl": ""
+    },
+    "DBH1STMF": {
+      "sourceName": "DBH1STMF Ltd.",
+      "investingUrl": ""
+    },
+    "DELTALIFE": {
+      "sourceName": "Delta Life Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "DELTASPINN": {
+      "sourceName": "Delta Spinners Ltd",
+      "investingUrl": ""
+    },
+    "DESCO": {
+      "sourceName": "Dhaka Electric Supply Company Ltd",
+      "investingUrl": ""
+    },
+    "DESHBANDHU": {
+      "sourceName": "Deshbandhu Polymer Ltd",
+      "investingUrl": ""
+    },
+    "DGIC": {
+      "sourceName": "Desh General Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "DHAKABANK": {
+      "sourceName": "Dhaka Bank PLC",
+      "investingUrl": ""
+    },
+    "DHAKAINS": {
+      "sourceName": "Dhaka Insurance Ltd",
+      "investingUrl": ""
+    },
+    "DOMINAGE": {
+      "sourceName": "Dominage Steel Building Systems Ltd",
+      "investingUrl": ""
+    },
+    "DOREENPWR": {
+      "sourceName": "Doreen Power Generations & Systems Ltd",
+      "investingUrl": ""
+    },
+    "DSHGARME": {
+      "sourceName": "Desh Garments Ltd",
+      "investingUrl": ""
+    },
+    "DSSL": {
+      "sourceName": "Dragon Sweater & Spinning Ltd",
+      "investingUrl": ""
+    },
+    "DULAMIACOT": {
+      "sourceName": "Dulamia Cotton Spinning Mills Ltd",
+      "investingUrl": ""
+    },
+    "DUTCHBANGL": {
+      "sourceName": "Dutch-Bangla Bank PLC",
+      "investingUrl": ""
+    },
+    "EASTERNINS": {
+      "sourceName": "Eastern Insurance PLC",
+      "investingUrl": ""
+    },
+    "EASTLAND": {
+      "sourceName": "Eastland Insurance PLC",
+      "investingUrl": ""
+    },
+    "EASTRNLUB": {
+      "sourceName": "EASTRNLUB Ltd.",
+      "investingUrl": ""
+    },
+    "EBL": {
+      "sourceName": "Eastern Bank PLC",
+      "investingUrl": ""
+    },
+    "EBL1STMF": {
+      "sourceName": "EBL1STMF Ltd.",
+      "investingUrl": ""
+    },
+    "EBLNRBMF": {
+      "sourceName": "EBLNRBMF Ltd.",
+      "investingUrl": ""
+    },
+    "ECABLES": {
+      "sourceName": "Eastern Cables PLC",
+      "investingUrl": ""
+    },
+    "EGEN": {
+      "sourceName": "East-West Seed Bangladesh Ltd / Envoy Group Energy",
+      "investingUrl": ""
+    },
+    "EHL": {
+      "sourceName": "Eastern Housing Ltd",
+      "investingUrl": ""
+    },
+    "EIL": {
+      "sourceName": "Eastern Industrial Ltd",
+      "investingUrl": ""
+    },
+    "EMERALDOIL": {
+      "sourceName": "Emerald Oil Industries Ltd",
+      "investingUrl": ""
+    },
+    "ENVOYTEX": {
+      "sourceName": "Envoy Textiles Ltd",
+      "investingUrl": ""
+    },
+    "EPGL": {
+      "sourceName": "Energy Prima Ltd",
+      "investingUrl": ""
+    },
+    "ESQUIRENIT": {
+      "sourceName": "Esquire Knit Composite Ltd",
+      "investingUrl": ""
+    },
+    "ETL": {
+      "sourceName": "Electro-Technical Ltd",
+      "investingUrl": ""
+    },
+    "EXIM1STMF": {
+      "sourceName": "EXIM1STMF Ltd.",
+      "investingUrl": ""
+    },
+    "FAMILYTEX": {
+      "sourceName": "Family Tex (BD) Ltd",
+      "investingUrl": ""
+    },
+    "FARCHEM": {
+      "sourceName": "Far Chemical Industries Ltd",
+      "investingUrl": ""
+    },
+    "FAREASTFIN": {
+      "sourceName": "Far East Finance & Investment Ltd",
+      "investingUrl": ""
+    },
+    "FAREASTLIF": {
+      "sourceName": "Far East Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "FASFIN": {
+      "sourceName": "FAS Finance & Investment Ltd",
+      "investingUrl": ""
+    },
+    "FBFIF": {
+      "sourceName": "FBFIF Ltd.",
+      "investingUrl": ""
+    },
+    "FEDERALINS": {
+      "sourceName": "Federal Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "FEKDIL": {
+      "sourceName": "Far East Knitting & Dyeing Industries Ltd",
+      "investingUrl": ""
+    },
+    "FINEFOODS": {
+      "sourceName": "Fine Foods Ltd",
+      "investingUrl": ""
+    },
+    "FIRSTFIN": {
+      "sourceName": "First Finance Ltd",
+      "investingUrl": ""
+    },
+    "FORTUNE": {
+      "sourceName": "Fortune Shoes Ltd",
+      "investingUrl": ""
+    },
+    "FUWANGCER": {
+      "sourceName": "Fu-Wang Ceramic Industry Ltd",
+      "investingUrl": ""
+    },
+    "FUWANGFOOD": {
+      "sourceName": "Fu-Wang Foods Ltd",
+      "investingUrl": ""
+    },
+    "GBBPOWER": {
+      "sourceName": "GBB Power Ltd",
+      "investingUrl": ""
+    },
+    "GEMINISEA": {
+      "sourceName": "Gemini Sea Food Ltd",
+      "investingUrl": ""
+    },
+    "GENEXIL": {
+      "sourceName": "Genex Infosys Ltd",
+      "investingUrl": ""
+    },
+    "GENNEXT": {
+      "sourceName": "Gennext Industries Ltd",
+      "investingUrl": ""
+    },
+    "GHAIL": {
+      "sourceName": "GHA Industries Ltd",
+      "investingUrl": ""
+    },
+    "GHCL": {
+      "sourceName": "GHCL Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "GLDNJMF": {
+      "sourceName": "GLDNJMF Ltd.",
+      "investingUrl": ""
+    },
+    "GLOBALINS": {
+      "sourceName": "Global Insurance Ltd",
+      "investingUrl": ""
+    },
+    "GOLDENSON": {
+      "sourceName": "Goldenson Ltd",
+      "investingUrl": ""
+    },
+    "GP": {
+      "sourceName": "Grameenphone Ltd",
+      "investingUrl": ""
+    },
+    "GPHISPAT": {
+      "sourceName": "GPH Ispat Ltd",
+      "investingUrl": ""
+    },
+    "GQBALLPEN": {
+      "sourceName": "G.Q. Ball Pen Industries Ltd",
+      "investingUrl": ""
+    },
+    "GRAMEENS2": {
+      "sourceName": "GRAMEENS2 Ltd.",
+      "investingUrl": ""
+    },
+    "GREENDELMF": {
+      "sourceName": "GREENDELMF Ltd.",
+      "investingUrl": ""
+    },
+    "GREENDELT": {
+      "sourceName": "Green Delta Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "GSPFINANCE": {
+      "sourceName": "GSP Finance Company (Bangladesh) Ltd",
+      "investingUrl": ""
+    },
+    "HAKKANIPUL": {
+      "sourceName": "Hakkani Pulp & Paper Mills PLC",
+      "investingUrl": ""
+    },
+    "HAMI": {
+      "sourceName": "HAMI Industries Ltd",
+      "investingUrl": ""
+    },
+    "HEIDELBCEM": {
+      "sourceName": "HeidelbergCement Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "HFL": {
+      "sourceName": "HFL Ltd.",
+      "investingUrl": ""
+    },
+    "HRTEX": {
+      "sourceName": "HR Textile Ltd",
+      "investingUrl": ""
+    },
+    "HWAWELLTEX": {
+      "sourceName": "HwaWell Textile Ltd",
+      "investingUrl": ""
+    },
+    "IBNSINA": {
+      "sourceName": "Ibn Sina Pharmaceutical Industry Ltd",
+      "investingUrl": ""
+    },
+    "IBP": {
+      "sourceName": "IBP Ltd",
+      "investingUrl": ""
+    },
+    "ICB": {
+      "sourceName": "Investment Corporation of Bangladesh",
+      "investingUrl": ""
+    },
+    "ICB3RDNRB": {
+      "sourceName": "ICB3RDNRB Ltd.",
+      "investingUrl": ""
+    },
+    "ICBAGRANI1": {
+      "sourceName": "ICBAGRANI1 Ltd.",
+      "investingUrl": ""
+    },
+    "ICBAMCL2ND": {
+      "sourceName": "ICBAMCL2ND Ltd.",
+      "investingUrl": ""
+    },
+    "ICBEPMF1S1": {
+      "sourceName": "ICBEPMF1S1 Ltd.",
+      "investingUrl": ""
+    },
+    "ICBIBANK": {
+      "sourceName": "ICB Islamic Bank Ltd",
+      "investingUrl": ""
+    },
+    "ICBSONALI1": {
+      "sourceName": "ICBSONALI1 Ltd.",
+      "investingUrl": ""
+    },
+    "ICICL": {
+      "sourceName": "ICB Capital Management Ltd",
+      "investingUrl": ""
+    },
+    "IDLC": {
+      "sourceName": "IDLC Finance PLC",
+      "investingUrl": ""
+    },
+    "IFADAUTOS": {
+      "sourceName": "IFAD Autos Ltd",
+      "investingUrl": ""
+    },
+    "IFIC": {
+      "sourceName": "IFIC Bank PLC",
+      "investingUrl": ""
+    },
+    "IFIC1STMF": {
+      "sourceName": "IFIC1STMF Ltd.",
+      "investingUrl": ""
+    },
+    "IFILISLMF1": {
+      "sourceName": "IFILISLMF1 Ltd.",
+      "investingUrl": ""
+    },
+    "ILFSL": {
+      "sourceName": "International Leasing & Financial Services Ltd",
+      "investingUrl": ""
+    },
+    "INDEXAGRO": {
+      "sourceName": "Index Agro Industries Ltd",
+      "investingUrl": ""
+    },
+    "INTECH": {
+      "sourceName": "Information Technology Consultants Ltd",
+      "investingUrl": ""
+    },
+    "INTRACO": {
+      "sourceName": "Intraco Refueling Station Ltd",
+      "investingUrl": ""
+    },
+    "IPDC": {
+      "sourceName": "IPDC Finance PLC",
+      "investingUrl": ""
+    },
+    "ISLAMIBANK": {
+      "sourceName": "Islami Bank Bangladesh PLC",
+      "investingUrl": ""
+    },
+    "ISLAMICFIN": {
+      "sourceName": "Islamic Finance & Investment Ltd",
+      "investingUrl": ""
+    },
+    "ISLAMIINS": {
+      "sourceName": "Islami Insurance Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "ISNLTD": {
+      "sourceName": "ISN Ltd",
+      "investingUrl": ""
+    },
+    "ITC": {
+      "sourceName": "ITC Ltd",
+      "investingUrl": ""
+    },
+    "JAMUNABANK": {
+      "sourceName": "Jamuna Bank PLC",
+      "investingUrl": ""
+    },
+    "JAMUNAOIL": {
+      "sourceName": "Jamuna Oil Company Ltd",
+      "investingUrl": ""
+    },
+    "JANATAINS": {
+      "sourceName": "Janata Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "JHRML": {
+      "sourceName": "Jharna Handloom & Fabric Ltd",
+      "investingUrl": ""
+    },
+    "JMISMDL": {
+      "sourceName": "JMI Syringes & Medical Devices Ltd",
+      "investingUrl": ""
+    },
+    "JUTESPINN": {
+      "sourceName": "Jute Spinners Ltd",
+      "investingUrl": ""
+    },
+    "KARNAPHULI": {
+      "sourceName": "Karnaphuli Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "KAY": {
+      "sourceName": "KAY Ltd.",
+      "investingUrl": ""
+    },
+    "KBPPWBIL": {
+      "sourceName": "Khulna Power Company Ltd",
+      "investingUrl": ""
+    },
+    "KDSALTD": {
+      "sourceName": "KDS Accessories Ltd",
+      "investingUrl": ""
+    },
+    "KEYACOSMET": {
+      "sourceName": "Keya Cosmetics Ltd",
+      "investingUrl": ""
+    },
+    "KOHINOOR": {
+      "sourceName": "Kohinoor Chemical Co. (BD) Ltd",
+      "investingUrl": ""
+    },
+    "KPCL": {
+      "sourceName": "Karnaphuli Power Company Ltd",
+      "investingUrl": ""
+    },
+    "KPPL": {
+      "sourceName": "Kattali Power Plant Ltd",
+      "investingUrl": ""
+    },
+    "KTL": {
+      "sourceName": "Kabir Textile Ltd",
+      "investingUrl": ""
+    },
+    "LANKABAFIN": {
+      "sourceName": "LankaBangla Finance PLC",
+      "investingUrl": ""
+    },
+    "LEGACYFOOT": {
+      "sourceName": "Legacy Footwear Ltd",
+      "investingUrl": ""
+    },
+    "LHB": {
+      "sourceName": "Lockpur Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "LIBRAINFU": {
+      "sourceName": "Libra Infusions Ltd",
+      "investingUrl": ""
+    },
+    "LINDEBD": {
+      "sourceName": "Linde Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "LOVELLO": {
+      "sourceName": "Lovello Ice-Cream PLC",
+      "investingUrl": ""
+    },
+    "LRBDL": {
+      "sourceName": "LRBDL Ltd.",
+      "investingUrl": ""
+    },
+    "LRGLOBMF1": {
+      "sourceName": "LR Global Bangladesh Mutual Fund One",
+      "investingUrl": ""
+    },
+    "MAGURAPLEX": {
+      "sourceName": "Magura Implex Ltd",
+      "investingUrl": ""
+    },
+    "MAKSONSPIN": {
+      "sourceName": "Makson Spinning Mills Ltd",
+      "investingUrl": ""
+    },
+    "MALEKSPIN": {
+      "sourceName": "Malek Spinning Mills Ltd",
+      "investingUrl": ""
+    },
+    "MARICO": {
+      "sourceName": "Marico Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "MATINSPINN": {
+      "sourceName": "Matin Spinning Mills Ltd",
+      "investingUrl": ""
+    },
+    "MBL1STMF": {
+      "sourceName": "MBL1STMF Ltd.",
+      "investingUrl": ""
+    },
+    "MEGCONMILK": {
+      "sourceName": "Meghna Condensed Milk Industries Ltd",
+      "investingUrl": ""
+    },
+    "MEGHNACEM": {
+      "sourceName": "Meghna Cement Mills PLC",
+      "investingUrl": ""
+    },
+    "MEGHNAINS": {
+      "sourceName": "Meghna Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "MEGHNALIFE": {
+      "sourceName": "Meghna Life Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "MEGHNAPET": {
+      "sourceName": "Meghna Pet Industries Ltd",
+      "investingUrl": ""
+    },
+    "MERCANBANK": {
+      "sourceName": "Mercantile Bank PLC",
+      "investingUrl": ""
+    },
+    "MERCINS": {
+      "sourceName": "Mercantile Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "METROSPIN": {
+      "sourceName": "Metro Spinning Ltd",
+      "investingUrl": ""
+    },
+    "MHSML": {
+      "sourceName": "MHS (BD) Ltd",
+      "investingUrl": ""
+    },
+    "MIDASFIN": {
+      "sourceName": "Midas Financing Ltd",
+      "investingUrl": ""
+    },
+    "MIDLANDBNK": {
+      "sourceName": "Midland Bank PLC",
+      "investingUrl": ""
+    },
+    "MIRACLEIND": {
+      "sourceName": "Miracle Industries Ltd",
+      "investingUrl": ""
+    },
+    "MIRAKHTER": {
+      "sourceName": "Mir Akhter Hossain Ltd",
+      "investingUrl": ""
+    },
+    "MITHUNKNIT": {
+      "sourceName": "Mithun Knitting & Dyeing Ltd",
+      "investingUrl": ""
+    },
+    "MJLBD": {
+      "sourceName": "MJL Bangladesh PLC",
+      "investingUrl": ""
+    },
+    "MLDYEING": {
+      "sourceName": "MLD Dyeing Ltd",
+      "investingUrl": ""
+    },
+    "MONNOAGML": {
+      "sourceName": "Monno Agro and General Machinery Ltd",
+      "investingUrl": ""
+    },
+    "MONNOCERA": {
+      "sourceName": "Monno Ceramic Industries PLC",
+      "investingUrl": ""
+    },
+    "MONNOFABR": {
+      "sourceName": "Monno Fabrics Ltd",
+      "investingUrl": ""
+    },
+    "MONOSPOOL": {
+      "sourceName": "Monowara Spool Ltd",
+      "investingUrl": ""
+    },
+    "MPETROLEUM": {
+      "sourceName": "Meghna Petroleum Ltd",
+      "investingUrl": ""
+    },
+    "MTB": {
+      "sourceName": "Mutual Trust Bank PLC",
+      "investingUrl": ""
+    },
+    "NAHEEACP": {
+      "sourceName": "NAHEEACP Ltd.",
+      "investingUrl": ""
+    },
+    "NATLIFEINS": {
+      "sourceName": "National Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "NAVANACNG": {
+      "sourceName": "Navana CNG Ltd",
+      "investingUrl": ""
+    },
+    "NAVANAPHAR": {
+      "sourceName": "Navana Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "NBL": {
+      "sourceName": "National Bank PLC",
+      "investingUrl": ""
+    },
+    "NCCBANK": {
+      "sourceName": "NCC Bank PLC",
+      "investingUrl": ""
+    },
+    "NCCBLMF1": {
+      "sourceName": "NCCBLMF1 Ltd.",
+      "investingUrl": ""
+    },
+    "NEWLINE": {
+      "sourceName": "Newline Clothing Ltd",
+      "investingUrl": ""
+    },
+    "NFML": {
+      "sourceName": "National Feed Mills Ltd",
+      "investingUrl": ""
+    },
+    "NHFIL": {
+      "sourceName": "National Housing Finance & Investments Ltd",
+      "investingUrl": ""
+    },
+    "NITOLINS": {
+      "sourceName": "Nitol Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "NORTHERN": {
+      "sourceName": "Northern Jute Manufacturing Co. Ltd",
+      "investingUrl": ""
+    },
+    "NORTHRNINS": {
+      "sourceName": "Northern Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "NPOLYMER": {
+      "sourceName": "Northern Polymer Ltd",
+      "investingUrl": ""
+    },
+    "NRBBANK": {
+      "sourceName": "NRB Bank PLC",
+      "investingUrl": ""
+    },
+    "NRBCBANK": {
+      "sourceName": "NRB Commercial Bank PLC",
+      "investingUrl": ""
+    },
+    "NTC": {
+      "sourceName": "National Telecom Ltd",
+      "investingUrl": ""
+    },
+    "NTLTUBES": {
+      "sourceName": "National Tubes Ltd",
+      "investingUrl": ""
+    },
+    "NURANI": {
+      "sourceName": "Nurani Dyeing & Sweater Ltd",
+      "investingUrl": ""
+    },
+    "OAL": {
+      "sourceName": "Olympic Accessories Ltd",
+      "investingUrl": ""
+    },
+    "OIMEX": {
+      "sourceName": "Oimex Electrode Ltd",
+      "investingUrl": ""
+    },
+    "OLYMPIC": {
+      "sourceName": "Olympic Industries Ltd",
+      "investingUrl": ""
+    },
+    "ORIONINFU": {
+      "sourceName": "Orion Infusion Ltd",
+      "investingUrl": ""
+    },
+    "ORIONPHARM": {
+      "sourceName": "Orion Pharma Ltd",
+      "investingUrl": ""
+    },
+    "PADMALIFE": {
+      "sourceName": "Padma Islami Life Insurance Ltd",
+      "investingUrl": ""
+    },
+    "PADMAOIL": {
+      "sourceName": "Padma Oil Company Ltd",
+      "investingUrl": ""
+    },
+    "PARAMOUNT": {
+      "sourceName": "Paramount Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "PDL": {
+      "sourceName": "Padma Drugs Ltd",
+      "investingUrl": ""
+    },
+    "PENINSULA": {
+      "sourceName": "Peninsula Chittagong Ltd",
+      "investingUrl": ""
+    },
+    "PEOPLESINS": {
+      "sourceName": "Peoples Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "PF1STMF": {
+      "sourceName": "PF1STMF Ltd.",
+      "investingUrl": ""
+    },
+    "PHARMAID": {
+      "sourceName": "Pharma Aids Ltd",
+      "investingUrl": ""
+    },
+    "PHENIXINS": {
+      "sourceName": "Phoenix Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "PHOENIXFIN": {
+      "sourceName": "Phoenix Finance & Investments Ltd",
+      "investingUrl": ""
+    },
+    "PHPMF1": {
+      "sourceName": "PHPMF1 Ltd.",
+      "investingUrl": ""
+    },
+    "PIONEERINS": {
+      "sourceName": "Pioneer Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "PLFSL": {
+      "sourceName": "Prime Finance & Investment Ltd",
+      "investingUrl": ""
+    },
+    "POPULAR1MF": {
+      "sourceName": "POPULAR1MF Ltd.",
+      "investingUrl": ""
+    },
+    "POPULARLIF": {
+      "sourceName": "Popular Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "POWERGRID": {
+      "sourceName": "Power Grid Company of Bangladesh PLC",
+      "investingUrl": ""
+    },
+    "PRAGATIINS": {
+      "sourceName": "Pragati Insurance Ltd",
+      "investingUrl": ""
+    },
+    "PRAGATILIF": {
+      "sourceName": "Pragati Life Insurance Ltd",
+      "investingUrl": ""
+    },
+    "PREMIERBAN": {
+      "sourceName": "Premier Bank PLC",
+      "investingUrl": ""
+    },
+    "PREMIERCEM": {
+      "sourceName": "Premier Cement Mills PLC",
+      "investingUrl": ""
+    },
+    "PREMIERLEA": {
+      "sourceName": "Premier Leasing & Finance Ltd",
+      "investingUrl": ""
+    },
+    "PRIME1ICBA": {
+      "sourceName": "PRIME1ICBA Ltd.",
+      "investingUrl": ""
+    },
+    "PRIMEBANK": {
+      "sourceName": "Prime Bank PLC",
+      "investingUrl": ""
+    },
+    "PRIMEFIN": {
+      "sourceName": "Prime Finance",
+      "investingUrl": ""
+    },
+    "PRIMEINSUR": {
+      "sourceName": "Prime Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "PRIMELIFE": {
+      "sourceName": "Prime Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "PRIMETEX": {
+      "sourceName": "Prime Textile Spinning Mills Ltd",
+      "investingUrl": ""
+    },
+    "PROGRESLIF": {
+      "sourceName": "Progressive Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "PROVATIINS": {
+      "sourceName": "Provati Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "PTL": {
+      "sourceName": "Pacific Textiles Ltd",
+      "investingUrl": ""
+    },
+    "PUBALIBANK": {
+      "sourceName": "Pubali Bank PLC",
+      "investingUrl": ""
+    },
+    "PURABIGEN": {
+      "sourceName": "Purabi General Insurance / Purabi Power",
+      "investingUrl": ""
+    },
+    "QUASEMIND": {
+      "sourceName": "Quasem Industries Ltd",
+      "investingUrl": ""
+    },
+    "QUEENSOUTH": {
+      "sourceName": "Queen South Textile Mills Ltd",
+      "investingUrl": ""
+    },
+    "RAHIMAFOOD": {
+      "sourceName": "Rahima Food Corporation Ltd",
+      "investingUrl": ""
+    },
+    "RAHIMTEXT": {
+      "sourceName": "Rahima Textile Mills PLC",
+      "investingUrl": ""
+    },
+    "RAKCERAMIC": {
+      "sourceName": "RAK Ceramics (Bangladesh) Ltd",
+      "investingUrl": ""
+    },
+    "RANFOUNDRY": {
+      "sourceName": "Rangpur Foundry Ltd",
+      "investingUrl": ""
+    },
+    "RDFOOD": {
+      "sourceName": "R&D Food Products Ltd",
+      "investingUrl": ""
+    },
+    "RECKITTBEN": {
+      "sourceName": "Reckitt Benckiser (Bangladesh) PLC",
+      "investingUrl": ""
+    },
+    "REGENTTEX": {
+      "sourceName": "Regent Textile Mills Ltd",
+      "investingUrl": ""
+    },
+    "RELIANCE1": {
+      "sourceName": "RELIANCE1 Ltd.",
+      "investingUrl": ""
+    },
+    "RELIANCINS": {
+      "sourceName": "Reliance Insurance Ltd",
+      "investingUrl": ""
+    },
+    "RENATA": {
+      "sourceName": "Renata Limited",
+      "investingUrl": ""
+    },
+    "RENWICKJA": {
+      "sourceName": "Renwick Jajuneswar & Co. Ltd",
+      "investingUrl": ""
+    },
+    "REPUBLIC": {
+      "sourceName": "Republic Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "RINGSHINE": {
+      "sourceName": "Ringshine Textiles Ltd",
+      "investingUrl": ""
+    },
+    "ROBI": {
+      "sourceName": "Robi Axiata Ltd",
+      "investingUrl": ""
+    },
+    "RSRMSTEEL": {
+      "sourceName": "RSRM Steel Mills Ltd",
+      "investingUrl": ""
+    },
+    "RUNNERAUTO": {
+      "sourceName": "Runner Automobiles PLC",
+      "investingUrl": ""
+    },
+    "RUPALIBANK": {
+      "sourceName": "Rupali Bank PLC",
+      "investingUrl": ""
+    },
+    "RUPALIINS": {
+      "sourceName": "RUPALIINS Ltd.",
+      "investingUrl": ""
+    },
+    "RUPALILIFE": {
+      "sourceName": "RUPALILIFE Ltd.",
+      "investingUrl": ""
+    },
+    "SAFKOSPINN": {
+      "sourceName": "Safko Spinnings Mills Ltd",
+      "investingUrl": ""
+    },
+    "SAIFPOWER": {
+      "sourceName": "Saif Powertec Ltd",
+      "investingUrl": ""
+    },
+    "SAIHAMCOT": {
+      "sourceName": "Saiham Cotton Mills Ltd",
+      "investingUrl": ""
+    },
+    "SAIHAMTEX": {
+      "sourceName": "Saiham Textile Mills Ltd",
+      "investingUrl": ""
+    },
+    "SALAMCRST": {
+      "sourceName": "Salam Crest Ltd",
+      "investingUrl": ""
+    },
+    "SALVO": {
+      "sourceName": "Salvo Chemical Industry Ltd",
+      "investingUrl": ""
+    },
+    "SAMATALETH": {
+      "sourceName": "Samata Leather Complex Ltd",
+      "investingUrl": ""
+    },
+    "SAMORITA": {
+      "sourceName": "Samorita Hospital Ltd",
+      "investingUrl": ""
+    },
+    "SANDHANINS": {
+      "sourceName": "Sandhani Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "SAPORTL": {
+      "sourceName": "Sa-Port Ltd",
+      "investingUrl": ""
+    },
+    "SBACBANK": {
+      "sourceName": "SBAC Bank PLC",
+      "investingUrl": ""
+    },
+    "SEAPEARL": {
+      "sourceName": "Sea Pearl Beach Resort & Spa Ltd",
+      "investingUrl": ""
+    },
+    "SEMLFBSLGF": {
+      "sourceName": "SEMLFBSLGF Ltd.",
+      "investingUrl": ""
+    },
+    "SEMLIBBLSF": {
+      "sourceName": "SEMLIBBLSF Ltd.",
+      "investingUrl": ""
+    },
+    "SHAHJABANK": {
+      "sourceName": "Shahjalal Islami Bank PLC",
+      "investingUrl": ""
+    },
+    "SHARPIND": {
+      "sourceName": "SHARPIND Ltd.",
+      "investingUrl": ""
+    },
+    "SHASHADNIM": {
+      "sourceName": "Shasha Denims Ltd",
+      "investingUrl": ""
+    },
+    "SHEPHERD": {
+      "sourceName": "Shepherd Industries Ltd",
+      "investingUrl": ""
+    },
+    "SHURWID": {
+      "sourceName": "Shurwid Industries Ltd",
+      "investingUrl": ""
+    },
+    "SHYAMPSUG": {
+      "sourceName": "Shyampur Sugar Mills Ltd",
+      "investingUrl": ""
+    },
+    "SICL": {
+      "sourceName": "Sonar Bangla Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "SILCOPHL": {
+      "sourceName": "Silco Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "SILVAPHL": {
+      "sourceName": "Silva Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "SIMTEX": {
+      "sourceName": "Simtex Industries Ltd",
+      "investingUrl": ""
+    },
+    "SINGERBD": {
+      "sourceName": "Singer Bangladesh Ltd",
+      "investingUrl": ""
+    },
+    "SINOBANGLA": {
+      "sourceName": "Sino-Bangla Industries Ltd",
+      "investingUrl": ""
+    },
+    "SIPLC": {
+      "sourceName": "Social Islami Bank PLC",
+      "investingUrl": ""
+    },
+    "SKTRIMS": {
+      "sourceName": "SK Trims & Industries Ltd",
+      "investingUrl": ""
+    },
+    "SONALIANSH": {
+      "sourceName": "Sonali Ansh Industries Ltd",
+      "investingUrl": ""
+    },
+    "SONALILIFE": {
+      "sourceName": "Sonali Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "SONALIPAPR": {
+      "sourceName": "Sonali Paper & Board Mills Ltd",
+      "investingUrl": ""
+    },
+    "SONARGAON": {
+      "sourceName": "Sonargaon Textiles Ltd",
+      "investingUrl": ""
+    },
+    "SOUTHEASTB": {
+      "sourceName": "SOUTHEASTB Ltd.",
+      "investingUrl": ""
+    },
+    "SPCERAMICS": {
+      "sourceName": "Standard Ceramic Industries Ltd",
+      "investingUrl": ""
+    },
+    "SPCL": {
+      "sourceName": "Saiham Properties Ltd",
+      "investingUrl": ""
+    },
+    "SQUARETEXT": {
+      "sourceName": "Square Textiles PLC",
+      "investingUrl": ""
+    },
+    "SQURPHARMA": {
+      "sourceName": "Square Pharmaceuticals Ltd",
+      "investingUrl": ""
+    },
+    "SSSTEEL": {
+      "sourceName": "S.S. Steel Ltd",
+      "investingUrl": ""
+    },
+    "STANCERAM": {
+      "sourceName": "Standard Ceramics Ltd",
+      "investingUrl": ""
+    },
+    "STANDARINS": {
+      "sourceName": "Standard Insurance Ltd",
+      "investingUrl": ""
+    },
+    "STANDBANKL": {
+      "sourceName": "Standard Bank PLC",
+      "investingUrl": ""
+    },
+    "STYLECRAFT": {
+      "sourceName": "Stylecraft Ltd",
+      "investingUrl": ""
+    },
+    "SUMITPOWER": {
+      "sourceName": "Sumit Power Ltd",
+      "investingUrl": ""
+    },
+    "SUNLIFEINS": {
+      "sourceName": "Sun Life Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "TAKAFULINS": {
+      "sourceName": "Takaful Islami Insurance Ltd",
+      "investingUrl": ""
+    },
+    "TALLUSPIN": {
+      "sourceName": "Tallu Spinning Mills Ltd",
+      "investingUrl": ""
+    },
+    "TAMIJTEX": {
+      "sourceName": "Tamij Textiles Ltd",
+      "investingUrl": ""
+    },
+    "TECHNODRUG": {
+      "sourceName": "Techno Drugs Ltd",
+      "investingUrl": ""
+    },
+    "TILIL": {
+      "sourceName": "TitiL Garments & Fabrics Ltd",
+      "investingUrl": ""
+    },
+    "TITASGAS": {
+      "sourceName": "Titas Gas Transmission & Distribution Co. Ltd",
+      "investingUrl": ""
+    },
+    "TOSRIFA": {
+      "sourceName": "Tosrifa Industries Ltd",
+      "investingUrl": ""
+    },
+    "TRUSTB1MF": {
+      "sourceName": "TRUSTB1MF Ltd.",
+      "investingUrl": ""
+    },
+    "TUNGHAI": {
+      "sourceName": "Tung Hai Knitting & Dyeing Ltd",
+      "investingUrl": ""
+    },
+    "UCB": {
+      "sourceName": "United Commercial Bank PLC",
+      "investingUrl": ""
+    },
+    "UNILEVERCL": {
+      "sourceName": "Unilever Consumer Care Ltd",
+      "investingUrl": ""
+    },
+    "UNIONCAP": {
+      "sourceName": "Union Capital Ltd",
+      "investingUrl": ""
+    },
+    "UNIONINS": {
+      "sourceName": "Union Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "UNIQUEHRL": {
+      "sourceName": "Unique Hotel and Resorts Ltd",
+      "investingUrl": ""
+    },
+    "UNITEDFIN": {
+      "sourceName": "United Finance PLC",
+      "investingUrl": ""
+    },
+    "UNITEDINS": {
+      "sourceName": "United Insurance Company Ltd",
+      "investingUrl": ""
+    },
+    "UPGDCL": {
+      "sourceName": "United Power Generation & Distribution Co. Ltd",
+      "investingUrl": ""
+    },
+    "USMANIAGL": {
+      "sourceName": "Usmani & Co. Ltd",
+      "investingUrl": ""
+    },
+    "UTTARABANK": {
+      "sourceName": "Uttara Bank PLC",
+      "investingUrl": ""
+    },
+    "UTTARAFIN": {
+      "sourceName": "Uttara Finance and Investments Ltd",
+      "investingUrl": ""
+    },
+    "VAMLRBBF": {
+      "sourceName": "VAMLRBBF Ltd.",
+      "investingUrl": ""
+    },
+    "VFSTDL": {
+      "sourceName": "VFS Thread Dyeing Ltd",
+      "investingUrl": ""
+    },
+    "WALTONHIL": {
+      "sourceName": "Walton Hi-Tech Industries PLC",
+      "investingUrl": ""
+    },
+    "WATACHEM": {
+      "sourceName": "WATA Chemicals Ltd",
+      "investingUrl": ""
+    },
+    "WMSHIPYARD": {
+      "sourceName": "Western Marine Shipyard Ltd",
+      "investingUrl": ""
+    },
+    "YPL": {
+      "sourceName": "Yousuf Paper & Printing Ltd",
+      "investingUrl": ""
+    },
+    "ZAHEENSPIN": {
+      "sourceName": "Zaheen Spinning Ltd",
+      "investingUrl": ""
+    },
+    "ZAHINTEX": {
+      "sourceName": "Zahin Tex Ltd",
+      "investingUrl": ""
+    },
+    "ZEALBANGLA": {
+      "sourceName": "Zeal Bangla Sugar Mills Ltd",
+      "investingUrl": ""
+    },
+    "ONEBANKPLC": {
+      "sourceName": "One Bank PLC",
+      "investingUrl": ""
+    },
+    "TRUSTBANK": {
+      "sourceName": "Trust Bank PLC",
+      "investingUrl": ""
+    },
+    "MICEMENT": {
+      "sourceName": "MI Cement Factory Ltd",
+      "investingUrl": ""
+    },
+    "KAY&QUE": {
+      "sourceName": "Kay & Que (Bangladesh) Ltd",
+      "investingUrl": ""
+    },
+    "AMCL(PRAN)": {
+      "sourceName": "Agricultural Marketing Co. Ltd (PRAN)",
+      "investingUrl": ""
+    },
+    "PRAGATILIFE": {
+      "sourceName": "Pragati Life Insurance Ltd",
+      "investingUrl": ""
+    },
+    "SONARBAINS": {
+      "sourceName": "Sonar Bangla Insurance Co. Ltd",
+      "investingUrl": ""
+    },
+    "PAPERFIBR": {
+      "sourceName": "Paper Converting & Packaging Ltd",
+      "investingUrl": ""
+    },
+    "FAMILYTEXT": {
+      "sourceName": "Family Tex (BD) Ltd",
+      "investingUrl": ""
+    }
+  }
+}

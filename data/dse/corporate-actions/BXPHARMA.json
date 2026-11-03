@@ -1,0 +1,128 @@
+[
+  {
+    "id": "BXPHARMA_CASH_2024",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 40,
+    "percentage": 40,
+    "description": "40% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "BXPHARMA_CASH_2023",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 35,
+    "percentage": 35,
+    "description": "35% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "BXPHARMA_CASH_2022",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 35,
+    "percentage": 35,
+    "description": "35% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "BXPHARMA_CASH_2021",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 35,
+    "percentage": 35,
+    "description": "35% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "BXPHARMA_CASH_2020",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2020-12-31",
+    "cashAmount": 15,
+    "percentage": 15,
+    "description": "15% Cash Dividend for FY 2020",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "BXPHARMA_STOCK_2020",
+    "symbol": "BXPHARMA",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2020-12-31",
+    "percentage": 10,
+    "description": "10% Stock Dividend for FY 2020",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "DSE_31902662",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "24 Jun 2026",
+    "recordDate": "02.08.2026.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "DSE_23446879",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "09 Feb 2025",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "DSE_22080776",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "14 Nov 2024",
+    "recordDate": null,
+    "description": "Regarding dividend declaration of subsidiary companies",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "DSE_21653104",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "29 Oct 2024",
+    "recordDate": "25.11.2024.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  },
+  {
+    "id": "DSE_18098172",
+    "symbol": "BXPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "20 Feb 2024",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BXPHARMA",
+    "retrievedAt": "2026-10-01T14:29:58.333Z"
+  }
+]

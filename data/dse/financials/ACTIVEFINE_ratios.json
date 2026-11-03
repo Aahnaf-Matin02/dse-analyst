@@ -1,0 +1,14 @@
+{
+  "symbol": "ACTIVEFINE",
+  "period": "2026-10-01",
+  "peRatio": 50,
+  "pbRatio": null,
+  "roe": null,
+  "roa": null,
+  "eps": null,
+  "nav": null,
+  "dividendYield": 0.12,
+  "source": "DSE_OFFICIAL",
+  "sourceUrl": "https://www.dse.com.bd/companies",
+  "retrievedAt": "2026-10-01T14:48:07.087Z"
+}

@@ -1,0 +1,2777 @@
+{
+  "source": "InvestingCSV",
+  "importedAt": "2026-06-14T15:13:32.194Z",
+  "range": {
+    "startDate": "2024-05-15",
+    "endDate": "2026-06-14"
+  },
+  "stocks": {
+    "1JANATAMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "1STPRIMFMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AAMRANET": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AAMRATECH": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ABB1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ABBANK": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ACFL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ACI": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ACIFORMULA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ACMELAB": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ACMEPL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ACTIVEFINE": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ADNTEL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ADVENT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AFCAGRO": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AFTABAUTO": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AGNISYSL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AGRANINS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AIBL1STIMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AIL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AL-HAJTEX": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ALARABANK": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ALIF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ALLTEX": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AMANFEED": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AMBEEPHA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AMCL(PRAN)": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ANLIMAYARN": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ANWARGALV": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AOL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "APEXFOODS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "APEXFOOT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "APEXSPINN": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "APEXTANRY": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "APOLOISPAT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ARAMIT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ARAMITCEM": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ARGONDENIM": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ASIAINS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ASIAPACINS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ASIATICLAB": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ATLASBANG": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "AZIZPIPES": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BANGAS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BANKASIA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BARKAPOWER": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BATASHOE": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BATBC": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BAYLEASING": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BBS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BBSCABLES": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BDAUTOCA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BDCOM": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BDFINANCE": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BDLAMPS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BDTHAI": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BDTHAIFOOD": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BDWELDING": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BEACHHATCH": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BEACONPHAR": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BENGALWTL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BERGERPBL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BESTHLDNG": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BEXIMCO": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BGIC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BIFC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BNICL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BPML": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BPPL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BRACBANK": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BSC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BSCPLC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BSRMLTD": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BSRMSTEEL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "BXPHARMA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CAPITECGBF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CAPMBDBLMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CAPMIBBLMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CENTRALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CENTRALPHL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CITYBANK": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CITYGENINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CLICL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CNATEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CONFIDCEM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CONTININS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "COPPERTECH": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CROWNCEMNT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CRYSTALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "CVOPRL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DACCADYE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DAFODILCOM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DBH": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DBH1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DELTALIFE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DELTASPINN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DESCO": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DESHBANDHU": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DGIC": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DHAKABANK": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DHAKAINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DOMINAGE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DOREENPWR": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DSHGARME": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DSSL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DULAMIACOT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DUTCHBANGL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EASTERNINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EASTLAND": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EASTRNLUB": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EBL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EBL1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EBLNRBMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ECABLES": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EGEN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EHL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EMERALDOIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ENVOYTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EPGL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ESQUIRENIT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ETL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "EXIM1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FAMILYTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FAMILYTEXT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FARCHEM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FAREASTFIN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FAREASTLIF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FASFIN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FBFIF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FEDERALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FEKDIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FINEFOODS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FIRSTFIN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FORTUNE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FUWANGCER": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "FUWANGFOOD": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GBBPOWER": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GEMINISEA": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GENEXIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GENNEXT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GHAIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GHCL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GLDNJMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GLOBALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GOLDENSON": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GP": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GPHISPAT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GQBALLPEN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GRAMEENS2": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GREENDELMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GREENDELT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "GSPFINANCE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "HAKKANIPUL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "HAMI": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "HEIDELBCEM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "HFL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "HRTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "HWAWELLTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IBNSINA": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IBP": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICB": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICB3RDNRB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICBAGRANI1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICBAMCL2ND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICBEPMF1S1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICBIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICBSONALI1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ICICL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IDLC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IFADAUTOS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IFIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IFIC1STMF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IFILISLMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ILFSL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "INDEXAGRO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "INTECH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "INTRACO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "IPDC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ISLAMIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ISLAMICFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ISLAMIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ISNLTD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ITC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "JAMUNABANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "JAMUNAOIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "JANATAINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "JHRML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "JMISMDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "JUTESPINN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KARNAPHULI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KAY&QUE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KAY": {
+      "rows": 543,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KBPPWBIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KDSALTD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KEYACOSMET": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KOHINOOR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KPCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KPPL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "KTL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LANKABAFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LEGACYFOOT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LHB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LIBRAINFU": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LINDEBD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LOVELLO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LRBDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "LRGLOBMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MAGURAPLEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MAKSONSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MALEKSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MARICO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MATINSPINN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MBL1STMF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MEGCONMILK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MEGHNACEM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MEGHNAINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MEGHNALIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MEGHNAPET": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MERCANBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MERCINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "METROSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MHSML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MICEMENT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MIDASFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MIDLANDBNK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MIRACLEIND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MIRAKHTER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MITHUNKNIT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MJLBD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MLDYEING": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MONNOAGML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MONNOCERA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MONNOFABR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MONOSPOOL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MPETROLEUM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "MTB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NAHEEACP": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NATLIFEINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NAVANACNG": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NAVANAPHAR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NBL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NCCBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NCCBLMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NEWLINE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NFML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NHFIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NITOLINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NORTHERN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NORTHRNINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NPOLYMER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NRBBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NRBCBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NTC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NTLTUBES": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "NURANI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "OAL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "OIMEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "OLYMPIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ONEBANKPLC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ORIONINFU": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ORIONPHARM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PADMALIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PADMAOIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PAPERFIBR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PARAMOUNT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PENINSULA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PEOPLESINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PF1STMF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PHARMAID": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PHENIXINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PHOENIXFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PHPMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PIONEERINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PLFSL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "POPULAR1MF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "POPULARLIF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "POWERGRID": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRAGATIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRAGATILIF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRAGATILIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PREMIERBAN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PREMIERCEM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PREMIERLEA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRIME1ICBA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRIMEBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRIMEFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRIMEINSUR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRIMELIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PRIMETEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PROGRESLIF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PROVATIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PTL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PUBALIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "PURABIGEN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "QUASEMIND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "QUEENSOUTH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RAHIMAFOOD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RAHIMTEXT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RAKCERAMIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RANFOUNDRY": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RDFOOD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RECKITTBEN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "REGENTTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RELIANCE1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RELIANCINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RENATA": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RENWICKJA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "REPUBLIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RINGSHINE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ROBI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RSRMSTEEL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RUNNERAUTO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RUPALIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RUPALIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "RUPALILIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SAFKOSPINN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SAIFPOWER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SAIHAMCOT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SAIHAMTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SALAMCRST": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SALVO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SAMATALETH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SAMORITA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SANDHANINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SAPORTL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SBACBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SEAPEARL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SEMLFBSLGF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SEMLIBBLSF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SHAHJABANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SHARPIND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SHASHADNIM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SHEPHERD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SHURWID": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SHYAMPSUG": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SICL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SILCOPHL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SILVAPHL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SIMTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SINGERBD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SINOBANGLA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SIPLC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SKTRIMS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SONALIANSH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SONALILIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SONALIPAPR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SONARBAINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SONARGAON": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SOUTHEASTB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SPCERAMICS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SPCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SQUARETEXT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SQURPHARMA": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SSSTEEL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "STANCERAM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "STANDARINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "STANDBANKL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "STYLECRAFT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SUMITPOWER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "SUNLIFEINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TAKAFULINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TALLUSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TAMIJTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TECHNODRUG": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TILIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TITASGAS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TOSRIFA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TRUSTB1MF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TRUSTBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "TUNGHAI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UCB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UNILEVERCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UNIONCAP": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UNIONINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UNIQUEHRL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UNITEDFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UNITEDINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UPGDCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "USMANIAGL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UTTARABANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "UTTARAFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "VAMLRBBF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "VFSTDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "WALTONHIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "WATACHEM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "WMSHIPYARD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "YPL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ZAHEENSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ZAHINTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "ZEALBANGLA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1
+    }
+  },
+  "indices": {
+    "DS30": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DSES": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    },
+    "DSEX": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1
+    }
+  }
+}

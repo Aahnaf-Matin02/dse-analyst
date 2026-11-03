@@ -1,0 +1,117 @@
+[
+  {
+    "id": "BSRMLTD_CASH_2025",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "cashAmount": 50,
+    "percentage": 50,
+    "description": "50% Cash Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "BSRMLTD_CASH_2024",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 35,
+    "percentage": 35,
+    "description": "35% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "BSRMLTD_CASH_2023",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 25,
+    "percentage": 25,
+    "description": "25% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "BSRMLTD_CASH_2022",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 35,
+    "percentage": 35,
+    "description": "35% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "BSRMLTD_CASH_2021",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 50,
+    "percentage": 50,
+    "description": "50% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "DSE_29377307",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "01 Feb 2026",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "DSE_26757529",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "19 Oct 2025",
+    "recordDate": "10.11.2025.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "DSE_23003814",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "19 Jan 2025",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "DSE_21404394",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "23 Oct 2024",
+    "recordDate": "14.11.2024.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  },
+  {
+    "id": "DSE_18682804",
+    "symbol": "BSRMLTD",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "16 Apr 2024",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BSRMLTD",
+    "retrievedAt": "2026-10-01T14:29:55.386Z"
+  }
+]

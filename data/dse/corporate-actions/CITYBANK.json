@@ -1,0 +1,150 @@
+[
+  {
+    "id": "CITYBANK_CASH_2025",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "cashAmount": 15,
+    "percentage": 15,
+    "description": "15% Cash Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_STOCK_2025",
+    "symbol": "CITYBANK",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "percentage": 15,
+    "description": "15% Stock Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_CASH_2024",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 12.5,
+    "percentage": 12.5,
+    "description": "12.5% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_STOCK_2024",
+    "symbol": "CITYBANK",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "percentage": 12.5,
+    "description": "12.5% Stock Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_CASH_2023",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 15,
+    "percentage": 15,
+    "description": "15% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_STOCK_2023",
+    "symbol": "CITYBANK",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "percentage": 10,
+    "description": "10% Stock Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_CASH_2022",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 10,
+    "percentage": 10,
+    "description": "10% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_STOCK_2022",
+    "symbol": "CITYBANK",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "percentage": 2,
+    "description": "2% Stock Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_CASH_2021",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 12.5,
+    "percentage": 12.5,
+    "description": "12.5% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "CITYBANK_STOCK_2021",
+    "symbol": "CITYBANK",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "percentage": 12.5,
+    "description": "12.5% Stock Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "DSE_32262478",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "15 Jul 2026",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "DSE_30335249",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "12 Apr 2026",
+    "recordDate": null,
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  },
+  {
+    "id": "DSE_25906922",
+    "symbol": "CITYBANK",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "10 Aug 2025",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+    "retrievedAt": "2026-10-01T14:29:56.337Z"
+  }
+]

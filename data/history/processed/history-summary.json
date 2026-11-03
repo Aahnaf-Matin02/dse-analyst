@@ -1,0 +1,3167 @@
+{
+  "totalRowsImported": 235772,
+  "validRows": 235772,
+  "invalidRows": 0,
+  "symbols": {
+    "1JANATAMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "1STPRIMFMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AAMRANET": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AAMRATECH": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ABB1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ABBANK": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ACFL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ACI": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ACIFORMULA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ACMELAB": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ACMEPL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ACTIVEFINE": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ADNTEL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ADVENT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AFCAGRO": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AFTABAUTO": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AGNISYSL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AGRANINS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AIBL1STIMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AIL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AL-HAJTEX": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ALARABANK": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ALIF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ALLTEX": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AMANFEED": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AMBEEPHA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AMCL(PRAN)": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ANLIMAYARN": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ANWARGALV": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AOL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "APEXFOODS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "APEXFOOT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "APEXSPINN": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "APEXTANRY": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "APOLOISPAT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ARAMIT": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ARAMITCEM": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ARGONDENIM": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ASIAINS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ASIAPACINS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ASIATICLAB": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ATLASBANG": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "AZIZPIPES": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BANGAS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BANKASIA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BARKAPOWER": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BATASHOE": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BATBC": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BAYLEASING": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BBS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BBSCABLES": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BDAUTOCA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BDCOM": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BDFINANCE": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BDLAMPS": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BDTHAI": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BDTHAIFOOD": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BDWELDING": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BEACHHATCH": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BEACONPHAR": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BENGALWTL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BERGERPBL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BESTHLDNG": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BEXIMCO": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BGIC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BIFC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BNICL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BPML": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BPPL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BRACBANK": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BSC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BSCPLC": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BSRMLTD": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BSRMSTEEL": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "BXPHARMA": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CAPITECGBF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CAPMBDBLMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CAPMIBBLMF": {
+      "rows": 536,
+      "startDate": "2024-05-19",
+      "endDate": "2026-06-07",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CENTRALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CENTRALPHL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CITYBANK": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CITYGENINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CLICL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CNATEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CONFIDCEM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CONTININS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "COPPERTECH": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CROWNCEMNT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CRYSTALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "CVOPRL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DACCADYE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DAFODILCOM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DBH": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DBH1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DELTALIFE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DELTASPINN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DESCO": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DESHBANDHU": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DGIC": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DHAKABANK": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DHAKAINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DOMINAGE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DOREENPWR": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DSHGARME": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DSSL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DULAMIACOT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DUTCHBANGL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EASTERNINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EASTLAND": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EASTRNLUB": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EBL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EBL1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EBLNRBMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ECABLES": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EGEN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EHL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EMERALDOIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ENVOYTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EPGL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ESQUIRENIT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ETL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "EXIM1STMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FAMILYTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FAMILYTEXT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FARCHEM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FAREASTFIN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FAREASTLIF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FASFIN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FBFIF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FEDERALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FEKDIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FINEFOODS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FIRSTFIN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FORTUNE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FUWANGCER": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "FUWANGFOOD": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GBBPOWER": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GEMINISEA": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GENEXIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GENNEXT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GHAIL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GHCL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GLDNJMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GLOBALINS": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GOLDENSON": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GP": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GPHISPAT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GQBALLPEN": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GRAMEENS2": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GREENDELMF": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GREENDELT": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "GSPFINANCE": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "HAKKANIPUL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "HAMI": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "HEIDELBCEM": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "HFL": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "HRTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "HWAWELLTEX": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IBNSINA": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IBP": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICB": {
+      "rows": 536,
+      "startDate": "2024-05-20",
+      "endDate": "2026-06-08",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICB3RDNRB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICBAGRANI1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICBAMCL2ND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICBEPMF1S1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICBIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICBSONALI1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ICICL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IDLC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IFADAUTOS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IFIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IFIC1STMF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IFILISLMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ILFSL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "INDEXAGRO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "INTECH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "INTRACO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "IPDC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ISLAMIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ISLAMICFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ISLAMIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ISNLTD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ITC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "JAMUNABANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "JAMUNAOIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "JANATAINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "JHRML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "JMISMDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "JUTESPINN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KARNAPHULI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KAY&QUE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KAY": {
+      "rows": 543,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KBPPWBIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KDSALTD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KEYACOSMET": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KOHINOOR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KPCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KPPL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "KTL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LANKABAFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LEGACYFOOT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LHB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LIBRAINFU": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LINDEBD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LOVELLO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LRBDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "LRGLOBMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MAGURAPLEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MAKSONSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MALEKSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MARICO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MATINSPINN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MBL1STMF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MEGCONMILK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MEGHNACEM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MEGHNAINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MEGHNALIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MEGHNAPET": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MERCANBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MERCINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "METROSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MHSML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MICEMENT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MIDASFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MIDLANDBNK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MIRACLEIND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MIRAKHTER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MITHUNKNIT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MJLBD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MLDYEING": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MONNOAGML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MONNOCERA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MONNOFABR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MONOSPOOL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MPETROLEUM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "MTB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NAHEEACP": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NATLIFEINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NAVANACNG": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NAVANAPHAR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NBL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NCCBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NCCBLMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NEWLINE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NFML": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NHFIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NITOLINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NORTHERN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NORTHRNINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NPOLYMER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NRBBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NRBCBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NTC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NTLTUBES": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "NURANI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "OAL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "OIMEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "OLYMPIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ONEBANKPLC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ORIONINFU": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ORIONPHARM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PADMALIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PADMAOIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PAPERFIBR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PARAMOUNT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PENINSULA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PEOPLESINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PF1STMF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PHARMAID": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PHENIXINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PHOENIXFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PHPMF1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PIONEERINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PLFSL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "POPULAR1MF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "POPULARLIF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "POWERGRID": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRAGATIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRAGATILIF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRAGATILIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PREMIERBAN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PREMIERCEM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PREMIERLEA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRIME1ICBA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRIMEBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRIMEFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRIMEINSUR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRIMELIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PRIMETEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PROGRESLIF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PROVATIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PTL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PUBALIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "PURABIGEN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "QUASEMIND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "QUEENSOUTH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RAHIMAFOOD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RAHIMTEXT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RAKCERAMIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RANFOUNDRY": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RDFOOD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RECKITTBEN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "REGENTTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RELIANCE1": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RELIANCINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RENATA": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RENWICKJA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "REPUBLIC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RINGSHINE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ROBI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RSRMSTEEL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RUNNERAUTO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RUPALIBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RUPALIINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "RUPALILIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SAFKOSPINN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SAIFPOWER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SAIHAMCOT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SAIHAMTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SALAMCRST": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SALVO": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SAMATALETH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SAMORITA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SANDHANINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SAPORTL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SBACBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SEAPEARL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SEMLFBSLGF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SEMLIBBLSF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SHAHJABANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SHARPIND": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SHASHADNIM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SHEPHERD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SHURWID": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SHYAMPSUG": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SICL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SILCOPHL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SILVAPHL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SIMTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SINGERBD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SINOBANGLA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SIPLC": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SKTRIMS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SONALIANSH": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SONALILIFE": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SONALIPAPR": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SONARBAINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SONARGAON": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SOUTHEASTB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SPCERAMICS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SPCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SQUARETEXT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SQURPHARMA": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SSSTEEL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "STANCERAM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "STANDARINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "STANDBANKL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "STYLECRAFT": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SUMITPOWER": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "SUNLIFEINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TAKAFULINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TALLUSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TAMIJTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TECHNODRUG": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TILIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TITASGAS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TOSRIFA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TRUSTB1MF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TRUSTBANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "TUNGHAI": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UCB": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UNILEVERCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UNIONCAP": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UNIONINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UNIQUEHRL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UNITEDFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UNITEDINS": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UPGDCL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "USMANIAGL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UTTARABANK": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "UTTARAFIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "VAMLRBBF": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "VFSTDL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "WALTONHIL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "WATACHEM": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "WMSHIPYARD": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "YPL": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ZAHEENSPIN": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ZAHINTEX": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "ZEALBANGLA": {
+      "rows": 641,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-14",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DS30": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DSES": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    },
+    "DSEX": {
+      "rows": 536,
+      "startDate": "2024-05-15",
+      "endDate": "2026-06-03",
+      "invalidRows": 0,
+      "years": 2.1,
+      "source": "InvestingCSV"
+    }
+  }
+}

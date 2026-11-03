@@ -1,0 +1,117 @@
+[
+  {
+    "id": "ROBI_CASH_2025",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "cashAmount": 17.5,
+    "percentage": 17.5,
+    "description": "17.5% Cash Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "ROBI_CASH_2024",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 15,
+    "percentage": 15,
+    "description": "15% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "ROBI_CASH_2023",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 10,
+    "percentage": 10,
+    "description": "10% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "ROBI_CASH_2022",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 7,
+    "percentage": 7,
+    "description": "7% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "ROBI_CASH_2021",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 5,
+    "percentage": 5,
+    "description": "5% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "DSE_31557291",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "04 Jun 2026",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "DSE_29674763",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "22 Feb 2026",
+    "recordDate": "16.03.2026.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "DSE_25031590",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "01 Jun 2025",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "DSE_23565857",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "18 Feb 2025",
+    "recordDate": "16.03.2025.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  },
+  {
+    "id": "DSE_19934833",
+    "symbol": "ROBI",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "25 Jun 2024",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/ROBI",
+    "retrievedAt": "2026-10-01T14:29:53.589Z"
+  }
+]

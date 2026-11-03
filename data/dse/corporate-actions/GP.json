@@ -1,0 +1,128 @@
+[
+  {
+    "id": "GP_CASH_2025",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "cashAmount": 215,
+    "percentage": 215,
+    "description": "215% Cash Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "GP_CASH_2024",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 330,
+    "percentage": 330,
+    "description": "330% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "GP_CASH_2023",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 125,
+    "percentage": 125,
+    "description": "125% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "GP_CASH_2022",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 220,
+    "percentage": 220,
+    "description": "220% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "GP_CASH_2021",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 250,
+    "percentage": 250,
+    "description": "250% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "DSE_33405866",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "21 Sep 2026",
+    "recordDate": null,
+    "description": "Interim Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "DSE_32262471",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "15 Jul 2026",
+    "recordDate": null,
+    "description": "Declaration of Interim Dividend and Audited Q2 Financials",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "DSE_31454441",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "24 May 2026",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "DSE_29428032",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "03 Feb 2026",
+    "recordDate": "03.03.2026.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "DSE_26439261",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "23 Sep 2025",
+    "recordDate": null,
+    "description": "Interim Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  },
+  {
+    "id": "DSE_25906911",
+    "symbol": "GP",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "10 Aug 2025",
+    "recordDate": null,
+    "description": "Spot for entitlement of interim dividend",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/GP",
+    "retrievedAt": "2026-10-04T13:10:34.554Z"
+  }
+]

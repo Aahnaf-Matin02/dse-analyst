@@ -1,0 +1,14 @@
+{
+  "symbol": "ADVENT",
+  "period": "2026-10-01",
+  "peRatio": 18.61111111111111,
+  "pbRatio": null,
+  "roe": null,
+  "roa": null,
+  "eps": null,
+  "nav": null,
+  "dividendYield": 0.37,
+  "source": "DSE_OFFICIAL",
+  "sourceUrl": "https://www.dse.com.bd/companies",
+  "retrievedAt": "2026-10-01T14:48:07.101Z"
+}

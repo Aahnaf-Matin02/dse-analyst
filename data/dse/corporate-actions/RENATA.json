@@ -1,0 +1,106 @@
+[
+  {
+    "id": "RENATA_CASH_2025",
+    "symbol": "RENATA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "cashAmount": 55,
+    "percentage": 55,
+    "description": "55% Cash Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "RENATA_CASH_2024",
+    "symbol": "RENATA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 92,
+    "percentage": 92,
+    "description": "92% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "RENATA_CASH_2023",
+    "symbol": "RENATA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 62.5,
+    "percentage": 62.5,
+    "description": "62.5% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "RENATA_CASH_2022",
+    "symbol": "RENATA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 140,
+    "percentage": 140,
+    "description": "140% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "RENATA_STOCK_2022",
+    "symbol": "RENATA",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "percentage": 7,
+    "description": "7% Stock Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "RENATA_CASH_2021",
+    "symbol": "RENATA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 145,
+    "percentage": 145,
+    "description": "145% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "RENATA_STOCK_2021",
+    "symbol": "RENATA",
+    "actionType": "STOCK_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "percentage": 10,
+    "description": "10% Stock Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "DSE_29230747",
+    "symbol": "RENATA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "28 Jan 2026",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  },
+  {
+    "id": "DSE_27065377",
+    "symbol": "RENATA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "28 Oct 2025",
+    "recordDate": "17.11.2025.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/RENATA",
+    "retrievedAt": "2026-10-01T14:29:57.316Z"
+  }
+]

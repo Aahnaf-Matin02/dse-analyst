@@ -1,0 +1,14 @@
+{
+  "symbol": "GREENDELT",
+  "period": "2026-10-01",
+  "peRatio": 12.665441176470589,
+  "pbRatio": null,
+  "roe": null,
+  "roa": null,
+  "eps": null,
+  "nav": null,
+  "dividendYield": 5.02,
+  "source": "DSE_OFFICIAL",
+  "sourceUrl": "https://www.dse.com.bd/companies",
+  "retrievedAt": "2026-10-01T14:29:48.487Z"
+}

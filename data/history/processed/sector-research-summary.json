@@ -1,0 +1,395 @@
+{
+  "generatedAt": "2026-06-07T13:29:39.938Z",
+  "totalMarketCap": 3571105667416.4,
+  "totalMarketCapFormatted": "BDT 3.57T",
+  "benchmarks": {
+    "averagePE": 34.28,
+    "averageYield": 19.15,
+    "breadth": {
+      "advancing": 179,
+      "declining": 159,
+      "unchanged": 44,
+      "total": 382
+    }
+  },
+  "sectors": [
+    {
+      "name": "Pharmaceuticals & Chemicals",
+      "stockCount": 31,
+      "totalMarketCap": 830188996000,
+      "marketCapFormatted": "BDT 830.19B",
+      "avgPE": 34.5,
+      "avgDivYield": 18.25,
+      "avgDailyReturn": -0.22,
+      "topStock": {
+        "symbol": "SQURPHARMA",
+        "name": "Square Pharmaceuticals Ltd",
+        "cap": 190586750000,
+        "price": 215
+      },
+      "topGainer": {
+        "symbol": "SILCOPHL",
+        "changePercent": 8.85,
+        "price": 20.9
+      },
+      "weightPercent": 23.25
+    },
+    {
+      "name": "Telecommunication",
+      "stockCount": 3,
+      "totalMarketCap": 684572109416.3999,
+      "marketCapFormatted": "BDT 684.57B",
+      "avgPE": 27.9,
+      "avgDivYield": 8.22,
+      "avgDailyReturn": 0.21,
+      "topStock": {
+        "symbol": "GP",
+        "name": "Grameenphone Ltd",
+        "cap": 332443865416.39996,
+        "price": 246.2
+      },
+      "topGainer": {
+        "symbol": "GP",
+        "changePercent": 1.65,
+        "price": 246.2
+      },
+      "weightPercent": 19.17
+    },
+    {
+      "name": "Bank",
+      "stockCount": 32,
+      "totalMarketCap": 519918400000,
+      "marketCapFormatted": "BDT 519.92B",
+      "avgPE": 32.5,
+      "avgDivYield": 17.32,
+      "avgDailyReturn": 0.6,
+      "topStock": {
+        "symbol": "BRACBANK",
+        "name": "BRAC Bank PLC",
+        "cap": 109022400000,
+        "price": 67.8
+      },
+      "topGainer": {
+        "symbol": "SIPLC",
+        "changePercent": 3.55,
+        "price": 87.6
+      },
+      "weightPercent": 14.56
+    },
+    {
+      "name": "Food & Allied",
+      "stockCount": 20,
+      "totalMarketCap": 370847500000,
+      "marketCapFormatted": "BDT 370.85B",
+      "avgPE": 29.8,
+      "avgDivYield": 19.01,
+      "avgDailyReturn": -0.93,
+      "topStock": {
+        "symbol": "BATBC",
+        "name": "British American Tobacco Bangladesh Co.",
+        "cap": 119880000000,
+        "price": 222
+      },
+      "topGainer": {
+        "symbol": "SHYAMPSUG",
+        "changePercent": 6.15,
+        "price": 179.5
+      },
+      "weightPercent": 10.38
+    },
+    {
+      "name": "Engineering",
+      "stockCount": 41,
+      "totalMarketCap": 324099460000,
+      "marketCapFormatted": "BDT 324.10B",
+      "avgPE": 36.8,
+      "avgDivYield": 20.82,
+      "avgDailyReturn": -0.86,
+      "topStock": {
+        "symbol": "WALTONHIL",
+        "name": "Walton Hi-Tech Industries PLC",
+        "cap": 113746460000,
+        "price": 375.5
+      },
+      "topGainer": {
+        "symbol": "SSSTEEL",
+        "changePercent": 7.84,
+        "price": 5.5
+      },
+      "weightPercent": 9.08
+    },
+    {
+      "name": "Fuel & Power",
+      "stockCount": 23,
+      "totalMarketCap": 220762872000,
+      "marketCapFormatted": "BDT 220.76B",
+      "avgPE": 37.6,
+      "avgDivYield": 23.23,
+      "avgDailyReturn": 0.19,
+      "topStock": {
+        "symbol": "UPGDCL",
+        "name": "United Power Generation & Distribution Co. Ltd",
+        "cap": 71245130000,
+        "price": 122.9
+      },
+      "topGainer": {
+        "symbol": "KPPL",
+        "changePercent": 4.29,
+        "price": 17
+      },
+      "weightPercent": 6.18
+    },
+    {
+      "name": "Miscellaneous",
+      "stockCount": 61,
+      "totalMarketCap": 217024130000,
+      "marketCapFormatted": "BDT 217.02B",
+      "avgPE": 34.2,
+      "avgDivYield": 19.7,
+      "avgDailyReturn": 0.29,
+      "topStock": {
+        "symbol": "BEXIMCO",
+        "name": "Bangladesh Export Import Company Ltd",
+        "cap": 96480630000,
+        "price": 110.1
+      },
+      "topGainer": {
+        "symbol": "NAHEEACP",
+        "changePercent": 8.16,
+        "price": 41.1
+      },
+      "weightPercent": 6.08
+    },
+    {
+      "name": "Insurance",
+      "stockCount": 50,
+      "totalMarketCap": 115744500000,
+      "marketCapFormatted": "BDT 115.74B",
+      "avgPE": 36.2,
+      "avgDivYield": 20.01,
+      "avgDailyReturn": 2.93,
+      "topStock": {
+        "symbol": "PRAGATILIF",
+        "name": "Pragati Life Insurance Ltd",
+        "cap": 8442000000,
+        "price": 187.6
+      },
+      "topGainer": {
+        "symbol": "PARAMOUNT",
+        "changePercent": 9.9,
+        "price": 57.7
+      },
+      "weightPercent": 3.24
+    },
+    {
+      "name": "Textile",
+      "stockCount": 53,
+      "totalMarketCap": 79072000000,
+      "marketCapFormatted": "BDT 79.07B",
+      "avgPE": 30.3,
+      "avgDivYield": 19.08,
+      "avgDailyReturn": -1.69,
+      "topStock": {
+        "symbol": "APEXSPINN",
+        "name": "Apex Spinning & Knitting Mills Ltd",
+        "cap": 11632000000,
+        "price": 290.8
+      },
+      "topGainer": {
+        "symbol": "TUNGHAI",
+        "changePercent": 6.67,
+        "price": 3.2
+      },
+      "weightPercent": 2.21
+    },
+    {
+      "name": "Cement",
+      "stockCount": 6,
+      "totalMarketCap": 41886000000,
+      "marketCapFormatted": "BDT 41.89B",
+      "avgPE": 36.2,
+      "avgDivYield": 19.18,
+      "avgDailyReturn": 2.69,
+      "topStock": {
+        "symbol": "HEIDELBCEM",
+        "name": "HeidelbergCement Bangladesh Ltd",
+        "cap": 22230000000,
+        "price": 247
+      },
+      "topGainer": {
+        "symbol": "CROWNCEMNT",
+        "changePercent": 10,
+        "price": 57.2
+      },
+      "weightPercent": 1.17
+    },
+    {
+      "name": "Financial Institutions",
+      "stockCount": 23,
+      "totalMarketCap": 37828000000,
+      "marketCapFormatted": "BDT 37.83B",
+      "avgPE": 37,
+      "avgDivYield": 16.14,
+      "avgDailyReturn": 1.66,
+      "topStock": {
+        "symbol": "ICB",
+        "name": "Investment Corporation of Bangladesh",
+        "cap": 5992000000,
+        "price": 42.8
+      },
+      "topGainer": {
+        "symbol": "IPDC",
+        "changePercent": 9.84,
+        "price": 21.2
+      },
+      "weightPercent": 1.06
+    },
+    {
+      "name": "Tannery Industries",
+      "stockCount": 6,
+      "totalMarketCap": 29768200000,
+      "marketCapFormatted": "BDT 29.77B",
+      "avgPE": 30.5,
+      "avgDivYield": 20.75,
+      "avgDailyReturn": -1.12,
+      "topStock": {
+        "symbol": "BATASHOE",
+        "name": "Bata Shoe Company (Bangladesh) Ltd",
+        "cap": 18590000000,
+        "price": 845
+      },
+      "topGainer": {
+        "symbol": "SAMATALETH",
+        "changePercent": 4.17,
+        "price": 112.3
+      },
+      "weightPercent": 0.83
+    },
+    {
+      "name": "Paper & Printing",
+      "stockCount": 5,
+      "totalMarketCap": 26177500000,
+      "marketCapFormatted": "BDT 26.18B",
+      "avgPE": 34.9,
+      "avgDivYield": 17.69,
+      "avgDailyReturn": -4.53,
+      "topStock": {
+        "symbol": "GQBALLPEN",
+        "name": "G.Q. Ball Pen Industries Ltd",
+        "cap": 17250000000,
+        "price": 690
+      },
+      "topGainer": {
+        "symbol": "DACCADYE",
+        "changePercent": -1.23,
+        "price": 16.1
+      },
+      "weightPercent": 0.73
+    },
+    {
+      "name": "IT Sector",
+      "stockCount": 11,
+      "totalMarketCap": 23165000000,
+      "marketCapFormatted": "BDT 23.16B",
+      "avgPE": 31.5,
+      "avgDivYield": 12.81,
+      "avgDailyReturn": -1.03,
+      "topStock": {
+        "symbol": "DAFODILCOM",
+        "name": "Daffodil Computers PLC",
+        "cap": 6834999999.999999,
+        "price": 136.7
+      },
+      "topGainer": {
+        "symbol": "AGNISYSL",
+        "changePercent": 1.69,
+        "price": 30.1
+      },
+      "weightPercent": 0.65
+    },
+    {
+      "name": "Services & Real Estate",
+      "stockCount": 4,
+      "totalMarketCap": 21862000000,
+      "marketCapFormatted": "BDT 21.86B",
+      "avgPE": 13.6,
+      "avgDivYield": 17.49,
+      "avgDailyReturn": 0.21,
+      "topStock": {
+        "symbol": "EHL",
+        "name": "Eastern Housing Ltd",
+        "cap": 7718000000,
+        "price": 90.8
+      },
+      "topGainer": {
+        "symbol": "UNIQUEHRL",
+        "changePercent": 1.75,
+        "price": 40.7
+      },
+      "weightPercent": 0.61
+    },
+    {
+      "name": "Travel & Leisure",
+      "stockCount": 5,
+      "totalMarketCap": 15723000000,
+      "marketCapFormatted": "BDT 15.72B",
+      "avgPE": 41.4,
+      "avgDivYield": 21.01,
+      "avgDailyReturn": -1.06,
+      "topStock": {
+        "symbol": "SONALIANSH",
+        "name": "Sonali Ansh Industries Ltd",
+        "cap": 5562000000,
+        "price": 185.4
+      },
+      "topGainer": {
+        "symbol": "BSCPLC",
+        "changePercent": 1.04,
+        "price": 145.8
+      },
+      "weightPercent": 0.44
+    },
+    {
+      "name": "Ceramics Sector",
+      "stockCount": 5,
+      "totalMarketCap": 10462500000,
+      "marketCapFormatted": "BDT 10.46B",
+      "avgPE": 40.9,
+      "avgDivYield": 19.98,
+      "avgDailyReturn": -2.05,
+      "topStock": {
+        "symbol": "MONNOCERA",
+        "name": "Monno Ceramic Industries PLC",
+        "cap": 4437000000,
+        "price": 98.6
+      },
+      "topGainer": {
+        "symbol": "RAKCERAMIC",
+        "changePercent": 2.42,
+        "price": 25.4
+      },
+      "weightPercent": 0.29
+    },
+    {
+      "name": "Jute",
+      "stockCount": 3,
+      "totalMarketCap": 2003500000,
+      "marketCapFormatted": "BDT 2.00B",
+      "avgPE": 62.3,
+      "avgDivYield": 24.45,
+      "avgDailyReturn": 1.93,
+      "topStock": {
+        "symbol": "JUTESPINN",
+        "name": "Jute Spinners Ltd",
+        "cap": 1085000000,
+        "price": 217
+      },
+      "topGainer": {
+        "symbol": "SONARGAON",
+        "changePercent": 9.95,
+        "price": 71.8
+      },
+      "weightPercent": 0.06
+    }
+  ]
+}

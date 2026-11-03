@@ -1,0 +1,106 @@
+[
+  {
+    "id": "BATBC_CASH_2025",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "cashAmount": 30,
+    "percentage": 30,
+    "description": "30% Cash Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "BATBC_CASH_2024",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 300,
+    "percentage": 300,
+    "description": "300% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "BATBC_CASH_2023",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 100,
+    "percentage": 100,
+    "description": "100% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "BATBC_CASH_2022",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 200,
+    "percentage": 200,
+    "description": "200% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "BATBC_CASH_2021",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 275,
+    "percentage": 275,
+    "description": "275% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "DSE_29850590",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "03 Mar 2026",
+    "recordDate": null,
+    "description": "Dividend Declaration and Others",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "DSE_24263926",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "24 Apr 2025",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "DSE_23420821",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "06 Feb 2025",
+    "recordDate": "26.02.2025.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  },
+  {
+    "id": "DSE_22795604",
+    "symbol": "BATBC",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "29 Dec 2024",
+    "recordDate": null,
+    "description": "Interim Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/BATBC",
+    "retrievedAt": "2026-10-01T14:29:51.604Z"
+  }
+]

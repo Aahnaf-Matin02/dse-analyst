@@ -1,0 +1,14 @@
+{
+  "symbol": "BDFINANCE",
+  "period": "2026-10-01",
+  "peRatio": 9.411764705882353,
+  "pbRatio": null,
+  "roe": null,
+  "roa": null,
+  "eps": null,
+  "nav": null,
+  "dividendYield": 0,
+  "source": "DSE_OFFICIAL",
+  "sourceUrl": "https://www.dse.com.bd/companies",
+  "retrievedAt": "2026-10-01T14:48:07.081Z"
+}

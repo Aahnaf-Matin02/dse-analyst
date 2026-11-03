@@ -1,0 +1,14 @@
+{
+  "symbol": "CITYBANK",
+  "period": "2026-10-01",
+  "peRatio": 3.432835820895522,
+  "pbRatio": null,
+  "roe": null,
+  "roa": null,
+  "eps": 8.71,
+  "nav": 40.67,
+  "dividendYield": 6.15,
+  "source": "DSE_OFFICIAL",
+  "sourceUrl": "https://www.dse.com.bd/company/CITYBANK",
+  "retrievedAt": "2026-10-01T14:29:56.337Z"
+}

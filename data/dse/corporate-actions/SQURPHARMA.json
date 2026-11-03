@@ -1,0 +1,106 @@
+[
+  {
+    "id": "SQURPHARMA_CASH_2025",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2025-12-31",
+    "cashAmount": 120,
+    "percentage": 120,
+    "description": "120% Cash Dividend for FY 2025",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "SQURPHARMA_CASH_2024",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2024-12-31",
+    "cashAmount": 110,
+    "percentage": 110,
+    "description": "110% Cash Dividend for FY 2024",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "SQURPHARMA_CASH_2023",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2023-12-31",
+    "cashAmount": 105,
+    "percentage": 105,
+    "description": "105% Cash Dividend for FY 2023",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "SQURPHARMA_CASH_2022",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2022-12-31",
+    "cashAmount": 100,
+    "percentage": 100,
+    "description": "100% Cash Dividend for FY 2022",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "SQURPHARMA_CASH_2021",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "2021-12-31",
+    "cashAmount": 60,
+    "percentage": 60,
+    "description": "60% Cash Dividend for FY 2021",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "DSE_29022328",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "21 Jan 2026",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "DSE_26879775",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "23 Oct 2025",
+    "recordDate": "16.11.2025.",
+    "description": "Dividend Declaration and Others",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "DSE_23202675",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "28 Jan 2025",
+    "recordDate": null,
+    "description": "Dividend Disbursement",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  },
+  {
+    "id": "DSE_21439815",
+    "symbol": "SQURPHARMA",
+    "actionType": "CASH_DIVIDEND",
+    "announcementDate": "24 Oct 2024",
+    "recordDate": "21.11.2024.",
+    "description": "Dividend Declaration",
+    "source": "DSE_OFFICIAL",
+    "sourceUrl": "https://www.dse.com.bd/company/SQURPHARMA",
+    "retrievedAt": "2026-10-01T14:29:52.551Z"
+  }
+]

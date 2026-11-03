@@ -1,0 +1,6 @@
+{
+  "name": "DSE Analyst beta",
+  "description": "AI-Powered Bangladesh Stock Market Analyst. Analyze DSE companies, predict future trends, assess risks, and build winning portfolios using Artificial Intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

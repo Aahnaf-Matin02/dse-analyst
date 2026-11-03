@@ -1,0 +1,42 @@
+{
+  "status": "Cached",
+  "source": "CachedFile",
+  "live": false,
+  "parsedSymbols": 0,
+  "cachedSymbols": 626,
+  "defaultSeedSymbols": 0,
+  "lastAttemptTime": "2026-10-04T13:10:35.812Z",
+  "lastSuccessfulSync": "2026-09-29T10:30:00.000Z",
+  "message": "Scrape failed. Serving authentic cachedfile data without modifications.",
+  "diagnostics": {
+    "finalUrl": "https://www.dsebd.org/latest_share_price_all.php",
+    "baseUrl": "https://www.dsebd.org",
+    "latestPricePath": "/latest_share_price_all.php",
+    "companyPath": "/displayCompany.php?name={symbol}",
+    "httpStatus": 503,
+    "errorCode": "SCRAPE_FAILED",
+    "rowsParsed": 0,
+    "attemptedUrls": [
+      {
+        "url": "https://www.dsebd.org/latest_share_price_all.php",
+        "httpStatus": 410,
+        "errorCode": "PROBE_FAILED",
+        "rowsParsed": 0,
+        "ok": false,
+        "message": "Query completed with status 410."
+      },
+      {
+        "url": "http://127.0.0.1:54321/latest_share_price_all.php",
+        "httpStatus": null,
+        "errorCode": "DSE_FETCH_EXCEPTION",
+        "rowsParsed": 0,
+        "ok": false,
+        "message": "Connection exception: connect ECONNREFUSED 127.0.0.1:54321"
+      }
+    ],
+    "selectedUrl": null,
+    "diagnosticsMessage": "DSE endpoints could not be reached. Preserved cached data unchanged without price simulation."
+  },
+  "isTemporaryCache": false,
+  "storageType": "Persistent disk"
+}

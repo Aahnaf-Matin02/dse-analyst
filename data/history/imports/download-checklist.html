@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DSE CSV Download Checklist</title>
+<style>
+  body { font-family: system-ui,sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: #1c1c1e; }
+  h1   { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .subtitle { color: #6b6560; font-size: 0.9rem; margin-bottom: 2rem; }
+  .stats { display: flex; gap: 1rem; margin-bottom: 2rem; }
+  .stat { background: #f5f0e8; padding: 1rem 1.5rem; border-radius: 10px; }
+  .stat-n { font-size: 2rem; font-weight: 600; }
+  .stat-n.green { color: #1a6b4a; }
+  .stat-n.amber { color: #ba7517; }
+  .stat-label { font-size: 0.8rem; color: #6b6560; }
+  .sector-block { margin-bottom: 2rem; }
+  h3   { font-size: 1rem; border-bottom: 1px solid #e8e0d0; padding-bottom: 0.5rem; }
+  .count { font-size: 0.8rem; color: #6b6560; font-weight: 400; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th   { text-align: left; padding: 6px 8px; background: #faf7f2; font-size: 0.75rem; color: #6b6560; }
+  td   { padding: 6px 8px; border-bottom: 1px solid #f0ebe0; }
+  code { font-size: 0.8rem; background: #f0ebe0; padding: 2px 6px; border-radius: 4px; }
+  a    { color: #1a6b4a; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+  .done-section { margin-top: 2rem; padding: 1rem; background: #eaf3de; border-radius: 10px; }
+  .done-badge { display: inline-block; font-size: 0.7rem; background: #1a6b4a; color: #fff; padding: 2px 6px; border-radius: 4px; margin: 2px; font-family: monospace; }
+  .instruction { background: #e6f1fb; border-left: 3px solid #185fa5; padding: 1rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; font-size: 0.875rem; }
+  .instruction ol { margin: 0.5rem 0 0 1.25rem; }
+  .instruction li { margin-bottom: 0.25rem; }
+</style>
+</head>
+<body>
+<h1>DSE Investing.com CSV Download Checklist</h1>
+<p class="subtitle">Generated: 6/16/2026, 12:56:14 PM &middot;
+  Save each CSV as <code>{SYMBOL}.csv</code> in
+  <code>data/history/imports/investing/stocks/</code> (or /indices/ for market index history)</p>
+
+<div class="stats">
+  <div class="stat"><div class="stat-n green">94</div><div class="stat-label">CSVs downloaded</div></div>
+  <div class="stat"><div class="stat-n amber">223</div><div class="stat-label">Still needed</div></div>
+  <div class="stat"><div class="stat-n">317</div><div class="stat-label">Total mapped</div></div>
+</div>
+
+<div class="instruction">
+  <strong>How to download each CSV:</strong>
+  <ol>
+    <li>Click "Download CSV ↗" — opens the stock or index historical data page on Investing.com</li>
+    <li>Set date range: <strong>2024-05-15 → today</strong> (~2.1 years)</li>
+    <li>Click <strong>Download Data</strong> (top-right of the price table)</li>
+    <li>Rename the file exactly as <strong>{SYMBOL}.csv</strong></li>
+    <li>Move to: <code>data/history/imports/investing/stocks/</code> (or <code>data/history/imports/investing/indices/</code> for core indexes)</li>
+    <li>After each batch: run <code>npm run import:investing-history</code></li>
+    <li>Regenerate this checklist: <code>npm run checklist</code></li>
+  </ol>
+</div>
+
+
+    <div class="sector-block index-block" style="margin-bottom: 2.5rem; background: #fafbfe; border: 1px solid #ddecfa; padding: 1.5rem; border-radius: 12px;">
+      <h3 style="color: #032d60; border-bottom: 2px solid #bcd4f0; padding-bottom: 0.75rem; margin-top: 0;">📉 Primary Market Index History</h3>
+      
+      <div style="background: #e6fdf4; border: 1px solid #a7f3d0; color: #047857; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-family: monospace; font-size: 0.85rem; line-height: 1.4;">
+        ℹ️ <strong>Coverage Info:</strong> DSEX/DS30/DSES cover from 2024-05-15 to today. Download 2024-05-15 &rarr; today data (~2.1 years) from Investing.com for all individual stocks to match the active market index benchmark range.
+      </div>
+
+      <table style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Status Indicator</th>
+            <th>Index Symbol</th>
+            <th>Row Count</th>
+            <th>Extents Range</th>
+            <th>Dynamic Coverage</th>
+            <th>Manual Download Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr style="background: #fefce8">
+              <td>
+                <span style="display:inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background: #fffbeb; color: #92400e">
+                  ● Partial Coverage (2.1 Years)
+                </span>
+              </td>
+              <td><code>DSEX</code></td>
+              <td><strong>536</strong> rows</td>
+              <td><code>2024-05-15</code> to <code>2026-06-03</code></td>
+              <td><strong>2.1</strong> Years</td>
+              <td><a href="https://www.investing.com/indices/dhaka-stock-exchange-broad-historical-data" target="_blank" style="font-weight: 600; color: #1e3a8a;">Manual Download CSV ↗</a></td>
+            </tr>
+            <tr style="background: #fefce8">
+              <td>
+                <span style="display:inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background: #fffbeb; color: #92400e">
+                  ● Partial Coverage (2.1 Years)
+                </span>
+              </td>
+              <td><code>DS30</code></td>
+              <td><strong>536</strong> rows</td>
+              <td><code>2024-05-15</code> to <code>2026-06-03</code></td>
+              <td><strong>2.1</strong> Years</td>
+              <td><a href="https://www.investing.com/indices/dhaka-stock-exchange-30-historical-data" target="_blank" style="font-weight: 600; color: #1e3a8a;">Manual Download CSV ↗</a></td>
+            </tr>
+            <tr style="background: #fefce8">
+              <td>
+                <span style="display:inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background: #fffbeb; color: #92400e">
+                  ● Partial Coverage (2.1 Years)
+                </span>
+              </td>
+              <td><code>DSES</code></td>
+              <td><strong>536</strong> rows</td>
+              <td><code>2024-05-15</code> to <code>2026-06-03</code></td>
+              <td><strong>2.1</strong> Years</td>
+              <td><a href="https://www.investing.com/indices/dsex-shariah-historical-data" target="_blank" style="font-weight: 600; color: #1e3a8a;">Manual Download CSV ↗</a></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="sector-block">
+      <h3>Bank <span class="count">24 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-ICBIBANK"></td>
+            <td><code>ICBIBANK</code></td>
+            <td>ICB Islamic Bank</td>
+            <td><a href="https://www.investing.com/equities/icb-islamic-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-IFIC"></td>
+            <td><code>IFIC</code></td>
+            <td>IFIC Bank</td>
+            <td><a href="https://www.investing.com/equities/ific-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ISLAMIBANK"></td>
+            <td><code>ISLAMIBANK</code></td>
+            <td>Islami Bank Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/islami-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-JAMUNABANK"></td>
+            <td><code>JAMUNABANK</code></td>
+            <td>Jamuna Bank</td>
+            <td><a href="https://www.investing.com/equities/jamuna-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-LHB"></td>
+            <td><code>LHB</code></td>
+            <td>LHB Finance</td>
+            <td><a href="https://www.investing.com/equities/lhb-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MERCANBANK"></td>
+            <td><code>MERCANBANK</code></td>
+            <td>Mercantile Bank</td>
+            <td><a href="https://www.investing.com/equities/mercantile-bank-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MIDLANDBNK"></td>
+            <td><code>MIDLANDBNK</code></td>
+            <td>Midland Bank</td>
+            <td><a href="https://www.investing.com/equities/midland-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MTB"></td>
+            <td><code>MTB</code></td>
+            <td>Mutual Trust Bank</td>
+            <td><a href="https://www.investing.com/equities/mutual-trust-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NBL"></td>
+            <td><code>NBL</code></td>
+            <td>National Bank Ltd</td>
+            <td><a href="https://www.investing.com/equities/national-bank-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NCCBANK"></td>
+            <td><code>NCCBANK</code></td>
+            <td>NCC Bank</td>
+            <td><a href="https://www.investing.com/equities/ncc-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NRBBANK"></td>
+            <td><code>NRBBANK</code></td>
+            <td>NRB Bank</td>
+            <td><a href="https://www.investing.com/equities/nrb-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NRBCBANK"></td>
+            <td><code>NRBCBANK</code></td>
+            <td>NRB Commercial Bank</td>
+            <td><a href="https://www.investing.com/equities/nrb-commercial-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ONEBANKPLC"></td>
+            <td><code>ONEBANKPLC</code></td>
+            <td>One Bank</td>
+            <td><a href="https://www.investing.com/equities/one-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PREMIERBAN"></td>
+            <td><code>PREMIERBAN</code></td>
+            <td>Premier Bank</td>
+            <td><a href="https://www.investing.com/equities/premier-bank-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PRIMEBANK"></td>
+            <td><code>PRIMEBANK</code></td>
+            <td>Prime Bank Ltd</td>
+            <td><a href="https://www.investing.com/equities/prime-bank-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PUBALIBANK"></td>
+            <td><code>PUBALIBANK</code></td>
+            <td>Pubali Bank</td>
+            <td><a href="https://www.investing.com/equities/pubali-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RUPALIBANK"></td>
+            <td><code>RUPALIBANK</code></td>
+            <td>Rupali Bank</td>
+            <td><a href="https://www.investing.com/equities/rupali-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SBACBANK"></td>
+            <td><code>SBACBANK</code></td>
+            <td>SBAC Bank</td>
+            <td><a href="https://www.investing.com/equities/sbac-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SHAHJABANK"></td>
+            <td><code>SHAHJABANK</code></td>
+            <td>Shahjalal Islami Bank</td>
+            <td><a href="https://www.investing.com/equities/shahjalal-islami-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SIPLC"></td>
+            <td><code>SIPLC</code></td>
+            <td>Social Islami Bank</td>
+            <td><a href="https://www.investing.com/equities/social-islami-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-STANDBANKL"></td>
+            <td><code>STANDBANKL</code></td>
+            <td>Standard Bank</td>
+            <td><a href="https://www.investing.com/equities/standard-bank-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TRUSTBANK"></td>
+            <td><code>TRUSTBANK</code></td>
+            <td>Trust Bank</td>
+            <td><a href="https://www.investing.com/equities/trust-bank-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UCB"></td>
+            <td><code>UCB</code></td>
+            <td>United Commercial Bank</td>
+            <td><a href="https://www.investing.com/equities/united-commercial-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UTTARABANK"></td>
+            <td><code>UTTARABANK</code></td>
+            <td>Uttara Bank</td>
+            <td><a href="https://www.investing.com/equities/uttara-bank-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Cement <span class="count">3 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-HEIDELBCEM"></td>
+            <td><code>HEIDELBCEM</code></td>
+            <td>HeidelbergCement Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/heidelbergcement-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MEGHNACEM"></td>
+            <td><code>MEGHNACEM</code></td>
+            <td>Meghna Cement Mills</td>
+            <td><a href="https://www.investing.com/equities/meghna-cement-mills-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PREMIERCEM"></td>
+            <td><code>PREMIERCEM</code></td>
+            <td>Premier Cement Mills</td>
+            <td><a href="https://www.investing.com/equities/premier-cement-mills-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Ceramics Sector <span class="count">5 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-FUWANGCER"></td>
+            <td><code>FUWANGCER</code></td>
+            <td>Fu-Wang Ceramic Industry</td>
+            <td><a href="https://www.investing.com/equities/fu-wang-ceramic-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MONNOCERA"></td>
+            <td><code>MONNOCERA</code></td>
+            <td>Monno Ceramic Industries</td>
+            <td><a href="https://www.investing.com/equities/monno-ceramic-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RAKCERAMIC"></td>
+            <td><code>RAKCERAMIC</code></td>
+            <td>RAK Ceramics Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/rak-ceramics-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SPCERAMICS"></td>
+            <td><code>SPCERAMICS</code></td>
+            <td>Standard Ceramic Industries</td>
+            <td><a href="https://www.investing.com/equities/standard-ceramic-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-STANCERAM"></td>
+            <td><code>STANCERAM</code></td>
+            <td>Standard Ceramics</td>
+            <td><a href="https://www.investing.com/equities/standard-ceramics-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Engineering <span class="count">26 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-ECABLES"></td>
+            <td><code>ECABLES</code></td>
+            <td>Eastern Cables</td>
+            <td><a href="https://www.investing.com/equities/eastern-cables-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-EIL"></td>
+            <td><code>EIL</code></td>
+            <td>Eastern Industrial</td>
+            <td><a href="https://www.investing.com/equities/eastern-industrial-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ETL"></td>
+            <td><code>ETL</code></td>
+            <td>Electro-Technical</td>
+            <td><a href="https://www.investing.com/equities/electro-technical-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GPHISPAT"></td>
+            <td><code>GPHISPAT</code></td>
+            <td>GPH Ispat</td>
+            <td><a href="https://www.investing.com/equities/gph-ispat-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-IFADAUTOS"></td>
+            <td><code>IFADAUTOS</code></td>
+            <td>IFAD Autos</td>
+            <td><a href="https://www.investing.com/equities/ifad-autos-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ITC"></td>
+            <td><code>ITC</code></td>
+            <td>ITC Ltd BD</td>
+            <td><a href="https://www.investing.com/equities/itc-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-JMISMDL"></td>
+            <td><code>JMISMDL</code></td>
+            <td>JMI Syringes & Medical Devices</td>
+            <td><a href="https://www.investing.com/equities/jmi-syringes-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KAY&QUE"></td>
+            <td><code>KAY&QUE</code></td>
+            <td>Kay & Que Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/kay-and-que-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KDSALTD"></td>
+            <td><code>KDSALTD</code></td>
+            <td>KDS Accessories</td>
+            <td><a href="https://www.investing.com/equities/kds-accessories-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MIRACLEIND"></td>
+            <td><code>MIRACLEIND</code></td>
+            <td>Miracle Industries</td>
+            <td><a href="https://www.investing.com/equities/miracle-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MIRAKHTER"></td>
+            <td><code>MIRAKHTER</code></td>
+            <td>Mir Akhter Hossain</td>
+            <td><a href="https://www.investing.com/equities/mir-akhter-hossain-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MONNOAGML"></td>
+            <td><code>MONNOAGML</code></td>
+            <td>Monno Agro General Machinery</td>
+            <td><a href="https://www.investing.com/equities/monno-agro-general-machinery-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MONOSPOOL"></td>
+            <td><code>MONOSPOOL</code></td>
+            <td>Monowara Spool</td>
+            <td><a href="https://www.investing.com/equities/monowara-spool-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NPOLYMER"></td>
+            <td><code>NPOLYMER</code></td>
+            <td>Northern Polymer</td>
+            <td><a href="https://www.investing.com/equities/northern-polymer-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NTLTUBES"></td>
+            <td><code>NTLTUBES</code></td>
+            <td>National Tubes</td>
+            <td><a href="https://www.investing.com/equities/national-tubes-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-OAL"></td>
+            <td><code>OAL</code></td>
+            <td>Olympic Accessories</td>
+            <td><a href="https://www.investing.com/equities/olympic-accessories-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-QUASEMIND"></td>
+            <td><code>QUASEMIND</code></td>
+            <td>Quasem Industries</td>
+            <td><a href="https://www.investing.com/equities/quasem-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RANFOUNDRY"></td>
+            <td><code>RANFOUNDRY</code></td>
+            <td>Rangpur Foundry</td>
+            <td><a href="https://www.investing.com/equities/rangpur-foundry-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RENWICKJA"></td>
+            <td><code>RENWICKJA</code></td>
+            <td>Renwick Jajuneswar</td>
+            <td><a href="https://www.investing.com/equities/renwick-jajuneswar-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RSRMSTEEL"></td>
+            <td><code>RSRMSTEEL</code></td>
+            <td>RSRM Steel Mills</td>
+            <td><a href="https://www.investing.com/equities/rsrm-steel-mills-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RUNNERAUTO"></td>
+            <td><code>RUNNERAUTO</code></td>
+            <td>Runner Automobiles</td>
+            <td><a href="https://www.investing.com/equities/runner-automobiles-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SINGERBD"></td>
+            <td><code>SINGERBD</code></td>
+            <td>Singer Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/singer-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SSSTEEL"></td>
+            <td><code>SSSTEEL</code></td>
+            <td>S.S. Steel</td>
+            <td><a href="https://www.investing.com/equities/s-s-steel-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-USMANIAGL"></td>
+            <td><code>USMANIAGL</code></td>
+            <td>Usmani & Co.</td>
+            <td><a href="https://www.investing.com/equities/usmani-and-co-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-WALTONHIL"></td>
+            <td><code>WALTONHIL</code></td>
+            <td>Walton Hi-Tech Industries</td>
+            <td><a href="https://www.investing.com/equities/walton-hi-tech-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-WMSHIPYARD"></td>
+            <td><code>WMSHIPYARD</code></td>
+            <td>Western Marine Shipyard</td>
+            <td><a href="https://www.investing.com/equities/western-marine-shipyard-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Financial Institutions <span class="count">19 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-FAREASTFIN"></td>
+            <td><code>FAREASTFIN</code></td>
+            <td>Far East Finance</td>
+            <td><a href="https://www.investing.com/equities/far-east-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-FASFIN"></td>
+            <td><code>FASFIN</code></td>
+            <td>FAS Finance</td>
+            <td><a href="https://www.investing.com/equities/fas-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-FIRSTFIN"></td>
+            <td><code>FIRSTFIN</code></td>
+            <td>First Finance</td>
+            <td><a href="https://www.investing.com/equities/first-finance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GSPFINANCE"></td>
+            <td><code>GSPFINANCE</code></td>
+            <td>GSP Finance</td>
+            <td><a href="https://www.investing.com/equities/gsp-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ICB"></td>
+            <td><code>ICB</code></td>
+            <td>Investment Corporation BD</td>
+            <td><a href="https://www.investing.com/equities/investment-corporation-of-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ICICL"></td>
+            <td><code>ICICL</code></td>
+            <td>ICB Capital Management</td>
+            <td><a href="https://www.investing.com/equities/icb-capital-management-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-IDLC"></td>
+            <td><code>IDLC</code></td>
+            <td>IDLC Finance</td>
+            <td><a href="https://www.investing.com/equities/idlc-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ILFSL"></td>
+            <td><code>ILFSL</code></td>
+            <td>International Leasing</td>
+            <td><a href="https://www.investing.com/equities/international-leasing-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-IPDC"></td>
+            <td><code>IPDC</code></td>
+            <td>IPDC Finance</td>
+            <td><a href="https://www.investing.com/equities/ipdc-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ISLAMICFIN"></td>
+            <td><code>ISLAMICFIN</code></td>
+            <td>Islamic Finance</td>
+            <td><a href="https://www.investing.com/equities/islamic-finance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-LANKABAFIN"></td>
+            <td><code>LANKABAFIN</code></td>
+            <td>LankaBangla Finance</td>
+            <td><a href="https://www.investing.com/equities/lankabangla-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MIDASFIN"></td>
+            <td><code>MIDASFIN</code></td>
+            <td>Midas Financing</td>
+            <td><a href="https://www.investing.com/equities/midas-financing-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NHFIL"></td>
+            <td><code>NHFIL</code></td>
+            <td>National Housing Finance</td>
+            <td><a href="https://www.investing.com/equities/national-housing-finance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PHOENIXFIN"></td>
+            <td><code>PHOENIXFIN</code></td>
+            <td>Phoenix Finance</td>
+            <td><a href="https://www.investing.com/equities/phoenix-finance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PLFSL"></td>
+            <td><code>PLFSL</code></td>
+            <td>Prime Finance</td>
+            <td><a href="https://www.investing.com/equities/prime-finance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PREMIERLEA"></td>
+            <td><code>PREMIERLEA</code></td>
+            <td>Premier Leasing</td>
+            <td><a href="https://www.investing.com/equities/premier-leasing-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UNIONCAP"></td>
+            <td><code>UNIONCAP</code></td>
+            <td>Union Capital</td>
+            <td><a href="https://www.investing.com/equities/union-capital-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UNITEDFIN"></td>
+            <td><code>UNITEDFIN</code></td>
+            <td>United Finance</td>
+            <td><a href="https://www.investing.com/equities/united-finance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UTTARAFIN"></td>
+            <td><code>UTTARAFIN</code></td>
+            <td>Uttara Finance</td>
+            <td><a href="https://www.investing.com/equities/uttara-finance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Food & Allied <span class="count">15 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-EMERALDOIL"></td>
+            <td><code>EMERALDOIL</code></td>
+            <td>Emerald Oil Industries</td>
+            <td><a href="https://www.investing.com/equities/emerald-oil-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-FINEFOODS"></td>
+            <td><code>FINEFOODS</code></td>
+            <td>Fine Foods</td>
+            <td><a href="https://www.investing.com/equities/fine-foods-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-FUWANGFOOD"></td>
+            <td><code>FUWANGFOOD</code></td>
+            <td>Fu-Wang Foods</td>
+            <td><a href="https://www.investing.com/equities/fu-wang-foods-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GEMINISEA"></td>
+            <td><code>GEMINISEA</code></td>
+            <td>Gemini Sea Food</td>
+            <td><a href="https://www.investing.com/equities/gemini-sea-food-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-INDEXAGRO"></td>
+            <td><code>INDEXAGRO</code></td>
+            <td>Index Agro Industries</td>
+            <td><a href="https://www.investing.com/equities/index-agro-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-LOVELLO"></td>
+            <td><code>LOVELLO</code></td>
+            <td>Lovello Ice-Cream</td>
+            <td><a href="https://www.investing.com/equities/lovello-ice-cream-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MARICO"></td>
+            <td><code>MARICO</code></td>
+            <td>Marico Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/marico-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MEGCONMILK"></td>
+            <td><code>MEGCONMILK</code></td>
+            <td>Meghna Condensed Milk</td>
+            <td><a href="https://www.investing.com/equities/meghna-condensed-milk-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-OLYMPIC"></td>
+            <td><code>OLYMPIC</code></td>
+            <td>Olympic Industries</td>
+            <td><a href="https://www.investing.com/equities/olympic-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RAHIMAFOOD"></td>
+            <td><code>RAHIMAFOOD</code></td>
+            <td>Rahima Food Corporation</td>
+            <td><a href="https://www.investing.com/equities/rahima-food-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RDFOOD"></td>
+            <td><code>RDFOOD</code></td>
+            <td>R&D Food Products</td>
+            <td><a href="https://www.investing.com/equities/r-and-d-food-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RECKITTBEN"></td>
+            <td><code>RECKITTBEN</code></td>
+            <td>Reckitt Benckiser Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/reckitt-benckiser-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SHYAMPSUG"></td>
+            <td><code>SHYAMPSUG</code></td>
+            <td>Shyampur Sugar Mills</td>
+            <td><a href="https://www.investing.com/equities/shyampur-sugar-mills-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UNILEVERCL"></td>
+            <td><code>UNILEVERCL</code></td>
+            <td>Unilever Consumer Care BD</td>
+            <td><a href="https://www.investing.com/equities/unilever-consumer-care-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ZEALBANGLA"></td>
+            <td><code>ZEALBANGLA</code></td>
+            <td>Zeal Bangla Sugar Mills</td>
+            <td><a href="https://www.investing.com/equities/zeal-bangla-sugar-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Fuel & Power <span class="count">16 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-EPGL"></td>
+            <td><code>EPGL</code></td>
+            <td>Energy Prima</td>
+            <td><a href="https://www.investing.com/equities/energy-prima-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GBBPOWER"></td>
+            <td><code>GBBPOWER</code></td>
+            <td>GBB Power</td>
+            <td><a href="https://www.investing.com/equities/gbb-power-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-JAMUNAOIL"></td>
+            <td><code>JAMUNAOIL</code></td>
+            <td>Jamuna Oil Company</td>
+            <td><a href="https://www.investing.com/equities/jamuna-oil-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KBPPWBIL"></td>
+            <td><code>KBPPWBIL</code></td>
+            <td>Khulna Power Company</td>
+            <td><a href="https://www.investing.com/equities/khulna-power-company-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KPCL"></td>
+            <td><code>KPCL</code></td>
+            <td>Karnaphuli Power</td>
+            <td><a href="https://www.investing.com/equities/karnaphuli-power-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KPPL"></td>
+            <td><code>KPPL</code></td>
+            <td>Kattali Power Plant</td>
+            <td><a href="https://www.investing.com/equities/kattali-power-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MJLBD"></td>
+            <td><code>MJLBD</code></td>
+            <td>MJL Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/mjl-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MPETROLEUM"></td>
+            <td><code>MPETROLEUM</code></td>
+            <td>Meghna Petroleum</td>
+            <td><a href="https://www.investing.com/equities/meghna-petroleum-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NAVANACNG"></td>
+            <td><code>NAVANACNG</code></td>
+            <td>Navana CNG</td>
+            <td><a href="https://www.investing.com/equities/navana-cng-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-OIMEX"></td>
+            <td><code>OIMEX</code></td>
+            <td>Oimex Electrode</td>
+            <td><a href="https://www.investing.com/equities/oimex-electrode-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PADMAOIL"></td>
+            <td><code>PADMAOIL</code></td>
+            <td>Padma Oil Company</td>
+            <td><a href="https://www.investing.com/equities/padma-oil-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-POWERGRID"></td>
+            <td><code>POWERGRID</code></td>
+            <td>Power Grid Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/power-grid-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SAIFPOWER"></td>
+            <td><code>SAIFPOWER</code></td>
+            <td>Saif Powertec</td>
+            <td><a href="https://www.investing.com/equities/saif-powertec-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SUMITPOWER"></td>
+            <td><code>SUMITPOWER</code></td>
+            <td>Sumit Power</td>
+            <td><a href="https://www.investing.com/equities/sumit-power-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TITASGAS"></td>
+            <td><code>TITASGAS</code></td>
+            <td>Titas Gas T&D</td>
+            <td><a href="https://www.investing.com/equities/titas-gas-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UPGDCL"></td>
+            <td><code>UPGDCL</code></td>
+            <td>United Power Generation</td>
+            <td><a href="https://www.investing.com/equities/united-power-generation-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>IT Sector <span class="count">4 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-GENEXIL"></td>
+            <td><code>GENEXIL</code></td>
+            <td>Genex Infosys</td>
+            <td><a href="https://www.investing.com/equities/genex-infosys-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-INTECH"></td>
+            <td><code>INTECH</code></td>
+            <td>Information Technology Consultants</td>
+            <td><a href="https://www.investing.com/equities/information-technology-consultants-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ISNLTD"></td>
+            <td><code>ISNLTD</code></td>
+            <td>ISN Ltd</td>
+            <td><a href="https://www.investing.com/equities/isn-ltd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-INTRACO"></td>
+            <td><code>INTRACO</code></td>
+            <td>Intraco Refueling Station</td>
+            <td><a href="https://www.investing.com/equities/intraco-refueling-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Insurance <span class="count">35 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-FAREASTLIF"></td>
+            <td><code>FAREASTLIF</code></td>
+            <td>Far East Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/far-east-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-FEDERALINS"></td>
+            <td><code>FEDERALINS</code></td>
+            <td>Federal Insurance</td>
+            <td><a href="https://www.investing.com/equities/federal-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GLOBALINS"></td>
+            <td><code>GLOBALINS</code></td>
+            <td>Global Insurance</td>
+            <td><a href="https://www.investing.com/equities/global-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GREENDELT"></td>
+            <td><code>GREENDELT</code></td>
+            <td>Green Delta Insurance</td>
+            <td><a href="https://www.investing.com/equities/green-delta-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ISLAMIINS"></td>
+            <td><code>ISLAMIINS</code></td>
+            <td>Islami Insurance Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/islami-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-JANATAINS"></td>
+            <td><code>JANATAINS</code></td>
+            <td>Janata Insurance</td>
+            <td><a href="https://www.investing.com/equities/janata-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KARNAPHULI"></td>
+            <td><code>KARNAPHULI</code></td>
+            <td>Karnaphuli Insurance</td>
+            <td><a href="https://www.investing.com/equities/karnaphuli-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MEGHNAINS"></td>
+            <td><code>MEGHNAINS</code></td>
+            <td>Meghna Insurance</td>
+            <td><a href="https://www.investing.com/equities/meghna-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MEGHNALIFE"></td>
+            <td><code>MEGHNALIFE</code></td>
+            <td>Meghna Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/meghna-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MERCINS"></td>
+            <td><code>MERCINS</code></td>
+            <td>Mercantile Insurance</td>
+            <td><a href="https://www.investing.com/equities/mercantile-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NATLIFEINS"></td>
+            <td><code>NATLIFEINS</code></td>
+            <td>National Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/national-life-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NITOLINS"></td>
+            <td><code>NITOLINS</code></td>
+            <td>Nitol Insurance</td>
+            <td><a href="https://www.investing.com/equities/nitol-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NORTHRNINS"></td>
+            <td><code>NORTHRNINS</code></td>
+            <td>Northern Insurance</td>
+            <td><a href="https://www.investing.com/equities/northern-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PADMALIFE"></td>
+            <td><code>PADMALIFE</code></td>
+            <td>Padma Islami Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/padma-islami-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PARAMOUNT"></td>
+            <td><code>PARAMOUNT</code></td>
+            <td>Paramount Insurance</td>
+            <td><a href="https://www.investing.com/equities/paramount-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PEOPLESINS"></td>
+            <td><code>PEOPLESINS</code></td>
+            <td>Peoples Insurance</td>
+            <td><a href="https://www.investing.com/equities/peoples-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PHENIXINS"></td>
+            <td><code>PHENIXINS</code></td>
+            <td>Phoenix Insurance</td>
+            <td><a href="https://www.investing.com/equities/phoenix-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PIONEERINS"></td>
+            <td><code>PIONEERINS</code></td>
+            <td>Pioneer Insurance</td>
+            <td><a href="https://www.investing.com/equities/pioneer-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-POPULARLIF"></td>
+            <td><code>POPULARLIF</code></td>
+            <td>Popular Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/popular-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PRAGATIINS"></td>
+            <td><code>PRAGATIINS</code></td>
+            <td>Pragati Insurance</td>
+            <td><a href="https://www.investing.com/equities/pragati-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PRAGATILIF"></td>
+            <td><code>PRAGATILIF</code></td>
+            <td>Pragati Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/pragati-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PRIMEINSUR"></td>
+            <td><code>PRIMEINSUR</code></td>
+            <td>Prime Insurance</td>
+            <td><a href="https://www.investing.com/equities/prime-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PRIMELIFE"></td>
+            <td><code>PRIMELIFE</code></td>
+            <td>Prime Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/prime-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PROGRESLIF"></td>
+            <td><code>PROGRESLIF</code></td>
+            <td>Progressive Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/progressive-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PROVATIINS"></td>
+            <td><code>PROVATIINS</code></td>
+            <td>Provati Insurance</td>
+            <td><a href="https://www.investing.com/equities/provati-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RELIANCINS"></td>
+            <td><code>RELIANCINS</code></td>
+            <td>Reliance Insurance</td>
+            <td><a href="https://www.investing.com/equities/reliance-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-REPUBLIC"></td>
+            <td><code>REPUBLIC</code></td>
+            <td>Republic Insurance</td>
+            <td><a href="https://www.investing.com/equities/republic-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SANDHANINS"></td>
+            <td><code>SANDHANINS</code></td>
+            <td>Sandhani Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/sandhani-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SICL"></td>
+            <td><code>SICL</code></td>
+            <td>Sonar Bangla Insurance</td>
+            <td><a href="https://www.investing.com/equities/sonar-bangla-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SONALILIFE"></td>
+            <td><code>SONALILIFE</code></td>
+            <td>Sonali Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/sonali-life-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-STANDARINS"></td>
+            <td><code>STANDARINS</code></td>
+            <td>Standard Insurance</td>
+            <td><a href="https://www.investing.com/equities/standard-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SUNLIFEINS"></td>
+            <td><code>SUNLIFEINS</code></td>
+            <td>Sun Life Insurance</td>
+            <td><a href="https://www.investing.com/equities/sun-life-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TAKAFULINS"></td>
+            <td><code>TAKAFULINS</code></td>
+            <td>Takaful Islami Insurance</td>
+            <td><a href="https://www.investing.com/equities/takaful-islami-insurance-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UNIONINS"></td>
+            <td><code>UNIONINS</code></td>
+            <td>Union Insurance</td>
+            <td><a href="https://www.investing.com/equities/union-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UNITEDINS"></td>
+            <td><code>UNITEDINS</code></td>
+            <td>United Insurance</td>
+            <td><a href="https://www.investing.com/equities/united-insurance-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Jute <span class="count">3 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-JUTESPINN"></td>
+            <td><code>JUTESPINN</code></td>
+            <td>Jute Spinners</td>
+            <td><a href="https://www.investing.com/equities/jute-spinners-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NORTHERN"></td>
+            <td><code>NORTHERN</code></td>
+            <td>Northern Jute Manufacturing</td>
+            <td><a href="https://www.investing.com/equities/northern-jute-manufacturing-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SONARGAON"></td>
+            <td><code>SONARGAON</code></td>
+            <td>Sonargaon Textiles</td>
+            <td><a href="https://www.investing.com/equities/sonargaon-textiles-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Miscellaneous <span class="count">3 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-FORTUNE"></td>
+            <td><code>FORTUNE</code></td>
+            <td>Fortune Shoes</td>
+            <td><a href="https://www.investing.com/equities/fortune-shoes-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KEYACOSMET"></td>
+            <td><code>KEYACOSMET</code></td>
+            <td>Keya Cosmetics</td>
+            <td><a href="https://www.investing.com/equities/keya-cosmetics-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KOHINOOR"></td>
+            <td><code>KOHINOOR</code></td>
+            <td>Kohinoor Chemical</td>
+            <td><a href="https://www.investing.com/equities/kohinoor-chemical-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Paper & Printing <span class="count">4 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-MEGHNAPET"></td>
+            <td><code>MEGHNAPET</code></td>
+            <td>Meghna Pet Industries</td>
+            <td><a href="https://www.investing.com/equities/meghna-pet-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SONALIPAPR"></td>
+            <td><code>SONALIPAPR</code></td>
+            <td>Sonali Paper & Board</td>
+            <td><a href="https://www.investing.com/equities/sonali-paper-board-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GQBALLPEN"></td>
+            <td><code>GQBALLPEN</code></td>
+            <td>G.Q. Ball Pen Industries</td>
+            <td><a href="https://www.investing.com/equities/gq-ball-pen-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-YPL"></td>
+            <td><code>YPL</code></td>
+            <td>Yousuf Paper & Printing</td>
+            <td><a href="https://www.investing.com/equities/yousuf-paper-printing-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Pharmaceuticals & Chemicals <span class="count">14 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-FARCHEM"></td>
+            <td><code>FARCHEM</code></td>
+            <td>Far Chemical Industries</td>
+            <td><a href="https://www.investing.com/equities/far-chemical-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-IBP"></td>
+            <td><code>IBP</code></td>
+            <td>IBP Ltd</td>
+            <td><a href="https://www.investing.com/equities/ibp-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-IBNSINA"></td>
+            <td><code>IBNSINA</code></td>
+            <td>Ibn Sina Pharmaceutical</td>
+            <td><a href="https://www.investing.com/equities/ibn-sina-pharmaceutical-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-LIBRAINFU"></td>
+            <td><code>LIBRAINFU</code></td>
+            <td>Libra Infusions</td>
+            <td><a href="https://www.investing.com/equities/libra-infusions-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-LINDEBD"></td>
+            <td><code>LINDEBD</code></td>
+            <td>Linde Bangladesh</td>
+            <td><a href="https://www.investing.com/equities/linde-bangladesh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NAVANAPHAR"></td>
+            <td><code>NAVANAPHAR</code></td>
+            <td>Navana Pharmaceuticals</td>
+            <td><a href="https://www.investing.com/equities/navana-pharmaceuticals-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ORIONINFU"></td>
+            <td><code>ORIONINFU</code></td>
+            <td>Orion Infusion</td>
+            <td><a href="https://www.investing.com/equities/orion-infusion-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ORIONPHARM"></td>
+            <td><code>ORIONPHARM</code></td>
+            <td>Orion Pharma</td>
+            <td><a href="https://www.investing.com/equities/orion-pharma-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PHARMAID"></td>
+            <td><code>PHARMAID</code></td>
+            <td>Pharma Aids</td>
+            <td><a href="https://www.investing.com/equities/pharma-aids-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SALVO"></td>
+            <td><code>SALVO</code></td>
+            <td>Salvo Chemical Industry</td>
+            <td><a href="https://www.investing.com/equities/salvo-chemical-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SILCOPHL"></td>
+            <td><code>SILCOPHL</code></td>
+            <td>Silco Pharmaceuticals</td>
+            <td><a href="https://www.investing.com/equities/silco-pharmaceuticals-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SILVAPHL"></td>
+            <td><code>SILVAPHL</code></td>
+            <td>Silva Pharmaceuticals</td>
+            <td><a href="https://www.investing.com/equities/silva-pharmaceuticals-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TECHNODRUG"></td>
+            <td><code>TECHNODRUG</code></td>
+            <td>Techno Drugs</td>
+            <td><a href="https://www.investing.com/equities/techno-drugs-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-WATACHEM"></td>
+            <td><code>WATACHEM</code></td>
+            <td>WATA Chemicals</td>
+            <td><a href="https://www.investing.com/equities/wata-chemicals-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Services & Real Estate <span class="count">4 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-EHL"></td>
+            <td><code>EHL</code></td>
+            <td>Eastern Housing</td>
+            <td><a href="https://www.investing.com/equities/eastern-housing-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SAMORITA"></td>
+            <td><code>SAMORITA</code></td>
+            <td>Samorita Hospital</td>
+            <td><a href="https://www.investing.com/equities/samorita-hospital-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SPCL"></td>
+            <td><code>SPCL</code></td>
+            <td>Saiham Properties</td>
+            <td><a href="https://www.investing.com/equities/saiham-properties-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-UNIQUEHRL"></td>
+            <td><code>UNIQUEHRL</code></td>
+            <td>Unique Hotel and Resorts</td>
+            <td><a href="https://www.investing.com/equities/unique-hotel-resorts-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Tannery Industries <span class="count">2 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-LEGACYFOOT"></td>
+            <td><code>LEGACYFOOT</code></td>
+            <td>Legacy Footwear</td>
+            <td><a href="https://www.investing.com/equities/legacy-footwear-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SAMATALETH"></td>
+            <td><code>SAMATALETH</code></td>
+            <td>Samata Leather Complex</td>
+            <td><a href="https://www.investing.com/equities/samata-leather-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Telecommunication <span class="count">2 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-ROBI"></td>
+            <td><code>ROBI</code></td>
+            <td>Robi Axiata</td>
+            <td><a href="https://www.investing.com/equities/robi-axiata-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NTC"></td>
+            <td><code>NTC</code></td>
+            <td>National Telecom</td>
+            <td><a href="https://www.investing.com/equities/national-telecom-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Textile <span class="count">41 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-ENVOYTEX"></td>
+            <td><code>ENVOYTEX</code></td>
+            <td>Envoy Textiles</td>
+            <td><a href="https://www.investing.com/equities/envoy-textiles-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ESQUIRENIT"></td>
+            <td><code>ESQUIRENIT</code></td>
+            <td>Esquire Knit Composite</td>
+            <td><a href="https://www.investing.com/equities/esquire-knit-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-FAMILYTEX"></td>
+            <td><code>FAMILYTEX</code></td>
+            <td>Family Tex</td>
+            <td><a href="https://www.investing.com/equities/family-tex-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-FEKDIL"></td>
+            <td><code>FEKDIL</code></td>
+            <td>Far East Knitting & Dyeing</td>
+            <td><a href="https://www.investing.com/equities/far-east-knitting-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-GHAIL"></td>
+            <td><code>GHAIL</code></td>
+            <td>GHA Industries</td>
+            <td><a href="https://www.investing.com/equities/gha-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-HRTEX"></td>
+            <td><code>HRTEX</code></td>
+            <td>HR Textile</td>
+            <td><a href="https://www.investing.com/equities/hr-textile-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-HWAWELLTEX"></td>
+            <td><code>HWAWELLTEX</code></td>
+            <td>HwaWell Textile</td>
+            <td><a href="https://www.investing.com/equities/hwawell-textile-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-JHRML"></td>
+            <td><code>JHRML</code></td>
+            <td>Jharna Handloom</td>
+            <td><a href="https://www.investing.com/equities/jharna-handloom-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-KTL"></td>
+            <td><code>KTL</code></td>
+            <td>Kabir Textile</td>
+            <td><a href="https://www.investing.com/equities/kabir-textile-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MAKSONSPIN"></td>
+            <td><code>MAKSONSPIN</code></td>
+            <td>Makson Spinning Mills</td>
+            <td><a href="https://www.investing.com/equities/makson-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MALEKSPIN"></td>
+            <td><code>MALEKSPIN</code></td>
+            <td>Malek Spinning Mills</td>
+            <td><a href="https://www.investing.com/equities/malek-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MATINSPINN"></td>
+            <td><code>MATINSPINN</code></td>
+            <td>Matin Spinning Mills</td>
+            <td><a href="https://www.investing.com/equities/matin-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-METROSPIN"></td>
+            <td><code>METROSPIN</code></td>
+            <td>Metro Spinning</td>
+            <td><a href="https://www.investing.com/equities/metro-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MITHUNKNIT"></td>
+            <td><code>MITHUNKNIT</code></td>
+            <td>Mithun Knitting & Dyeing</td>
+            <td><a href="https://www.investing.com/equities/mithun-knitting-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MLDYEING"></td>
+            <td><code>MLDYEING</code></td>
+            <td>MLD Dyeing</td>
+            <td><a href="https://www.investing.com/equities/mld-dyeing-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-MONNOFABR"></td>
+            <td><code>MONNOFABR</code></td>
+            <td>Monno Fabrics</td>
+            <td><a href="https://www.investing.com/equities/monno-fabrics-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-NEWLINE"></td>
+            <td><code>NEWLINE</code></td>
+            <td>Newline Clothing</td>
+            <td><a href="https://www.investing.com/equities/newline-clothing-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PRIMETEX"></td>
+            <td><code>PRIMETEX</code></td>
+            <td>Prime Textile Spinning</td>
+            <td><a href="https://www.investing.com/equities/prime-textile-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-PTL"></td>
+            <td><code>PTL</code></td>
+            <td>Pacific Textiles</td>
+            <td><a href="https://www.investing.com/equities/pacific-textiles-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-QUEENSOUTH"></td>
+            <td><code>QUEENSOUTH</code></td>
+            <td>Queen South Textile</td>
+            <td><a href="https://www.investing.com/equities/queen-south-textile-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RAHIMTEXT"></td>
+            <td><code>RAHIMTEXT</code></td>
+            <td>Rahim Textile Mills</td>
+            <td><a href="https://www.investing.com/equities/rahim-textile-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-REGENTTEX"></td>
+            <td><code>REGENTTEX</code></td>
+            <td>Regent Textile Mills</td>
+            <td><a href="https://www.investing.com/equities/regent-textile-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-RINGSHINE"></td>
+            <td><code>RINGSHINE</code></td>
+            <td>Ringshine Textiles</td>
+            <td><a href="https://www.investing.com/equities/ringshine-textiles-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SAFKOSPINN"></td>
+            <td><code>SAFKOSPINN</code></td>
+            <td>Safko Spinnings Mills</td>
+            <td><a href="https://www.investing.com/equities/safko-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SAIHAMCOT"></td>
+            <td><code>SAIHAMCOT</code></td>
+            <td>Saiham Cotton Mills</td>
+            <td><a href="https://www.investing.com/equities/saiham-cotton-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SAIHAMTEX"></td>
+            <td><code>SAIHAMTEX</code></td>
+            <td>Saiham Textile Mills</td>
+            <td><a href="https://www.investing.com/equities/saiham-textile-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SALAMCRST"></td>
+            <td><code>SALAMCRST</code></td>
+            <td>Salam Crest</td>
+            <td><a href="https://www.investing.com/equities/salam-crest-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SHASHADNIM"></td>
+            <td><code>SHASHADNIM</code></td>
+            <td>Shasha Denims</td>
+            <td><a href="https://www.investing.com/equities/shasha-denims-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SHEPHERD"></td>
+            <td><code>SHEPHERD</code></td>
+            <td>Shepherd Industries</td>
+            <td><a href="https://www.investing.com/equities/shepherd-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SIMTEX"></td>
+            <td><code>SIMTEX</code></td>
+            <td>Simtex Industries</td>
+            <td><a href="https://www.investing.com/equities/simtex-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SINOBANGLA"></td>
+            <td><code>SINOBANGLA</code></td>
+            <td>Sino-Bangla Industries</td>
+            <td><a href="https://www.investing.com/equities/sino-bangla-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SKTRIMS"></td>
+            <td><code>SKTRIMS</code></td>
+            <td>SK Trims & Industries</td>
+            <td><a href="https://www.investing.com/equities/sk-trims-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SQUARETEXT"></td>
+            <td><code>SQUARETEXT</code></td>
+            <td>Square Textiles</td>
+            <td><a href="https://www.investing.com/equities/square-textiles-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-STYLECRAFT"></td>
+            <td><code>STYLECRAFT</code></td>
+            <td>Stylecraft</td>
+            <td><a href="https://www.investing.com/equities/stylecraft-bd-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TAMIJTEX"></td>
+            <td><code>TAMIJTEX</code></td>
+            <td>Tamij Textiles</td>
+            <td><a href="https://www.investing.com/equities/tamij-textiles-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TALLUSPIN"></td>
+            <td><code>TALLUSPIN</code></td>
+            <td>Tallu Spinning Mills</td>
+            <td><a href="https://www.investing.com/equities/tallu-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TOSRIFA"></td>
+            <td><code>TOSRIFA</code></td>
+            <td>Tosrifa Industries</td>
+            <td><a href="https://www.investing.com/equities/tosrifa-industries-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-TUNGHAI"></td>
+            <td><code>TUNGHAI</code></td>
+            <td>Tung Hai Knitting & Dyeing</td>
+            <td><a href="https://www.investing.com/equities/tung-hai-knitting-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-VFSTDL"></td>
+            <td><code>VFSTDL</code></td>
+            <td>VFS Thread Dyeing</td>
+            <td><a href="https://www.investing.com/equities/vfs-thread-dyeing-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ZAHEENSPIN"></td>
+            <td><code>ZAHEENSPIN</code></td>
+            <td>Zaheen Spinning</td>
+            <td><a href="https://www.investing.com/equities/zaheen-spinning-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-ZAHINTEX"></td>
+            <td><code>ZAHINTEX</code></td>
+            <td>Zahin Tex</td>
+            <td><a href="https://www.investing.com/equities/zahin-tex-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sector-block">
+      <h3>Travel & Leisure <span class="count">3 remaining</span></h3>
+      <table>
+        <thead><tr><th>✓</th><th>Symbol</th><th>Company</th><th>Link</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><input type="checkbox" id="chk-SAPORTL"></td>
+            <td><code>SAPORTL</code></td>
+            <td>Sa-Port</td>
+            <td><a href="https://www.investing.com/equities/sa-port-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SEAPEARL"></td>
+            <td><code>SEAPEARL</code></td>
+            <td>Sea Pearl Beach Resort</td>
+            <td><a href="https://www.investing.com/equities/sea-pearl-resort-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="chk-SONALIANSH"></td>
+            <td><code>SONALIANSH</code></td>
+            <td>Sonali Ansh Industries</td>
+            <td><a href="https://www.investing.com/equities/sonali-ansh-historical-data" target="_blank">Download CSV ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+<div class="done-section">
+  <strong>✅ Already downloaded (94):</strong><br><br>
+  <span class="done-badge">ABBANK</span> <span class="done-badge">ALARABANK</span> <span class="done-badge">BANKASIA</span> <span class="done-badge">BRACBANK</span> <span class="done-badge">CITYBANK</span> <span class="done-badge">DHAKABANK</span> <span class="done-badge">DUTCHBANGL</span> <span class="done-badge">EBL</span> <span class="done-badge">ARAMITCEM</span> <span class="done-badge">CONFIDCEM</span> <span class="done-badge">CROWNCEMNT</span> <span class="done-badge">AFTABAUTO</span> <span class="done-badge">ANWARGALV</span> <span class="done-badge">APOLOISPAT</span> <span class="done-badge">ARAMIT</span> <span class="done-badge">ATLASBANG</span> <span class="done-badge">AZIZPIPES</span> <span class="done-badge">BBSCABLES</span> <span class="done-badge">BDAUTOCA</span> <span class="done-badge">BDLAMPS</span> <span class="done-badge">BDWELDING</span> <span class="done-badge">BENGALWTL</span> <span class="done-badge">BSRMLTD</span> <span class="done-badge">BSRMSTEEL</span> <span class="done-badge">COPPERTECH</span> <span class="done-badge">DESHBANDHU</span> <span class="done-badge">DOMINAGE</span> <span class="done-badge">BAYLEASING</span> <span class="done-badge">BDFINANCE</span> <span class="done-badge">BIFC</span> <span class="done-badge">AFCAGRO</span> <span class="done-badge">AMANFEED</span> <span class="done-badge">AMCL(PRAN)</span> <span class="done-badge">APEXFOODS</span> <span class="done-badge">BATBC</span> <span class="done-badge">BDTHAIFOOD</span> <span class="done-badge">BARKAPOWER</span> <span class="done-badge">CVOPRL</span> <span class="done-badge">DESCO</span> <span class="done-badge">DOREENPWR</span> <span class="done-badge">AGRANINS</span> <span class="done-badge">ASIAINS</span> <span class="done-badge">ASIAPACINS</span> <span class="done-badge">BGIC</span> <span class="done-badge">BNICL</span> <span class="done-badge">CENTRALINS</span> <span class="done-badge">CITYGENINS</span> <span class="done-badge">CLICL</span> <span class="done-badge">CONTININS</span> <span class="done-badge">CRYSTALINS</span> <span class="done-badge">DELTALIFE</span> <span class="done-badge">DGIC</span> <span class="done-badge">DHAKAINS</span> <span class="done-badge">EASTERNINS</span> <span class="done-badge">EASTLAND</span> <span class="done-badge">AAMRANET</span> <span class="done-badge">AAMRATECH</span> <span class="done-badge">ADNTEL</span> <span class="done-badge">AGNISYSL</span> <span class="done-badge">AOL</span> <span class="done-badge">BDCOM</span> <span class="done-badge">DAFODILCOM</span> <span class="done-badge">BEXIMCO</span> <span class="done-badge">BERGERPBL</span> <span class="done-badge">BESTHLDNG</span> <span class="done-badge">DACCADYE</span> <span class="done-badge">ACI</span> <span class="done-badge">ACIFORMULA</span> <span class="done-badge">ACMELAB</span> <span class="done-badge">ACMEPL</span> <span class="done-badge">ACFL</span> <span class="done-badge">AMBEEPHA</span> <span class="done-badge">ASIATICLAB</span> <span class="done-badge">BEACONPHAR</span> <span class="done-badge">BXPHARMA</span> <span class="done-badge">CENTRALPHL</span> <span class="done-badge">RENATA</span> <span class="done-badge">SQURPHARMA</span> <span class="done-badge">APEXFOOT</span> <span class="done-badge">APEXTANRY</span> <span class="done-badge">BATASHOE</span> <span class="done-badge">GP</span> <span class="done-badge">ACTIVEFINE</span> <span class="done-badge">AL-HAJTEX</span> <span class="done-badge">ALLTEX</span> <span class="done-badge">ANLIMAYARN</span> <span class="done-badge">APEXSPINN</span> <span class="done-badge">ARGONDENIM</span> <span class="done-badge">CNATEX</span> <span class="done-badge">DELTASPINN</span> <span class="done-badge">DSHGARME</span> <span class="done-badge">DSSL</span> <span class="done-badge">DULAMIACOT</span> <span class="done-badge">BSCPLC</span>
+</div>
+</body>
+</html>
