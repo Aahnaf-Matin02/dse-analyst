@@ -128,8 +128,9 @@ router.get("/indices", async (req, res, next) => {
       intradayPoints: data.indices.intradayPoints,
       // Market session: DSE's own report when available, otherwise the Sun–Thu 10:00–14:30 Asia/Dhaka schedule
       // (the fallback does not know about holidays, so it is flagged as an estimate)
+      // Open only while DSE says so and within trading hours: a stale "Open" page must not show after the close
       session: data.indices.session
-        ? { ...data.indices.session, basis: "DSE" }
+        ? { ...data.indices.session, isOpen: !!data.indices.session.isOpen && isDSEMarketHours(new Date()), basis: "DSE" }
         : { isOpen: isDSEMarketHours(new Date()), phase: isDSEMarketHours(new Date()) ? "open" : "closed", sessionDate: null, basis: "schedule" },
       status: data.status,
       live: data.status === "LIVE",

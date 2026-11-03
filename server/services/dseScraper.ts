@@ -1053,55 +1053,8 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
     console.warn("[scrapeAndSaveIndices] Live market feed failed, trying homepage HTML:", err.message);
   }
 
-  // Fallback: parse the dse.com.bd homepage
-  if (!isLive) try {
-    const homeRes = await defaultDseClient.fetchHomepageHtml();
-    if (homeRes.status === 200 && homeRes.body) {
-      const glance = DseParser.parseAtAGlance(homeRes.body);
-      if (glance.dsex && glance.dsex.current > 0) {
-        dsexVal = glance.dsex.current;
-        dsexChange = glance.dsex.change ?? dsexChange;
-        dsexPct = glance.dsex.changePercent ?? dsexPct;
-        dsexPrev = glance.dsex.prev ?? dsexPrev;
-        isLive = true;
-      }
-      if (glance.ds30 && glance.ds30.current > 0) {
-        ds30Val = glance.ds30.current;
-        ds30Change = glance.ds30.change ?? ds30Change;
-        ds30Pct = glance.ds30.changePercent ?? ds30Pct;
-        ds30Prev = glance.ds30.prev ?? ds30Prev;
-        isLive = true;
-      }
-      if (glance.dses && glance.dses.current > 0) {
-        dsesVal = glance.dses.current;
-        dsesChange = glance.dses.change ?? dsesChange;
-        dsesPct = glance.dses.changePercent ?? dsesPct;
-        dsesPrev = glance.dses.prev ?? dsesPrev;
-        isLive = true;
-      }
-      if (glance.totalTrades !== undefined) totals.trades = glance.totalTrades;
-      if (glance.totalVolume !== undefined) totals.volume = glance.totalVolume;
-      if (glance.totalTurnoverBdt !== undefined) totals.turnover = glance.totalTurnoverBdt;
-      if (glance.totalMarketCapBdt !== undefined) totals.marketCap = glance.totalMarketCapBdt;
-      if (glance.tradeTime) totals.tradeTime = glance.tradeTime;
-
-      if (glance.issuesAdvanced !== undefined) {
-        breadth = {
-          advanced: glance.issuesAdvanced,
-          declined: glance.issuesDeclined || 0,
-          unchanged: glance.issuesUnchanged || 0,
-          traded: glance.issuesTraded || 0
-        };
-      }
-
-      if (glance.intradayPoints && glance.intradayPoints.length > 0) {
-        intradayPoints = glance.intradayPoints;
-        freshIntraday = true;
-      }
-    }
-  } catch (err: any) {
-    console.warn("[scrapeAndSaveIndices] Live probe failed:", err.message);
-  }
+  // No fallback to www.dse.com.bd: it refuses automated access. If old.dsebd.org fails, the cached
+  // index snapshot is kept together (values, totals, breadth and session from the same moment).
 
   const indicesSource = isLive ? "LiveScraped" : (existingIndices ? "CachedFile" : "Unavailable");
   // Record values against the trading session they belong to, not the wall-clock date
