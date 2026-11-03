@@ -1,13 +1,13 @@
 import { describe, it, expect, vi } from "vitest";
 
-// These tests assert behaviour when DSE is unreachable, so the live JSON feed must fail deterministically
-// instead of reaching the real dse.com.bd (which would also overwrite the bundled data files).
-vi.mock("../services/dse/dseLiveApi", async (orig) => {
+// These tests assert behaviour when DSE is unreachable, so the live source must fail deterministically
+// instead of reaching the real old.dsebd.org (which would also overwrite the bundled data files).
+vi.mock("../services/dse/dseLegacyLive", async (orig) => {
   const actual: any = await orig();
   return {
     ...actual,
-    fetchLivePrices: vi.fn().mockRejectedValue(new Error("simulated outage")),
-    fetchLiveMarket: vi.fn().mockRejectedValue(new Error("simulated outage"))
+    fetchLegacyPrices: vi.fn().mockRejectedValue(new Error("simulated outage")),
+    fetchLegacyMarket: vi.fn().mockRejectedValue(new Error("simulated outage"))
   };
 });
 import fs from "fs";
