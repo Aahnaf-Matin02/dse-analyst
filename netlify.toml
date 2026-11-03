@@ -2,6 +2,12 @@
 command = "npm run build"
 publish = "dist"
 
+[build.environment]
+# These variables hold public, non-sensitive configuration (public DSE URLs/API paths,
+# the Gemini model name, a boolean feature flag) that also appear as code defaults and docs.
+# Real secrets (GEMINI_API_KEY, SYNC_SECRET, ADMIN_IMPORT_SECRET, APP_URL) are still scanned.
+SECRETS_SCAN_OMIT_KEYS = "DSE_BASE_URL,DSE_COMPANY_PATH,DSE_LIVE_PRICES_PATH,DSE_LIVE_MARKET_PATH,GEMINI_MODEL,ALLOW_MOCK_PAYMENTS,NODE_VERSION"
+
 [functions]
 directory = "netlify/functions"
 node_bundler = "esbuild"
