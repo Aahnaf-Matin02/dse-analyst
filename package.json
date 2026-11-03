@@ -15,7 +15,9 @@
     "import:investing-history": "tsx scripts/import-investing-history.ts",
     "import:one-year-history": "tsx scripts/import-one-year-history.ts",
     "checklist": "tsx scripts/generateDownloadChecklist.ts",
-    "seed:stocks": "tsx scripts/seedAllDseStocks.ts"
+    "seed:stocks": "tsx scripts/seedAllDseStocks.ts",
+    "backfill:history": "tsx scripts/backfill-history.ts",
+    "update:history": "tsx scripts/update-history.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

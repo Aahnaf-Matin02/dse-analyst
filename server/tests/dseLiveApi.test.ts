@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseLivePrices, parseLiveMarket } from "../services/dse/dseLiveApi";
+import { parseLivePrices, parseLiveMarket, resolveSessionDate } from "../services/dse/dseLiveApi";
 import { liveRowsToStocks } from "../services/dseScraper";
 
 // Shape of https://www.dse.com.bd/api/live/prices (captured 2026-10-05)
@@ -57,5 +57,30 @@ describe("DSE live market feed", () => {
     expect(m.indices.DSES).toBeUndefined(); // zero value is treated as missing, not as a real index level
     expect(m.breadth?.declined).toBe(291);
     expect(m.session.sessionDate).toBe("2026-10-04");
+  });
+});
+
+describe("resolveSessionDate: which trading day the live prices belong to", () => {
+  const open = { isOpen: true, phase: "open", sessionDate: "2026-10-04" };
+  const closed = (sessionDate: string | null) => ({ isOpen: false, phase: "closed", sessionDate });
+  // 2026-10-05 is a Monday; times below are Dhaka (UTC+6)
+  const at = (dhaka: string) => new Date(`2026-10-05T${dhaka}:00+06:00`);
+
+  it("uses today while trading, even though DSE still reports the previous session (observed 5 Oct 2026)", () => {
+    expect(resolveSessionDate(open, "Oct 05, 2026 at 10:16 AM", at("10:17"))).toBe("2026-10-05");
+  });
+
+  it("uses the day of a trade stamp taken during or after trading once the market has closed", () => {
+    expect(resolveSessionDate(closed("2026-10-04"), "Oct 05, 2026 at 2:30 PM", at("15:00"))).toBe("2026-10-05");
+  });
+
+  it("ignores the next day's pre-opening stamp: prices are still the previous session's", () => {
+    expect(resolveSessionDate(closed("2026-10-04"), "Oct 05, 2026 at 8:36 AM", at("08:40"))).toBe("2026-10-04");
+  });
+
+  it("falls back to DSE's date, never later than today, and to null when nothing is known", () => {
+    expect(resolveSessionDate(closed("2026-10-01"), undefined, at("09:00"))).toBe("2026-10-01");
+    expect(resolveSessionDate(closed("2026-10-09"), undefined, at("09:00"))).toBe("2026-10-05");
+    expect(resolveSessionDate(closed(null), "garbage", at("09:00"))).toBeNull();
   });
 });

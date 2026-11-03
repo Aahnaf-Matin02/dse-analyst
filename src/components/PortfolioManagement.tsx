@@ -42,6 +42,16 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
   // Load optimized solution from local storage
   const [optimizedSolution, setOptimizedSolution] = useState<any | null>(null);
 
+  // Manual changes to the optimizer's target weights (symbol -> target %). Weight that is sold
+  // becomes cash, which can be put back into any position. Tied to the solution's own weights, so
+  // a new optimizer result starts clean while switching tabs keeps the adjustments.
+  const solutionSignature = optimizedSolution?.optimized_allocation
+    ? JSON.stringify(optimizedSolution.optimized_allocation.map((a: any) => [a.symbol, a.weight]))
+    : "";
+  const [targetAdjust, setTargetAdjust] = useState<{ signature: string; weights: Record<string, number> }>({ signature: "", weights: {} });
+  const targetOverrides = targetAdjust.signature === solutionSignature ? targetAdjust.weights : {};
+  const TARGET_STEP = 1; // percentage points per click
+
   useEffect(() => {
     try {
       const saved = localStorage.getItem("dse_optimized_portfolio");
@@ -1720,10 +1730,33 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
               }
               const allSymbols = Array.from(allSymbolsSet);
 
+              const round2 = (n: number) => Math.round(n * 100) / 100;
+              const solvedTargetPct = (sym: string) => {
+                const optItem = solution.optimized_allocation?.find((item: any) => item.symbol === sym);
+                return optItem ? round2(optItem.weight * 100) : 0;
+              };
+              const targetPct = (sym: string) => targetOverrides[sym] ?? solvedTargetPct(sym);
+              const cashPct = round2(Math.max(0, 100 - allSymbols.reduce((sum, sym) => sum + targetPct(sym), 0)));
+              const hasTargetAdjustments = Object.keys(targetOverrides).length > 0;
+
+              /** Sets a target weight, limited to 0 … (its current target + available cash). */
+              const setTargetPct = (sym: string, requested: number) => {
+                if (!Number.isFinite(requested)) return;
+                const next = round2(Math.min(Math.max(0, requested), targetPct(sym) + cashPct));
+                const weights = { ...targetOverrides };
+                if (Math.abs(next - solvedTargetPct(sym)) < 0.005) delete weights[sym];
+                else weights[sym] = next;
+                setTargetAdjust({ signature: solutionSignature, weights });
+              };
+              const undoTarget = (sym: string) => {
+                const weights = { ...targetOverrides };
+                delete weights[sym];
+                setTargetAdjust({ signature: solutionSignature, weights });
+              };
+
               const formattedAllocData = allSymbols.map(sym => {
                 const beforeWeight = currentWeightsMap[sym] || 0;
-                const optItem = solution.optimized_allocation?.find((item: any) => item.symbol === sym);
-                const afterWeight = optItem ? optItem.weight : 0;
+                const afterWeight = targetPct(sym) / 100;
                 
                 const beforeVal = beforeWeight * totalVal;
                 const afterVal = afterWeight * totalVal;
@@ -1813,6 +1846,12 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
 
                   </div>
 
+                  {hasTargetAdjustments && (
+                    <p className="text-[11px] text-amber-300/90 -mt-2">
+                      You have changed the optimizer's targets{cashPct > 0 ? ` and hold ${cashPct.toFixed(1)}% as cash` : ""}. The four figures above describe the optimizer's own solution, not your adjusted weights; the chart, share targets and buy/sell amounts below follow your adjustments.
+                    </p>
+                  )}
+
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     
                     <div className="lg:col-span-6 bg-[#131b2c] border border-[rgba(255,255,255,0.05)] rounded-2xl p-5 space-y-4">
@@ -1822,7 +1861,7 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
                       </div>
                       <div className="h-72">
                         <ResponsiveContainer width="100%" height="100%">
-                          <BarChart data={formattedAllocData} margin={{ left: -15, right: 10, top: 10, bottom: 0 }}>
+                          <BarChart data={cashPct > 0 ? [...formattedAllocData, { symbol: "CASH", beforeWeight: 0, afterWeight: cashPct }] : formattedAllocData} margin={{ left: -15, right: 10, top: 10, bottom: 0 }}>
                             <XAxis dataKey="symbol" stroke="#94a3b8" fontSize={10} fontStyle="monospace" tickLine={false} />
                             <YAxis stroke="#94a3b8" fontSize={10} fontStyle="monospace" unit="%" tickLine={false} />
                             <Tooltip contentStyle={{ backgroundColor: "#1e293b", borderColor: "rgba(255,255,255,0.1)", color: "#fff" }} />
@@ -1838,7 +1877,19 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
                       <div className="text-[11px] font-mono text-slate-400 uppercase font-black tracking-wider flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                         Rebalancing Suggestion & Actions
+                        {hasTargetAdjustments && (
+                          <button
+                            type="button"
+                            onClick={() => setTargetAdjust({ signature: solutionSignature, weights: {} })}
+                            className="ml-auto normal-case tracking-normal px-2.5 py-1 rounded-lg border border-white/10 text-[10px] text-slate-300 font-bold hover:bg-white/5 cursor-pointer"
+                          >
+                            Reset to optimizer weights
+                          </button>
+                        )}
                       </div>
+                      <p className="text-[10px] text-slate-500 -mt-2">
+                        Use − / + or type a target to trim or add to a position; “Sell all” sets it to 0%. Sold weight is held as cash and can be added back to any position.
+                      </p>
                       <div className="space-y-2.5 max-h-72 overflow-y-auto pr-1">
                         {formattedAllocData.map(item => {
                           const diffPct = item.afterWeight - item.beforeWeight;
@@ -1853,6 +1904,54 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
                                 </div>
                                 <div className="text-[10px] text-slate-400 font-mono">
                                   Shares: {item.currentShares} ➜ <span className="font-bold text-white">{item.targetShares}</span>
+                                </div>
+                                <div className="flex flex-wrap items-center gap-1 pt-1 font-mono" role="group" aria-label={`Adjust ${item.symbol} target weight`}>
+                                  <button
+                                    type="button"
+                                    onClick={() => setTargetPct(item.symbol, item.afterWeight - TARGET_STEP)}
+                                    disabled={item.afterWeight <= 0}
+                                    aria-label={`Sell ${TARGET_STEP} percentage point of ${item.symbol}`}
+                                    className="h-6 w-6 rounded-md border border-white/10 text-white font-black hover:bg-rose-500/15 hover:border-rose-400/40 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                                  >−</button>
+                                  <label className="sr-only" htmlFor={`target-${item.symbol}`}>{item.symbol} target weight in percent</label>
+                                  <input
+                                    id={`target-${item.symbol}`}
+                                    type="number"
+                                    inputMode="decimal"
+                                    min={0}
+                                    max={round2(item.afterWeight + cashPct)}
+                                    step={0.5}
+                                    value={item.afterWeight}
+                                    onChange={e => setTargetPct(item.symbol, parseFloat(e.target.value))}
+                                    className="h-6 w-14 rounded-md bg-[#0A0F1E] border border-white/10 text-white text-center text-[10px] font-bold focus:outline-none focus:border-cyan-400"
+                                  />
+                                  <span className="text-[10px] text-slate-500">%</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => setTargetPct(item.symbol, item.afterWeight + TARGET_STEP)}
+                                    disabled={cashPct <= 0}
+                                    title={cashPct <= 0 ? "No cash available: sell part of another position first" : undefined}
+                                    aria-label={`Buy ${TARGET_STEP} percentage point more ${item.symbol}`}
+                                    className="h-6 w-6 rounded-md border border-white/10 text-white font-black hover:bg-emerald-500/15 hover:border-emerald-400/40 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                                  >+</button>
+                                  <button
+                                    type="button"
+                                    onClick={() => setTargetPct(item.symbol, 0)}
+                                    disabled={item.afterWeight <= 0}
+                                    className="h-6 px-2 rounded-md border border-rose-400/30 text-rose-300 text-[9px] font-black uppercase hover:bg-rose-500/15 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                                  >Sell all</button>
+                                  {item.symbol in targetOverrides && (() => {
+                                    const canRestore = item.afterWeight + cashPct >= solvedTargetPct(item.symbol) - 0.005;
+                                    return (
+                                      <button
+                                        type="button"
+                                        onClick={() => undoTarget(item.symbol)}
+                                        disabled={!canRestore}
+                                        title={canRestore ? `Back to the optimizer's ${solvedTargetPct(item.symbol)}%` : "Not enough cash to restore: sell part of another position first"}
+                                        className="h-6 px-2 rounded-md border border-white/10 text-slate-300 text-[9px] font-black uppercase hover:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                                      >Undo</button>
+                                    );
+                                  })()}
                                 </div>
                               </div>
 
@@ -1883,6 +1982,18 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
                             </div>
                           );
                         })}
+                        {cashPct > 0 && (
+                          <div className="bg-[#111827] border border-white/[0.03] rounded-xl p-3 flex justify-between items-center text-xs">
+                            <div className="space-y-1">
+                              <span className="font-mono text-white font-extrabold">CASH</span>
+                              <div className="text-[10px] text-slate-400 font-mono">Not invested after your sales</div>
+                            </div>
+                            <div className="text-right font-mono">
+                              <div className="font-bold text-slate-200">{cashPct.toFixed(1)}%</div>
+                              <div className="text-[10px] text-slate-400">BDT {((cashPct / 100) * totalVal).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -1894,7 +2005,7 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
                         <tr className="text-slate-400 border-b border-[rgba(255,255,255,0.08)] pb-2 text-[10px] uppercase">
                           <th className="py-2.5">Symbol</th>
                           <th className="py-2.5 text-right">Current Weight</th>
-                          <th className="py-2.5 text-right">Optimized Weight</th>
+                          <th className="py-2.5 text-right">{hasTargetAdjustments ? "Target Weight (adjusted)" : "Optimized Weight"}</th>
                           <th className="py-2.5 text-right">Target Variance</th>
                           <th className="py-2.5 text-right">Current value</th>
                           <th className="py-2.5 text-right">Optimized Value</th>
@@ -1923,6 +2034,17 @@ export default function PortfolioManagement({ defaultTab, resetDefaultTab }: { d
                             </td>
                           </tr>
                         ))}
+                        {cashPct > 0 && (
+                          <tr className="text-slate-300">
+                            <td className="py-3 font-extrabold text-white">CASH</td>
+                            <td className="py-3 text-right">0%</td>
+                            <td className="py-3 text-right font-bold">{cashPct.toFixed(2)}%</td>
+                            <td className="py-3 text-right text-slate-500">—</td>
+                            <td className="py-3 text-right text-slate-400">—</td>
+                            <td className="py-3 text-right font-bold text-white">BDT {((cashPct / 100) * totalVal).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                            <td className="py-3 text-center"><span className="text-[9px] py-1 px-2.5 bg-slate-500/10 text-slate-400 rounded-full">Held as cash</span></td>
+                          </tr>
+                        )}
                       </tbody>
                     </table>
                   </div>

@@ -174,7 +174,7 @@ export class DseSyncService {
             });
 
             // Update daily index history in marketIndexRepository
-            const todayStr = new Date().toISOString().split("T")[0];
+            const todayStr = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Dhaka", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
             const nowIso = new Date().toISOString();
             saveDailyHistoryRecord({
               timestamp: nowIso,

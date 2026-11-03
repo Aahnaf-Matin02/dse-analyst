@@ -57,6 +57,9 @@ async function runServer() {
         });
       });
     }, SYNC_INTERVAL_MS);
+
+    // Daily incremental history update after market close (first check one interval after start)
+    import("./server/services/history/historyIncremental").then(({ startHistoryScheduler }) => startHistoryScheduler());
   }
 
   app.listen(PORT, "0.0.0.0", () => {

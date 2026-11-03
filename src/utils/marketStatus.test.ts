@@ -20,6 +20,12 @@ describe("market status wording", () => {
     expect(describeAsOf(p)).toBe("last session 4 Oct 2026, closed 2:40 PM");
   });
 
+  it("after the close, labels the day that actually traded even if DSE's session date lags", () => {
+    // DSE keeps sessionDate at the previous day during trading; a cached payload may still carry it
+    const p = { status: "LIVE", totals: { tradeTime: "Oct 05, 2026 at 2:30 PM" }, session: { isOpen: false, phase: "closed", sessionDate: "2026-10-04" } };
+    expect(describeAsOf(p)).toBe("last session 5 Oct 2026, closed 2:30 PM");
+  });
+
   it("shows the time of day while the market is open", () => {
     const p = { status: "LIVE", totals: { tradeTime: "Oct 05, 2026 at 11:05 AM" }, session: { isOpen: true, phase: "open", sessionDate: "2026-10-05" } };
     expect(describeAsOf(p)).toBe("as of 11:05 AM (Dhaka)");

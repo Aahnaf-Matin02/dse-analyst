@@ -10,7 +10,7 @@ import { DSE_COMPANIES } from "../../src/data/dseData";
 import { saveDailyHistoryRecord, saveIntradayTick } from "../repositories/marketIndexRepository";
 import { defaultDseClient } from "./dse/dseClient";
 import { DseParser } from "./dse/dseParser";
-import { fetchLivePrices, fetchLiveMarket, DseLivePriceRow } from "./dse/dseLiveApi";
+import { fetchLivePrices, fetchLiveMarket, DseLivePriceRow, resolveSessionDate } from "./dse/dseLiveApi";
 
 export interface ScraperStatus {
   status: "Idle" | "Syncing" | "Success" | "Failed";
@@ -757,13 +757,14 @@ export const DSEScraper = {
         errorCode: count >= 50 ? null : "DSE_PARSE_MINIMUM_FAILED",
         rowsParsed: count,
         ok: count >= 50,
-        message: count >= 50 ? `Success: ${count} securities from DSE live feed (session ${live.session.sessionDate ?? "unknown"}).` : `Parsed under threshold: ${count} assets.`
+        message: count >= 50 ? `Success: ${count} securities from DSE live feed (DSE-reported session ${live.session.sessionDate ?? "unknown"}).` : `Parsed under threshold: ${count} assets.`
       });
       if (count >= 50) {
         finalStocks = parsed;
         selectedUrl = live.url;
         successfulCount = count;
-        lastSessionDate = live.session.sessionDate;
+        // The price feed carries no trade time; use the one from the latest index scrape
+        lastSessionDate = resolveSessionDate(live.session, (loadIndices() as any)?.totals?.tradeTime);
       }
     } catch (err: any) {
       attemptedLog.push({
@@ -1038,8 +1039,8 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
     if (DSES) { dsesVal = DSES.value; dsesChange = DSES.change; dsesPct = DSES.changePercent; dsesPrev = DSES.prev ?? dsesPrev; isLive = true; }
     if (market.totals) totals = { ...totals, ...market.totals };
     if (market.breadth) breadth = market.breadth;
-    sessionDate = market.session.sessionDate;
-    session = market.session;
+    sessionDate = resolveSessionDate(market.session, market.totals?.tradeTime);
+    session = { ...market.session, sessionDate };
   } catch (err: any) {
     console.warn("[scrapeAndSaveIndices] Live market feed failed, trying homepage HTML:", err.message);
   }

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { DseRawCompanyDetail, DseRawHistoricalCandle } from "./dseParser";
 import { DseValidator } from "./dseValidator";
+import { HistorySourceLabel, parseHistoryFile, stockHistoryPath } from "../history/historyFiles";
 
 export interface HistoricalPriceRow {
   symbol: string;
@@ -15,7 +16,7 @@ export interface HistoricalPriceRow {
   trades?: number;
   turnover?: number;
   marketCap?: number | null;
-  source: "DSE_OFFICIAL" | "INVESTING_MANUAL_IMPORT" | "LOCAL_DEVELOPMENT_FALLBACK";
+  source: HistorySourceLabel;
   sourceUrl: string;
   retrievedAt: string;
 }
@@ -40,138 +41,38 @@ export interface TechnicalIndicatorsResult {
   atr14: number | null;
 }
 
-const STORAGE_DIR = path.join(process.cwd(), "data", "dse", "historical");
 
 export class DseHistoricalDataManager {
-  private static cache: Map<string, HistoricalPriceRow[]> = new Map();
+  private static cache: Map<string, { mtimeMs: number; rows: HistoricalPriceRow[] }> = new Map();
 
-  static ensureStorage(): void {
-    if (!fs.existsSync(STORAGE_DIR)) {
-      fs.mkdirSync(STORAGE_DIR, { recursive: true });
-    }
-  }
-
+  /**
+   * Daily prices come only from data/history/stocks/<SYMBOL>.csv (written by the backfill and the
+   * daily incremental update), labelled with the source stored on each row. No separate copy is kept,
+   * so every reader sees the same, latest history.
+   */
   static getHistoricalPrices(symbol: string): HistoricalPriceRow[] {
     const sym = symbol.toUpperCase().trim();
-    if (this.cache.has(sym)) {
-      return this.cache.get(sym)!;
-    }
-
-    const filePath = path.join(STORAGE_DIR, `${sym}.json`);
-    if (fs.existsSync(filePath)) {
-      try {
-        const raw = fs.readFileSync(filePath, "utf-8");
-        const list: HistoricalPriceRow[] = JSON.parse(raw);
-        this.cache.set(sym, list);
-        return list;
-      } catch {}
-    }
-
-    // Check existing CSV historical file if present, clearly labeling as source
-    const csvPath = path.join(process.cwd(), "data", "history", "stocks", `${sym}.csv`);
-    if (fs.existsSync(csvPath)) {
-      try {
-        const raw = fs.readFileSync(csvPath, "utf-8");
-        const lines = raw.split(/\r?\n/).filter(l => l.trim().length > 0);
-        const rows: HistoricalPriceRow[] = [];
-        // skip header: date,open,high,low,close,volume,...
-        for (let i = 1; i < lines.length; i++) {
-          const parts = lines[i].split(",");
-          if (parts.length >= 5) {
-            const date = parts[0].trim();
-            const open = parseFloat(parts[1]);
-            const high = parseFloat(parts[2]);
-            const low = parseFloat(parts[3]);
-            const close = parseFloat(parts[4]);
-            const volume = parts[5] ? parseInt(parts[5], 10) : 0;
-            if (!isNaN(close) && close > 0) {
-              rows.push({
-                symbol: sym,
-                date,
-                open: isNaN(open) ? close : open,
-                high: isNaN(high) ? close : high,
-                low: isNaN(low) ? close : low,
-                close,
-                adjustedClose: close,
-                volume: isNaN(volume) ? 0 : volume,
-                source: "INVESTING_MANUAL_IMPORT",
-                sourceUrl: `data/history/stocks/${sym}.csv`,
-                retrievedAt: new Date().toISOString()
-              });
-            }
-          }
-        }
-        if (rows.length > 0) {
-          rows.sort((a, b) => a.date.localeCompare(b.date));
-          this.cache.set(sym, rows);
-          return rows;
-        }
-      } catch {}
-    }
-
-    return [];
+    const file = stockHistoryPath(sym);
+    if (!fs.existsSync(file)) return [];
+    const mtimeMs = fs.statSync(file).mtimeMs;
+    const hit = this.cache.get(sym);
+    if (hit && hit.mtimeMs === mtimeMs) return hit.rows;
+    const rows: HistoricalPriceRow[] = parseHistoryFile(fs.readFileSync(file, "utf-8")).map(b => ({
+      symbol: sym, date: b.date, open: b.open, high: b.high, low: b.low, close: b.close,
+      adjustedClose: b.close, // prices are unadjusted; adjustedClose mirrors close
+      volume: b.volume, source: b.source, sourceUrl: path.relative(process.cwd(), file).replace(/\\/g, "/"),
+      retrievedAt: new Date(mtimeMs).toISOString(),
+    }));
+    this.cache.set(sym, { mtimeMs, rows });
+    return rows;
   }
 
-  static updateFromCompanyDetail(detail: DseRawCompanyDetail, sourceUrl: string): number {
-    this.ensureStorage();
-    const sym = detail.code.toUpperCase().trim();
-    const now = new Date().toISOString();
-
-    if (!Array.isArray(detail.historicalCandles) || detail.historicalCandles.length === 0) {
-      return 0;
-    }
-
-    const existing = this.getHistoricalPrices(sym);
-    const existingMap = new Map(existing.map(r => [r.date, r]));
-    let inserted = 0;
-
-    for (const c of detail.historicalCandles) {
-      if (c && c.date && c.close !== null && c.close > 0) {
-        const validation = DseValidator.validateMarketCandle({
-          symbol: sym,
-          date: c.date,
-          open: c.open,
-          high: c.high,
-          low: c.low,
-          close: c.close,
-          volume: c.volume,
-          trades: c.trades
-        });
-
-        if (validation.isValid) {
-          const valid = validation.sanitized;
-          const row: HistoricalPriceRow = {
-            symbol: sym,
-            date: valid.date,
-            open: valid.open ?? valid.close ?? 10,
-            high: valid.high ?? valid.close ?? 10,
-            low: valid.low ?? valid.close ?? 10,
-            close: valid.close ?? 10,
-            adjustedClose: valid.close ?? 10,
-            volume: valid.volume ?? 0,
-            trades: valid.trades ?? 0,
-            source: "DSE_OFFICIAL",
-            sourceUrl,
-            retrievedAt: now
-          };
-
-          // Official DSE record always overwrites non-official or older records for this date
-          existingMap.set(valid.date, row);
-          inserted++;
-        }
-      }
-    }
-
-    const merged = Array.from(existingMap.values()).sort((a, b) => a.date.localeCompare(b.date));
-    this.cache.set(sym, merged);
-
-    try {
-      fs.writeFileSync(path.join(STORAGE_DIR, `${sym}.json`), JSON.stringify(merged, null, 2), "utf-8");
-    } catch (e) {
-      console.error(`[DseHistoricalDataManager] Failed to write history for ${sym}:`, e);
-    }
-
-    return inserted;
+  /**
+   * Company pages are no longer a history source: daily history is loaded from DSE's day-end archive
+   * with full validation (see server/services/history/dseArchive.ts). Kept so callers need no change.
+   */
+  static updateFromCompanyDetail(_detail: DseRawCompanyDetail, _sourceUrl: string): number {
+    return 0;
   }
 
   /**

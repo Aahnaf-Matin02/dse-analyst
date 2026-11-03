@@ -6,11 +6,12 @@ import { loadDseSyncStatus } from "./dseCacheRepository";
 import { loadIndices } from "./marketRepository";
 
 export type HistorySource =
+  | "DSE_OFFICIAL"
+  | "LankaBD"
+  | "InvestingCSV"
   | "LiveDseSnapshot"
   | "ImportedHistoricalCSV"
-  | "CachedHistoricalData"
-  | "NoHistoricalData"
-  | "DemoSimulation";
+  | "NoHistoricalData";
 
 export interface HistoryRow {
   date: string; // YYYY-MM-DD
@@ -222,27 +223,27 @@ export function getStockHistory(symbol: string, days?: number): {
       };
     }
 
-    const mappedRows: HistoryRow[] = validatedBars.map(b => {
-      const open = b.open;
-      const close = b.close;
-      const change = parseFloat((close - open).toFixed(2));
-      const changePercent = open > 0 ? parseFloat((((close - open) / open) * 100).toFixed(2)) : 0;
-
+    // Rows exactly as stored. "ycp"/"change" are relative to the previous stored session's close
+    // (null for the first row) — not the same day's open.
+    const mappedRows: HistoryRow[] = validatedBars.map((b, i) => {
+      const prevClose = i > 0 ? validatedBars[i - 1].close : null;
+      const change = prevClose !== null ? parseFloat((b.close - prevClose).toFixed(2)) : null;
+      const changePercent = prevClose ? parseFloat((((b.close - prevClose) / prevClose) * 100).toFixed(2)) : null;
       return {
         date: b.date,
         symbol: sym,
-        open,
+        open: b.open,
         high: b.high,
         low: b.low,
-        close,
-        ltp: close,
-        ycp: open,
+        close: b.close,
+        ltp: b.close,
+        ycp: prevClose,
         change,
         changePercent,
         volume: b.volume,
-        value: parseFloat((close * b.volume).toFixed(2)),
+        value: null, // turnover is not stored in the history files
         trade: null,
-        source: b.source.includes("Adjusted") || b.source.includes("GapFilled") ? "CachedHistoricalData" : "ImportedHistoricalCSV",
+        source: b.source as HistorySource,
         snapshotType: "Imported",
         lastUpdated: new Date().toISOString()
       };
@@ -351,108 +352,34 @@ export function getIndexHistory(symbol: "DSEX" | "DS30" | "DSES", days?: number)
     const coverage = deriveCoverage(sym, parsed);
     const dataSliced = days ? parsed.slice(-days) : parsed;
 
-    // Dynamically append current day's real-time live index if missing from history
-    const todayStr = new Date().toISOString().split("T")[0];
-    const hasToday = dataSliced.some(r => r.date === todayStr);
-    if (!hasToday) {
-      try {
-        const idxCache = loadIndices();
-        const data = idxCache[sym as "DSEX" | "DS30" | "DSES"];
-        if (data && data.value) {
-          if (dataSliced.length > 0) {
-            const lastRow = dataSliced[dataSliced.length - 1];
-            const lastRowDate = new Date(lastRow.date);
-            const todayDate = new Date(todayStr);
-
-            // Get total calendar days in the gap
-            const diffTime = todayDate.getTime() - lastRowDate.getTime();
-            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-            if (diffDays > 1) {
-              const startPrice = lastRow.close ?? data.value;
-              const endPrice = data.value;
-
-              // Collect all actual trading days in the gap (excluding Friday=5 and Saturday=6 in Bangladesh)
-              const gapDates: string[] = [];
-              for (let d = 1; d < diffDays; d++) {
-                const nextDate = new Date(lastRowDate);
-                nextDate.setDate(nextDate.getDate() + d);
-                const dayOfWeek = nextDate.getDay();
-                if (dayOfWeek !== 5 && dayOfWeek !== 6) {
-                  gapDates.push(nextDate.toISOString().split("T")[0]);
-                }
-              }
-
-              // Generate a smooth price path using interpolation plus a tiny bit of random noise (seeded or pseudo-random)
-              const totalGapBars = gapDates.length;
-              const gapBars: HistoryRow[] = [];
-              for (let i = 0; i < totalGapBars; i++) {
-                const gapDateStr = gapDates[i];
-                
-                // Interpolate price (from startPrice to endPrice)
-                const t = totalGapBars > 1 ? i / (totalGapBars - 1) : 0.5;
-                const linearPrice = startPrice + t * (endPrice - startPrice);
-                
-                let seed = sym.charCodeAt(0) + i;
-                const seededRandom = () => {
-                  const x = Math.sin(seed++) * 10000;
-                  return x - Math.floor(x);
-                };
-                const noise = (seededRandom() - 0.5) * 0.005 * linearPrice; // indices are less volatile than individual stocks
-                const close = parseFloat((linearPrice + noise).toFixed(2));
-                const open = i === 0 ? startPrice : gapBars[i - 1].close ?? linearPrice;
-                
-                const high = parseFloat((Math.max(open, close) * (1 + seededRandom() * 0.003)).toFixed(2));
-                const low = parseFloat((Math.min(open, close) * (1 - seededRandom() * 0.003)).toFixed(2));
-                const change = parseFloat((close - open).toFixed(2));
-                const changePercent = open > 0 ? parseFloat((((close - open) / open) * 100).toFixed(2)) : 0;
-
-                gapBars.push({
-                  date: gapDateStr,
-                  symbol: sym,
-                  open,
-                  high,
-                  low,
-                  close,
-                  ltp: close,
-                  ycp: open,
-                  change,
-                  changePercent,
-                  volume: null,
-                  value: null,
-                  trade: null,
-                  source: "CachedHistoricalData",
-                  snapshotType: "EOD",
-                  lastUpdated: new Date().toISOString()
-                });
-              }
-
-              dataSliced.push(...gapBars);
-            }
-          }
-
-          dataSliced.push({
-            date: todayStr,
-            symbol: sym,
-            open: null,
-            high: null,
-            low: null,
-            close: data.value,
-            ltp: data.value,
-            ycp: data.value - data.change,
-            change: data.change,
-            changePercent: data.changePercent,
-            volume: null,
-            value: null,
-            trade: null,
-            source: "LiveDseSnapshot",
-            snapshotType: "Intraday",
-            lastUpdated: new Date().toISOString()
-          });
-        }
-      } catch (e) {
-        console.warn("[historicalRepository] Dynamic append of index live day failed:", e);
+    // Append DSE's latest reported index value for its own session date if that day isn't stored yet.
+    // Gaps between the stored history and that session are left as gaps — never interpolated.
+    try {
+      const idxCache = loadIndices() as any;
+      const data = idxCache[sym as "DSEX" | "DS30" | "DSES"];
+      const sessionDate: string | null = idxCache?.session?.sessionDate ?? null;
+      if (data && data.value > 0 && sessionDate && !dataSliced.some(r => r.date === sessionDate)) {
+        dataSliced.push({
+          date: sessionDate,
+          symbol: sym,
+          open: null,
+          high: null,
+          low: null,
+          close: data.value,
+          ltp: data.value,
+          ycp: data.value - data.change,
+          change: data.change,
+          changePercent: data.changePercent,
+          volume: null,
+          value: null,
+          trade: null,
+          source: "LiveDseSnapshot",
+          snapshotType: "EOD",
+          lastUpdated: new Date().toISOString()
+        });
       }
+    } catch (e) {
+      console.warn("[historicalRepository] Appending latest index value failed:", e);
     }
 
     dataSliced.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());

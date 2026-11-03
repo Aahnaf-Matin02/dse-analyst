@@ -32,6 +32,8 @@ export interface StockData {
   lastUpdated?: string;
   isSimulation?: boolean;
   hasRealFundamentals?: boolean;
+  /** Where EPS / NAV / P/E came from: DSE company page, or the bundled sample seed file */
+  fundamentalsSource?: "DSE_OFFICIAL" | "BUNDLED_SAMPLE" | null;
   isGeneratedFallback?: boolean;
   sourceUrl?: string;
   timestamp?: string;

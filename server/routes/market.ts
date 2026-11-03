@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loadIndices, generateIndexHistoricalData } from "../repositories/marketRepository";
+import { loadIndices } from "../repositories/marketRepository";
 import { getIndexHistory, getStockHistory } from "../repositories/historicalRepository";
 import { getAllStocks } from "../repositories/stockRepository";
 import { getIntradayTicks, getIndexPredictions, getHistory } from "../repositories/marketIndexRepository";
@@ -206,15 +206,6 @@ router.get("/indices/:symbol/chart", (req, res, next) => {
       });
     }
 
-    if (req.query.demo === "true") {
-      const demoHistory = generateIndexHistoricalData(symbol, days);
-      return res.json({
-        symbol: symbol,
-        source: "DemoSimulation",
-        warning: "Demo index data only. Not official DSE historical data.",
-        data: demoHistory
-      });
-    }
 
     return res.json({
       symbol: symbol,

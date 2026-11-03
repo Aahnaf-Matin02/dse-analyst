@@ -3,7 +3,7 @@ import { getAllStocks, getStockBySymbol, getMetadata } from "../repositories/sto
 import { WatchlistRepository } from "../repositories/watchlistRepository";
 import { authenticateToken, AuthenticatedRequest, requireEmailVerified } from "../middleware/auth";
 import { verifyAdminSecret } from "../middleware/adminAuth";
-import { generateHistoricalData, DSE_COMPANIES } from "../../src/data/dseData";
+import { DSE_COMPANIES } from "../../src/data/dseData";
 import { HistoryRepository } from "../repositories/historyRepository";
 import { getStockHistory, getAvailableHistorySymbols, getHistoryCoverage } from "../repositories/historicalRepository";
 import { calculateTechnicalIndicators } from "../services/technicalIndicators";
@@ -19,8 +19,23 @@ import { DseCorporateActionsManager } from "../services/dse/dseCorporateActions"
 import { DseDisclosuresManager } from "../services/dse/dseDisclosures";
 import { DseMarketDataManager } from "../services/dse/dseMarketData";
 import { defaultDseSyncService } from "../services/dse/dseSyncService";
+import { computeStockAnalytics, range52wFor } from "../services/history/stockAnalytics";
 
 const router = Router();
+
+let websiteSymbolsCache: string[] | null = null;
+/** The securities the website shows (data/history/source-map/website-symbols.json). */
+function websiteSymbolList(): string[] {
+  if (!websiteSymbolsCache) {
+    try {
+      const file = path.join(process.cwd(), "data", "history", "source-map", "website-symbols.json");
+      websiteSymbolsCache = (JSON.parse(fs.readFileSync(file, "utf8")).symbols || []).map((s: string) => s.toUpperCase());
+    } catch {
+      websiteSymbolsCache = getAllStocks().map(s => s.symbol.toUpperCase());
+    }
+  }
+  return websiteSymbolsCache!;
+}
 
 // Retrieve sector market caps aggregated directly from DSE_COMPANIES
 router.get("/sectors/dse-market-cap", (req, res, next) => {
@@ -112,6 +127,21 @@ router.get("/sectors/market-cap", (req, res, next) => {
   }
 });
 
+// Real analytics from stored DSE history and official ratios (returns, risk, trend, liquidity, valuation vs sector)
+router.get("/:symbol/analytics", (req, res, next) => {
+  try {
+    const symbol = req.params.symbol.toUpperCase().trim();
+    if (!getStockBySymbol(symbol)) return res.status(404).json({ error: `Stock symbol '${symbol}' not found.` });
+    const websiteSymbols = websiteSymbolList();
+    const sectors = new Map(getAllStocks().map(s => [s.symbol.toUpperCase(), s.sector || null]));
+    const peers = websiteSymbols.map(sym => ({ symbol: sym, sector: sectors.get(sym) ?? null }));
+    if (!websiteSymbols.includes(symbol)) peers.push({ symbol, sector: sectors.get(symbol) ?? null });
+    res.json(computeStockAnalytics(symbol, peers));
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Key stats: 52W High/Low + Avg Volume for a single symbol
 router.get("/:symbol/stats", (req, res, next) => {
   try {
@@ -125,11 +155,13 @@ router.get("/:symbol/stats", (req, res, next) => {
     const snap = DseMarketDataManager.getLatestSnapshot(symbol);
     const history = getStockHistory(symbol, 365);
     const indicators = calculateTechnicalIndicators(history.data);
+    // Same definition as the analytics panel: highest daily high / lowest daily low over the last 365 days
+    const range = range52wFor(symbol);
 
     return res.json({
       symbol,
-      week52High:  snap?.weekHigh52 ?? indicators.high52W ?? null,
-      week52Low:   snap?.weekLow52  ?? indicators.low52W  ?? null,
+      week52High:  snap?.weekHigh52 ?? range?.high ?? indicators.high52W ?? null,
+      week52Low:   snap?.weekLow52  ?? range?.low  ?? indicators.low52W  ?? null,
       avgVolume:   indicators.avgVolume20D ?? snap?.volume ?? null,
     });
   } catch (err) {
@@ -469,15 +501,6 @@ router.get("/:symbol/chart", (req, res, next) => {
       });
     }
 
-    if (req.query.demo === "true") {
-      const fallbackData = generateHistoricalData(symbol, days);
-      return res.json({
-        symbol: symbol,
-        source: "DemoSimulation",
-        warning: "Demo simulated data only. Not real DSE historical data.",
-        data: fallbackData
-      });
-    }
 
     return res.json({
       symbol: symbol,

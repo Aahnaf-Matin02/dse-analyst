@@ -11,9 +11,22 @@ import { getLastTradingSessionCutoff } from "../services/dse/dseMarketData";
 import { defaultDseSyncService } from "../services/dse/dseSyncService";
 import { DSEScraper } from "../services/dseScraper";
 
+// The status route reads history coverage from data/history/processed/coverage-summary.json.
+// Tests that simulate empty stores switch it to the "no summary yet" report.
+const coverage = vi.hoisted(() => ({ empty: false }));
+vi.mock("../services/history/historyCoverage", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("../services/history/historyCoverage")>();
+  return {
+    ...actual,
+    getHistoryCoverageReport: (baseDir?: string) =>
+      actual.getHistoryCoverageReport(coverage.empty ? "__no_history_dir__" : baseDir),
+  };
+});
+
 describe("DSE Status Integrity Guard", () => {
   afterEach(() => {
     vi.restoreAllMocks();
+    coverage.empty = false;
   });
 
   it("must NEVER return live: true or status 'Live' when universeCount is 0", async () => {
@@ -70,6 +83,7 @@ describe("DSE Status Integrity Guard", () => {
     vi.spyOn(DseCorporateActionsManager, "getTotalCount").mockReturnValue(null);
     vi.spyOn(DseFinancialsManager, "getPopulatedCount").mockReturnValue(null);
     vi.spyOn(HistoryRepository, "computeCoverage").mockReturnValue(0);
+    coverage.empty = true;
 
     const app = createApp();
     const server = app.listen(0);

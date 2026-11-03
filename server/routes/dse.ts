@@ -11,6 +11,8 @@ import { getGeminiStatus, hasGeminiApiKey, isGeminiAvailable } from "../services
 import { loadLatestDseData, saveLatestDseData, saveDseSyncStatus, loadDseSyncStatus } from "../repositories/dseCacheRepository";
 import { loadIndices } from "../repositories/marketRepository";
 import { HistoryRepository } from "../repositories/historyRepository";
+import { getHistoryCoverageReport } from "../services/history/historyCoverage";
+import { readIncrementalStatus, runIncrementalUpdate, SCHEDULE as HISTORY_SCHEDULE } from "../services/history/historyIncremental";
 import { DSEScraper } from "../services/dseScraper";
 import { defaultDseStorage } from "../services/storage/dseStorage";
 import { StockData } from "../../src/types";
@@ -35,8 +37,9 @@ router.get("/status", (req, res, next) => {
       ? "DSE_OFFICIAL"
       : (marketCount > 0 || universeCount > 0 ? "DSE_OFFICIAL_CACHE" : "LOCAL_DEVELOPMENT_FALLBACK");
 
-    // 1. Real historical price coverage (% of universe tickers that have historical price data on disk/store)
-    const historicalDataCoverage = HistoryRepository.computeCoverage(universeSymbols);
+    // 1. Real historical price coverage: % of the website's securities with real (validated) daily rows
+    const historyReport = getHistoryCoverageReport();
+    const historicalDataCoverage = historyReport.coveragePercent;
 
     // 2. Real stored disclosures and corporate actions count (null if data is not collected)
     const disclosureCount = DseDisclosuresManager.getTotalCount();
@@ -120,6 +123,24 @@ router.get("/status", (req, res, next) => {
       marketDataCount: marketCount,
       financialDataCount,
       historicalDataCoverage,
+      historicalSymbolsWithData: historyReport.withHistory,
+      historicalSymbolsTotal: historyReport.websiteSymbols,
+      historicalSources: historyReport.sources,
+      historicalFirstDate: historyReport.firstDate,
+      historicalLastDate: historyReport.lastDate,
+      historicalYearsOfHistory: historyReport.yearsOfHistory,
+      historicalAdjusted: historyReport.adjusted,
+      historicalNote: historyReport.note,
+      // Durability of history updates: serverless/container filesystems are ephemeral or read-only
+      historicalStorage: process.env.NETLIFY || process.env.K_SERVICE || process.env.AWS_LAMBDA_FUNCTION_NAME
+        ? { mode: "bundled-read-only", persistsAppends: false, note: "History ships inside the deployment bundle. Updates appended at runtime do not persist; run npm run backfill:history and redeploy to refresh." }
+        : { mode: "local-filesystem", persistsAppends: true, note: "History files in data/history are updated in place by the daily incremental update and npm run backfill:history." },
+      historicalDailyUpdate: {
+        schedule: process.env.NETLIFY || process.env.AWS_LAMBDA_FUNCTION_NAME
+          ? "GitHub Actions (.github/workflows/daily-history.yml), Sunday–Thursday 17:00 and 20:00 Asia/Dhaka; each update is committed and redeploys the site"
+          : HISTORY_SCHEDULE.description,
+        ...readIncrementalStatus(),
+      },
       disclosureCount,
       corporateActionCount,
       staleRecords,
@@ -238,6 +259,14 @@ router.post("/sync", async (req, res, next) => {
     }
 
     const syncType = (req.query.type as string || "all").toLowerCase();
+
+    // Daily history: fetch only sessions after the latest stored date. Kept separate from the live
+    // sync status so a history update never marks the live feed as synced.
+    if (syncType === "history") {
+      const run = await runIncrementalUpdate("api");
+      const code = run.ok ? 200 : run.outcome === "locked" ? 409 : run.outcome === "stopped" ? 502 : 500;
+      return res.status(code).json({ syncType: "history", ...run, status: readIncrementalStatus() });
+    }
 
     let result: any;
     if (syncType === "universe") {

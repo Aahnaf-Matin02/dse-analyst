@@ -28,6 +28,23 @@ import { geminiAnonymousRateLimiter } from "../middleware/geminiRateLimiter";
 
 const router = Router();
 
+/**
+ * Factual statement about the stored price history, prepended to AI prompts so the model never
+ * invents past prices when there are none (and knows the data is unadjusted when there are).
+ */
+function historyNotice(symbol: string): string {
+  try {
+    const h = getStockHistory(symbol);
+    if (!h.data.length || h.source === "NoHistoricalData") {
+      return `PRICE HISTORY FOR ${symbol}: NOT AVAILABLE. Do not describe, estimate or invent any past prices, returns, highs/lows, trends or chart patterns for ${symbol}; say that historical data is unavailable.`;
+    }
+    const first = h.data[0].date, last = h.data[h.data.length - 1].date;
+    return `PRICE HISTORY FOR ${symbol}: ${h.data.length} daily sessions from ${first} to ${last} (source: ${h.data[0].source}). Prices are UNADJUSTED for dividends, bonus shares, rights and splits. Nothing is known about prices before ${first}; do not invent them.`;
+  } catch {
+    return `PRICE HISTORY FOR ${symbol}: NOT AVAILABLE. Do not invent past prices.`;
+  }
+}
+
 // Apply per-IP rate limiting on anonymous Gemini endpoints
 router.use(geminiAnonymousRateLimiter);
 
@@ -348,7 +365,9 @@ Provide the output in structured JSON matching the requested schema.`;
 
       const { response } = await generateContentWithRetry({
         model: MODEL_ROLES.GENERAL,
-        contents: prompt,
+        contents: `${historyNotice(symbol)}
+
+${prompt}`,
         config: {
           responseMimeType: "application/json",
           responseSchema: {
@@ -496,7 +515,9 @@ Write an institutional-grade, highly actionable investment decision report summa
 
       const { response } = await generateContentWithRetry({
         model: "gemini-3.1-flash-lite",
-        contents: prompt
+        contents: `${historyNotice(symbol)}
+
+${prompt}`
       });
 
       res.json({
@@ -649,7 +670,9 @@ Write a professional institutional-grade price forecasting summary (2-3 sentence
 
       const { response } = await generateContentWithRetry({
         model: MODEL_ROLES.GENERAL,
-        contents: prompt
+        contents: `${historyNotice(symbol)}
+
+${prompt}`
       });
 
       res.json({
@@ -758,7 +781,9 @@ Format your output in a clean, valid JSON matching the requested structure.`;
 
       const { response } = await generateContentWithRetry({
         model: MODEL_ROLES.GENERAL,
-        contents: prompt,
+        contents: `${historyNotice(symbol)}
+
+${prompt}`,
         config: {
           responseMimeType: "application/json",
           responseSchema: {
@@ -1356,21 +1381,13 @@ The Dhaka Stock Exchange closed on an upbeat note across all primary benchmark i
     if (!isGeminiAvailable()) {
       const mockResponse = generateLocalIndicesResponse(cleanMessage, company, companies);
       const companyUrl = company?.symbol || sym ? `https://www.dse.com.bd/company/${company?.symbol || sym}` : "https://www.dse.com.bd";
-      const simulatedSources = [
-        { title: `${company?.name || sym || "DSE"} Official Company Profile & Disclosures`, url: companyUrl, domain: "dse.com.bd" },
-        { title: "Bangladesh Bank Monetary Policy & Statistics", url: "https://bb.org.bd", domain: "bb.org.bd" },
-        { title: "The Daily Star Business & Market Reports", url: "https://thedailystar.net/business", domain: "thedailystar.net" }
-      ];
       return res.json({ 
         response: mockResponse, 
-        modelUsed: targetModel,
+        modelUsed: "Rule-based fallback (AI not configured)",
         roleUsed: resolvedRole,
         roleTitle,
-        grounding: {
-          searchQueries: [`${company?.name || sym} Dhaka Stock Exchange update`, "DSE market summary"],
-          sources: enableSearchGrounding !== false ? simulatedSources : [],
-          isGrounded: enableSearchGrounding !== false
-        },
+        // No search was performed in fallback mode, so no sources are claimed
+        grounding: { searchQueries: [], sources: [], isGrounded: false },
         generationMode: "RuleBasedFallback",
         aiStatus: getGeminiStatus(),
         disclaimer: INVESTMENT_DISCLAIMER
@@ -1382,7 +1399,8 @@ The Dhaka Stock Exchange closed on an upbeat note across all primary benchmark i
         ? chatHistory.map((h: any) => `${h.sender === "user" ? "User" : "Assistant"}: ${h.text}`).join("\n") + "\n"
         : "";
 
-      const promptPayload = `${historyFormatted}User: ${cleanMessage}\nAssistant:`;
+      const historyLine = currentSymbol ? `${historyNotice(String(currentSymbol).toUpperCase())}\n\n` : "";
+      const promptPayload = `${historyLine}${historyFormatted}User: ${cleanMessage}\nAssistant:`;
 
       const genConfig: any = {
         systemInstruction,

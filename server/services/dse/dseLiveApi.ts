@@ -150,3 +150,38 @@ export async function fetchLiveMarket(client: DseClient = defaultDseClient) {
   const { data, url } = await getJson(client, DSE_LIVE_MARKET_PATH);
   return { ...parseLiveMarket(data), url };
 }
+
+const dhakaDate = (now: Date) =>
+  new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Dhaka", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+
+/** DSE's trade-time stamp, e.g. "Oct 05, 2026 at 10:16 AM" -> { date: "2026-10-05", minutes: 616 } */
+export function parseTradeTime(s: unknown): { date: string; minutes: number } | null {
+  const m = typeof s === "string" ? s.match(/^([A-Za-z]{3,})\s+(\d{1,2}),\s+(\d{4})\s+at\s+(\d{1,2}):(\d{2})\s*([AP]M)$/i) : null;
+  if (!m) return null;
+  const d = new Date(`${m[1]} ${m[2]}, ${m[3]} 00:00:00 UTC`);
+  if (isNaN(d.getTime())) return null;
+  const hour = (Number(m[4]) % 12) + (m[6].toUpperCase() === "PM" ? 12 : 0);
+  return { date: d.toISOString().slice(0, 10), minutes: hour * 60 + Number(m[5]) };
+}
+
+const SESSION_OPENS_AT_MINUTES = 10 * 60; // DSE continuous trading starts 10:00 Dhaka
+
+/**
+ * The trading day the feed's prices belong to. DSE's own session.sessionDate lags while trading is
+ * under way (observed 5 Oct 2026: isOpen true, sessionDate "2026-10-04", tradeTime "Oct 05 ... 10:16 AM",
+ * DSEX prev = the 4 Oct close), so it is only trusted when nothing better is known:
+ *  - market open                      -> today in Dhaka
+ *  - trade time at/after 10:00        -> that day (trading happened then)
+ *  - pre-open stamp (e.g. 8:36 AM)    -> ignored; the prices are still the previous session's
+ *  - otherwise                        -> DSE's sessionDate, never later than today
+ */
+export function resolveSessionDate(session: DseSessionInfo | undefined, tradeTime: unknown, now = new Date()): string | null {
+  const today = dhakaDate(now);
+  if (session?.isOpen) return today;
+  const trade = parseTradeTime(tradeTime);
+  if (trade && trade.minutes >= SESSION_OPENS_AT_MINUTES && trade.date <= today) {
+    if (!session?.sessionDate || trade.date > session.sessionDate) return trade.date;
+  }
+  const reported = session?.sessionDate ?? null;
+  return reported && reported > today ? today : reported;
+}

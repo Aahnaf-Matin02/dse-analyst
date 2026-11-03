@@ -8,3 +8,5 @@ coverage/
 !.env.example
 data/users_db.json
 data/sessions_db.json
+data/history/processed/.history-update.lock
+data/history/processed/incremental-status.json

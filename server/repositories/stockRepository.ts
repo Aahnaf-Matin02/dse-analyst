@@ -118,12 +118,15 @@ export function enrichStock(stock: StockData): StockData {
     healed.marketDepth = seed?.marketDepth || null;
   }
 
+  // Provenance of EPS / NAV / P/E: only values from the DSE company page count as reported. Anything
+  // else came from the bundled seed file and is labelled as a sample in the UI.
+  const official = Boolean(reportedRatio && reportedRatio.source === "DSE_OFFICIAL" &&
+    (reportedRatio.eps !== null || reportedRatio.nav !== null || reportedRatio.peRatio !== null));
+  const anyValue = (healed.peRatio !== null && healed.peRatio !== undefined) || (healed.eps !== null && healed.eps !== undefined) || (healed.nav !== null && healed.nav !== undefined);
+  (healed as any).fundamentalsSource = official ? "DSE_OFFICIAL" : anyValue ? "BUNDLED_SAMPLE" : null;
+
   // Flag real fundamentals status
-  healed.hasRealFundamentals = Boolean(
-    (healed.peRatio !== null && healed.peRatio > 0) ||
-    (healed.eps !== null && healed.eps !== 0) ||
-    (healed.nav !== null && healed.nav > 0)
-  );
+  healed.hasRealFundamentals = official;
 
   healed.isGeneratedFallback = !healed.hasRealFundamentals;
   healed.dataAvailable = healed.hasRealFundamentals;

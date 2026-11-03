@@ -536,7 +536,7 @@ export default function App() {
     historicalChart.forEach((r: any) => { const k = r.source || chartSource || "Unknown"; counts[k] = (counts[k] || 0) + 1; });
     const main = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
     const verified = /DSE_OFFICIAL|LiveDseSnapshot|LankaBD/i.test(main);
-    const label = verified ? "DSE official data" : /csv|imported|investing/i.test(main) ? "Imported CSV — not verified against DSE" : main;
+    const label = verified ? "DSE official day-end archive" : /csv|imported|investing/i.test(main) ? "Imported CSV — not verified against DSE" : main;
     return { label, verified };
   }, [historicalChart, chartSource]);
   const isReal = chartSource.toLowerCase().includes("historical") || chartSource.toLowerCase().includes("csv") || chartSource.toLowerCase().includes("database") || chartSource === "DSE Historical archives";
@@ -1461,7 +1461,7 @@ export default function App() {
             {/* Plain-language answer first */}
             <p className="text-sm text-[var(--text-muted)] max-w-2xl">
               {currentStock.price > 0
-                ? <>{currentStock.symbol} last traded at <strong className="text-white">৳{currentStock.price.toFixed(2)}</strong>{currentStock.prevClose ? <>, {currentStock.change > 0 ? "up" : currentStock.change < 0 ? "down" : "unchanged"}{currentStock.change !== 0 ? ` ${Math.abs(currentStock.changePercent).toFixed(2)}%` : ""} from the previous close of ৳{Number(currentStock.prevClose).toFixed(2)}</> : null}.{currentStock.peRatio != null && currentStock.peRatio > 0 ? <> Investors pay about {currentStock.peRatio.toFixed(1)} taka for each taka of yearly earnings (<Term term="P/E">P/E</Term>).</> : null}</>
+                ? <>{currentStock.symbol} last traded at <strong className="text-white">৳{currentStock.price.toFixed(2)}</strong>{currentStock.prevClose ? <>, {currentStock.change > 0 ? "up" : currentStock.change < 0 ? "down" : "unchanged"}{currentStock.change !== 0 ? ` ${Math.abs(currentStock.changePercent).toFixed(2)}%` : ""} from the previous close of ৳{Number(currentStock.prevClose).toFixed(2)}</> : null}.{currentStock.peRatio != null && currentStock.peRatio > 0 && (currentStock as any).fundamentalsSource === "DSE_OFFICIAL" ? <> Investors pay about {currentStock.peRatio.toFixed(1)} taka for each taka of yearly earnings (<Term term="P/E">P/E</Term>).</> : null}</>
                 : "No recent price is available for this security."}
             </p>
             <FreshnessLine label="Fetched" updatedAt={(currentStock as any).lastUpdated} source={(currentStock as any).source || (currentStock as any).dataSource} />
@@ -1554,8 +1554,8 @@ export default function App() {
                   <div className="lg:col-span-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" id="key-stats-strip">
                     {[
                       { label: "Market Cap",   value: formatMarketCap(currentStock.marketCap) ?? "N/A",           mono: false },
-                      { label: "P/E Ratio",    value: currentStock.peRatio != null ? currentStock.peRatio.toFixed(2) : "N/A",         mono: true  },
-                      { label: "EPS (BDT)",    value: currentStock.eps != null ? currentStock.eps.toFixed(2) : "N/A",             mono: true  },
+                      { label: "P/E Ratio",    value: currentStock.peRatio != null ? currentStock.peRatio.toFixed(2) : "N/A",         mono: true, sample: (currentStock as any).fundamentalsSource === "BUNDLED_SAMPLE" && currentStock.peRatio != null },
+                      { label: "EPS (BDT)",    value: currentStock.eps != null ? currentStock.eps.toFixed(2) : "N/A",             mono: true, sample: (currentStock as any).fundamentalsSource === "BUNDLED_SAMPLE" && currentStock.eps != null },
                       { 
                         label: "52W High", 
                         value: stockStats.week52High != null ? `৳${stockStats.week52High.toFixed(2)}` : "—",  
@@ -1592,7 +1592,13 @@ export default function App() {
                           {showShimmer ? (
                             <div className="h-4 w-12 bg-[#243044] rounded animate-pulse mt-1" />
                           ) : (
-                            <span className={`text-sm font-black text-[#F0F4FF] ${stat.mono ? "font-mono" : "font-display"}`}>{stat.value}</span>
+                            <span className={`text-sm font-black text-[#F0F4FF] ${stat.mono ? "font-mono" : "font-display"}`}>
+                              {stat.value}
+                              {(stat as any).sample && (
+                                <span className="ml-1.5 align-middle rounded-full border border-amber-400/30 bg-amber-400/10 px-1.5 py-0.5 font-sans text-[9px] font-bold uppercase tracking-wide text-amber-300"
+                                  title="From the app's bundled sample data, not yet confirmed from DSE's company page">sample</span>
+                              )}
+                            </span>
                           )}
                         </div>
                       );
@@ -2154,7 +2160,7 @@ export default function App() {
                     </span>
                     
                     <span className="text-xs text-[var(--text-muted)]">
-                      Source: {chartSourceInfo.label}{hasData && historicalChart.length ? ` · ${historicalChart[0].date} – ${historicalChart[historicalChart.length - 1].date}` : ""}
+                      Source: {chartSourceInfo.label}{hasData && historicalChart.length ? ` · ${historicalChart[0].date} – ${historicalChart[historicalChart.length - 1].date} · prices not adjusted for dividends, bonus or rights issues` : ""}
                     </span>
                   </div>
                 </div>
@@ -2428,13 +2434,9 @@ export default function App() {
               </div>
               </Section>
 
-              <Section title="Fundamentals" hint="Reported profitability, valuation and financial health." defaultOpen>
+              <Section title="Fundamentals & analytics" hint="Performance, risk, valuation and earnings from DSE data." defaultOpen>
               {/* Fundamental Scores Row */}
-              <StockOverview
-                stock={currentStock}
-                fundamentalScore={fundamentalAnalysis.fundamentalScore}
-                scoreBreakdown={fundamentalAnalysis.breakdown}
-              />
+              <StockOverview stock={currentStock} />
               </Section>
 
               <Section title="Dividend history" hint="Past cash and stock dividends declared by the company.">

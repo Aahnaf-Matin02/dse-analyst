@@ -42,6 +42,16 @@ export function parseDseTradeTime(s: string | undefined): { date: string; time: 
   return { date: d.toLocaleDateString("en-GB", { timeZone: "UTC", day: "numeric", month: "short", year: "numeric" }), time: m[4].toUpperCase() };
 }
 
+/** YYYY-MM-DD of a DSE trade-time stamp taken during or after trading (10:00 or later), else null */
+function tradeTimeYmd(s: string | undefined): string | null {
+  const m = typeof s === "string" ? s.match(/^([A-Za-z]{3,})\s+(\d{1,2}),\s+(\d{4})\s+at\s+(\d{1,2}):(\d{2})\s*([AP]M)$/i) : null;
+  if (!m) return null;
+  const hour = (Number(m[4]) % 12) + (m[6].toUpperCase() === "PM" ? 12 : 0);
+  if (hour < 10) return null;
+  const d = new Date(`${m[1]} ${m[2]}, ${m[3]} 00:00:00 UTC`);
+  return isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+}
+
 export type FeedState = "live" | "closed" | "delayed" | "offline" | "unknown";
 
 /**
@@ -86,7 +96,12 @@ export function describeAsOf(p: IndicesPayload | null | undefined): string | nul
   if (!p) return null;
   const state = feedState(p);
   const trade = parseDseTradeTime(p.totals?.tradeTime);
-  const sessionLabel = formatSessionDate(p.session?.sessionDate ?? null);
+  // A trade stamp from 10:00 or later on a later day than the reported session means that day traded
+  // (DSE's sessionDate lags during the session); pre-opening stamps (before 10:00) are ignored.
+  const tradeYmd = tradeTimeYmd(p.totals?.tradeTime);
+  const reported = p.session?.sessionDate ?? null;
+  const sessionYmd = tradeYmd && (!reported || tradeYmd > reported) ? tradeYmd : reported;
+  const sessionLabel = formatSessionDate(sessionYmd);
   if (state === "live") return trade ? `as of ${trade.time} (Dhaka)` : null;
   if (sessionLabel) {
     const sameDay = trade && trade.date === sessionLabel;

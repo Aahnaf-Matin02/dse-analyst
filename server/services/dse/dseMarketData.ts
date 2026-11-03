@@ -101,6 +101,10 @@ export class DseMarketDataManager {
       const sym = item.code.toUpperCase().trim();
       const existing = this.latestSnapshots.get(sym);
 
+      // Before the opening (and for untraded securities) DSE lists a price of 0. That means "no trade
+      // yet", not a price: never overwrite the last real snapshot with it (it showed as -100%).
+      if (!(typeof item.price === "number" && item.price > 0)) continue;
+
       // Official price & changes
       const lastPrice = typeof item.price === "number" && !isNaN(item.price) ? item.price : (existing?.lastPrice ?? null);
       const changePct = typeof item.changePct === "number" && !isNaN(item.changePct) ? item.changePct : (existing?.changePercent ?? null);
@@ -155,6 +159,8 @@ export class DseMarketDataManager {
       const sym = r.code.toUpperCase().trim();
       const existing = this.latestSnapshots.get(sym);
 
+      // ltp 0 = not traded yet this session: keep the last real snapshot
+      if (!(typeof r.ltp === "number" && r.ltp > 0)) continue;
       const lastPrice = r.ltp;
       const open = r.open ?? existing?.open ?? lastPrice;
       const high = r.high ?? existing?.high ?? lastPrice;

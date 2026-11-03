@@ -8,6 +8,8 @@ export interface IndexRecord {
   change_value: number;
   change_percent: number;
   trading_date: string;   // YYYY-MM-DD
+  /** DSE_OFFICIAL = day-end archive close (never overwritten by live values); LiveScraped = live page value */
+  source?: "DSE_OFFICIAL" | "LiveScraped";
 }
 
 export interface IndexPrediction {
@@ -54,8 +56,13 @@ function writeJSONFile<T>(filePath: string, data: T): void {
 }
 
 // 1. SEED 3-YEAR DEEP HISTORY FROM EMBEDDED CSVs FOR ALL THREE INDICES
+let historyMtimeMs = 0;
+const fileMtime = (file: string) => { try { return fs.statSync(file).mtimeMs; } catch { return 0; } };
+
 export function initializeHistoryFromCSVs(): IndexRecord[] {
-  if (historyCache && historyCache.length > 0) return historyCache;
+  // The daily history loader rewrites the file from another code path; reload instead of writing a stale copy back
+  if (historyCache && historyCache.length > 0 && fileMtime(HISTORY_PATH) === historyMtimeMs) return historyCache;
+  historyMtimeMs = fileMtime(HISTORY_PATH);
 
   // Let's load existing history if any
   historyCache = readJSONFile<IndexRecord[]>(HISTORY_PATH, []);
@@ -80,6 +87,7 @@ export function initializeHistoryFromCSVs(): IndexRecord[] {
       if (lines.length <= 1) continue;
 
       // Header: date,open,high,low,close,volume,source
+      // DSE's archive reports index closes only, so open may be empty
       const rawRows: { date: string; open: number; close: number }[] = [];
       for (let i = 1; i < lines.length; i++) {
         const parts = lines[i].split(",");
@@ -87,7 +95,7 @@ export function initializeHistoryFromCSVs(): IndexRecord[] {
         const date = parts[0].trim();
         const open = parseFloat(parts[1].trim());
         const close = parseFloat(parts[4].trim());
-        if (date && !isNaN(open) && !isNaN(close)) {
+        if (date && !isNaN(close) && close > 0) {
           rawRows.push({ date, open, close });
         }
       }
@@ -104,7 +112,7 @@ export function initializeHistoryFromCSVs(): IndexRecord[] {
         if (previousClose > 0) {
           change_value = parseFloat((row.close - previousClose).toFixed(5));
           change_percent = parseFloat(((change_value / previousClose) * 100).toFixed(5));
-        } else {
+        } else if (row.open > 0) {
           change_value = parseFloat((row.close - row.open).toFixed(5));
           change_percent = parseFloat(((change_value / row.open) * 100).toFixed(5));
         }
@@ -187,16 +195,23 @@ export function getHistory(symbol?: string, limitDays = 365 * 3): IndexRecord[] 
   return filtered;
 }
 
-export function saveDailyHistoryRecord(record: IndexRecord): void {
-  const all = initializeHistoryFromCSVs();
-  
-  // Clean symbol name
+const dhakaDate = (d = new Date()) =>
+  new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Dhaka", year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
+
+/**
+ * Stores a live index value as the daily record for today's session. Returns false (and writes
+ * nothing) when the value is dated to another day — a stale session date would misfile today's
+ * numbers — or when that day already holds the official DSE archive close.
+ */
+export function saveDailyHistoryRecord(record: IndexRecord, today = dhakaDate()): boolean {
   const name = record.index_name.toUpperCase().trim();
   const date = record.trading_date;
+  if (date !== today) return false;
 
-  // Let's find if a record for this index and trading_date already exists
+  const all = initializeHistoryFromCSVs();
   const existingIdx = all.findIndex(r => r.index_name === name && r.trading_date === date);
-  const cleanRec = { ...record, index_name: name };
+  if (existingIdx !== -1 && all[existingIdx].source === "DSE_OFFICIAL") return false;
+  const cleanRec: IndexRecord = { ...record, index_name: name, source: "LiveScraped" };
 
   if (existingIdx !== -1) {
     all[existingIdx] = cleanRec;
@@ -206,6 +221,8 @@ export function saveDailyHistoryRecord(record: IndexRecord): void {
 
   historyCache = all;
   writeJSONFile(HISTORY_PATH, historyCache);
+  historyMtimeMs = fileMtime(HISTORY_PATH);
+  return true;
 }
 
 // 3. INTRADAY TICK READ AND WRITE with strict duplication block

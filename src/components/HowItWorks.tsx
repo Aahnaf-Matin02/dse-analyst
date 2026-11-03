@@ -43,7 +43,8 @@ export default function HowItWorks({ onStart }: { onStart?: () => void }) {
             <tbody className="divide-y divide-[var(--border)] text-[var(--text-muted)]">
               <tr><td className="p-3 text-[var(--text)]">Prices, volume, indices</td><td className="p-3">Dhaka Stock Exchange website (dse.com.bd)</td><td className="p-3">Refreshed every few minutes while the server runs. When the market is closed you see the last session's closing values, labelled “Market closed”.</td></tr>
               <tr><td className="p-3 text-[var(--text)]">EPS, NAV, P/E, dividends</td><td className="p-3">DSE company pages and company filings</td><td className="p-3">As last reported by the company; shown as “Not reported” when missing.</td></tr>
-              <tr><td className="p-3 text-[var(--text)]">Price history (charts)</td><td className="p-3">Imported CSV files</td><td className="p-3">Not yet verified against DSE's official archive — charts say so. Missing history is shown as “No historical data available”.</td></tr>
+              <tr><td className="p-3 text-[var(--text)]">Price history (charts)</td><td className="p-3">DSE's official day-end archive (daily open, high, low, close, volume)</td><td className="p-3">The last two years (DSE’s archive keeps a rolling two years), updated after each trading day. Days a security did not trade are left out, never filled in. Securities without history show “No historical data available”.</td></tr>
+              <tr><td className="p-3 text-[var(--text)]">Index history</td><td className="p-3">DSE market summary archive</td><td className="p-3">Daily closing values for DSEX and DS30 over the same two years. DSES history is not published there, so it is not shown.</td></tr>
               <tr><td className="p-3 text-[var(--text)]">Explanations</td><td className="p-3">Google Gemini when configured, otherwise fixed rules</td><td className="p-3">Only when you press Generate. Each result says which engine produced it.</td></tr>
             </tbody>
           </table>
@@ -58,7 +59,8 @@ export default function HowItWorks({ onStart }: { onStart?: () => void }) {
       <section aria-labelledby="limits-heading" className="space-y-2 rounded-2xl border border-amber-400/30 bg-amber-400/5 p-5">
         <h2 id="limits-heading" className="text-lg font-semibold flex items-center gap-2"><AlertTriangle className="h-5 w-5 text-amber-300" aria-hidden="true" /> Limits to keep in mind</h2>
         <ul className="list-disc pl-5 space-y-1 text-sm text-[var(--text-muted)]">
-          <li>Prices around dividends, bonus shares and rights issues are not adjusted.</li>
+          <li>Prices are not adjusted for dividends, bonus shares, rights issues or splits, so charts can show sudden drops on those dates.</li>
+          <li>History older than about two years is not available from DSE’s public archive, so it is not shown.</li>
           <li>Forecasts and “AI interpretations” are illustrations for learning. They have not been back-tested.</li>
           <li>Free AI explanations are limited per hour to keep the service available for everyone.</li>
         </ul>

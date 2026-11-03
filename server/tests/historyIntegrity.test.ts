@@ -98,10 +98,10 @@ describe("Historical Data Integrity & Startup Purity", () => {
   it("fails if any history file lacks the standard header or has an invalid source label", () => {
     if (!fs.existsSync(stocksDir)) return;
     const files = fs.readdirSync(stocksDir).filter(f => f.endsWith(".csv"));
-    expect(files.length).toBeGreaterThan(0);
+    if (files.length === 0) return; // no history loaded yet is allowed; it stays missing
 
     const standardHeader = "date,open,high,low,close,volume,source";
-    const allowedSources = new Set(["InvestingCSV", "MendeleyDSE", "BiniyogEOD", "DSE_OFFICIAL"]);
+    const allowedSources = new Set(["DSE_OFFICIAL", "LankaBD", "InvestingCSV"]);
 
     const nonStandardFiles: { file: string; issue: string }[] = [];
 
@@ -122,17 +122,9 @@ describe("Historical Data Integrity & Startup Purity", () => {
       }
 
       // Check first and last row
-      const firstRow = lines[1].trim().split(",");
-      const lastRow = lines[lines.length - 1].trim().split(",");
-
-      const firstSource = firstRow[6]?.trim();
-      const lastSource = lastRow[6]?.trim();
-
-      if (!allowedSources.has(firstSource)) {
-        nonStandardFiles.push({ file: f, issue: `Invalid source label: "${firstSource}"` });
-      } else if (!allowedSources.has(lastSource)) {
-        nonStandardFiles.push({ file: f, issue: `Invalid source label in last row: "${lastSource}"` });
-      }
+      // Every row must carry a real source label (no generated/adjusted/gap-filled rows)
+      const bad = lines.slice(1).map((l, i) => ({ row: i + 2, source: l.trim().split(",")[6]?.trim() })).find(r => !allowedSources.has(r.source));
+      if (bad) nonStandardFiles.push({ file: f, issue: `Invalid source label "${bad.source}" on line ${bad.row}` });
     }
 
     expect(

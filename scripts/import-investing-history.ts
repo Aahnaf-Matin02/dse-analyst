@@ -289,45 +289,6 @@ function processCSVFile(filePath: string, symbol: string): ImportFileResult {
   return result;
 }
 
-// Simulated data walker to create continuous price movements backwards in time
-function generateSimulatedCSV(symbol: string, basePrice: number, volumeSeed: number, isIndex = false): string {
-  const rows: string[] = ['"Date","Price","Open","High","Low","Vol.","Change %"'];
-  let currentPrice = basePrice;
-  let currentDate = new Date();
-  const limitDate = new Date("2024-05-15");
-
-  // Walk backward until 2024-05-15 (for 2.1-year coverage target matching index data)
-  while (currentDate >= limitDate) {
-    const dayOfWeek = currentDate.getDay();
-    // Friday and Saturday are weekends in Bangladesh DSE
-    if (dayOfWeek === 5 || dayOfWeek === 6) {
-      currentDate.setDate(currentDate.getDate() - 1);
-      continue;
-    }
-
-    const changePercent = (Math.random() * 2.4 - 1.2) / 100; // -1.2% to +1.2% daily walk
-    const close = currentPrice;
-    const open = currentPrice / (1 + changePercent);
-    const high = Math.max(close, open) * (1 + Math.random() * 0.012);
-    const low = Math.min(close, open) * (1 - Math.random() * 0.012);
-    const volume = isIndex ? 0 : Math.floor(volumeSeed * (0.4 + Math.random() * 0.8));
-
-    const formattedDate = currentDate.toLocaleDateString("en-US", {
-      month: "short",
-      day: "2-digit",
-      year: "numeric"
-    });
-
-    const displayVol = isIndex ? "-" : `${(volume / 1000).toFixed(1)}K`;
-
-    rows.push(`"${formattedDate}","${close.toFixed(2)}","${open.toFixed(2)}","${high.toFixed(2)}","${low.toFixed(2)}","${displayVol}","${(changePercent * 100).toFixed(2)}%"`);
-
-    currentPrice = open;
-    currentDate.setDate(currentDate.getDate() - 1);
-  }
-
-  return rows.join("\n");
-}
 
 function runImportPipeline() {
   console.log("=================================================================");
@@ -381,8 +342,7 @@ function runImportPipeline() {
     const filePath = path.join(RAW_INDICES_DIR, `${idx.symbol}.csv`);
     if (!fs.existsSync(filePath)) {
       console.log(`   💡 [Generator] Raw CSV missing. Writing 5-year walk for Index tracker [${idx.symbol}]`);
-      const csvStr = generateSimulatedCSV(idx.symbol, idx.basePrice, 0, true);
-      fs.writeFileSync(filePath, csvStr, "utf-8");
+      console.warn(`[import] Missing raw export, skipped (never generated): ${filePath}`);
     }
   }
 
@@ -392,8 +352,7 @@ function runImportPipeline() {
     const filePath = path.join(RAW_STOCKS_DIR, `${sym}.csv`);
     if (!fs.existsSync(filePath)) {
       console.log(`   💡 [Generator] Raw CSV missing. Writing 5-year walk for stock ticker [${sym}]`);
-      const csvStr = generateSimulatedCSV(sym, details.price || 100, details.volume || 100000);
-      fs.writeFileSync(filePath, csvStr, "utf-8");
+      console.warn(`[import] Missing raw export, skipped (never generated): ${filePath}`);
     }
   }
 
