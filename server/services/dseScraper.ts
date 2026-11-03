@@ -10,7 +10,9 @@ import { DSE_COMPANIES } from "../../src/data/dseData";
 import { saveDailyHistoryRecord, saveIntradayTick } from "../repositories/marketIndexRepository";
 import { defaultDseClient } from "./dse/dseClient";
 import { DseParser } from "./dse/dseParser";
-import { fetchLivePrices, fetchLiveMarket, DseLivePriceRow, resolveSessionDate } from "./dse/dseLiveApi";
+import { DseLivePriceRow, resolveSessionDate } from "./dse/dseLiveApi";
+// Primary live source: old.dsebd.org (www.dse.com.bd refuses automated access)
+import { fetchLegacyPrices as fetchLivePrices, fetchLegacyMarket as fetchLiveMarket } from "./dse/dseLegacyLive";
 
 export interface ScraperStatus {
   status: "Idle" | "Syncing" | "Success" | "Failed";
@@ -768,7 +770,7 @@ export const DSEScraper = {
       }
     } catch (err: any) {
       attemptedLog.push({
-        url: buildDseUrl("/api/live/prices"),
+        url: "https://old.dsebd.org/latest_share_price_scroll_l.php",
         httpStatus: null,
         errorCode: "DSE_LIVE_API_FAILED",
         rowsParsed: 0,
