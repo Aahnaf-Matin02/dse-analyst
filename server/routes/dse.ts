@@ -137,7 +137,7 @@ router.get("/status", (req, res, next) => {
         : { mode: "local-filesystem", persistsAppends: true, note: "History files in data/history are updated in place by the daily incremental update and npm run backfill:history." },
       historicalDailyUpdate: {
         schedule: process.env.NETLIFY || process.env.AWS_LAMBDA_FUNCTION_NAME
-          ? "GitHub Actions (.github/workflows/daily-history.yml), Sunday–Thursday 17:00 and 20:00 Asia/Dhaka; each update is committed and redeploys the site"
+          ? "Updated when new sessions are committed to the repository (npm run update:history); each push redeploys the site"
           : HISTORY_SCHEDULE.description,
         ...readIncrementalStatus(),
       },
