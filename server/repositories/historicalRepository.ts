@@ -359,7 +359,8 @@ export function getIndexHistory(symbol: "DSEX" | "DS30" | "DSES", days?: number)
       const idxCache = loadIndices() as any;
       const data = idxCache[sym as "DSEX" | "DS30" | "DSES"];
       const sessionDate: string | null = idxCache?.session?.sessionDate ?? null;
-      if (data && data.value > 0 && sessionDate && !dataSliced.some(r => r.date === sessionDate)) {
+      // Only a value scraped live belongs to that session; a cached value would be misdated
+      if (idxCache?.source === "LiveScraped" && data && data.value > 0 && sessionDate && !dataSliced.some(r => r.date === sessionDate)) {
         dataSliced.push({
           date: sessionDate,
           symbol: sym,

@@ -1037,10 +1037,16 @@ export async function scrapeAndSaveIndices(isLiveTrigger: boolean = true): Promi
     if (DSEX) { dsexVal = DSEX.value; dsexChange = DSEX.change; dsexPct = DSEX.changePercent; dsexPrev = DSEX.prev ?? dsexPrev; isLive = true; }
     if (DS30) { ds30Val = DS30.value; ds30Change = DS30.change; ds30Pct = DS30.changePercent; ds30Prev = DS30.prev ?? ds30Prev; isLive = true; }
     if (DSES) { dsesVal = DSES.value; dsesChange = DSES.change; dsesPct = DSES.changePercent; dsesPrev = DSES.prev ?? dsesPrev; isLive = true; }
-    if (market.totals) totals = { ...totals, ...market.totals };
-    if (market.breadth) breadth = market.breadth;
-    sessionDate = resolveSessionDate(market.session, market.totals?.tradeTime);
-    session = { ...market.session, sessionDate };
+    // Totals, breadth and session describe the same moment as the index values: without the
+    // values (seen 3 Nov 2026) keep them together with the cached index rather than relabel stale numbers
+    if (isLive) {
+      if (market.totals) totals = { ...totals, ...market.totals };
+      if (market.breadth) breadth = market.breadth;
+      sessionDate = resolveSessionDate(market.session, market.totals?.tradeTime);
+      session = { ...market.session, sessionDate };
+    } else {
+      console.warn("[scrapeAndSaveIndices] Live market feed had no DSEX/DS30/DSES values; keeping the cached snapshot together.");
+    }
   } catch (err: any) {
     console.warn("[scrapeAndSaveIndices] Live market feed failed, trying homepage HTML:", err.message);
   }
