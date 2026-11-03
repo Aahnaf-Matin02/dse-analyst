@@ -39,7 +39,8 @@ const ERRORS_DIR = path.join(process.cwd(), "data", "history", "errors");
 // Helper to ensure directory existence
 export function ensureDirExists(dirPath: string) {
   if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
+    // Serverless bundles (Netlify) are read-only: reads must still work, and a later write reports its own error
+    try { fs.mkdirSync(dirPath, { recursive: true }); } catch { /* read-only filesystem */ }
   }
 }
 
