@@ -1,0 +1,214 @@
+{
+  "source": "DSE_OFFICIAL",
+  "archive": "https://old.dsebd.org",
+  "windows": {
+    "2024-10": {
+      "status": "empty",
+      "complete": true,
+      "rows": 0,
+      "tradingDays": 0,
+      "summaryDays": 0,
+      "fetchedAt": "2026-11-03T04:33:50.208Z"
+    },
+    "2024-11": {
+      "status": "done",
+      "complete": true,
+      "rows": 13145,
+      "tradingDays": 20,
+      "summaryDays": 20,
+      "fetchedAt": "2026-11-03T04:33:58.909Z"
+    },
+    "2024-12": {
+      "status": "done",
+      "complete": true,
+      "rows": 13120,
+      "tradingDays": 20,
+      "summaryDays": 20,
+      "fetchedAt": "2026-11-03T04:34:12.685Z"
+    },
+    "2025-01": {
+      "status": "done",
+      "complete": true,
+      "rows": 14402,
+      "tradingDays": 22,
+      "summaryDays": 22,
+      "fetchedAt": "2026-11-03T04:34:23.941Z"
+    },
+    "2025-02": {
+      "status": "done",
+      "complete": true,
+      "rows": 13109,
+      "tradingDays": 20,
+      "summaryDays": 20,
+      "fetchedAt": "2026-11-03T04:34:39.614Z"
+    },
+    "2025-03": {
+      "status": "done",
+      "complete": true,
+      "rows": 12451,
+      "tradingDays": 19,
+      "summaryDays": 19,
+      "fetchedAt": "2026-11-03T04:34:48.459Z"
+    },
+    "2025-04": {
+      "status": "done",
+      "complete": true,
+      "rows": 11821,
+      "tradingDays": 18,
+      "summaryDays": 18,
+      "fetchedAt": "2026-11-03T04:36:42.799Z"
+    },
+    "2025-05": {
+      "status": "done",
+      "complete": true,
+      "rows": 13759,
+      "tradingDays": 21,
+      "summaryDays": 21,
+      "fetchedAt": "2026-11-03T04:36:50.627Z"
+    },
+    "2025-06": {
+      "status": "done",
+      "complete": true,
+      "rows": 10503,
+      "tradingDays": 16,
+      "summaryDays": 16,
+      "fetchedAt": "2026-11-03T04:36:58.735Z"
+    },
+    "2025-07": {
+      "status": "done",
+      "complete": true,
+      "rows": 13769,
+      "tradingDays": 21,
+      "summaryDays": 21,
+      "fetchedAt": "2026-11-03T04:37:12.915Z"
+    },
+    "2025-08": {
+      "status": "done",
+      "complete": true,
+      "rows": 13098,
+      "tradingDays": 20,
+      "summaryDays": 20,
+      "fetchedAt": "2026-11-03T04:37:20.884Z"
+    },
+    "2025-09": {
+      "status": "done",
+      "complete": true,
+      "rows": 14431,
+      "tradingDays": 22,
+      "summaryDays": 22,
+      "fetchedAt": "2026-11-03T04:37:29.067Z"
+    },
+    "2025-10": {
+      "status": "done",
+      "complete": true,
+      "rows": 13093,
+      "tradingDays": 20,
+      "summaryDays": 20,
+      "fetchedAt": "2026-11-03T04:37:36.789Z"
+    },
+    "2025-11": {
+      "status": "done",
+      "complete": true,
+      "rows": 13724,
+      "tradingDays": 21,
+      "summaryDays": 21,
+      "fetchedAt": "2026-11-03T04:37:45.083Z"
+    },
+    "2025-12": {
+      "status": "done",
+      "complete": true,
+      "rows": 13081,
+      "tradingDays": 20,
+      "summaryDays": 20,
+      "fetchedAt": "2026-11-03T04:37:52.974Z"
+    },
+    "2026-01": {
+      "status": "done",
+      "complete": true,
+      "rows": 13686,
+      "tradingDays": 21,
+      "summaryDays": 21,
+      "fetchedAt": "2026-11-03T04:38:06.182Z"
+    },
+    "2026-02": {
+      "status": "done",
+      "complete": true,
+      "rows": 11055,
+      "tradingDays": 17,
+      "summaryDays": 17,
+      "fetchedAt": "2026-11-03T04:38:13.768Z"
+    },
+    "2026-03": {
+      "status": "done",
+      "complete": true,
+      "rows": 11028,
+      "tradingDays": 17,
+      "summaryDays": 17,
+      "fetchedAt": "2026-11-03T04:38:21.850Z"
+    },
+    "2026-04": {
+      "status": "done",
+      "complete": true,
+      "rows": 13556,
+      "tradingDays": 21,
+      "summaryDays": 21,
+      "fetchedAt": "2026-11-03T04:38:29.571Z"
+    },
+    "2026-05": {
+      "status": "done",
+      "complete": true,
+      "rows": 10943,
+      "tradingDays": 17,
+      "summaryDays": 17,
+      "fetchedAt": "2026-11-03T04:38:41.649Z"
+    },
+    "2026-06": {
+      "status": "done",
+      "complete": true,
+      "rows": 14106,
+      "tradingDays": 22,
+      "summaryDays": 22,
+      "fetchedAt": "2026-11-03T04:38:52.347Z"
+    },
+    "2026-07": {
+      "status": "done",
+      "complete": true,
+      "rows": 13430,
+      "tradingDays": 21,
+      "summaryDays": 21,
+      "fetchedAt": "2026-11-03T04:39:02.496Z"
+    },
+    "2026-08": {
+      "status": "done",
+      "complete": true,
+      "rows": 12734,
+      "tradingDays": 20,
+      "summaryDays": 20,
+      "fetchedAt": "2026-11-03T04:39:13.420Z"
+    },
+    "2026-09": {
+      "status": "done",
+      "complete": true,
+      "rows": 13972,
+      "tradingDays": 22,
+      "summaryDays": 22,
+      "fetchedAt": "2026-11-03T04:39:29.492Z"
+    },
+    "2026-10": {
+      "status": "done",
+      "complete": true,
+      "rows": 12023,
+      "tradingDays": 19,
+      "summaryDays": 19,
+      "fetchedAt": "2026-11-03T04:39:38.103Z"
+    },
+    "2026-11": {
+      "status": "done",
+      "complete": false,
+      "rows": 1264,
+      "tradingDays": 2,
+      "summaryDays": 2,
+      "fetchedAt": "2026-11-03T04:39:43.992Z"
+    }
+  }
+}

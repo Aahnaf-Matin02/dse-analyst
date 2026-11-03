@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-11-03T04:39:47.591Z",
+  "note": "Close-to-close moves > 20%. Prices are UNADJUSTED: dividends, bonus shares, rights and splits are not adjusted, so such moves can be corporate actions rather than market moves.",
+  "items": [
+    {
+      "symbol": "ANWARGALV",
+      "from": "2025-10-26",
+      "to": "2025-10-27",
+      "prevClose": 63.4,
+      "close": 78.1,
+      "change": 0.2319
+    },
+    {
+      "symbol": "APEXFOOT",
+      "from": "2025-10-19",
+      "to": "2025-10-21",
+      "prevClose": 257.1,
+      "close": 198.1,
+      "change": -0.2295
+    },
+    {
+      "symbol": "EASTRNLUB",
+      "from": "2025-12-21",
+      "to": "2025-12-23",
+      "prevClose": 2501.5,
+      "close": 1719.9,
+      "change": -0.3125
+    },
+    {
+      "symbol": "EBL",
+      "from": "2025-04-22",
+      "to": "2025-04-24",
+      "prevClose": 27,
+      "close": 21.4,
+      "change": -0.2074
+    },
+    {
+      "symbol": "MONOSPOOL",
+      "from": "2025-10-30",
+      "to": "2025-11-02",
+      "prevClose": 101.4,
+      "close": 132.3,
+      "change": 0.3047
+    },
+    {
+      "symbol": "NCCBANK",
+      "from": "2026-04-27",
+      "to": "2026-04-28",
+      "prevClose": 14.3,
+      "close": 17.3,
+      "change": 0.2098
+    },
+    {
+      "symbol": "PRIMEFIN",
+      "from": "2026-01-20",
+      "to": "2026-01-21",
+      "prevClose": 1.1,
+      "close": 1.4,
+      "change": 0.2727
+    },
+    {
+      "symbol": "SONALILIFE",
+      "from": "2026-04-05",
+      "to": "2026-05-11",
+      "prevClose": 57.1,
+      "close": 74.3,
+      "change": 0.3012
+    },
+    {
+      "symbol": "UTTARABANK",
+      "from": "2025-04-17",
+      "to": "2025-04-21",
+      "prevClose": 25.2,
+      "close": 19.9,
+      "change": -0.2103
+    }
+  ]
+}
