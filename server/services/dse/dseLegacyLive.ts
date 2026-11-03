@@ -78,10 +78,17 @@ export function parseLegacyMarket(html: string): DseLiveMarket {
   };
 }
 
-async function fetchOk(path: string) {
-  const res = await get(path);
-  if (res.status !== 200 || !res.body) throw new Error(`old.dsebd.org${path} returned HTTP ${res.status}`);
-  return res;
+/** One retry after 1.5 s for server errors and network failures (the legacy site returns occasional 500s); 4xx is final. */
+async function fetchOk(path: string, retries = 1): Promise<{ status: number; body: string; url: string }> {
+  try {
+    const res = await get(path);
+    if (res.status === 200 && res.body) return res;
+    if (res.status < 500 || retries <= 0) throw Object.assign(new Error(`old.dsebd.org${path} returned HTTP ${res.status}`), { final: true });
+  } catch (err) {
+    if ((err as any).final || retries <= 0) throw err;
+  }
+  await new Promise(r => setTimeout(r, 1500));
+  return fetchOk(path, retries - 1);
 }
 
 export async function fetchLegacyPrices() {
