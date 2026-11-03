@@ -1,13 +1,13 @@
 import { describe, it, expect, vi } from "vitest";
 import { DSEScraper, DSE_BASE_URL, latestPriceCandidates } from "../services/dseScraper";
 
-// Simulate a full outage of DSE's JSON live feed so the HTML fallback path is what gets exercised
-vi.mock("../services/dse/dseLiveApi", async (orig) => {
+// Simulate a full outage of the primary live source (old.dsebd.org) so the fallback path is what gets exercised
+vi.mock("../services/dse/dseLegacyLive", async (orig) => {
   const actual: any = await orig();
   return {
     ...actual,
-    fetchLivePrices: vi.fn().mockRejectedValue(new Error("simulated outage")),
-    fetchLiveMarket: vi.fn().mockRejectedValue(new Error("simulated outage"))
+    fetchLegacyPrices: vi.fn().mockRejectedValue(new Error("simulated outage")),
+    fetchLegacyMarket: vi.fn().mockRejectedValue(new Error("simulated outage"))
   };
 });
 
