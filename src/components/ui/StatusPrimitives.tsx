@@ -2,7 +2,7 @@ import React from "react";
 import { AlertTriangle, Clock, Inbox, RefreshCw, Radio, WifiOff, CircleDot } from "lucide-react";
 import { FeedState, formatDhakaDateTime, sourceLabel } from "../../utils/marketStatus";
 
-/** "Updated 4 Oct 2026, 2:40 PM · Source: DSE (dse.com.bd)" — one consistent freshness line for data panels */
+/** "Updated 4 Oct 2026, 2:40 PM · Source: DSE (old.dsebd.org)" — one consistent freshness line for data panels */
 export function FreshnessLine({ updatedAt, source, label, className = "" }: { updatedAt?: string | null; source?: string | null; label?: string; className?: string }) {
   const when = updatedAt ? (formatDhakaDateTime(updatedAt) ?? updatedAt) : null;
   return (

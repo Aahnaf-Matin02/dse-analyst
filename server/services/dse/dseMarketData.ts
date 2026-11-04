@@ -162,7 +162,8 @@ export class DseMarketDataManager {
       // ltp 0 = not traded yet this session: keep the last real snapshot
       if (!(typeof r.ltp === "number" && r.ltp > 0)) continue;
       const lastPrice = r.ltp;
-      const open = r.open ?? existing?.open ?? lastPrice;
+      // An opening price is only reused from the same trading day (the legacy price table has none)
+      const open = r.open ?? (existing?.tradingDate === today ? existing.open : null);
       const high = r.high ?? existing?.high ?? lastPrice;
       const low = r.low ?? existing?.low ?? lastPrice;
       const previousClose = r.ycp ?? existing?.previousClose ?? null;

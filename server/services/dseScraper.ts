@@ -11,6 +11,7 @@ import { saveDailyHistoryRecord, saveIntradayTick } from "../repositories/market
 import { defaultDseClient } from "./dse/dseClient";
 import { DseParser } from "./dse/dseParser";
 import { DseLivePriceRow, resolveSessionDate } from "./dse/dseLiveApi";
+import { DseMarketDataManager } from "./dse/dseMarketData";
 // Primary live source: old.dsebd.org (www.dse.com.bd refuses automated access)
 import { fetchLegacyPrices as fetchLivePrices, fetchLegacyMarket as fetchLiveMarket } from "./dse/dseLegacyLive";
 
@@ -767,6 +768,12 @@ export const DSEScraper = {
         successfulCount = count;
         // The price feed carries no trade time; use the one from the latest index scrape
         lastSessionDate = resolveSessionDate(live.session, (loadIndices() as any)?.totals?.tradeTime);
+        // Company pages read prices from the snapshot store, which otherwise keeps the bundled snapshot
+        DseMarketDataManager.updateFromPriceRows(live.rows.map(r => ({
+          code: r.code, ltp: r.ltp, ycp: r.ycp ?? undefined, open: r.open ?? undefined, high: r.high ?? undefined, low: r.low ?? undefined,
+          volume: r.volume, value: r.valueMn, trades: r.trades,
+          percent: r.ycp && r.ycp > 0 && r.ltp > 0 ? parseFloat((((r.ltp - r.ycp) / r.ycp) * 100).toFixed(2)) : undefined,
+        })), live.url);
       }
     } catch (err: any) {
       attemptedLog.push({

@@ -71,7 +71,7 @@ export function sourceLabel(source: string | undefined | null): string {
   switch (source) {
     case "LiveScraped":
     case "DSE_OFFICIAL":
-      return "DSE (dse.com.bd)";
+      return "DSE (old.dsebd.org)";
     case "CachedFile":
     case "DSE_OFFICIAL_CACHE":
       return "Saved DSE snapshot";
