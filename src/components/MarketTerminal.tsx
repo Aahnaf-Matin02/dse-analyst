@@ -4,6 +4,7 @@ import { Terminal, TrendingUp, TrendingDown, Flame, LayoutGrid, Info } from "luc
 import { StockData } from "../types";
 import { StockSearch } from "./ui/StockSearch";
 import { MarketStatusChip } from "./ui/StatusPrimitives";
+import { TerminalLoader } from "./ui/TerminalLoader";
 import { IndicesPayload, feedState, describeAsOf } from "../utils/marketStatus";
 
 /**
@@ -59,10 +60,16 @@ function IndexTile({ name, label, data, history }: { name: IndexKey; label: stri
         <span className="font-mono text-xs font-bold tracking-widest text-[var(--text)]">{name}</span>
         <span className="truncate text-[10px] text-[var(--text-subtle)]">{label}</span>
       </div>
-      <div className="mt-1 font-mono text-2xl font-bold tabular-nums text-[var(--text)]">{fmt(data?.value)}</div>
-      <div className={`font-mono text-xs font-semibold tabular-nums ${tone(data?.change)}`}>
-        {signed(data?.change)} ({signed(data?.changePercent, 2, "%")})
-      </div>
+      {data ? (
+        <>
+          <div className="term-fade mt-1 font-mono text-2xl font-bold tabular-nums text-[var(--text)]">{fmt(data.value)}</div>
+          <div className={`font-mono text-xs font-semibold tabular-nums ${tone(data.change)}`}>
+            {signed(data.change)} ({signed(data.changePercent, 2, "%")})
+          </div>
+        </>
+      ) : (
+        <div aria-hidden="true"><div className="skeleton mt-2 h-7 w-28" /><div className="skeleton mt-1.5 h-3 w-20" /></div>
+      )}
       <div className="mt-2 h-10" aria-hidden="true">
         {spark.length > 1 ? (
           <ResponsiveContainer width="100%" height="100%">
@@ -71,7 +78,7 @@ function IndexTile({ name, label, data, history }: { name: IndexKey; label: stri
               <Line type="monotone" dataKey="value" stroke={up ? "#34D399" : "#F87171"} strokeWidth={1.5} dot={false} isAnimationActive={false} />
             </LineChart>
           </ResponsiveContainer>
-        ) : <div className="flex h-full items-center text-[10px] text-[var(--text-subtle)]">No daily history published</div>}
+        ) : data ? <div className="flex h-full items-center text-[10px] text-[var(--text-subtle)]">No daily history published</div> : <div className="skeleton h-full w-full" />}
       </div>
     </div>
   );
@@ -174,10 +181,12 @@ export default function MarketTerminal({ stocks, onSelectStock, onNavigate }: { 
         <div className="min-w-0 rounded-xl border border-white/[0.08] bg-[#060a14] p-3">
           <div className="font-mono text-xs font-bold tracking-widest text-[var(--text)]">MARKET</div>
           <dl className="mt-1 grid grid-cols-2 gap-x-3 gap-y-1.5 font-mono text-xs">
+            {!totals && !failed ? <div className="col-span-2 space-y-1.5" aria-hidden="true"><div className="skeleton h-3 w-full" /><div className="skeleton h-3 w-4/5" /><div className="skeleton h-3 w-3/5" /></div> : <>
             <div><dt className="text-[10px] text-[var(--text-subtle)]">Turnover</dt><dd className="font-bold tabular-nums text-[var(--text)]">{totals?.turnover != null ? `৳${fmt(totals.turnover, 0)}M` : "—"}</dd></div>
             <div><dt className="text-[10px] text-[var(--text-subtle)]">Trades</dt><dd className="font-bold tabular-nums text-[var(--text)]">{compact(totals?.trades)}</dd></div>
             <div><dt className="text-[10px] text-[var(--text-subtle)]">Volume</dt><dd className="font-bold tabular-nums text-[var(--text)]">{compact(totals?.volume)}</dd></div>
             <div><dt className="text-[10px] text-[var(--text-subtle)]">Market cap</dt><dd className="font-bold tabular-nums text-[var(--text)]">{totals?.marketCap != null ? `৳${compact(totals.marketCap)}` : "—"}</dd></div>
+            </>}
           </dl>
         </div>
       </div>
@@ -216,7 +225,7 @@ export default function MarketTerminal({ stocks, onSelectStock, onNavigate }: { 
                   <Area type="monotone" dataKey="value" stroke={AMBER} strokeWidth={1.8} fill="url(#dsexFill)" dot={false} isAnimationActive animationDuration={600} />
                 </AreaChart>
               </ResponsiveContainer>
-            ) : <div className="grid h-full place-items-center text-xs text-[var(--text-subtle)]">Loading DSEX history…</div>}
+            ) : <div className="grid h-full place-items-center"><TerminalLoader label="Loading DSEX history" className="w-full max-w-md" /></div>}
           </div>
           <p className="mt-1 text-[10px] text-[var(--text-subtle)]">Source: DSE market summary archive (daily closes){chart.length ? ` · ${shortDate(chart[0].date)} – ${shortDate(chart[chart.length - 1].date)}` : ""}</p>
         </Panel>
@@ -243,7 +252,7 @@ export default function MarketTerminal({ stocks, onSelectStock, onNavigate }: { 
                 <Info className="h-3 w-3" aria-hidden="true" /> Where these numbers come from
               </button>
             </div>
-          ) : <p className="py-6 text-center text-xs text-[var(--text-subtle)]">Breadth not reported yet.</p>}
+          ) : indices || failed ? <p className="py-6 text-center text-xs text-[var(--text-subtle)]">Breadth not reported yet.</p> : <TerminalLoader label="Counting rising and falling shares" compact />}
         </Panel>
       </div>
 

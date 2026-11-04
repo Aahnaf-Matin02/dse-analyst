@@ -520,3 +520,18 @@ a.bg-blue-600, a.bg-indigo-600 {
   border-color: transparent !important;
 }
 button.bg-blue-500:hover, button.bg-blue-600:hover, button.bg-indigo-500:hover, button.bg-indigo-600:hover { background-color: #FFC04D !important; }
+
+/* ── Loading animations (terminal loader, boot screen, skeleton shimmer) ── */
+@keyframes termScan { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+@keyframes termPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes termDots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+@keyframes termFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.term-scan { position: relative; }
+.term-scan::after { content: ""; position: absolute; inset: 0; width: 40%; background: linear-gradient(90deg, transparent, var(--accent), transparent); animation: termScan 1.4s ease-in-out infinite; }
+.term-pulse { animation: termPulse 1.2s ease-in-out infinite; }
+.term-dots::after { content: ""; animation: termDots 1.6s steps(1) infinite; }
+.term-fade { animation: termFade 0.4s ease-out; }
+.skeleton { background: linear-gradient(90deg, #0b1222 25%, #16233d 50%, #0b1222 75%) !important; background-size: 200% 100% !important; }
+@media (prefers-reduced-motion: reduce) {
+  .term-scan::after, .term-pulse, .term-dots::after, .term-fade, .skeleton { animation: none !important; }
+}

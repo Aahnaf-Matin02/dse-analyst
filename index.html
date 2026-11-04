@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0F1E'/%3E%3Cpath d='M7 21l6-6 4 4 8-9' stroke='%2300D4FF' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
-    <meta name="theme-color" content="#0A0F1E" />
+    <meta name="theme-color" content="#05080f" />
     <title>DSE Analyst beta</title>
     <meta name="description" content="AI-Powered Bangladesh Stock Market Analyst. Analyze DSE companies, predict future trends, assess risks, and build winning portfolios using Artificial Intelligence." />
     <meta property="og:title" content="DSE Analyst beta" />
@@ -13,10 +13,56 @@
     <meta name="author" content="DSE Learning Hub" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Fonts load without blocking the first paint (system fonts show until they arrive) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <style>
+      /* Boot screen: shown instantly while the app's JavaScript downloads; React replaces #root's content */
+      body { margin: 0; background: #05080f; }
+      .boot { min-height: 100vh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; color: #F0F4FF; font-family: ui-monospace, "JetBrains Mono", Consolas, monospace; }
+      .boot-card { width: min(440px, 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: #060a14; padding: 24px; }
+      .boot-brand { display: flex; align-items: center; gap: 12px; }
+      .boot-logo { width: 36px; height: 36px; border-radius: 8px; background: #FFB020; display: grid; place-items: center; }
+      .boot-title { font-weight: 800; letter-spacing: 0.2em; font-size: 13px; text-transform: uppercase; }
+      .boot-sub { color: #94A3B8; font-size: 11px; margin-top: 2px; font-family: system-ui, sans-serif; }
+      .boot-bar { margin-top: 20px; height: 4px; border-radius: 4px; background: rgba(255,255,255,0.06); overflow: hidden; position: relative; }
+      .boot-bar::after { content: ""; position: absolute; inset: 0; width: 40%; background: linear-gradient(90deg, transparent, #FFB020, transparent); animation: bootScan 1.3s ease-in-out infinite; }
+      .boot-steps { margin: 16px 0 0; padding: 0; list-style: none; font-size: 12px; color: #A9B6CA; }
+      .boot-steps li { opacity: 0; animation: bootIn 0.4s ease-out forwards; margin-top: 6px; }
+      .boot-steps li::before { content: "▸  "; color: #FFB020; }
+      .boot-steps li:nth-child(2) { animation-delay: 0.6s; } .boot-steps li:nth-child(3) { animation-delay: 1.2s; } .boot-steps li:nth-child(4) { animation-delay: 1.8s; }
+      .boot-tip { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); font: 12px/1.5 system-ui, sans-serif; color: #A9B6CA; min-height: 54px; position: relative; }
+      .boot-tip span { position: absolute; inset: 14px 0 0; opacity: 0; animation: bootTip 12s infinite; }
+      .boot-tip span:nth-child(2) { animation-delay: 4s; } .boot-tip span:nth-child(3) { animation-delay: 8s; }
+      .boot-tip b { color: #F0F4FF; }
+      @keyframes bootScan { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+      @keyframes bootIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+      @keyframes bootTip { 0%, 30% { opacity: 1; } 33%, 100% { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .boot-bar::after, .boot-steps li, .boot-tip span { animation: none; opacity: 1; } .boot-tip span:not(:first-child) { display: none; } }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="boot" role="status" aria-live="polite">
+        <div class="boot-card">
+          <div class="boot-brand">
+            <div class="boot-logo" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 32 32"><path d="M5 22l7-7 5 5 10-11" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="boot-title">DSE Market Terminal</div><div class="boot-sub">Dhaka Stock Exchange · for learning, not investment advice</div></div>
+          </div>
+          <div class="boot-bar" aria-hidden="true"></div>
+          <ul class="boot-steps">
+            <li>Starting the terminal</li>
+            <li>Connecting to Dhaka Stock Exchange data</li>
+            <li>Loading prices for 395 securities</li>
+            <li>Preparing DSEX charts</li>
+          </ul>
+          <div class="boot-tip">
+            <span><b>Tip · P/E:</b> price ÷ earnings per share — how many taka investors pay for each taka of yearly profit.</span>
+            <span><b>Tip · Market breadth:</b> more shares rising than falling means a broad up day, not just a few big movers.</span>
+            <span><b>Tip · Search:</b> press <b>/</b> anywhere to jump to the stock search, then type a ticker like GP.</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
