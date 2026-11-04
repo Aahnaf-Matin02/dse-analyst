@@ -30,7 +30,9 @@ const SNAPSHOTS_FILE = path.join(STORAGE_DIR, "market-snapshots.json");
 
 export class DseMarketDataManager {
   private static latestSnapshots: Map<string, DseMarketSnapshot> = new Map();
-  private static lastLoadedTime: number = 0;
+  // mtime of the file last loaded or written: reload only when someone else changed it. A timed reload
+  // threw away live prices on Netlify, where the bundled file is read-only and never updated.
+  private static loadedMtimeMs: number = -1;
 
   static ensureStorage(): void {
     if (!fs.existsSync(STORAGE_DIR)) {
@@ -59,8 +61,8 @@ export class DseMarketDataManager {
   }
 
   private static ensureLoaded(): void {
-    const now = Date.now();
-    if (this.latestSnapshots.size > 0 && now - this.lastLoadedTime < 30000) {
+    const mtime = fs.existsSync(SNAPSHOTS_FILE) ? fs.statSync(SNAPSHOTS_FILE).mtimeMs : -1;
+    if (this.latestSnapshots.size > 0 && mtime === this.loadedMtimeMs) {
       return;
     }
 
@@ -76,7 +78,7 @@ export class DseMarketDataManager {
             this.latestSnapshots.set(item.symbol.toUpperCase().trim(), item);
           }
         }
-        this.lastLoadedTime = now;
+        this.loadedMtimeMs = mtime;
         return;
       } catch (e) {
         console.warn("[DseMarketDataManager] Failed to load market snapshots:", e);
@@ -369,7 +371,7 @@ export class DseMarketDataManager {
       const tempPath = `${SNAPSHOTS_FILE}.tmp`;
       fs.writeFileSync(tempPath, JSON.stringify(allList, null, 2), "utf-8");
       fs.renameSync(tempPath, SNAPSHOTS_FILE);
-      this.lastLoadedTime = Date.now();
+      this.loadedMtimeMs = fs.statSync(SNAPSHOTS_FILE).mtimeMs;
     } catch (e) {
       console.error("[DseMarketDataManager] Failed to persist market snapshots:", e);
     }
